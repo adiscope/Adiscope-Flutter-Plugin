@@ -1,0 +1,201 @@
+PODS:
+  - Adiscope (3.6.1)
+  - adiscope_flutter_plugin (0.0.1):
+    - Adiscope (= 3.6.1)
+    - Flutter
+  - AdiscopeMediaAdManager (3.6.0):
+    - Google-Mobile-Ads-SDK (= 11.2.0)
+  - AdiscopeMediaAdMob (3.6.0):
+    - Google-Mobile-Ads-SDK (= 11.2.0)
+  - AdiscopeMediaAppLovin (3.6.1):
+    - AppLovinSDK (= 12.4.1)
+  - AdiscopeMediaChartBoost (3.6.0):
+    - ChartboostSDK (= 9.6.0)
+  - AdiscopeMediaFAN (3.6.0):
+    - FBAudienceNetwork (= 6.15.0)
+  - AdiscopeMediaMax (3.6.1):
+    - Ads-Global (= 5.8.0.7)
+    - AppLovinSDK (= 12.4.1)
+    - FBAudienceNetwork (= 6.15.0)
+    - Google-Mobile-Ads-SDK (= 11.2.0)
+    - InMobiSDK (= 10.7.1)
+    - MintegralAdSDK (= 7.6.1)
+    - MintegralAdSDK/BidSplashAd (= 7.6.1)
+    - MintegralAdSDK/RewardVideoAd (= 7.6.1)
+    - VungleAds (= 7.2.2)
+  - AdiscopeMediaMobVista (3.6.0):
+    - MintegralAdSDK (= 7.6.1)
+    - MintegralAdSDK/RewardVideoAd (= 7.6.1)
+  - AdiscopeMediaPangle (3.6.0):
+    - Ads-Global (= 5.8.0.7)
+  - AdiscopeMediaUnityAds (3.6.0):
+    - UnityAds (= 4.10.0)
+  - AdiscopeMediaVungle (3.6.0):
+    - VungleAds (= 7.2.2)
+  - Ads-Global (5.8.0.7):
+    - Ads-Global/BUAdSDK (= 5.8.0.7)
+  - Ads-Global/BUAdSDK (5.8.0.7):
+    - Ads-Global/BURelyAdSDK
+    - Ads-Global/Dep_Accurate
+  - Ads-Global/BURelyAdSDK (5.8.0.7)
+  - Ads-Global/Dep_Accurate (5.8.0.7):
+    - BURelyFoundation_Global/Pangle (= 0.2.1.4)
+  - AppLovinSDK (12.4.1)
+  - BURelyFoundation_Global/AFNetworking (0.2.1.4)
+  - BURelyFoundation_Global/APM (0.2.1.4)
+  - BURelyFoundation_Global/Foundation (0.2.1.4):
+    - BURelyFoundation_Global/NETWork
+  - BURelyFoundation_Global/Gecko (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - BURelyFoundation_Global/Header (0.2.1.4)
+  - BURelyFoundation_Global/NETWork (0.2.1.4):
+    - BURelyFoundation_Global/AFNetworking
+  - BURelyFoundation_Global/Pangle (0.2.1.4):
+    - BURelyFoundation_Global/AFNetworking
+    - BURelyFoundation_Global/APM
+    - BURelyFoundation_Global/Foundation
+    - BURelyFoundation_Global/Gecko
+    - BURelyFoundation_Global/Header
+    - BURelyFoundation_Global/NETWork
+    - BURelyFoundation_Global/SDWebImage
+    - BURelyFoundation_Global/YYModel
+    - BURelyFoundation_Global/ZFPlayer
+    - BURelyFoundation_Global/Zip
+  - BURelyFoundation_Global/SDWebImage (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - BURelyFoundation_Global/YYModel (0.2.1.4)
+  - BURelyFoundation_Global/ZFPlayer (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+    - BURelyFoundation_Global/Zip
+  - BURelyFoundation_Global/Zip (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - ChartboostSDK (9.6.0)
+  - FBAudienceNetwork (6.15.0)
+  - Flutter (1.0.0)
+  - Google-Mobile-Ads-SDK (11.2.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (2.4.0)
+  - InMobiSDK (10.7.1)
+  - integration_test (0.0.1):
+    - Flutter
+  - MintegralAdSDK (7.6.1):
+    - MintegralAdSDK/BannerAd (= 7.6.1)
+    - MintegralAdSDK/BidBannerAd (= 7.6.1)
+    - MintegralAdSDK/BidInterstitialVideoAd (= 7.6.1)
+    - MintegralAdSDK/BidNativeAd (= 7.6.1)
+    - MintegralAdSDK/BidNewInterstitialAd (= 7.6.1)
+    - MintegralAdSDK/BidRewardVideoAd (= 7.6.1)
+    - MintegralAdSDK/InterstitialVideoAd (= 7.6.1)
+    - MintegralAdSDK/NativeAd (= 7.6.1)
+    - MintegralAdSDK/NewInterstitialAd (= 7.6.1)
+    - MintegralAdSDK/RewardVideoAd (= 7.6.1)
+  - MintegralAdSDK/BannerAd (7.6.1):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/BidBannerAd (7.6.1):
+    - MintegralAdSDK/BannerAd
+    - MintegralAdSDK/BidNativeAd
+  - MintegralAdSDK/BidInterstitialVideoAd (7.6.1):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/InterstitialVideoAd
+  - MintegralAdSDK/BidNativeAd (7.6.1):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/BidNewInterstitialAd (7.6.1):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/NewInterstitialAd
+  - MintegralAdSDK/BidRewardVideoAd (7.6.1):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/RewardVideoAd
+  - MintegralAdSDK/BidSplashAd (7.6.1):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/SplashAd
+  - MintegralAdSDK/InterstitialVideoAd (7.6.1):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/NativeAd (7.6.1)
+  - MintegralAdSDK/NewInterstitialAd (7.6.1):
+    - MintegralAdSDK/InterstitialVideoAd
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/RewardVideoAd (7.6.1):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/SplashAd (7.6.1):
+    - MintegralAdSDK/NativeAd
+  - UnityAds (4.10.0)
+  - VungleAds (7.2.2)
+
+DEPENDENCIES:
+  - adiscope_flutter_plugin (from `.symlinks/plugins/adiscope_flutter_plugin/ios`)
+  - AdiscopeMediaAdManager (= 3.6.0)
+  - AdiscopeMediaAdMob (= 3.6.0)
+  - AdiscopeMediaAppLovin (= 3.6.1)
+  - AdiscopeMediaChartBoost (= 3.6.0)
+  - AdiscopeMediaFAN (= 3.6.0)
+  - AdiscopeMediaMax (= 3.6.1)
+  - AdiscopeMediaMobVista (= 3.6.0)
+  - AdiscopeMediaPangle (= 3.6.0)
+  - AdiscopeMediaUnityAds (= 3.6.0)
+  - AdiscopeMediaVungle (= 3.6.0)
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Adiscope
+    - AdiscopeMediaAdManager
+    - AdiscopeMediaAdMob
+    - AdiscopeMediaAppLovin
+    - AdiscopeMediaChartBoost
+    - AdiscopeMediaFAN
+    - AdiscopeMediaMax
+    - AdiscopeMediaMobVista
+    - AdiscopeMediaPangle
+    - AdiscopeMediaUnityAds
+    - AdiscopeMediaVungle
+    - Ads-Global
+    - AppLovinSDK
+    - BURelyFoundation_Global
+    - ChartboostSDK
+    - FBAudienceNetwork
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
+    - InMobiSDK
+    - MintegralAdSDK
+    - UnityAds
+    - VungleAds
+
+EXTERNAL SOURCES:
+  adiscope_flutter_plugin:
+    :path: ".symlinks/plugins/adiscope_flutter_plugin/ios"
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+
+SPEC CHECKSUMS:
+  Adiscope: b3aef44e6e95ba6820219519735b1b3652b3ce35
+  adiscope_flutter_plugin: 33d5f90c13c561353b6efd8e7c173ca59a0995e3
+  AdiscopeMediaAdManager: 532d546a2a49f24ef2811af6c74324ebbf6c9b79
+  AdiscopeMediaAdMob: f5028072335725c85d72dde315d579da602492b4
+  AdiscopeMediaAppLovin: ddae57ab46bbfff3dd3642342c4b7d8a16406058
+  AdiscopeMediaChartBoost: 2fa72778a26422db764582d13d8eb0957c804dc3
+  AdiscopeMediaFAN: 6498e181f9a84cc5063e5fe1f9a0780e8ce81073
+  AdiscopeMediaMax: 836c515acbd056251c227603e3f3ed7f61c1206d
+  AdiscopeMediaMobVista: 52f736b77b6f21ffec55fbd15ec653f73d4bbaf8
+  AdiscopeMediaPangle: 3d072221ffd3f083763f49aa513acda9efd7f1e1
+  AdiscopeMediaUnityAds: 668655372893aa60ea31f2e857bb92251cae7a69
+  AdiscopeMediaVungle: 03ba5c99162b642923ab7d69e4b93e1066a34c6d
+  Ads-Global: 2f19513311f4e360bcad037a2edf1dc2772ab224
+  AppLovinSDK: c57ad0d34625c971d2db127f8ef60570b28ff51a
+  BURelyFoundation_Global: 17ed9cd58d138feefd8c0711dd3294766adcb28e
+  ChartboostSDK: 67b6079679c3a643f8e0cd269a3d42970bdb9d98
+  FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
+  GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
+  InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
+  integration_test: 13825b8a9334a850581300559b8839134b124670
+  MintegralAdSDK: b9561720d5f78df3b4c84549905117b2f3789d26
+  UnityAds: 5601f6397b0e02ed3ed6ee92827f5177a523aab6
+  VungleAds: 1982548185a43a60f07066f28ddb5f12d67a90d7
+
+PODFILE CHECKSUM: 4d59a18f5400264c934a6ddf20bfaacb63c806ed
+
+COCOAPODS: 1.15.2

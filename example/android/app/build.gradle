@@ -1,0 +1,87 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.tnk.adiscope_flutter_plugin_example"
+    compileSdk flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.tnk.adiscope_flutter_plugin_example"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion 21
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+
+        manifestPlaceholders = [
+                applicationName: "android.app.Application",   //android.app.Application, androidx.multidex.MultiDexApplication
+                adiscope_media_id: "",
+                adiscope_media_secret: "",
+                adiscope_sub_domain: "",
+                adiscope_admob_id: ""
+        ]
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation 'com.nps.adiscope:adiscopeCore:3.6.3'
+    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.1'
+    implementation 'com.nps.adiscope:adapter.chartboost:9.3.1.0'        // chartboost
+    implementation 'com.nps.adiscope:adapter.unityads:4.6.1.0'          // unityads
+    implementation 'com.nps.adiscope:adapter.max:12.1.0.4'              // max
+    implementation 'com.nps.adiscope:adapter.applovin:12.1.0.1'         // applovin (waterfall adapter)
+    implementation 'com.nps.adiscope:adapter.admob:22.3.0.2'            // admob (use play-services-ads:22.3.0 dependency)
+    implementation 'com.nps.adiscope:adapter.fan:6.13.7.1'              // fan
+    implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista (use androidx)
+    implementation "com.nps.adiscope:adapter.pangle:5.6.0.3.0"          // pangle
+    implementation 'com.nps.adiscope:adapter.vungle:7.1.0.0'            // vungle (use androidx)
+}
