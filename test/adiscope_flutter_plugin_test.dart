@@ -9,9 +9,6 @@ class MockAdiscopeFlutterPluginPlatform
     implements AdiscopeFlutterPluginPlatform {
 
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
-
-  @override
   Future<String?> getNetworkVersions() {
     throw UnimplementedError();
   }
@@ -127,13 +124,5 @@ void main() {
 
   test('$MethodChannelAdiscopeFlutterPlugin is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelAdiscopeFlutterPlugin>());
-  });
-
-  test('getPlatformVersion', () async {
-    AdiscopeFlutterPlugin adiscopeFlutterPlugin = AdiscopeFlutterPlugin();
-    MockAdiscopeFlutterPluginPlatform fakePlatform = MockAdiscopeFlutterPluginPlatform();
-    AdiscopeFlutterPluginPlatform.instance = fakePlatform;
-
-    expect(await adiscopeFlutterPlugin.getPlatformVersion(), '42');
   });
 }

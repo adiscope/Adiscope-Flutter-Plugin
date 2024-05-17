@@ -225,83 +225,83 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
   }
 
   public func onOfferwallAdOpened(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeOfferwallListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onOfferwallAdOpened", arguments: unitID)
   }
 
   public func onOfferwallAdClosed(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeOfferwallListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onOfferwallAdClosed", arguments: unitID)
   }
 
   public func onOfferwallAdFailed(toShow unitID: String!, error: AdiscopeError!) {
     let errorDescription = error.description ?? ""
     let errorXB3TraceID = error.getXB3TraceID() ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeOfferwallListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onOfferwallAdFailed", arguments: [unitID, errorDescription, errorXB3TraceID])
   }
 
   public func onRewardedVideoAdLoaded(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedVideoListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedVideoAdLoaded", arguments: unitID)
   }
 
   public func onRewardedVideoAdFailed(toLoad unitID: String!, error: AdiscopeError!) {
     let errorDescription = error.description ?? ""
     let errorXB3TraceID = error.getXB3TraceID() ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedVideoListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedVideoAdFailedToLoad", arguments: [unitID, errorDescription, errorXB3TraceID])
   }
 
   public func onRewardedVideoAdOpened(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedVideoListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedVideoAdOpened", arguments: unitID)
   }
 
   public func onRewardedVideoAdClosed(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedVideoListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedVideoAdClosed", arguments: unitID)
   }
 
   public func onRewarded(_ unitID: String!, item: AdiscopeRewardItem!) {
     let currencyUnit = item.unit ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedVideoListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewarded", arguments: [unitID, currencyUnit, item.amount])
   }
 
   public func onRewardedVideoAdFailed(toShow unitID: String!, error: AdiscopeError!) {
     let errorDescription = error.description ?? ""
     let errorXB3TraceID = error.getXB3TraceID() ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedVideoListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedVideoAdFailedToShow", arguments: [unitID, errorDescription, errorXB3TraceID])
   }
 
   public func onInterstitialAdLoaded(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onInterstitialAdLoaded", arguments: unitID)
   }
 
   public func onInterstitialAdFailed(toLoad unitID: String!, error: AdiscopeError!) {
     let errorDescription = error.description ?? ""
     let errorXB3TraceID = error.getXB3TraceID() ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onInterstitialAdFailedToLoad", arguments: [unitID, errorDescription, errorXB3TraceID])
   }
 
   public func onInterstitialAdOpened(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onInterstitialAdOpened", arguments: unitID)
   }
 
   public func onInterstitialAdClosed(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onInterstitialAdClosed", arguments: unitID)
   }
 
   public func onInterstitialAdFailed(toShow unitID: String!, error: AdiscopeError!) {
     let errorDescription = error.description ?? ""
     let errorXB3TraceID = error.getXB3TraceID() ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onInterstitialAdFailedToShow", arguments: [unitID, errorDescription, errorXB3TraceID])
   }
 
@@ -311,30 +311,30 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
   }
 
   public func onRewardedInterstitialAdSkip(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedInterstitialAdSkip", arguments: unitID)
   }
 
   public func onRewardedInterstitialAdOpened(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedInterstitialAdOpened", arguments: unitID)
   }
 
   public func onRewardedInterstitialAdClosed(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedInterstitialAdClosed", arguments: unitID)
   }
 
   public func onRewardedInterstitialRewarded(_ unitID: String!, item: AdiscopeRewardItem!) {
     let currencyUnit = item.unit ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedInterstitialRewarded", arguments: [unitID, currencyUnit, item.amount])
   }
 
   public func onRewardedInterstitialAdFailed(toShow unitID: String!, error: AdiscopeError!) {
     let errorDescription = error.description ?? ""
     let errorXB3TraceID = error.getXB3TraceID() ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onRewardedInterstitialAdFailedToShow", arguments: [unitID, errorDescription, errorXB3TraceID])
   }
 }

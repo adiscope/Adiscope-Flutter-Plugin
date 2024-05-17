@@ -2,10 +2,6 @@ import 'package:flutter/services.dart';
 import 'adiscope_flutter_plugin_platform_interface.dart';
 
 class AdiscopeFlutterPlugin {
-  Future<String?> getPlatformVersion() {
-    return AdiscopeFlutterPluginPlatform.instance.getPlatformVersion();
-  }
-
   Future<bool?> initialize([String mediaId = "", String mediaSecret = "", String callbackTag = "", String childYN = ""]) {
     if (mediaId.length > 0 || mediaSecret.length > 0 || callbackTag.length > 0 || childYN.length > 0) {
       return AdiscopeFlutterPluginPlatform.instance.initialize(mediaId, mediaSecret, callbackTag, childYN);
@@ -108,30 +104,17 @@ class AdiscopeFlutterPlugin {
 }
 
 class AdiscopeListener {
-  static final listenerChannel = const MethodChannel('adiscopeListener');
+  static final listenerOfferwallChannel = const MethodChannel('adiscopeOfferwallListener');
+  static final listenerRewardedVideoChannel = const MethodChannel('adiscopeRewardedVideoListener');
+  static final listenerInterstitialChannel = const MethodChannel('adiscopeInterstitialListener');
+  static final listenerRewardedInterstitialChannel = const MethodChannel('adiscopeRewardedInterstitialListener');
 
-  static Future<void> setupListener({
+  static Future<void> setupOfferwallListener({
     Function(String)? onOfferwallAdOpened,
     Function(String)? onOfferwallAdClosed,
     Function(String, String, String)? onOfferwallAdFailedToShow,
-    Function(String)? onRewardedVideoAdLoaded,
-    Function(String, String, String)? onRewardedVideoAdFailedToLoad,
-    Function(String)? onRewardedVideoAdOpened,
-    Function(String)? onRewardedVideoAdClosed,
-    Function(String, String, int)? onRewarded,
-    Function(String, String, String)? onRewardedVideoAdFailedToShow,
-    Function(String)? onInterstitialAdLoaded,
-    Function(String, String, String)? onInterstitialAdFailedToLoad,
-    Function(String)? onInterstitialAdOpened,
-    Function(String)? onInterstitialAdClosed,
-    Function(String, String, String)? onInterstitialAdFailedToShow,
-    Function(String)? onRewardedInterstitialAdSkip,
-    Function(String)? onRewardedInterstitialAdOpened,
-    Function(String)? onRewardedInterstitialAdClosed,
-    Function(String, String, int)? onRewardedInterstitialRewarded,
-    Function(String, String, String)? onRewardedInterstitialAdFailedToShow,
   }) async {
-    listenerChannel.setMethodCallHandler((call) async {
+    listenerOfferwallChannel.setMethodCallHandler((call) async {
       switch (call.method) {
         case 'onOfferwallAdOpened':
           if (onOfferwallAdOpened != null) {
@@ -149,6 +132,22 @@ class AdiscopeListener {
             onOfferwallAdFailedToShow(args[0] as String, args[1] as String, args[2] as String);
           }
           break;
+        default:
+          break;
+      }
+    });
+  }
+
+  static Future<void> setupRewardedVideoListener({
+    Function(String)? onRewardedVideoAdLoaded,
+    Function(String, String, String)? onRewardedVideoAdFailedToLoad,
+    Function(String)? onRewardedVideoAdOpened,
+    Function(String)? onRewardedVideoAdClosed,
+    Function(String, String, int)? onRewarded,
+    Function(String, String, String)? onRewardedVideoAdFailedToShow,
+  }) async {
+    listenerRewardedVideoChannel.setMethodCallHandler((call) async {
+      switch (call.method) {
         case 'onRewardedVideoAdLoaded':
           if (onRewardedVideoAdLoaded != null) {
             onRewardedVideoAdLoaded(call.arguments as String);
@@ -182,6 +181,22 @@ class AdiscopeListener {
             onRewardedVideoAdFailedToShow(args[0] as String, args[1] as String, args[2] as String);
           }
           break;
+        default:
+          break;
+      }
+    });
+  }
+
+
+  static Future<void> setupInterstitialListener({
+    Function(String)? onInterstitialAdLoaded,
+    Function(String, String, String)? onInterstitialAdFailedToLoad,
+    Function(String)? onInterstitialAdOpened,
+    Function(String)? onInterstitialAdClosed,
+    Function(String, String, String)? onInterstitialAdFailedToShow,
+  }) async {
+    listenerInterstitialChannel.setMethodCallHandler((call) async {
+      switch (call.method) {
         case 'onInterstitialAdLoaded':
           if (onInterstitialAdLoaded != null) {
             onInterstitialAdLoaded(call.arguments as String);
@@ -209,6 +224,22 @@ class AdiscopeListener {
             onInterstitialAdFailedToShow(args[0] as String, args[1] as String, args[2] as String);
           }
           break;
+        default:
+          break;
+      }
+    });
+  }
+
+
+  static Future<void> setupRewardedInterstitialListener({
+    Function(String)? onRewardedInterstitialAdSkip,
+    Function(String)? onRewardedInterstitialAdOpened,
+    Function(String)? onRewardedInterstitialAdClosed,
+    Function(String, String, int)? onRewardedInterstitialRewarded,
+    Function(String, String, String)? onRewardedInterstitialAdFailedToShow,
+  }) async {
+    listenerRewardedInterstitialChannel.setMethodCallHandler((call) async {
+      switch (call.method) {
         case 'onRewardedInterstitialAdSkip':
           if (onRewardedInterstitialAdSkip != null) {
             onRewardedInterstitialAdSkip(call.arguments as String);

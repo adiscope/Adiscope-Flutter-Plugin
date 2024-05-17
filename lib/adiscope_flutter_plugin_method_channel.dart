@@ -10,12 +10,6 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   final methodChannel = const MethodChannel('adiscope_flutter_plugin');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
-  }
-
-  @override
   Future<bool?> initialize([String mediaId = "", String mediaSecret = "", String callbackTag = "", String childYN = ""]) async {
     final result = await methodChannel.invokeMethod<bool>('initialize', <String, dynamic>{ "mediaId": mediaId, "mediaSecret": mediaSecret, "callbackTag": callbackTag, "childYN": childYN });
     return result;

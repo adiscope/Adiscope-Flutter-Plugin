@@ -90,7 +90,7 @@ class _MyAppState extends State<MyApp> {
     _riUnitId4Controller.text = riUnitId4;
     _riUnitId5Controller.text = riUnitId5;
 
-    AdiscopeListener.setupListener(
+    AdiscopeListener.setupOfferwallListener(
         onOfferwallAdOpened: (unitId) {
           pushLog("onOfferwallAdOpened => $unitId");
         },
@@ -99,7 +99,10 @@ class _MyAppState extends State<MyApp> {
         },
         onOfferwallAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
           pushLog("onOfferwallAdOpened => $unitId, $errorDescription, $errorXB3TraceID");
-        },
+        }
+    );
+
+    AdiscopeListener.setupRewardedVideoListener(
         onRewardedVideoAdLoaded: (unitId) {
           pushLog("onRewardedVideoAdLoaded => $unitId");
         },
@@ -117,7 +120,10 @@ class _MyAppState extends State<MyApp> {
         },
         onRewardedVideoAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
           pushLog("onRewardedVideoAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
-        },
+        }
+    );
+
+    AdiscopeListener.setupInterstitialListener(
         onInterstitialAdLoaded: (unitId) {
           pushLog("onInterstitialAdLoaded => $unitId");
         },
@@ -132,7 +138,10 @@ class _MyAppState extends State<MyApp> {
         },
         onInterstitialAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
           pushLog("onInterstitialAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
-        },
+        }
+    );
+
+    AdiscopeListener.setupRewardedInterstitialListener(
         onRewardedInterstitialAdSkip: (unitId) {
           pushLog("onRewardedInterstitialAdSkip => $unitId");
         },
@@ -146,7 +155,6 @@ class _MyAppState extends State<MyApp> {
           pushLog("onRewardedInterstitialRewarded => $unitId, $currencyUnit, $amount");
         },
         onRewardedInterstitialAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
-          print("main - onRewardedInterstitialAdFailedToShow");
           pushLog("onRewardedInterstitialAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
         }
     );

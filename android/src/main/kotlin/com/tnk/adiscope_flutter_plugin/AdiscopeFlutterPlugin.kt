@@ -44,9 +44,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onMethodCall(call: MethodCall, result: Result) {
     callResult = result;
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else if (call.method == "initialize") {
+    if (call.method == "initialize") {
       var mediaId = call.argument("mediaId") as? String ?: ""
       var mediaSecret = call.argument("mediaSecret") as? String ?: ""
       var callbackTag = call.argument("callbackTag") as? String ?: ""
@@ -239,7 +237,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
   }
 
   override fun onOfferwallAdOpened(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onOfferwallAdOpened", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeOfferwallListener").invokeMethod("onOfferwallAdOpened", unitId)
   }
 
   override fun onOfferwallAdFailedToShow(unitId: String?, error: AdiscopeError?) {
@@ -255,15 +253,15 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     error?.let { it.xb3TraceId?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onOfferwallAdFailedToShow", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeOfferwallListener").invokeMethod("onOfferwallAdFailedToShow", args)
   }
 
   override fun onOfferwallAdClosed(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onOfferwallAdClosed", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeOfferwallListener").invokeMethod("onOfferwallAdClosed", unitId)
   }
 
   override fun onRewardedVideoAdLoaded(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedVideoAdLoaded", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewardedVideoAdLoaded", unitId)
   }
 
   override fun onRewardedVideoAdFailedToLoad(unitId: String?, error: AdiscopeError?) {
@@ -279,15 +277,15 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     error?.let { it.xb3TraceId?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedVideoAdFailedToLoad", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewardedVideoAdFailedToLoad", args)
   }
 
   override fun onRewardedVideoAdOpened(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedVideoAdOpened", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewardedVideoAdOpened", unitId)
   }
 
   override fun onRewardedVideoAdClosed(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedVideoAdClosed", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewardedVideoAdClosed", unitId)
   }
 
   override fun onRewarded(unitId: String?, item: RewardItem?) {
@@ -303,7 +301,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     item?.let { it.getAmount()?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewarded", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewarded", args)
   }
 
   override fun onRewardedVideoAdFailedToShow(unitId: String?, error: AdiscopeError?) {
@@ -319,11 +317,11 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     error?.let { it.xb3TraceId?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedVideoAdFailedToShow", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewardedVideoAdFailedToShow", args)
   }
 
   override fun onInterstitialAdLoaded() {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onInterstitialAdLoaded", "")
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdLoaded", "")
   }
 
   override fun onInterstitialAdFailedToLoad(error: AdiscopeError?) {
@@ -335,15 +333,15 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     error?.let { it.xb3TraceId?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onInterstitialAdFailedToLoad", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdFailedToLoad", args)
   }
 
   override fun onInterstitialAdOpened(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onInterstitialAdOpened", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdOpened", unitId)
   }
 
   override fun onInterstitialAdClosed(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onInterstitialAdClosed", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdClosed", unitId)
   }
 
   override fun onInterstitialAdFailedToShow(unitId: String?, error: AdiscopeError?) {
@@ -359,19 +357,19 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     error?.let { it.xb3TraceId?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onInterstitialAdFailedToShow", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdFailedToShow", args)
   }
 
   override fun onRewardedInterstitialAdSkipped(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedInterstitialAdSkip", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialAdSkip", unitId)
   }
 
   override fun onRewardedInterstitialAdOpened(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedInterstitialAdOpened", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialAdOpened", unitId)
   }
 
   override fun onRewardedInterstitialAdClosed(unitId: String?) {
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedInterstitialAdClosed", unitId)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialAdClosed", unitId)
   }
 
   override fun onRewardedInterstitialAdRewarded(unitId: String?, item: RewardItem?) {
@@ -387,7 +385,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     item?.let { it.getAmount()?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedInterstitialRewarded", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialRewarded", args)
   }
 
   override fun onRewardedInterstitialAdFailedToShow(unitId: String?, error: AdiscopeError?) {
@@ -403,7 +401,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       args.add("")
     }
     error?.let { it.xb3TraceId?.let { args.add(it) } }
-    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeListener").invokeMethod("onRewardedInterstitialAdFailedToShow", args)
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialAdFailedToShow", args)
   }
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
