@@ -4,8 +4,8 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'adiscope_flutter_plugin'
-  s.version          = '0.0.4'
-  s.summary          = 'Adiscope SDK for Flutter plugin project.'
+  s.version          = '3.6.0'
+  s.summary          = 'We provide a plugin so that you can integrate adiscope while developing with Flutter.'
   s.description      = <<-DESC
 Adiscope SDK for Flutter plugin project.
                        DESC

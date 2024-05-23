@@ -31,8 +31,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -57,8 +55,6 @@
     <string></string>
     <key>NSUserTrackingUsageDescription</key>
     <string>Some ad content may require access to the user tracking.</string>
-    <key>FLTEnableImpeller</key>
-    <false/>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

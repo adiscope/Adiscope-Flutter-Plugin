@@ -1,11 +1,13 @@
 # Adiscope Flutter Plugin
 [![GitHub package.json version](https://img.shields.io/badge/Unity-3.6.3-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.6.0-blue)](../../releases)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.6.0-blue)](./CHANGELOG.md)
 [![GitHub package.json version](https://img.shields.io/badge/Android-3.6.3-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
 [![GitHub package.json version](https://img.shields.io/badge/iOS-3.6.1-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
 
 - Android Target API Level : 31+
-- Android Minimum API Level : 21
+- Android Minimum API Level : 15
+  - admob, pangle 사용 시 : 16
+  - chartboost, unityads, vungle 사용 시 : 21
 - iOS Minimum Version : 12.0
 - Xcode Minimum Version : Xcode 15.1
 <br/>
@@ -17,18 +19,19 @@
 - [Setup iOS](#3-setup-ios)
 #### [Adiscope Overview](#adiscope-overview-1)
 - [Import](#1-import)
-- [AdiscopeFlutterPlugin 생성](2-adiscopeflutterplugin-생성)
+- [AdiscopeFlutterPlugin 생성](#2-adiscopeflutterplugin-생성)
 - [Initialize](#3-initialize)
 - [사용자 정보 설정](#4-사용자-정보-설정)
 - [Offerwall](#5-offerwall)
 - [RewardedVideo](#6-rewardedvideo)
 - [Interstitial](#7-interstitial)
 - [RewardedInterstitial](#8-rewardedinterstitial)
+- [Etc](#9-etc)
 #### [웹사이트 필수 등록](#웹사이트-필수-등록-android-전용)
 #### [Privacy Manifest 정책 적용](#privacy-manifest-정책-적용-ios-전용)
 #### [iOS 16+ Offerwall 세로 모드 전환 적용 방법(가로모드 전용일 경우)](./docs/apple_orientations.md)
 #### [Adiscope Error Information](./docs/error_info.md)
-#### [etc](.)
+#### etc
 - [Sample App 폴더 이동](./example)
 - [Releases](./CHANGELOG.md)
 - [LICENSE](./LICENSE)
@@ -37,10 +40,18 @@
 
 ## Add the Adiscope package to Your Project
 ### 1. Installation
-```csharp
+#### A. Latest version Installation
+```ruby
 flutter pub add adiscope_flutter_plugin
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 실행하여 플러그인을 설치
+<br/>
+
+#### B. Specific version Installation
+```ruby
+flutter pub add adiscope_flutter_plugin:3.6.0
+```
+- 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치
 <br/><br/>
 
 ### 2. Setup Android
@@ -52,7 +63,8 @@ flutter pub add adiscope_flutter_plugin
     <meta-data android:name="adiscope_media_secret" android:value="${adiscope_media_secret}"/>
 </application>
 ```
-- Android 프로젝트의 `AndroidManifest.xml`파일에 다음과 같은 설정(meta-data 복사해서 변경 없이 추가)
+- Android 프로젝트의 `AndroidManifest.xml`파일에 다음과 같은 설정
+- meta-data 복사해서 변경 없이 추가 (아래 Module Gradle의 변수 값을 참조 함)
 <br/>
 
 #### B. Setup Gradle
@@ -69,8 +81,9 @@ allprojects {
     }
 }
 ```
-- TNK SDK는 Maven Central에 배포
+- Adiscope SDK는 Maven Central에 배포
 - 프로젝트 파일 내에 {projectroot}/android/build.gradle 파일에 `maven` 추가
+- max를 연동 시 4개를 추가하고, chartboost를 연동 시 1개를 추가
 <br/>
 
 ##### 나. Setup Module Gradle
@@ -78,9 +91,9 @@ allprojects {
 android {
     defaultConfig {
         manifestPlaceholders = [
-                adiscope_media_id    : "{media id 기입 필요}",
-                adiscope_media_secret: "{media secret 기입 필요}",
-                adiscope_sub_domain  : "sub domain 기입 필요",
+                adiscope_media_id    : "media id 기입 필요",
+                adiscope_media_secret: "media secret 기입 필요",
+                adiscope_sub_domain  : "sub domain 기입 필요",		// 옵션값 (오퍼월 상세페이지 이동 기능, 필요시 담당자 전달 예정)
                 adiscope_admob_id    : "admob_app_id 기입 필요"           // Admob 사용 시 필요
         ]
     }
@@ -105,11 +118,14 @@ dependencies {
 - adiscope_sub_domain: '무료충전소 상세 화면 이동 기능'에 사용하는 값으로, 해당 기능 적용 시 애디스콥과 협의 필요
 - adiscope_admob_id: admob을 접속 하기 위한 키
 - 프로젝트 파일 내에 {projectroot}/android/app/build.gradle 파일에 `manifestPlaceholders`, `implementation` 추가
+- Third Party 네트워크사들을 확인 후 필요한 네트워크사들만 추가
+- 특정 버전의 adapter들 버전을 확인 방법
+  - `Releases`에서 `Source Code` 파일 다운로드 후 `README.md` 파일 확인
 <br/><br/>
 
 ### 3. Setup iOS
 #### A. Setup Podfile
-```csharp
+```ruby
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
@@ -126,13 +142,16 @@ target 'Runner' do
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가
+- Third Party 네트워크사들을 확인 후 필요한 네트워크사들만 추가
+- 특정 버전의 adapter들 버전을 확인 방법
+  - `Releases`에서 `Source Code` 파일 다운로드 후 `README.md` 파일 확인
 <br/>
 
 #### B. Setup Plist
 - 프로젝트 파일 내에 {projectroot}/ios/Runner/Info.plist 파일에 추가
 
 ##### 가. AdiscopeMediaId, AdiscopeMediaSecret 추가
-```csharp
+```xml
 <key>AdiscopeMediaId</key>
 <string>{media id 기입 필요}</string>
 <key>AdiscopeMediaSecret</key>
@@ -141,7 +160,7 @@ end
 <br/>
 
 ##### 나. App Tracking Permission 추가
-```csharp
+```xml
 <key>NSUserTrackingUsageDescription</key>
 <string></string>
 ```
@@ -149,7 +168,7 @@ end
 <br/>
 
 ##### 다. SKAdNetwork 추가 ([Download](https://github.com/adiscope/Adiscope-iOS-Sample/releases/download/3.2.0/AdiscopeSkAdNetworks.plist))
-```csharp
+```xml
 <dict>
     <key>SKAdNetworkItems</key>
     <array>
@@ -164,17 +183,17 @@ end
 <br/>
 
 ##### 라. Admob 사용 시 추가
-```csharp
+```xml
 <key>GADIsAdManagerApp</key>
 <true/>
 <key>GADApplicationIdentifier</key>
 <string>{admob_app_id 기입 필요}</string>
 ```
-- "GADIsAdManagerApp" 설정 및 GADApplicationIdentifier의 Key 설정
+- "GADIsAdManagerApp" 설정 및 "GADApplicationIdentifier"의 Key 설정
 <br/>
 
 ##### 마. Max, AppLovin 사용 시 추가
-```csharp
+```xml
 <key>AppLovinSdkKey</key>
 <string>{applovin_app_id 기입 필요}</string>
 ```
@@ -206,10 +225,10 @@ Future<void> initialize() async {
     }
 }
 ```
-- Android는 `[AndroidManifest](#a-setup-androidmanifest)` 파일과 `[Module Gradle](나-setup-module-gradle)` 파일 세팅 필요
-- iOS는 `[Plist](#가-adiscopemediaid-adiscopemediasecret-추가)` 파일 세팅 필요
+- Android는 [AndroidManifest](#a-setup-androidmanifest) 파일과 [Module Gradle](#나-setup-module-gradle) 파일 세팅 필요
+- iOS는 [Plist](#가-adiscopemediaid-adiscopemediasecret-추가) 파일 세팅 필요
 - App 실행 시 1회 설정 권장
-- Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](https://github.com/adiscope/Adiscope-Android-Sample/docs/familiespolicy.md))
+- Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
   - ${정책\ {\color{red}미준수시}}\ 광고에\ 제한이\ 생김$ (광고 물량 축소 및 오퍼월 진입 불가)
 <br/>
 
@@ -229,7 +248,7 @@ Future<void> initialize() async {
 }
 ```
 - App 실행 시 1회 설정 권장
-- Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](https://github.com/adiscope/Adiscope-Android-Sample/docs/familiespolicy.md))
+- Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
   - ${정책\ {\color{red}미준수시}}\ 광고에\ 제한이\ 생김$ (광고 물량 축소 및 오퍼월 진입 불가)
 <br/>
 
@@ -485,6 +504,39 @@ AdiscopeListener.setupRewardedInterstitialListener(
 - Server-to-server 방식을 선택하더라도 보상이 전달 될 시에는 `onRewardedInterstitialRewarded`가 호출
   - 이때는 Server를 통해 전달받은 정보를 기준으로 처리하고, `onRewardedInterstitialRewarded`를 통해 전달받은 정보는 검증용으로 사용하거나 무시하도록 함
 - `showRewardedInterstitial` Skip 시 `onRewardedInterstitialAdSkip`, 성공 시 `onRewardedInterstitialAdOpened`, `onRewardedInterstitialAdClosed`가 순차적으로 호출되고, 실패시 `onRewardedInterstitialAdFailedToShow`가 호출
+<br/>
+
+### 9. Etc
+#### A. Adiscope SDK Version
+```dart
+Future<void> getSDKVersion() async {
+    String result = await _adiscopeFlutterPlugin.getSDKVersion() ?? "";
+}
+```
+- Android와 iOS의 Core SDK Version 확인
+
+#### B. Adiscope Network Versions
+```dart
+Future<void> getNetworkVersions() async {
+    String result = await _adiscopeFlutterPlugin.getNetworkVersions() ?? "";
+}
+```
+- Android와 iOS의 Third Party SDK Versions 확인
+
+#### C. Volume
+```dart
+Future<void> setVolumeOff() async {
+    bool isOff = true;  // Ad Sound Off
+    bool isOff = false; // Ad Sound On (Default)
+    await _adiscopeFlutterPlugin.setVolumeOff(isOff);
+    if (isOff) {
+      pushLog("Ad Sound Off");
+    } else {
+      pushLog("Ad Sound On");
+    }
+}
+```
+- `Admob`, `AppLovin`, `Mintegral`, `Verve` 만 적용 가능
 <br/><br/>
 
 ## 웹사이트 필수 등록 (Android 전용)

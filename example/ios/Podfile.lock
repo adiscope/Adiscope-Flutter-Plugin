@@ -1,6 +1,6 @@
 PODS:
   - Adiscope (3.6.1)
-  - adiscope_flutter_plugin (0.0.1):
+  - adiscope_flutter_plugin (3.6.0):
     - Adiscope (= 3.6.1)
     - Flutter
   - AdiscopeMediaAdManager (3.6.0):
@@ -171,7 +171,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Adiscope: b3aef44e6e95ba6820219519735b1b3652b3ce35
-  adiscope_flutter_plugin: 33d5f90c13c561353b6efd8e7c173ca59a0995e3
+  adiscope_flutter_plugin: 0b709001eb693bdc877447453d5aa5c7410c4c6a
   AdiscopeMediaAdManager: 532d546a2a49f24ef2811af6c74324ebbf6c9b79
   AdiscopeMediaAdMob: f5028072335725c85d72dde315d579da602492b4
   AdiscopeMediaAppLovin: ddae57ab46bbfff3dd3642342c4b7d8a16406058
@@ -191,7 +191,7 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
   GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
   InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
-  integration_test: 13825b8a9334a850581300559b8839134b124670
+  integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
   MintegralAdSDK: b9561720d5f78df3b4c84549905117b2f3789d26
   UnityAds: 5601f6397b0e02ed3ed6ee92827f5177a523aab6
   VungleAds: 1982548185a43a60f07066f28ddb5f12d67a90d7

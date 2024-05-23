@@ -2,113 +2,165 @@ import 'package:flutter/services.dart';
 import 'adiscope_flutter_plugin_platform_interface.dart';
 
 class AdiscopeFlutterPlugin {
-  Future<bool?> initialize([String mediaId = "", String mediaSecret = "", String callbackTag = "", String childYN = ""]) {
-    if (mediaId.length > 0 || mediaSecret.length > 0 || callbackTag.length > 0 || childYN.length > 0) {
-      return AdiscopeFlutterPluginPlatform.instance.initialize(mediaId, mediaSecret, callbackTag, childYN);
+  /// Initialize adisocpe with [mediaid, mediasecret, callbackTag, childYN].
+  Future<bool?> initialize(
+      [String mediaId = "",
+      String mediaSecret = "",
+      String callbackTag = "",
+      String childYN = ""]) {
+    if (mediaId.isNotEmpty ||
+        mediaSecret.isNotEmpty ||
+        callbackTag.isNotEmpty ||
+        childYN.isNotEmpty) {
+      return AdiscopeFlutterPluginPlatform.instance
+          .initialize(mediaId, mediaSecret, callbackTag, childYN);
     } else {
       return AdiscopeFlutterPluginPlatform.instance.initialize();
     }
   }
 
+  /// User information settings
   Future<bool?> setUserId(String userId) {
     return AdiscopeFlutterPluginPlatform.instance.setUserId(userId);
   }
 
+  /// Check initialize
   Future<bool?> isInitialized() {
     return AdiscopeFlutterPluginPlatform.instance.isInitialized();
   }
 
+  /// Check adiscope sdk version
   Future<String?> getSDKVersion() {
     return AdiscopeFlutterPluginPlatform.instance.getSDKVersion();
   }
 
+  /// Check the versions of third-party networks
   Future<String?> getNetworkVersions() {
     return AdiscopeFlutterPluginPlatform.instance.getNetworkVersions();
   }
 
+  /// Check unit status of offerwall or rewardedvideo with [unitId]
   Future<Map?> getUnitStatus(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.getUnitStatus(unitId);
   }
 
+  /// Max Mediation Debugger
   Future<bool?> showMaxMediationDebugger() {
     return AdiscopeFlutterPluginPlatform.instance.showMaxMediationDebugger();
   }
 
+  /// Admob Mediation Debugger
   Future<bool?> showAdmobMediationDebugger() {
     return AdiscopeFlutterPluginPlatform.instance.showAdmobMediationDebugger();
   }
 
+  /// Adjust advertising sound with [isOn]
   Future<bool?> setVolumeOff(bool isOn) {
     return AdiscopeFlutterPluginPlatform.instance.setVolumeOff(isOn);
   }
 
-  Future<bool?> showOfferwall(String unitId, [List<String>? offerwallFilterTabs]) {
-    if (offerwallFilterTabs != null && offerwallFilterTabs.length > 0) {
-      return AdiscopeFlutterPluginPlatform.instance.showOfferwall(unitId, offerwallFilterTabs);
+  /// The offer wall of [unitId] is exposed, and the filter value is set to [offerwallFilterTabs].
+  Future<bool?> showOfferwall(String unitId,
+      [List<String>? offerwallFilterTabs]) {
+    if (offerwallFilterTabs != null && offerwallFilterTabs.isNotEmpty) {
+      return AdiscopeFlutterPluginPlatform.instance
+          .showOfferwall(unitId, offerwallFilterTabs);
     } else {
       return AdiscopeFlutterPluginPlatform.instance.showOfferwall(unitId);
     }
   }
 
-  Future<bool?> showOfferwallDetail(String unitId, String itemId, [List<String>? offerwallFilterTabs]) {
-    if (offerwallFilterTabs != null && offerwallFilterTabs.length > 0) {
-      return AdiscopeFlutterPluginPlatform.instance.showOfferwallDetail(unitId, itemId, offerwallFilterTabs);
+  /// The offer wall detail page of [unitId, itemId] is exposed, and the filter value is set to [offerwallFilterTabs].
+  Future<bool?> showOfferwallDetail(String unitId, String itemId,
+      [List<String>? offerwallFilterTabs]) {
+    if (offerwallFilterTabs != null && offerwallFilterTabs.isNotEmpty) {
+      return AdiscopeFlutterPluginPlatform.instance
+          .showOfferwallDetail(unitId, itemId, offerwallFilterTabs);
     } else {
-      return AdiscopeFlutterPluginPlatform.instance.showOfferwallDetail(unitId, itemId);
+      return AdiscopeFlutterPluginPlatform.instance
+          .showOfferwallDetail(unitId, itemId);
     }
   }
 
+  /// Exposes the offer wall detail page of [unitId, itemId].
   Future<bool?> showOfferwallDetailFromUrl(String url) {
-    return AdiscopeFlutterPluginPlatform.instance.showOfferwallDetailFromUrl(url);
+    return AdiscopeFlutterPluginPlatform.instance
+        .showOfferwallDetailFromUrl(url);
   }
 
+  /// Load rewardedVideo of [unitId] value.
   Future<bool?> rewardedVideoLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoLoad(unitId);
   }
 
+  /// Check the Load status of the rewardedVideo of the [unitId] value.
   Future<bool?> rewardedVideoIsLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoIsLoad(unitId);
   }
 
+  /// Show rewardedVideo.
   Future<bool?> rewardedVideoShow() {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoShow();
   }
 
+  /// Load interstitial of [unitId] value.
   Future<bool?> interstitialLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.interstitialLoad(unitId);
   }
 
+  /// Check the Load status of the interstitial of the [unitId] value.
   Future<bool?> interstitialIsLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.interstitialIsLoad(unitId);
   }
 
+  /// Show interstitial.
   Future<bool?> interstitialShow() {
     return AdiscopeFlutterPluginPlatform.instance.interstitialShow();
   }
 
+  /// Check unit status of offerwall or RewardedInterstitial with [unitId]
   Future<Map?> getUnitStatusRewardedInterstitial(String unitId) {
-    return AdiscopeFlutterPluginPlatform.instance.getUnitStatusRewardedInterstitial(unitId);
+    return AdiscopeFlutterPluginPlatform.instance
+        .getUnitStatusRewardedInterstitial(unitId);
   }
 
+  /// Loads all units of RewardedInterstitial.
   Future<bool?> preLoadAllRewardedInterstitial() {
-    return AdiscopeFlutterPluginPlatform.instance.preLoadAllRewardedInterstitial();
+    return AdiscopeFlutterPluginPlatform.instance
+        .preLoadAllRewardedInterstitial();
   }
 
+  /// Loads the [unitIds] values of RewardedInterstitial.
   Future<bool?> preLoadRewardedInterstitial(List<String>? unitIds) {
-    return AdiscopeFlutterPluginPlatform.instance.preLoadRewardedInterstitial(unitIds);
+    return AdiscopeFlutterPluginPlatform.instance
+        .preLoadRewardedInterstitial(unitIds);
   }
 
+  /// Show interstitial of [unitId] value.
   Future<bool?> showRewardedInterstitial(String unitId) {
-    return AdiscopeFlutterPluginPlatform.instance.showRewardedInterstitial(unitId);
+    return AdiscopeFlutterPluginPlatform.instance
+        .showRewardedInterstitial(unitId);
   }
 }
 
 class AdiscopeListener {
-  static final listenerOfferwallChannel = const MethodChannel('adiscopeOfferwallListener');
-  static final listenerRewardedVideoChannel = const MethodChannel('adiscopeRewardedVideoListener');
-  static final listenerInterstitialChannel = const MethodChannel('adiscopeInterstitialListener');
-  static final listenerRewardedInterstitialChannel = const MethodChannel('adiscopeRewardedInterstitialListener');
+  /// Register listener channel of offerwall
+  static final listenerOfferwallChannel =
+      const MethodChannel('adiscopeOfferwallListener');
 
+  /// Register listener channel of rewardedVideo
+  static final listenerRewardedVideoChannel =
+      const MethodChannel('adiscopeRewardedVideoListener');
+
+  /// Register listener channel of interstitial
+  static final listenerInterstitialChannel =
+      const MethodChannel('adiscopeInterstitialListener');
+
+  /// Register listener channel of rewardedInterstitial
+  static final listenerRewardedInterstitialChannel =
+      const MethodChannel('adiscopeRewardedInterstitialListener');
+
+  /// Register listener of offerwall
   static Future<void> setupOfferwallListener({
     Function(String)? onOfferwallAdOpened,
     Function(String)? onOfferwallAdClosed,
@@ -129,7 +181,8 @@ class AdiscopeListener {
         case 'onOfferwallAdFailedToShow':
           if (onOfferwallAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onOfferwallAdFailedToShow(args[0] as String, args[1] as String, args[2] as String);
+            onOfferwallAdFailedToShow(
+                args[0] as String, args[1] as String, args[2] as String);
           }
           break;
         default:
@@ -138,6 +191,7 @@ class AdiscopeListener {
     });
   }
 
+  /// Register listener of rewardedVideo
   static Future<void> setupRewardedVideoListener({
     Function(String)? onRewardedVideoAdLoaded,
     Function(String, String, String)? onRewardedVideoAdFailedToLoad,
@@ -156,7 +210,8 @@ class AdiscopeListener {
         case 'onRewardedVideoAdFailedToLoad':
           if (onRewardedVideoAdFailedToLoad != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onRewardedVideoAdFailedToLoad(args[0] as String, args[1] as String, args[2] as String);
+            onRewardedVideoAdFailedToLoad(
+                args[0] as String, args[1] as String, args[2] as String);
           }
           break;
         case 'onRewardedVideoAdOpened':
@@ -178,7 +233,8 @@ class AdiscopeListener {
         case 'onRewardedVideoAdFailedToShow':
           if (onRewardedVideoAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onRewardedVideoAdFailedToShow(args[0] as String, args[1] as String, args[2] as String);
+            onRewardedVideoAdFailedToShow(
+                args[0] as String, args[1] as String, args[2] as String);
           }
           break;
         default:
@@ -187,7 +243,7 @@ class AdiscopeListener {
     });
   }
 
-
+  /// Register listener of interstitial
   static Future<void> setupInterstitialListener({
     Function(String)? onInterstitialAdLoaded,
     Function(String, String, String)? onInterstitialAdFailedToLoad,
@@ -205,7 +261,8 @@ class AdiscopeListener {
         case 'onInterstitialAdFailedToLoad':
           if (onInterstitialAdFailedToLoad != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onInterstitialAdFailedToLoad(args[0] as String, args[1] as String, args[2] as String);
+            onInterstitialAdFailedToLoad(
+                args[0] as String, args[1] as String, args[2] as String);
           }
           break;
         case 'onInterstitialAdOpened':
@@ -221,7 +278,8 @@ class AdiscopeListener {
         case 'onInterstitialAdFailedToShow':
           if (onInterstitialAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onInterstitialAdFailedToShow(args[0] as String, args[1] as String, args[2] as String);
+            onInterstitialAdFailedToShow(
+                args[0] as String, args[1] as String, args[2] as String);
           }
           break;
         default:
@@ -230,7 +288,7 @@ class AdiscopeListener {
     });
   }
 
-
+  /// Register listener of rewardedInterstitial
   static Future<void> setupRewardedInterstitialListener({
     Function(String)? onRewardedInterstitialAdSkip,
     Function(String)? onRewardedInterstitialAdOpened,
@@ -258,13 +316,15 @@ class AdiscopeListener {
         case 'onRewardedInterstitialRewarded':
           if (onRewardedInterstitialRewarded != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onRewardedInterstitialRewarded(args[0] as String, args[1] as String, args[2] as int);
+            onRewardedInterstitialRewarded(
+                args[0] as String, args[1] as String, args[2] as int);
           }
           break;
         case 'onRewardedInterstitialAdFailedToShow':
           if (onRewardedInterstitialAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onRewardedInterstitialAdFailedToShow(args[0] as String, args[1] as String, "");
+            onRewardedInterstitialAdFailedToShow(
+                args[0] as String, args[1] as String, "");
           }
           break;
         default:

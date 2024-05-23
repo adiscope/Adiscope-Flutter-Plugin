@@ -242,17 +242,9 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onOfferwallAdFailedToShow(unitId: String?, error: AdiscopeError?) {
     val args: MutableList<Any> = ArrayList()
-    if (unitId != null) {
-      args.add(unitId)
-    } else {
-      args.add("")
-    }
-    if (error != null && error.description != null) {
-      args.add(error.description)
-    } else {
-      args.add("")
-    }
-    error?.let { it.xb3TraceId?.let { args.add(it) } }
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    error?.let { it.description?.let { args.add(it) } } ?: run { args.add("")}
+    error?.let { it.xb3TraceId?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeOfferwallListener").invokeMethod("onOfferwallAdFailedToShow", args)
   }
 
@@ -266,17 +258,9 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onRewardedVideoAdFailedToLoad(unitId: String?, error: AdiscopeError?) {
     val args: MutableList<Any> = ArrayList()
-    if (unitId != null) {
-      args.add(unitId)
-    } else {
-      args.add("")
-    }
-    if (error != null && error.description != null) {
-      args.add(error.description)
-    } else {
-      args.add("")
-    }
-    error?.let { it.xb3TraceId?.let { args.add(it) } }
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    error?.let { it.description?.let { args.add(it) } } ?: run { args.add("")}
+    error?.let { it.xb3TraceId?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewardedVideoAdFailedToLoad", args)
   }
 
@@ -290,33 +274,17 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onRewarded(unitId: String?, item: RewardItem?) {
     val args: MutableList<Any> = ArrayList()
-    if (unitId != null) {
-      args.add(unitId)
-    } else {
-      args.add("")
-    }
-    if (item != null && item.getType() != null) {
-      args.add(item.getType())
-    } else {
-      args.add("")
-    }
-    item?.let { it.getAmount()?.let { args.add(it) } }
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    item?.let { it.getType()?.let { args.add(it) } } ?: run { args.add("")}
+    item?.let { it.getAmount()?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewarded", args)
   }
 
   override fun onRewardedVideoAdFailedToShow(unitId: String?, error: AdiscopeError?) {
     val args: MutableList<Any> = ArrayList()
-    if (unitId != null) {
-      args.add(unitId)
-    } else {
-      args.add("")
-    }
-    if (error != null && error.description != null) {
-      args.add(error.description)
-    } else {
-      args.add("")
-    }
-    error?.let { it.xb3TraceId?.let { args.add(it) } }
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    error?.let { it.description?.let { args.add(it) } } ?: run { args.add("")}
+    error?.let { it.xb3TraceId?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedVideoListener").invokeMethod("onRewardedVideoAdFailedToShow", args)
   }
 
@@ -327,12 +295,8 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
   override fun onInterstitialAdFailedToLoad(error: AdiscopeError?) {
     val args: MutableList<Any> = ArrayList()
     args.add("")
-    if (error != null && error.description != null) {
-      args.add(error.description)
-    } else {
-      args.add("")
-    }
-    error?.let { it.xb3TraceId?.let { args.add(it) } }
+    error?.let { it.description?.let { args.add(it) } } ?: run { args.add("")}
+    error?.let { it.xb3TraceId?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdFailedToLoad", args)
   }
 
@@ -346,17 +310,9 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onInterstitialAdFailedToShow(unitId: String?, error: AdiscopeError?) {
     val args: MutableList<Any> = ArrayList()
-    if (unitId != null) {
-      args.add(unitId)
-    } else {
-      args.add("")
-    }
-    if (error != null && error.description != null) {
-      args.add(error.description)
-    } else {
-      args.add("")
-    }
-    error?.let { it.xb3TraceId?.let { args.add(it) } }
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    error?.let { it.description?.let { args.add(it) } } ?: run { args.add("")}
+    error?.let { it.xb3TraceId?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdFailedToShow", args)
   }
 
@@ -374,33 +330,17 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onRewardedInterstitialAdRewarded(unitId: String?, item: RewardItem?) {
     val args: MutableList<Any> = ArrayList()
-    if (unitId != null) {
-      args.add(unitId)
-    } else {
-      args.add("")
-    }
-    if (item != null && item.getType() != null) {
-      args.add(item.getType())
-    } else {
-      args.add("")
-    }
-    item?.let { it.getAmount()?.let { args.add(it) } }
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    item?.let { it.getType()?.let { args.add(it) } } ?: run { args.add("")}
+    item?.let { it.getAmount()?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialRewarded", args)
   }
 
   override fun onRewardedInterstitialAdFailedToShow(unitId: String?, error: AdiscopeError?) {
     val args: MutableList<Any> = ArrayList()
-    if (unitId != null) {
-      args.add(unitId)
-    } else {
-      args.add("")
-    }
-    if (error != null && error.description != null) {
-      args.add(error.description)
-    } else {
-      args.add("")
-    }
-    error?.let { it.xb3TraceId?.let { args.add(it) } }
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    error?.let { it.description?.let { args.add(it) } } ?: run { args.add("")}
+    error?.let { it.xb3TraceId?.let { args.add(it) } } ?: run { args.add("")}
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialAdFailedToShow", args)
   }
 

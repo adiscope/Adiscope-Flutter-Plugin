@@ -8,7 +8,8 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static AdiscopeFlutterPluginPlatform _instance = MethodChannelAdiscopeFlutterPlugin();
+  static AdiscopeFlutterPluginPlatform _instance =
+      MethodChannelAdiscopeFlutterPlugin();
 
   /// The default instance of [AdiscopeFlutterPluginPlatform] to use.
   ///
@@ -23,7 +24,11 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<bool?> initialize([String mediaId = "", String mediaSecret = "", String callbackTag = "", String childYN = ""]) {
+  Future<bool?> initialize(
+      [String mediaId = "",
+      String mediaSecret = "",
+      String callbackTag = "",
+      String childYN = ""]) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 
@@ -48,27 +53,32 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
   }
 
   Future<bool?> showMaxMediationDebugger() {
-    throw UnimplementedError('showMaxMediationDebugger() has not been implemented.');
+    throw UnimplementedError(
+        'showMaxMediationDebugger() has not been implemented.');
   }
 
   Future<bool?> showAdmobMediationDebugger() {
-    throw UnimplementedError('showAdmobMediationDebugger() has not been implemented.');
+    throw UnimplementedError(
+        'showAdmobMediationDebugger() has not been implemented.');
   }
 
   Future<bool?> setVolumeOff(bool isOn) {
     throw UnimplementedError('setVolumeOff() has not been implemented.');
   }
 
-  Future<bool?> showOfferwall(String unitId, [List<String>? offerwallFilterTabs]) {
+  Future<bool?> showOfferwall(String unitId,
+      [List<String>? offerwallFilterTabs]) {
     throw UnimplementedError('showOfferwall() has not been implemented.');
   }
 
-  Future<bool?> showOfferwallDetail(String unitId, String itemId, [List<String>? offerwallFilterTabs]) {
+  Future<bool?> showOfferwallDetail(String unitId, String itemId,
+      [List<String>? offerwallFilterTabs]) {
     throw UnimplementedError('showOfferwallDetail() has not been implemented.');
   }
 
   Future<bool?> showOfferwallDetailFromUrl(String url) {
-    throw UnimplementedError('showOfferwallDetailFromUrl() has not been implemented.');
+    throw UnimplementedError(
+        'showOfferwallDetailFromUrl() has not been implemented.');
   }
 
   Future<bool?> rewardedVideoLoad(String unitId) {
@@ -96,19 +106,22 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
   }
 
   Future<Map?> getUnitStatusRewardedInterstitial(String unitId) {
-    throw UnimplementedError('getUnitStatusRewardedInterstitial() has not been implemented.');
+    throw UnimplementedError(
+        'getUnitStatusRewardedInterstitial() has not been implemented.');
   }
 
   Future<bool?> preLoadAllRewardedInterstitial() {
-    throw UnimplementedError('preLoadAllRewardedInterstitial() has not been implemented.');
+    throw UnimplementedError(
+        'preLoadAllRewardedInterstitial() has not been implemented.');
   }
 
   Future<bool?> preLoadRewardedInterstitial(List<String>? unitIds) {
-    throw UnimplementedError('preLoadRewardedInterstitial() has not been implemented.');
+    throw UnimplementedError(
+        'preLoadRewardedInterstitial() has not been implemented.');
   }
 
   Future<bool?> showRewardedInterstitial(String unitId) {
-    throw UnimplementedError('showRewardedInterstitial() has not been implemented.');
+    throw UnimplementedError(
+        'showRewardedInterstitial() has not been implemented.');
   }
 }
-

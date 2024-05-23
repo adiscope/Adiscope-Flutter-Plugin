@@ -1,65 +1,21 @@
-Adiscope SDK 라이선스 계약
-1. 주식회사 애디스콥 (이하, “회사”)은 라이선스 계약에 따라 귀하에게 Adiscope SDK (이하, “SDK”) 사용을 허가합니다. 본 라이선스 계약은 SDK 사용과 관련하여 귀하와 회사 간에 체결하는 법적 구속력을 지니는 계약이며, 귀하는 SDK를 사용함으로써 본 라이선스 계약에 동의하는 것으로 간주됩니다.
+MIT License
 
-2. 귀하의 고용주 또는 법인을 대신하여 본 계약을 체결하는 데 동의하는 것은 해당 고용주나 법인을 라이선스 계약에 구속하기 위한 충분한 법적 권한이 귀하에게 있음을 진술하고 보증하는 것입니다. 요구되는 법적 권한이 없는 경우 고용주 또는 법인을 대신하여 라이선스 계약에 동의하거나 SDK를 사용할 수 없습니다.
+Copyright (c) 2024 Adiscope
 
-3. 귀하가 거주 중인 국가나 SDK를 사용하는 국가의 관련 법령에 따라 법 위반을 구성하게 되는 경우 SDK를 다운로드 하거나 라이선스 계약에 동의할 수 없습니다. 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-4. 본 SDK는 회사의 저작물을 포함하며, 귀하는 사전에 허용되지 않은 용도로 SDK를 사용할 수 없습니다. 본 SDK의 사용 허가 및 허용 범위에 관한 문의는 (메일 주소)로 연락 주시기 바랍니다.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-5. 회사는 사전에 허용한 목적으로만 SDK를 사용할 수 있도록 귀하에게 제한적이고, 양도 불가능하고, 비독점적이며, 재판매 불가능한 라이선스를 부여합니다.
-
-6. 회사가 사전에 승인한 경우를 제외하고 귀하는 SDK나 SDK의 어떤 부분도 복사, 수정, 조정, 재배포, 역컴파일, 리버스 엔지니어링, 해체하거나 이를 이용해 2차 저작물을 제작할 수 없습니다. 
-
-7. 귀하는 본 SDK에 첨부되었거나 포함된 저작권 및 상표권 고지를 제거하거나 숨기거나 변경하지 않을 것에 동의합니다.
-
-8. 본 SDK는 "현재 상태 그대로" 제공됩니다. 회사는 본 SDK의 완결성 또는 무결성을 보증하지 않습니다.
-
-9. 귀하가 본 SDK를 사용하고 액세스 하는 것은 귀하의 선택에 따른 것으로, 본 SDK의 사용 및액세스에 관한 모든 위험 부담 및 책임은 귀하에게 있으며, 회사는 이에 대한 어떠한 책임도 부담하지 않습니다.
-
-10. 귀하는 회사가 본 SDK 또는 본 SDK에 포함된 모든 기능을 귀하 또는 사용자에게 일반적으로 제공하는 행위를 회사의 단독 재량권에 따라 예고 없이 영구적 또는 일시적으로 중단할 수 있다는 점에 동의합니다.
-
-11. 회사는 본 SDK를 수시로 업데이트 할 수 있으며, 본 SDK의 새 버전을 배포할 때 본 라이선스 계약의 내용을 변경할 수 있습니다. 변경이 이뤄진 경우 회사는 SDK가 제공되는 웹사이트에 새로운 버전의 라이선스 계약을 제공합니다.
-
-12. 본 SDK에는 외부 SDK 구성요소가 일부 포함되어 있으며, 외부 SDK 구성요소의 사용, 복제 및 배포에는 본 라이선스 계약이 아닌 관련 소프트웨어 라이선스의 약관이 적용됩니다. 아래 링크를 참고해주시기 바랍니다.
-Vungle : https://publisher.vungle.com/LICENSE.html
-FAN (Facebook Audience Network Policy) https://developers.facebook.com/docs/audience-network/policy
-admob: https://www.google.com/adsense/new/localized-terms
-Mintegral(Mobvista) https://static.mintegral.com/document/term
-
-13. 본 라이선스 계약은 한국어판 및 영문판으로 작성되었으며, 한국어판 및 영문판 사이에 해석의 차이가 생기는 경우 한국어판을 우선으로 합니다. 본 라이선스 계약의 준거법은 대한민국 법으로 하며, 본 라이선스 계약에 대한 분쟁 발생 시 양 당사자는 상호 합의하여 해결하도록 노력하는 것을 원칙으로 하되, 소송 발생 시 회사의 소재지를 관할하는 법원을 제1심 전속적 합의 관할법원으로 합니다.
-
-2020년 2월 7일
-Adiscope SDK License Agreement
-
-1. ADISCOPE Corporation (“Company”) grants you the license to use Adiscope SDK (the “SDK”) under the terms and conditions of this License Agreement. This License Agreement is legally binding between you and Company in regards to your using the SDK. By using this SDK, you are deemed to agree with this Agreement.
-
-2. By agreeing to this License Agreement on behalf of your employer or any other entity, you represent and warrant that you have sufficient legal authority to bind your employer or such entity. Unless you have the requisite legal authority, you may not accept this License Agreement or use the SDK on behalf of your employer or such entity.
-
-3. You may not download the SDK or accept this License Agreement if it constitutes violation(s) of laws or regulations of a country where you reside or you make use of the SDK.
-
-4. This SDK contains Company’s works and you may not use the SDK for any purpose not previously permitted. If you have any questions regarding the license and the scope of license, please contact via @.
-
-5. Company grants you a limited, non-assignable, non-exclusive and non-sublicensable license to use the SDK solely for the purpose previously permitted.
-
-6. Unless otherwise previously approved by Company, you may not copy, modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK.
-
-7. You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be attached to or contained within the SDK.
-
-8. The SDK are provided “AS-IS.” Company disclaims all warranties that the SDK will be free from any errors or defects.
-
-9. Your use and access of the SDK is subject to your option and you are solely responsible and accountable for risks and liabilities with respect to your use and access. Company is not responsible for it.
-
-10. You agree that Company may cease, discontinue or stop (permanently or temporarily), without any prior notice, the provision of the SDK (or any features within the SDK) or the act of general provision thereof to you or to users at Company's sole discretion.
-
-11. The SDK can be updated from time to time. Company may alter or modify the License Agreement as it distributes new versions of the SDK. After the alteration or modification, Company will provide the new version of the License Agreement on the website where the SDK is made available.
-
-12. The SDK contains external SDK components in part, and use, reproduction and distribution of the external components contained in the SDK shall be governed solely by the terms of the relevant software license and not this License Agreement. Please refer to the link below.
-Vungle : https://publisher.vungle.com/LICENSE.html
-FAN (Facebook Audience Network Policy) https://developers.facebook.com/docs/audience-network/policy
-admob: https://www.google.com/adsense/new/localized-terms
-Mintegral(Mobvista) https://static.mintegral.com/document/term
-
-13. This License Agreement is written in Korean and English. Should any difference of interpretation arise between the Korean language version and the English language version, the Korean language version shall prevail. The governing law of this Agreement is the law of the Republic of Korea. In the event of any dispute arising out of this Agreement, in principle, both parties shall use best effort to resolve such dispute by mutual agreement. If such dispute is brought to the lawsuit, the district court of the district where Company is located shall have the exclusive jurisdiction.
-
-February 7, 2020
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
