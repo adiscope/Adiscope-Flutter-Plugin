@@ -32,7 +32,7 @@ target 'Runner' do
   use_modular_headers!
 
   pod 'AdiscopeMediaAdManager', '3.6.0'
-  pod 'AdiscopeMediaAdMob', '3.6.0'
+  pod 'AdiscopeMediaAdMob', '3.7.0'
   pod 'AdiscopeMediaAppLovin', '3.6.1'
   pod 'AdiscopeMediaChartBoost', '3.6.0'
   pod 'AdiscopeMediaFAN', '3.6.0'

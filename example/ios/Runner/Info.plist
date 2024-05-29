@@ -48,11 +48,11 @@
     <key>AdiscopeMediaSecret</key>
     <string></string>
     <key>GADApplicationIdentifier</key>
-    <string></string>
+	<string></string>
+    <key>AppLovinSdkKey</key>
+	<string></string>
     <key>GADIsAdManagerApp</key>
     <true/>
-    <key>AppLovinSdkKey</key>
-    <string></string>
     <key>NSUserTrackingUsageDescription</key>
     <string>Some ad content may require access to the user tracking.</string>
 	<key>SKAdNetworkItems</key>
@@ -661,6 +661,23 @@
 			<key>SKAdNetworkIdentifier</key>
 			<string>zq492l623r.skadnetwork</string>
 		</dict>
+	</array>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

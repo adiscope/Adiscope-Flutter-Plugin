@@ -1,13 +1,13 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.6.3-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.6.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-3.6.3-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.6.1-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.7.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.7.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-3.7.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.7.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 15
-  - admob, pangle 사용 시 : 16
-  - chartboost, unityads, vungle 사용 시 : 21
+  - Admob, Pangle 사용 시 : 16
+  - Chartboost, Unityads, Vungle, Max 사용 시 : 21
 - iOS Minimum Version : 12.0
 - Xcode Minimum Version : Xcode 15.1
 <br/>
@@ -99,13 +99,13 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.6.3'
+    implementation 'com.nps.adiscope:adiscopeCore:3.7.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.1'
     implementation 'com.nps.adiscope:adapter.chartboost:9.3.1.0'        // chartboost
     implementation 'com.nps.adiscope:adapter.unityads:4.6.1.0'          // unityads
     implementation 'com.nps.adiscope:adapter.max:12.1.0.4'              // max
     implementation 'com.nps.adiscope:adapter.applovin:12.1.0.1'         // applovin
-    implementation 'com.nps.adiscope:adapter.admob:22.3.0.2'            // admob (use play-services-ads:22.3.0 dependency)
+    implementation 'com.nps.adiscope:adapter.admob:22.3.0.3'            // admob (use play-services-ads:22.3.0 dependency)
     implementation 'com.nps.adiscope:adapter.fan:6.13.7.1'              // fan
     implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista (use androidx)
     implementation "com.nps.adiscope:adapter.pangle:5.6.0.3.0"          // pangle
@@ -130,7 +130,7 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
   pod 'AdiscopeMediaAdManager', '3.6.0'    // admanager
-  pod 'AdiscopeMediaAdMob', '3.6.0'        // admob
+  pod 'AdiscopeMediaAdMob', '3.7.0'        // admob
   pod 'AdiscopeMediaAppLovin', '3.6.1'     // applovin
   pod 'AdiscopeMediaChartBoost', '3.6.0'   // chartboost
   pod 'AdiscopeMediaFAN', '3.6.0'          // fan

@@ -1,12 +1,16 @@
 PODS:
-  - Adiscope (3.6.1)
-  - adiscope_flutter_plugin (3.6.0):
-    - Adiscope (= 3.6.1)
+  - Adiscope (3.7.0)
+  - adiscope_flutter_plugin (3.7.0):
+    - Adiscope (= 3.7.0)
     - Flutter
   - AdiscopeMediaAdManager (3.6.0):
     - Google-Mobile-Ads-SDK (= 11.2.0)
-  - AdiscopeMediaAdMob (3.6.0):
+  - AdiscopeMediaAdMob (3.7.0):
     - Google-Mobile-Ads-SDK (= 11.2.0)
+    - GoogleMobileAdsMediationFacebook (= 6.15.0.0)
+    - GoogleMobileAdsMediationMintegral (= 7.6.1.0)
+    - GoogleMobileAdsMediationPangle (= 5.8.0.7.0)
+    - GoogleMobileAdsMediationVungle (= 7.2.2.1)
   - AdiscopeMediaAppLovin (3.6.1):
     - AppLovinSDK (= 12.4.1)
   - AdiscopeMediaChartBoost (3.6.0):
@@ -74,6 +78,18 @@ PODS:
   - Flutter (1.0.0)
   - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleMobileAdsMediationFacebook (6.15.0.0):
+    - FBAudienceNetwork (= 6.15.0)
+    - Google-Mobile-Ads-SDK (~> 11.0)
+  - GoogleMobileAdsMediationMintegral (7.6.1.0):
+    - Google-Mobile-Ads-SDK (~> 11.0)
+    - MintegralAdSDK/All (= 7.6.1)
+  - GoogleMobileAdsMediationPangle (5.8.0.7.0):
+    - Ads-Global (= 5.8.0.7)
+    - Google-Mobile-Ads-SDK (~> 11.0)
+  - GoogleMobileAdsMediationVungle (7.2.2.1):
+    - Google-Mobile-Ads-SDK (~> 11.0)
+    - VungleAds (= 7.2.2)
   - GoogleUserMessagingPlatform (2.4.0)
   - InMobiSDK (10.7.1)
   - integration_test (0.0.1):
@@ -89,6 +105,15 @@ PODS:
     - MintegralAdSDK/NativeAd (= 7.6.1)
     - MintegralAdSDK/NewInterstitialAd (= 7.6.1)
     - MintegralAdSDK/RewardVideoAd (= 7.6.1)
+  - MintegralAdSDK/All (7.6.1):
+    - MintegralAdSDK/BannerAd
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/InterstitialVideoAd
+    - MintegralAdSDK/NativeAd
+    - MintegralAdSDK/NativeAdvancedAd
+    - MintegralAdSDK/NewInterstitialAd
+    - MintegralAdSDK/RewardVideoAd
+    - MintegralAdSDK/SplashAd
   - MintegralAdSDK/BannerAd (7.6.1):
     - MintegralAdSDK/NativeAd
   - MintegralAdSDK/BidBannerAd (7.6.1):
@@ -111,6 +136,8 @@ PODS:
   - MintegralAdSDK/InterstitialVideoAd (7.6.1):
     - MintegralAdSDK/NativeAd
   - MintegralAdSDK/NativeAd (7.6.1)
+  - MintegralAdSDK/NativeAdvancedAd (7.6.1):
+    - MintegralAdSDK/NativeAd
   - MintegralAdSDK/NewInterstitialAd (7.6.1):
     - MintegralAdSDK/InterstitialVideoAd
     - MintegralAdSDK/NativeAd
@@ -124,7 +151,7 @@ PODS:
 DEPENDENCIES:
   - adiscope_flutter_plugin (from `.symlinks/plugins/adiscope_flutter_plugin/ios`)
   - AdiscopeMediaAdManager (= 3.6.0)
-  - AdiscopeMediaAdMob (= 3.6.0)
+  - AdiscopeMediaAdMob (= 3.7.0)
   - AdiscopeMediaAppLovin (= 3.6.1)
   - AdiscopeMediaChartBoost (= 3.6.0)
   - AdiscopeMediaFAN (= 3.6.0)
@@ -155,6 +182,10 @@ SPEC REPOS:
     - ChartboostSDK
     - FBAudienceNetwork
     - Google-Mobile-Ads-SDK
+    - GoogleMobileAdsMediationFacebook
+    - GoogleMobileAdsMediationMintegral
+    - GoogleMobileAdsMediationPangle
+    - GoogleMobileAdsMediationVungle
     - GoogleUserMessagingPlatform
     - InMobiSDK
     - MintegralAdSDK
@@ -170,10 +201,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
-  Adiscope: b3aef44e6e95ba6820219519735b1b3652b3ce35
-  adiscope_flutter_plugin: 0b709001eb693bdc877447453d5aa5c7410c4c6a
+  Adiscope: 494ce32c71f38629e654fa92a73fd88d67d2b21a
+  adiscope_flutter_plugin: 90d9c8a71fc5f62403a660698c2a3f12cd9f222c
   AdiscopeMediaAdManager: 532d546a2a49f24ef2811af6c74324ebbf6c9b79
-  AdiscopeMediaAdMob: f5028072335725c85d72dde315d579da602492b4
+  AdiscopeMediaAdMob: 485c9e42d6e210a4699618253918cf0e535d4c5b
   AdiscopeMediaAppLovin: ddae57ab46bbfff3dd3642342c4b7d8a16406058
   AdiscopeMediaChartBoost: 2fa72778a26422db764582d13d8eb0957c804dc3
   AdiscopeMediaFAN: 6498e181f9a84cc5063e5fe1f9a0780e8ce81073
@@ -189,6 +220,10 @@ SPEC CHECKSUMS:
   FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
+  GoogleMobileAdsMediationFacebook: 26dec5611c04af55eba3dd16c564bafa8ebd7131
+  GoogleMobileAdsMediationMintegral: eacbfa23f942d140dd6b61df93a59816a23c2a76
+  GoogleMobileAdsMediationPangle: d08694efcd916510c1974df1f664c948bbe290a2
+  GoogleMobileAdsMediationVungle: a276066778765746276f66c5073c481509342be4
   GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
   InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
   integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
@@ -196,6 +231,6 @@ SPEC CHECKSUMS:
   UnityAds: 5601f6397b0e02ed3ed6ee92827f5177a523aab6
   VungleAds: 1982548185a43a60f07066f28ddb5f12d67a90d7
 
-PODFILE CHECKSUM: 4d59a18f5400264c934a6ddf20bfaacb63c806ed
+PODFILE CHECKSUM: 6f3f2968c0040830ee2fe2fd000d6de6d9586123
 
 COCOAPODS: 1.15.2
