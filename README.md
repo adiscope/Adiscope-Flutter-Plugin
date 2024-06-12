@@ -115,7 +115,7 @@ dependencies {
 - 애디스콥 측에 media_id 와 media_secret, sub_domain 문의!
 - adiscope_media_id: 매체 아이디
 - adiscope_media_secret: 매체 시크릿키
-- adiscope_sub_domain: '무료충전소 상세 화면 이동 기능'에 사용하는 값으로, 해당 기능 적용 시 애디스콥과 협의 필요
+- adiscope_sub_domain: 옵션값 (오퍼월 상세페이지 이동 기능, 필요시 담당자 전달 예정)
 - adiscope_admob_id: admob을 접속 하기 위한 키
 - 프로젝트 파일 내에 {projectroot}/android/app/build.gradle 파일에 `manifestPlaceholders`, `implementation` 추가
 - Third Party 네트워크사들을 확인 후 필요한 네트워크사들만 추가

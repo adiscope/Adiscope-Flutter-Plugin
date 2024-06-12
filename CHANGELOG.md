@@ -1,3 +1,6 @@
+## 3.7.0
+* Android - https://github.com/adiscope/Adiscope-Android-Sample/releases/tag/3.7.0
+* iOS - https://github.com/adiscope/Adiscope-iOS-Sample/releases/tag/3.7.0
 ## 3.6.0
 * Flutter officially released
 ## 0.0.9
