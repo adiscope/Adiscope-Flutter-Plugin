@@ -73,15 +73,15 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.7.0'
+    implementation 'com.nps.adiscope:adiscopeCore:3.8.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.1'
+    implementation 'com.nps.adiscope:adapter.admob:22.3.0.4'            // admob
+    implementation 'com.nps.adiscope:adapter.max:12.3.1.0'              // max
+    implementation 'com.nps.adiscope:adapter.applovin:12.3.1.0'         // applovin
     implementation 'com.nps.adiscope:adapter.chartboost:9.3.1.0'        // chartboost
-    implementation 'com.nps.adiscope:adapter.unityads:4.6.1.0'          // unityads
-    implementation 'com.nps.adiscope:adapter.max:12.1.0.4'              // max
-    implementation 'com.nps.adiscope:adapter.applovin:12.1.0.1'         // applovin (waterfall adapter)
-    implementation 'com.nps.adiscope:adapter.admob:22.3.0.3'            // admob (use play-services-ads:22.3.0 dependency)
     implementation 'com.nps.adiscope:adapter.fan:6.13.7.1'              // fan
-    implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista (use androidx)
+    implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista
     implementation "com.nps.adiscope:adapter.pangle:5.6.0.3.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.1.0.0'            // vungle (use androidx)
+    implementation 'com.nps.adiscope:adapter.vungle:7.3.2.0'            // vungle
+    implementation 'com.nps.adiscope:adapter.unityads:4.6.1.0'          // unityads
 }

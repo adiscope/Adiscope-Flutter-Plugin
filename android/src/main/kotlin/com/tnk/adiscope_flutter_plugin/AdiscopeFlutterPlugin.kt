@@ -110,8 +110,13 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     } else if (call.method == "showOfferwall") {
       if (mOfferwallAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
-        var offerwallFilterTabs = call.argument("offerwallFilterTabs") as? Array<String> ?: arrayOf()
-        var resultValue = mOfferwallAd?.show(mActivity, unitId, offerwallFilterTabs)
+        var offerwallFilterTabs = call.argument<List<String>>("offerwallFilterTabs")
+        var resultValue = false;
+        if (offerwallFilterTabs != null) {
+          resultValue = mOfferwallAd?.show(mActivity, unitId, offerwallFilterTabs.toTypedArray()) ?: false
+        } else {
+          resultValue = mOfferwallAd?.show(mActivity, unitId, arrayOf()) ?: false
+        }
         result.success(resultValue)
       } else {
         result.success(false)
@@ -120,8 +125,13 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       if (mOfferwallAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         var itemId = call.argument("itemId") as? String ?: "0"
-        var offerwallFilterTabs = call.argument("offerwallFilterTabs") as? Array<String> ?: arrayOf()
-        var resultValue = mOfferwallAd?.showDetail(mActivity, unitId, offerwallFilterTabs, itemId.toInt())
+        var offerwallFilterTabs = call.argument<List<String>>("offerwallFilterTabs")
+        var resultValue = false;
+        if (offerwallFilterTabs != null) {
+          resultValue = mOfferwallAd?.showDetail( mActivity, unitId, offerwallFilterTabs.toTypedArray(), itemId.toInt()) ?: false
+        } else {
+          resultValue = mOfferwallAd?.showDetail( mActivity, unitId, arrayOf(), itemId.toInt()) ?: false
+        }
         result.success(resultValue)
       } else {
         result.success(false)
@@ -199,9 +209,13 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       }
     } else if (call.method == "preLoadRewardedInterstitial") {
       if (mRewardedInterstitialAd != null) {
-        var unitIds = call.argument("unitIds") as? Array<String> ?: arrayOf()
-        mRewardedInterstitialAd?.preloadUnit(unitIds)
-        result.success(true)
+        val unitIds = call.argument<List<String>>("unitIds")
+        if (unitIds != null) {
+          mRewardedInterstitialAd?.preloadUnit(unitIds.toTypedArray())
+          result.success(true)
+        } else {
+          result.success(false)
+        }
       } else {
         result.success(false)
       }

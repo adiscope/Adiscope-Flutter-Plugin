@@ -1,8 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.7.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.7.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-3.7.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.7.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-3.8.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 15
@@ -51,16 +52,16 @@ flutter pub add adiscope_flutter_plugin
 ```ruby
 flutter pub add adiscope_flutter_plugin:3.6.0
 ```
-- 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치
-<br/><br/>
+- 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
+<br/><br/><br/>
 
 ### 2. Setup Android
 #### A. Setup AndroidManifest
 ```xml
 <application>
-    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="${adiscope_admob_id}"/>
     <meta-data android:name="adiscope_media_id" android:value="${adiscope_media_id}"/>
     <meta-data android:name="adiscope_media_secret" android:value="${adiscope_media_secret}"/>
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="${adiscope_admob_id}"/>
 </application>
 ```
 - Android 프로젝트의 `AndroidManifest.xml`파일에 다음과 같은 설정
@@ -75,6 +76,8 @@ allprojects {
         maven { url 'https://repository.adiscope.com/repository/adiscope/' }
         maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" }                                 // max 연동 시 추가
         maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" }                       // max 연동 시 추가
+	maven { url "https://artifactory.bidmachine.io/bidmachine" }                                  // max 연동 시 추가
+	maven { url "https://maven.ogury.co" }                                                        // max 연동 시 추가
         maven { url "https://artifact.bytedance.com/repository/pangle" }                              // max 혹은 pangle 연동 시 추가
         maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 혹은 mobvista 연동 시 추가
         maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' }                           // chartboost 연동 시 추가
@@ -99,17 +102,17 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.7.0'
+    implementation 'com.nps.adiscope:adiscopeCore:3.8.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.1'
     implementation 'com.nps.adiscope:adapter.chartboost:9.3.1.0'        // chartboost
     implementation 'com.nps.adiscope:adapter.unityads:4.6.1.0'          // unityads
-    implementation 'com.nps.adiscope:adapter.max:12.1.0.4'              // max
-    implementation 'com.nps.adiscope:adapter.applovin:12.1.0.1'         // applovin
-    implementation 'com.nps.adiscope:adapter.admob:22.3.0.3'            // admob (use play-services-ads:22.3.0 dependency)
+    implementation 'com.nps.adiscope:adapter.max:12.3.1.0'              // max
+    implementation 'com.nps.adiscope:adapter.applovin:12.3.1.0'         // applovin
+    implementation 'com.nps.adiscope:adapter.admob:22.3.0.4'            // admob (use play-services-ads:22.3.0 dependency)
     implementation 'com.nps.adiscope:adapter.fan:6.13.7.1'              // fan
     implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista (use androidx)
     implementation "com.nps.adiscope:adapter.pangle:5.6.0.3.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.1.0.0'            // vungle (use androidx)
+    implementation 'com.nps.adiscope:adapter.vungle:7.3.2.0'            // vungle (use androidx)
 }
 ```
 - 애디스콥 측에 media_id 와 media_secret, sub_domain 문의!
@@ -120,8 +123,8 @@ dependencies {
 - 프로젝트 파일 내에 {projectroot}/android/app/build.gradle 파일에 `manifestPlaceholders`, `implementation` 추가
 - Third Party 네트워크사들을 확인 후 필요한 네트워크사들만 추가
 - 특정 버전의 adapter들 버전을 확인 방법
-  - `Releases`에서 `Source Code` 파일 다운로드 후 `README.md` 파일 확인
-<br/><br/>
+  - `Releases`에서 `Source Code` 파일 다운로드 후 `README.md` 파일 확인    
+<br/><br/><br/>
 
 ### 3. Setup iOS
 #### A. Setup Podfile
@@ -129,16 +132,16 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeMediaAdManager', '3.6.0'    // admanager
-  pod 'AdiscopeMediaAdMob', '3.7.0'        // admob
-  pod 'AdiscopeMediaAppLovin', '3.6.1'     // applovin
-  pod 'AdiscopeMediaChartBoost', '3.6.0'   // chartboost
-  pod 'AdiscopeMediaFAN', '3.6.0'          // fan
-  pod 'AdiscopeMediaMax', '3.6.1'          // max
-  pod 'AdiscopeMediaMobVista', '3.6.0'     // mobvista
-  pod 'AdiscopeMediaPangle', '3.6.0'       // pangle
-  pod 'AdiscopeMediaUnityAds', '3.6.0'     // unityads
-  pod 'AdiscopeMediaVungle', '3.6.0'       // vungle
+  pod 'AdiscopeMediaAdManager', '3.8.0'    // admanager
+  pod 'AdiscopeMediaAdMob', '3.8.0'        // admob
+  pod 'AdiscopeMediaAppLovin', '3.8.0'     // applovin
+  pod 'AdiscopeMediaChartBoost', '3.8.0'   // chartboost
+  pod 'AdiscopeMediaFAN', '3.8.0'          // fan
+  pod 'AdiscopeMediaMax', '3.8.0'          // max
+  pod 'AdiscopeMediaMobVista', '3.8.0'     // mobvista
+  pod 'AdiscopeMediaPangle', '3.8.0'       // pangle
+  pod 'AdiscopeMediaUnityAds', '3.8.0'     // unityads
+  pod 'AdiscopeMediaVungle', '3.8.0'       // vungle
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가
@@ -151,7 +154,7 @@ end
 - 프로젝트 파일 내에 {projectroot}/ios/Runner/Info.plist 파일에 추가
 
 ##### 가. AdiscopeMediaId, AdiscopeMediaSecret 추가
-```xml
+```xml
 <key>AdiscopeMediaId</key>
 <string>{media id 기입 필요}</string>
 <key>AdiscopeMediaSecret</key>
@@ -167,7 +170,7 @@ end
 - ex : Some ad content may require access to the user tracking.
 <br/>
 
-##### 다. SKAdNetwork 추가 ([Download](https://github.com/adiscope/Adiscope-iOS-Sample/releases/download/3.2.0/AdiscopeSkAdNetworks.plist))
+##### 다. SKAdNetwork 추가 ([Download](https://github.com/adiscope/Adiscope-iOS-Sample/releases/download/3.8.0/AdiscopeSkAdNetworks.plist))
 ```xml
 <dict>
     <key>SKAdNetworkItems</key>
@@ -179,7 +182,7 @@ end
     </array>
 </dict>
 ```
-- SKAdNetwork Download File 내용 추가 ([Download](https://github.com/adiscope/Adiscope-iOS-Sample/releases/download/3.2.0/AdiscopeSkAdNetworks.plist))
+- SKAdNetwork Download File 내용 추가 ([Download](https://github.com/adiscope/Adiscope-iOS-Sample/releases/download/3.8.0/AdiscopeSkAdNetworks.plist))
 <br/>
 
 ##### 라. Admob 사용 시 추가
@@ -197,21 +200,23 @@ end
 <key>AppLovinSdkKey</key>
 <string>{applovin_app_id 기입 필요}</string>
 ```
-- AppLovinSdkKey의 Key 설정
-<br/><br/><br/>
+- AppLovinSdkKey의 Key 설정    
+<br/><br/><br/><br/>
 
 ## Adiscope Overview
 ### 1. Import
 ```dart
 import 'package:adiscope_flutter_plugin/adiscope_flutter_plugin.dart';
 ```
-<br/>
+- Adiscope을 사용하기 위해서 추가    
+<br/><br/><br/>
 
 ### 2. AdiscopeFlutterPlugin 생성
 ```dart
 final _adiscopeFlutterPlugin = AdiscopeFlutterPlugin();
 ```
-<br/>
+- Adiscope을 사용하기 위해서 추가    
+<br/><br/><br/>
 
 ### 3. Initialize
 #### A. Code에서 Media 없이 Initialize 방법
@@ -249,8 +254,8 @@ Future<void> initialize() async {
 ```
 - App 실행 시 1회 설정 권장
 - Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
-  - ${정책\ {\color{red}미준수시}}\ 광고에\ 제한이\ 생김$ (광고 물량 축소 및 오퍼월 진입 불가)
-<br/>
+  - ${정책\ {\color{red}미준수시}}\ 광고에\ 제한이\ 생김$ (광고 물량 축소 및 오퍼월 진입 불가) 
+<br/><br/><br/>
 
 ### 4. 사용자 정보 설정
 ```dart
@@ -260,8 +265,8 @@ Future<void> setUserId() async {
 }
 ```
 - `Offerwall`, `RewardedVideo`, `RewardedInterstitial`를 사용하기 위해 ${\color{red}필수}$ 설정
-- 64자까지 설정 가능
-<br/>
+- 64자까지 설정 가능 
+<br/><br/><br/>
 
 ### 5. Offerwall
 #### A. Show
@@ -272,6 +277,7 @@ Future<void> showOfferwall() async {
 }
 ```
 - `Show`가 실행되면 (return값이 True일 경우) `onOfferwallAdOpened`와 `onOfferwallAdFailedToShow` 중 하나가 항상 호출되고, `onOfferwallAdOpened`가 호출되었다면 이후 `onOfferwallAdClosed`가 항상 호출
+<br/>
 
 #### B. Callbacks
 ```dart
@@ -284,8 +290,10 @@ AdiscopeListener.setupOfferwallListener(
     }
 );
 ```
+- [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
 - Show 성공 시 `onOfferwallAdOpened`, `onOfferwallAdClosed` callback이 순차적으로 호출
-<br/>
+- `onOfferwallAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
+<br/><br/><br/>
 
 ### 6. RewardedVideo
 #### A. Load
@@ -295,16 +303,18 @@ Future<void> rewardedVideoLoad() async {
     bool result = await _adiscopeFlutterPlugin.rewardedVideoLoad(unitId) ?? false;
 }
 ```
-- 해당 유닛에 속한 ad 네크워크들의 광고를 load
-- `onRewardedVideoAdLoaded` callback이 호출되면 load가 완료
+- 해당 유닛에 속한 ad 네크워크들의 광고를 Load
+- `onRewardedVideoAdLoaded` callback이 호출되면 Load가 완료
 - `Load`가 실행되면 `onRewardedVideoAdLoaded` 와 `onRewardedVideoAdFailedToLoad` 중 하나의 callback은 항상 호출
 - Rewarded Video Ad의 `Load`와 `Show`는 pair로 호출
 - Load를 한 후 Show를 하고, 광고를 Show한 후에는 다시 Load를 하여 다음 번 Show를 준비
 - Load & Show 후 다시 Load를 하려 할 때 Load 는 Show 이후 언제든 호출가능
-- 광고가 Show되는 동안 다음 광고를 load를 할 수도 있지만 이는 사용하는 mediation ad network company의 종류에 따라 달라질 수 있으므로 항상 보장되는 동작은 아님
+  - 광고가 Show되는 동안 다음 광고를 Load를 할 수도 있지만 이는 사용하는 mediation ad network company의 종류에 따라 달라질 수 있으므로 항상 보장되는 동작은 아님
 - Show의 callback 인 `onRewardedVideoAdClosed`에서 다시 Load를 하는 것을 권장 
   - Abusing 방지를 위해 Rewarded Video Ad를 연속으로 보여주는 것을 제한하여 한번 광고를 보고 나면 일정 시간이 지난 후에 다시 Show를 할 수 있도로록 Admin page에서 서비스 설정 가능
 - Load 동작 수행 중에 Load를 여러 번 호출할 수 없음
+- (**Optional**) Load의 시간이 필요해 ProgressBar 노출 추천
+<br/>
 
 #### B. IsLoaded
 ```dart
@@ -318,7 +328,8 @@ Future<void> rewardedVideoIsLoad() async {
     }
 }
 ```
-- 광고가 load 되었는지 상태를 확인
+- 광고가 Load 되었는지 상태를 확인
+<br/>
 
 #### C. Show
 ```dart
@@ -337,14 +348,35 @@ Future<void> rewardedVideoShow() async {
     }
 }
 ```
-- 마지막으로 load된 광고를 사용자에게 보여줌
-- Show 호출 후에는 다시 load를 호출
+- 마지막으로 Load된 광고를 사용자에게 보여줌
+- Show 호출 후에는 다시 Load를 호출 할 수 있음
 - Show method는 중복하여 호출 할 수 없음
 - `Show`가 실행되면 (return값이 True일 경우) `onRewardedVideoAdOpened`와 `onRewardedVideoAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedVideoAdOpened`가 호출되었다면 이후 `onRewardedVideoAdClosed`가 항상 호출
 - Rewarded Video Ad의 `Load`와 `Show`는 pair로 호출
     - Load를 한 후 Show를 하고, 광고를 Show한 후에는 다시 Load를 하여 다음번 Show를 준비
+<br/>
 
 #### D. Callback Reward
+```dart
+AdiscopeListener.setupRewardedVideoListener(
+    onRewarded: (unitId, currencyUnit, amount) {
+	// unitId - 해당 rewarded video ad의 unitId (rewardedVideoShow 시 입력한 값)
+    	// currencyUnit - 보상 type
+    	// amount - 보상의 양
+    },
+);
+```
+- [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+- 보상이 주어져야 할 경우 `onRewarded`가 호출되며 그 parameter로 관련 정보가 전달
+- 이 보상 정보를 바탕으로 게임 내에서 보상을 지급
+- `onRewarded`는 보통 `onRewardedVideoAdOpened` 와 `onRewardedVideoAdClosed` 사이에 호출되는 경우가 많으나 광고 System의 상황에 따라 달라 질 수 있음
+- `onRewarded`가 호출되지 않는 경우도 존재할 수 있음(Reward 설정을 Server-to-server로 하였다면, Video 시청 후에는 `OnRewarded`가 호출되지 않음)
+- Reward 정보는 abusing 방지를 위해서 Server-to-server 방식으로 전달 받는 것을 권장
+- Server-to-server 방식을 선택하더라도 보상이 전달 될 시에는 `onRewarded`가 호출
+  - 이때는 Server를 통해 전달받은 정보를 기준으로 처리하고, `onRewarded`를 통해 전달받은 정보는 검증용으로 사용하거나 무시하도록 함
+<br/>
+
+#### D. Callback Others
 ```dart
 AdiscopeListener.setupRewardedVideoListener(
     onRewardedVideoAdLoaded: (unitId) {
@@ -355,25 +387,15 @@ AdiscopeListener.setupRewardedVideoListener(
     },
     onRewardedVideoAdClosed: (unitId) {
     },
-    onRewarded: (unitId, currencyUnit, amount) {
-	// unitId - 해당 rewarded video ad의 unitId (rewardedVideoShow 시 입력한 값)
-    	// currencyUnit - 보상 type
-    	// amount - 보상의 양
-    },
     onRewardedVideoAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
     }
 );
 ```
-- 보상이 주어져야 할 경우 `onRewarded`가 호출되며 그 parameter로 관련 정보가 전달
-- 이 보상 정보를 바탕으로 게임 내에서 보상을 지급
-- `onRewarded`는 보통 `onRewardedVideoAdOpened` 와 `onRewardedVideoAdClosed` 사이에 호출되는 경우가 많으나 광고 System의 상황에 따라 달라 질 수 있음
-- `onRewarded`가 호출되지 않는 경우도 존재할 수 있음(Reward 설정을 Server-to-server로 하였다면, Video 시청 후에는 `OnRewarded`가 호출되지 않음)
-- Reward 정보는 abusing 방지를 위해서 Server-to-server 방식으로 전달 받는 것을 권장
-- Server-to-server 방식을 선택하더라도 보상이 전달 될 시에는 `onRewarded`가 호출
-  - 이때는 Server를 통해 전달받은 정보를 기준으로 처리하고, `onRewarded`를 통해 전달받은 정보는 검증용으로 사용하거나 무시하도록 함
+- [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
 - `Load` 성공 시 `onRewardedVideoAdLoaded`, 실패 시 `onRewardedVideoAdFailedToLoad`가 호출
 - `Show` 성공 시 `onRewardedVideoAdOpened`, `onRewardedVideoAdClosed`가 순차적으로 호출되고, 실패시 `onRewardedVideoAdFailedToShow`가 호출
-<br/>
+- `onRewardedVideoAdFailedToLoad`, `onRewardedVideoAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
+<br/><br/><br/>
 
 ### 7. Interstitial
 #### A. Load
@@ -383,9 +405,14 @@ Future<void> interstitialLoad() async {
     bool result = await _adiscopeFlutterPlugin.interstitialLoad(unitId) ?? false;
 }
 ```
-- 해당 유닛에 속한 ad 네크워크들의 광고를 load
-- `onInterstitialAdLoaded` callback이 호출되면 load가 완료
+- 해당 유닛에 속한 ad 네크워크들의 광고를 Load
+- `onInterstitialAdLoaded` callback이 호출되면 Load가 완료
+- Interstitial의 `Load`와 `Show`는 pair로 호출
+- Load를 한 후 Show를 하고, 광고를 Show한 후에는 다시 Load를 하여 다음 번 Show를 준비
+- 광고가 Show되는 동안 다음 광고를 load를 할 수도 있지만 이는 사용하는 mediation ad network company의 종류에 따라 달라질 수 있으므로 항상 보장되는 동작은 아님
 - Load 동작 수행 중에 Load를 여러 번 호출할 수 없음
+- (**Optional**) Load의 시간이 필요해 ProgressBar 노출 추천
+<br/>
 
 #### B. IsLoaded
 ```dart
@@ -399,7 +426,8 @@ Future<void> interstitialIsLoad() async {
     }
 }
 ```
-- 광고가 load 되었는지 상태를 확인
+- 광고가 Load 되었는지 상태를 확인
+<br/>
 
 #### C. Show
 ```dart
@@ -418,12 +446,13 @@ Future<void> interstitialShow() async {
     }
 }
 ```
-- 마지막으로 load된 광고를 사용자에게 보여줌
-- Show 호출 후에는 다시 load를 호출
+- 마지막으로 Load된 광고를 사용자에게 보여줌
+- Show 호출 후에는 다시 Load를 호출 할 수 있음
 - Show method는 중복하여 호출 할 수 없음
 - `Show`가 실행되면 (return값이 True일 경우) `onInterstitialAdLoaded`와 `onInterstitialAdFailedToLoad` 중 하나가 항상 호출되고, `onInterstitialAdOpened`가 호출되었다면 이후 `onInterstitialAdClosed`가 항상 호출
 - Rewarded Video Ad의 `Load`와 `Show`는 pair로 호출
     - Load를 한 후 Show를 하고, 광고를 Show한 후에는 다시 Load를 하여 다음번 Show를 준비
+<br/>
 
 #### D. Callback
 ```dart
@@ -440,9 +469,11 @@ AdiscopeListener.setupInterstitialListener(
     }
 );
 ```
+- [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
 - `Load` 성공 시 `onInterstitialAdLoaded`, 실패 시 `onInterstitialAdFailedToLoad`가 호출
-- `Show` 성공 시 `onInterstitialAdOpened`, `onInterstitialAdClosed`가 순차적으로 호출되고, 실패시 `onInterstitialAdFailedToShow`가 호출
-<br/>
+- `Show` 성공 시 `onInterstitialAdOpened`, `onInterstitialAdClosed`가 순차적으로 호출되고, 실패 시 `onInterstitialAdFailedToShow`가 호출 
+- `onInterstitialAdFailedToLoad`, `onInterstitialAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
+<br/><br/><br/>
 
 ### 8. RewardedInterstitial
 #### A. PreLoadAll
@@ -453,6 +484,7 @@ Future<void> preLoadAllRewardedInterstitial() async {
 ```
 - Initialize Call Back 후 1회 설정 권장
 - 관리자가 설정된 활성화된 모든 유닛들을 Load 진행
+<br/>
 
 #### B. Unit 지정 PreLoad
 ```dart
@@ -465,6 +497,7 @@ Future<void> preLoadRewardedInterstitial() async {
 ```
 - Initialize Call Back 후 1회 설정 권장
 - 입력된 유닛들을 Load 진행
+<br/>
 
 #### C. Show
 ```dart
@@ -477,8 +510,29 @@ Future<void> showRewardedInterstitial(String unitId) async {
 - showRewardedInterstitial method는 중복하여 호출 할 수 없음
 - `showRewardedInterstitial`가 실행되면 (return값이 True일 경우) `onRewardedInterstitialAdSkip`와 `onRewardedInterstitialAdOpened`와 `onRewardedInterstitialAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedInterstitialAdOpened`가 호출되었다면 이후 `onRewardedInterstitialAdClosed`가 항상 호출
 - `onRewardedInterstitialAdClosed`와 `onRewardedInterstitialAdFailedToShow`가 호출 되면 내부에서 해당 유닛을 자동 Load 시킴
+<br/>
 
-#### D. Callbacks
+#### D. Callbacks Reward
+```dart
+AdiscopeListener.setupRewardedInterstitialListener(
+    onRewardedInterstitialRewarded: (unitId, currencyUnit, amount) {
+	// unitId - 해당 rewarded video ad의 unitId (ShowRewardedInterstitial 시 입력한 값)
+    	// currencyUnit - 보상 type
+    	// amount - 보상의 양
+    },
+);
+```
+- [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+- 보상이 주어져야 할 경우 `onRewardedInterstitialRewarded`가 호출되며 그 parameter로 관련 정보가 전달
+- 이 보상 정보를 바탕으로 게임 내에서 보상을 지급
+- `onRewardedInterstitialRewarded`는 보통 `onRewardedInterstitialAdOpened` 와 `onRewardedInterstitialAdClosed` 사이에 호출되는 경우가 많으나 광고 System의 상황에 따라 달라 질 수 있음
+- `onRewardedInterstitialRewarded`가 호출되지 않는 경우도 존재할 수 있음(Reward 설정을 Server-to-server로 하였다면, Video 시청 후에는 `OnRewarded`가 호출되지 않음)
+- Reward 정보는 abusing 방지를 위해서 Server-to-server 방식으로 전달 받는 것을 권장
+- Server-to-server 방식을 선택하더라도 보상이 전달 될 시에는 `onRewardedInterstitialRewarded`가 호출
+  - 이때는 Server를 통해 전달받은 정보를 기준으로 처리하고, `onRewardedInterstitialRewarded`를 통해 전달받은 정보는 검증용으로 사용하거나 무시하도록 함
+<br/>
+
+#### D. Callbacks Others
 ```dart
 AdiscopeListener.setupRewardedInterstitialListener(
     onRewardedInterstitialAdSkip: (unitId) {
@@ -487,24 +541,15 @@ AdiscopeListener.setupRewardedInterstitialListener(
     },
     onRewardedInterstitialAdClosed: (unitId) {
     },
-    onRewardedInterstitialRewarded: (unitId, currencyUnit, amount) {
-	// unitId - 해당 rewarded video ad의 unitId (ShowRewardedInterstitial 시 입력한 값)
-    	// currencyUnit - 보상 type
-    	// amount - 보상의 양
-    },
     onRewardedInterstitialAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
     }
 );
 ```
-- 보상이 주어져야 할 경우 `onRewardedInterstitialRewarded`가 호출되며 그 parameter로 관련 정보가 전달
-- 이 보상 정보를 바탕으로 게임 내에서 보상을 지급
-- `onRewardedInterstitialRewarded`는 보통 `onRewardedInterstitialAdOpened` 와 `onRewardedInterstitialAdClosed` 사이에 호출되는 경우가 많으나 광고 System의 상황에 따라 달라 질 수 있음
-- `onRewardedInterstitialRewarded`가 호출되지 않는 경우도 존재할 수 있음(Reward 설정을 Server-to-server로 하였다면, Video 시청 후에는 `OnRewarded`가 호출되지 않음)
-- Reward 정보는 abusing 방지를 위해서 Server-to-server 방식으로 전달 받는 것을 권장
-- Server-to-server 방식을 선택하더라도 보상이 전달 될 시에는 `onRewardedInterstitialRewarded`가 호출
-  - 이때는 Server를 통해 전달받은 정보를 기준으로 처리하고, `onRewardedInterstitialRewarded`를 통해 전달받은 정보는 검증용으로 사용하거나 무시하도록 함
-- `showRewardedInterstitial` Skip 시 `onRewardedInterstitialAdSkip`, 성공 시 `onRewardedInterstitialAdOpened`, `onRewardedInterstitialAdClosed`가 순차적으로 호출되고, 실패시 `onRewardedInterstitialAdFailedToShow`가 호출
-<br/>
+- [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+- Show 성공 후 Skip 시 `onRewardedInterstitialAdSkip`가 호출
+- Show 성공 후 영상 시청 시 `onRewardedInterstitialAdOpened`, `onRewardedInterstitialAdClosed`가 순차적으로 호출되고, 실패 시 `onRewardedInterstitialAdFailedToShow`가 호출 
+- `onRewardedInterstitialAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
+<br/><br/><br/>
 
 ### 9. Etc
 #### A. Adiscope SDK Version
@@ -514,6 +559,7 @@ Future<void> getSDKVersion() async {
 }
 ```
 - Android와 iOS의 Core SDK Version 확인
+<br/>
 
 #### B. Adiscope Network Versions
 ```dart
@@ -522,6 +568,7 @@ Future<void> getNetworkVersions() async {
 }
 ```
 - Android와 iOS의 Third Party SDK Versions 확인
+<br/>
 
 #### C. Volume
 ```dart
@@ -536,8 +583,8 @@ Future<void> setVolumeOff() async {
     }
 }
 ```
-- `Admob`, `AppLovin`, `Mintegral`, `Verve` 만 적용 가능
-<br/><br/>
+- `Admob`, `AppLovin`, `Mintegral`, `Verve` 만 적용 가능 
+<br/><br/><br/>
 
 ## 웹사이트 필수 등록 (Android 전용)
 - 관리자에게 전달받은 `app-ads.txt`를 웹사이트에 등록
