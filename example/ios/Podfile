@@ -31,16 +31,16 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  pod 'AdiscopeMediaAdManager', '3.8.0'
-  pod 'AdiscopeMediaAdMob', '3.8.0'
-  pod 'AdiscopeMediaAppLovin', '3.8.0'
-  pod 'AdiscopeMediaChartBoost', '3.8.0'
-  pod 'AdiscopeMediaFAN', '3.8.0'
-  pod 'AdiscopeMediaMax', '3.8.0'
-  pod 'AdiscopeMediaMobVista', '3.8.0'
-  pod 'AdiscopeMediaPangle', '3.8.0'
-  pod 'AdiscopeMediaUnityAds', '3.8.0'
-  pod 'AdiscopeMediaVungle', '3.8.0'
+  pod 'AdiscopeMediaAdManager', '3.8.1'
+  pod 'AdiscopeMediaAdMob', '3.8.1'
+  pod 'AdiscopeMediaAppLovin', '3.8.1'
+  pod 'AdiscopeMediaChartBoost', '3.8.1'
+  pod 'AdiscopeMediaFAN', '3.8.1'
+  pod 'AdiscopeMediaMax', '3.8.1'
+  pod 'AdiscopeMediaMobVista', '3.8.1'
+  pod 'AdiscopeMediaPangle', '3.8.1'
+  pod 'AdiscopeMediaUnityAds', '3.8.1'
+  pod 'AdiscopeMediaVungle', '3.8.1'
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do

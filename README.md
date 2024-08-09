@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-3.8.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.1-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-3.8.1-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.1-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.1-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.1-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 15
@@ -29,6 +29,7 @@
 - [RewardedInterstitial](#8-rewardedinterstitial)
 - [Etc](#9-etc)
 #### [웹사이트 필수 등록](#웹사이트-필수-등록-android-전용)
+#### [Adiscope Server 연동하기](./docs/reward_callback_info.md)
 #### [Privacy Manifest 정책 적용](#privacy-manifest-정책-적용-ios-전용)
 #### [iOS 16+ Offerwall 세로 모드 전환 적용 방법(가로모드 전용일 경우)](./docs/apple_orientations.md)
 #### [Adiscope Error Information](./docs/error_info.md)
@@ -589,6 +590,10 @@ Future<void> setVolumeOff() async {
 ## 웹사이트 필수 등록 (Android 전용)
 - 관리자에게 전달받은 `app-ads.txt`를 웹사이트에 등록
 > - [app-ads.txt 등록 방법 및 정보](https://github.com/adiscope/Adiscope-Android-Sample/docs/app-ads.txt.md)
+<br/><br/>
+
+## Adiscope Server 연동하기
+> - [연동하기](./docs/reward_callback_info.md)
 <br/><br/>
 
 ## Privacy Manifest 정책 적용 (iOS 전용)

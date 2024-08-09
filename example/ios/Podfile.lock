@@ -1,60 +1,69 @@
 PODS:
-  - Adiscope (3.7.0)
-  - adiscope_flutter_plugin (3.7.0):
-    - Adiscope (= 3.7.0)
+  - Adiscope (3.8.1)
+  - adiscope_flutter_plugin (3.8.1):
+    - Adiscope (= 3.8.1)
     - Flutter
-  - AdiscopeMediaAdManager (3.6.0):
+  - AdiscopeMediaAdManager (3.8.1):
     - Google-Mobile-Ads-SDK (= 11.2.0)
-  - AdiscopeMediaAdMob (3.7.0):
+  - AdiscopeMediaAdMob (3.8.1):
     - Google-Mobile-Ads-SDK (= 11.2.0)
     - GoogleMobileAdsMediationFacebook (= 6.15.0.0)
     - GoogleMobileAdsMediationMintegral (= 7.6.1.0)
-    - GoogleMobileAdsMediationPangle (= 5.8.0.7.0)
-    - GoogleMobileAdsMediationVungle (= 7.2.2.1)
-  - AdiscopeMediaAppLovin (3.6.1):
+    - GoogleMobileAdsMediationPangle (= 6.1.0.5.0)
+    - GoogleMobileAdsMediationVungle (= 7.4.0.0)
+  - AdiscopeMediaAppLovin (3.8.1):
     - AppLovinSDK (= 12.4.1)
-  - AdiscopeMediaChartBoost (3.6.0):
+  - AdiscopeMediaChartBoost (3.8.1):
     - ChartboostSDK (= 9.6.0)
-  - AdiscopeMediaFAN (3.6.0):
+  - AdiscopeMediaFAN (3.8.1):
     - FBAudienceNetwork (= 6.15.0)
-  - AdiscopeMediaMax (3.6.1):
-    - Ads-Global (= 5.8.0.7)
+  - AdiscopeMediaMax (3.8.1):
+    - Ads-Global (= 6.1.0.5)
+    - AmazonPublisherServicesSDK (= 4.9.6)
     - AppLovinSDK (= 12.4.1)
+    - BidMachine (= 2.7.0)
     - FBAudienceNetwork (= 6.15.0)
+    - Fyber_Marketplace_SDK (= 8.3.1)
     - Google-Mobile-Ads-SDK (= 11.2.0)
     - InMobiSDK (= 10.7.1)
     - MintegralAdSDK (= 7.6.1)
     - MintegralAdSDK/BidSplashAd (= 7.6.1)
     - MintegralAdSDK/RewardVideoAd (= 7.6.1)
-    - VungleAds (= 7.2.2)
-  - AdiscopeMediaMobVista (3.6.0):
+    - MolocoSDKiOS (= 3.0.0)
+    - OgurySdk (= 4.4.0)
+    - UnityAds (= 4.10.0)
+    - VungleAds (= 7.4.0)
+  - AdiscopeMediaMobVista (3.8.1):
     - MintegralAdSDK (= 7.6.1)
     - MintegralAdSDK/RewardVideoAd (= 7.6.1)
-  - AdiscopeMediaPangle (3.6.0):
-    - Ads-Global (= 5.8.0.7)
-  - AdiscopeMediaUnityAds (3.6.0):
+  - AdiscopeMediaPangle (3.8.1):
+    - Ads-Global (= 6.1.0.5)
+  - AdiscopeMediaUnityAds (3.8.1):
     - UnityAds (= 4.10.0)
-  - AdiscopeMediaVungle (3.6.0):
-    - VungleAds (= 7.2.2)
-  - Ads-Global (5.8.0.7):
-    - Ads-Global/BUAdSDK (= 5.8.0.7)
-  - Ads-Global/BUAdSDK (5.8.0.7):
-    - Ads-Global/BURelyAdSDK
+  - AdiscopeMediaVungle (3.8.1):
+    - VungleAds (= 7.4.0)
+  - Ads-Global (6.1.0.5):
+    - Ads-Global/BUAdSDK (= 6.1.0.5)
+  - Ads-Global/BUAdSDK (6.1.0.5):
     - Ads-Global/Dep_Accurate
-  - Ads-Global/BURelyAdSDK (5.8.0.7)
-  - Ads-Global/Dep_Accurate (5.8.0.7):
-    - BURelyFoundation_Global/Pangle (= 0.2.1.4)
+  - Ads-Global/Dep_Accurate (6.1.0.5):
+    - BURelyFoundation_Global/Pangle (= 1.0.0.0)
+  - AmazonPublisherServicesSDK (4.9.6)
   - AppLovinSDK (12.4.1)
-  - BURelyFoundation_Global/AFNetworking (0.2.1.4)
-  - BURelyFoundation_Global/APM (0.2.1.4)
-  - BURelyFoundation_Global/Foundation (0.2.1.4):
+  - BidMachine (2.7.0):
+    - BidMachine/Static (= 2.7.0)
+  - BidMachine/Static (2.7.0):
+    - StackModules/Static (~> 2.0.0)
+  - BURelyFoundation_Global/AFNetworking (1.0.0.0)
+  - BURelyFoundation_Global/APM (1.0.0.0)
+  - BURelyFoundation_Global/Foundation (1.0.0.0):
     - BURelyFoundation_Global/NETWork
-  - BURelyFoundation_Global/Gecko (0.2.1.4):
+  - BURelyFoundation_Global/Gecko (1.0.0.0):
     - BURelyFoundation_Global/Foundation
-  - BURelyFoundation_Global/Header (0.2.1.4)
-  - BURelyFoundation_Global/NETWork (0.2.1.4):
+  - BURelyFoundation_Global/Header (1.0.0.0)
+  - BURelyFoundation_Global/NETWork (1.0.0.0):
     - BURelyFoundation_Global/AFNetworking
-  - BURelyFoundation_Global/Pangle (0.2.1.4):
+  - BURelyFoundation_Global/Pangle (1.0.0.0):
     - BURelyFoundation_Global/AFNetworking
     - BURelyFoundation_Global/APM
     - BURelyFoundation_Global/Foundation
@@ -65,17 +74,18 @@ PODS:
     - BURelyFoundation_Global/YYModel
     - BURelyFoundation_Global/ZFPlayer
     - BURelyFoundation_Global/Zip
-  - BURelyFoundation_Global/SDWebImage (0.2.1.4):
+  - BURelyFoundation_Global/SDWebImage (1.0.0.0):
     - BURelyFoundation_Global/Foundation
-  - BURelyFoundation_Global/YYModel (0.2.1.4)
-  - BURelyFoundation_Global/ZFPlayer (0.2.1.4):
+  - BURelyFoundation_Global/YYModel (1.0.0.0)
+  - BURelyFoundation_Global/ZFPlayer (1.0.0.0):
     - BURelyFoundation_Global/Foundation
     - BURelyFoundation_Global/Zip
-  - BURelyFoundation_Global/Zip (0.2.1.4):
+  - BURelyFoundation_Global/Zip (1.0.0.0):
     - BURelyFoundation_Global/Foundation
   - ChartboostSDK (9.6.0)
   - FBAudienceNetwork (6.15.0)
   - Flutter (1.0.0)
+  - Fyber_Marketplace_SDK (8.3.1)
   - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleMobileAdsMediationFacebook (6.15.0.0):
@@ -84,13 +94,13 @@ PODS:
   - GoogleMobileAdsMediationMintegral (7.6.1.0):
     - Google-Mobile-Ads-SDK (~> 11.0)
     - MintegralAdSDK/All (= 7.6.1)
-  - GoogleMobileAdsMediationPangle (5.8.0.7.0):
-    - Ads-Global (= 5.8.0.7)
+  - GoogleMobileAdsMediationPangle (6.1.0.5.0):
+    - Ads-Global (= 6.1.0.5)
     - Google-Mobile-Ads-SDK (~> 11.0)
-  - GoogleMobileAdsMediationVungle (7.2.2.1):
+  - GoogleMobileAdsMediationVungle (7.4.0.0):
     - Google-Mobile-Ads-SDK (~> 11.0)
-    - VungleAds (= 7.2.2)
-  - GoogleUserMessagingPlatform (2.4.0)
+    - VungleAds (= 7.4.0)
+  - GoogleUserMessagingPlatform (2.5.0)
   - InMobiSDK (10.7.1)
   - integration_test (0.0.1):
     - Flutter
@@ -145,21 +155,52 @@ PODS:
     - MintegralAdSDK/NativeAd
   - MintegralAdSDK/SplashAd (7.6.1):
     - MintegralAdSDK/NativeAd
+  - MolocoSDKiOS (3.0.0)
+  - OguryAds (3.7.0):
+    - OguryAds/OMID (= 3.7.0)
+    - OguryCore (= 1.4.1)
+  - OguryAds/OMID (3.7.0):
+    - OguryCore (= 1.4.1)
+  - OguryChoiceManager (4.3.0):
+    - OguryCore (= 1.4.1)
+  - OguryCore (1.4.1)
+  - OgurySdk (4.4.0):
+    - OguryCore (= 1.4.1)
+    - OgurySdk/OguryAds (= 4.4.0)
+    - OgurySdk/OguryChoiceManager (= 4.4.0)
+  - OgurySdk/OguryAds (4.4.0):
+    - OguryAds (= 3.7.0)
+    - OguryCore (= 1.4.1)
+  - OgurySdk/OguryChoiceManager (4.4.0):
+    - OguryChoiceManager (= 4.3.0)
+    - OguryCore (= 1.4.1)
+  - OMSDK_Appodeal (1.4.12)
+  - StackModules/Core-Static (2.0.0)
+  - StackModules/ProductPresentation-Static (2.0.0):
+    - StackModules/Core-Static
+  - StackModules/Rendering-Static (2.0.0):
+    - OMSDK_Appodeal (~> 1.4.12)
+    - StackModules/Core-Static
+    - StackModules/ProductPresentation-Static
+  - StackModules/Static (2.0.0):
+    - StackModules/Core-Static
+    - StackModules/ProductPresentation-Static
+    - StackModules/Rendering-Static
   - UnityAds (4.10.0)
-  - VungleAds (7.2.2)
+  - VungleAds (7.4.0)
 
 DEPENDENCIES:
   - adiscope_flutter_plugin (from `.symlinks/plugins/adiscope_flutter_plugin/ios`)
-  - AdiscopeMediaAdManager (= 3.6.0)
-  - AdiscopeMediaAdMob (= 3.7.0)
-  - AdiscopeMediaAppLovin (= 3.6.1)
-  - AdiscopeMediaChartBoost (= 3.6.0)
-  - AdiscopeMediaFAN (= 3.6.0)
-  - AdiscopeMediaMax (= 3.6.1)
-  - AdiscopeMediaMobVista (= 3.6.0)
-  - AdiscopeMediaPangle (= 3.6.0)
-  - AdiscopeMediaUnityAds (= 3.6.0)
-  - AdiscopeMediaVungle (= 3.6.0)
+  - AdiscopeMediaAdManager (= 3.8.1)
+  - AdiscopeMediaAdMob (= 3.8.1)
+  - AdiscopeMediaAppLovin (= 3.8.1)
+  - AdiscopeMediaChartBoost (= 3.8.1)
+  - AdiscopeMediaFAN (= 3.8.1)
+  - AdiscopeMediaMax (= 3.8.1)
+  - AdiscopeMediaMobVista (= 3.8.1)
+  - AdiscopeMediaPangle (= 3.8.1)
+  - AdiscopeMediaUnityAds (= 3.8.1)
+  - AdiscopeMediaVungle (= 3.8.1)
   - Flutter (from `Flutter`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
 
@@ -177,10 +218,13 @@ SPEC REPOS:
     - AdiscopeMediaUnityAds
     - AdiscopeMediaVungle
     - Ads-Global
+    - AmazonPublisherServicesSDK
     - AppLovinSDK
+    - BidMachine
     - BURelyFoundation_Global
     - ChartboostSDK
     - FBAudienceNetwork
+    - Fyber_Marketplace_SDK
     - Google-Mobile-Ads-SDK
     - GoogleMobileAdsMediationFacebook
     - GoogleMobileAdsMediationMintegral
@@ -189,6 +233,13 @@ SPEC REPOS:
     - GoogleUserMessagingPlatform
     - InMobiSDK
     - MintegralAdSDK
+    - MolocoSDKiOS
+    - OguryAds
+    - OguryChoiceManager
+    - OguryCore
+    - OgurySdk
+    - OMSDK_Appodeal
+    - StackModules
     - UnityAds
     - VungleAds
 
@@ -201,36 +252,46 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
-  Adiscope: 494ce32c71f38629e654fa92a73fd88d67d2b21a
-  adiscope_flutter_plugin: 90d9c8a71fc5f62403a660698c2a3f12cd9f222c
-  AdiscopeMediaAdManager: 532d546a2a49f24ef2811af6c74324ebbf6c9b79
-  AdiscopeMediaAdMob: 485c9e42d6e210a4699618253918cf0e535d4c5b
-  AdiscopeMediaAppLovin: ddae57ab46bbfff3dd3642342c4b7d8a16406058
-  AdiscopeMediaChartBoost: 2fa72778a26422db764582d13d8eb0957c804dc3
-  AdiscopeMediaFAN: 6498e181f9a84cc5063e5fe1f9a0780e8ce81073
-  AdiscopeMediaMax: 836c515acbd056251c227603e3f3ed7f61c1206d
-  AdiscopeMediaMobVista: 52f736b77b6f21ffec55fbd15ec653f73d4bbaf8
-  AdiscopeMediaPangle: 3d072221ffd3f083763f49aa513acda9efd7f1e1
-  AdiscopeMediaUnityAds: 668655372893aa60ea31f2e857bb92251cae7a69
-  AdiscopeMediaVungle: 03ba5c99162b642923ab7d69e4b93e1066a34c6d
-  Ads-Global: 2f19513311f4e360bcad037a2edf1dc2772ab224
+  Adiscope: b02cb93fa7c10939dbe294ee3c9f1cbb094490b3
+  adiscope_flutter_plugin: f0ebe28c3c091bdc59fc83ca42e7212a1702dc81
+  AdiscopeMediaAdManager: 730554a50deb6aa4ff227d08881f64c86d403f48
+  AdiscopeMediaAdMob: 8fe38354e75b449e997845fb8a5d95f2b5b54e1a
+  AdiscopeMediaAppLovin: c40e40d6243145fa6e77913af292d5951afc807c
+  AdiscopeMediaChartBoost: 8bcaf74833fbff904ca39856f4a761cb242ffc14
+  AdiscopeMediaFAN: 0cc96eb51fb8b3c22341d74775ac4f232e257240
+  AdiscopeMediaMax: cec3e34d305e53eabc1a39f63247f51cfcfd2d7d
+  AdiscopeMediaMobVista: 09ec90bd6232120fb86eb37e3b50cb531d67282b
+  AdiscopeMediaPangle: 8857777e3f152fe8f1e1f66b460a97051ea783fb
+  AdiscopeMediaUnityAds: 3187ea60c099b4fe6acb06619a3894aeb71c2f89
+  AdiscopeMediaVungle: 04376d554c3ed8f0cf6e00ee34024b5341798b57
+  Ads-Global: 704ca3b5c1cbbe48a072df44a49d09ab190c0af9
+  AmazonPublisherServicesSDK: fcedcca565ed490a3647eae50a2339d3b6720035
   AppLovinSDK: c57ad0d34625c971d2db127f8ef60570b28ff51a
-  BURelyFoundation_Global: 17ed9cd58d138feefd8c0711dd3294766adcb28e
+  BidMachine: bd31c5cb60daf2cedfe1bb73aea60e4cedd5a8e4
+  BURelyFoundation_Global: d8099571ab7a0767ec0a334052108e33ff6d8a3f
   ChartboostSDK: 67b6079679c3a643f8e0cd269a3d42970bdb9d98
-  FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
+  FBAudienceNetwork: 80a035aa69cc3a71c99e44cb5c2874e4cef9909f
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  Fyber_Marketplace_SDK: 23285d363d7a56d77e97a9699685885069deb3f7
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
   GoogleMobileAdsMediationFacebook: 26dec5611c04af55eba3dd16c564bafa8ebd7131
   GoogleMobileAdsMediationMintegral: eacbfa23f942d140dd6b61df93a59816a23c2a76
-  GoogleMobileAdsMediationPangle: d08694efcd916510c1974df1f664c948bbe290a2
-  GoogleMobileAdsMediationVungle: a276066778765746276f66c5073c481509342be4
-  GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
+  GoogleMobileAdsMediationPangle: 7cdcaeb4e0cceb3b2546724a9c5c295096047b46
+  GoogleMobileAdsMediationVungle: 67cc04b4b01b5a159344de32729ab608e9338089
+  GoogleUserMessagingPlatform: 6b4f48a370e77ce121d034c908cc6ee4fdafaf13
   InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
   integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
   MintegralAdSDK: b9561720d5f78df3b4c84549905117b2f3789d26
+  MolocoSDKiOS: 5afdec69b64a80166bab0fec7fa01888a9f87238
+  OguryAds: 069d9a636ad55489856cdcda0641b19ff17d2c2b
+  OguryChoiceManager: e416c5b9a3c10b8ce3beafeab687e72940c6fadd
+  OguryCore: 812c0a3e73317c2560ab7ce82998bbb04d0a2917
+  OgurySdk: 6e0577f605f8f86c91fb95f69fc841204fac9420
+  OMSDK_Appodeal: 416c070dfce46ca2b6875dba686271070df6b270
+  StackModules: 8b94364282dc964848cd764710b468bea7b3f27b
   UnityAds: 5601f6397b0e02ed3ed6ee92827f5177a523aab6
-  VungleAds: 1982548185a43a60f07066f28ddb5f12d67a90d7
+  VungleAds: 4823f53e691ba140ff21e3a3a6897af789832a36
 
-PODFILE CHECKSUM: 6f3f2968c0040830ee2fe2fd000d6de6d9586123
+PODFILE CHECKSUM: e33ef6e137e199f32e8d4c829065d1b9a895a219
 
 COCOAPODS: 1.15.2

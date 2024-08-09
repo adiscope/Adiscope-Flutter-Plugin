@@ -1,3 +1,10 @@
+## 3.8.1
+* Android
+  * RewardedVideo 버그 수정
+* iOS
+  * 네트워크 버전 Update
+    * Pangle : 5.8.0.7 -> `6.1.0.5`
+  * framework 구조에서 xcframework 구조로 변경
 ## 3.8.0
 * 공통
   * 오퍼월 어뷰징 제어 기능 고도화

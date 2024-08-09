@@ -66,8 +66,8 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       AdiscopeInterface.sharedInstance().showMaxMediationDebugger()
       result(true)
     case "showAdmobMediationDebugger":
-//       AdiscopeInterface.sharedInstance().showAdmobMediationDebugger()
-      result(false)
+      AdiscopeInterface.sharedInstance().showAdmobMediationDebugger()
+      result(true)
     case "setVolumeOff":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         if let args = call.arguments as? Dictionary<String, Any>{
