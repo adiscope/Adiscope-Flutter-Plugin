@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.1-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.2-blue)](./CHANGELOG.md)
 [![GitHub package.json version](https://img.shields.io/badge/Android-3.8.1-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.1-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.1-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.1-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.2-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.2-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.2-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 15
@@ -133,16 +133,16 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeMediaAdManager', '3.8.0'    // admanager
-  pod 'AdiscopeMediaAdMob', '3.8.0'        // admob
-  pod 'AdiscopeMediaAppLovin', '3.8.0'     // applovin
-  pod 'AdiscopeMediaChartBoost', '3.8.0'   // chartboost
-  pod 'AdiscopeMediaFAN', '3.8.0'          // fan
-  pod 'AdiscopeMediaMax', '3.8.0'          // max
-  pod 'AdiscopeMediaMobVista', '3.8.0'     // mobvista
-  pod 'AdiscopeMediaPangle', '3.8.0'       // pangle
-  pod 'AdiscopeMediaUnityAds', '3.8.0'     // unityads
-  pod 'AdiscopeMediaVungle', '3.8.0'       // vungle
+  pod 'AdiscopeMediaAdManager', '3.8.1'    // admanager
+  pod 'AdiscopeMediaAdMob', '3.8.1'        // admob
+  pod 'AdiscopeMediaAppLovin', '3.8.1'     // applovin
+  pod 'AdiscopeMediaChartBoost', '3.8.1'   // chartboost
+  pod 'AdiscopeMediaFAN', '3.8.1'          // fan
+  pod 'AdiscopeMediaMax', '3.8.2'          // max
+  pod 'AdiscopeMediaMobVista', '3.8.1'     // mobvista
+  pod 'AdiscopeMediaPangle', '3.8.1'       // pangle
+  pod 'AdiscopeMediaUnityAds', '3.8.1'     // unityads
+  pod 'AdiscopeMediaVungle', '3.8.1'       // vungle
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가

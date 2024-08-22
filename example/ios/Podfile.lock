@@ -1,7 +1,7 @@
 PODS:
-  - Adiscope (3.8.1)
-  - adiscope_flutter_plugin (3.8.1):
-    - Adiscope (= 3.8.1)
+  - Adiscope (3.8.2)
+  - adiscope_flutter_plugin (3.8.2):
+    - Adiscope (= 3.8.2)
     - Flutter
   - AdiscopeMediaAdManager (3.8.1):
     - Google-Mobile-Ads-SDK (= 11.2.0)
@@ -17,7 +17,7 @@ PODS:
     - ChartboostSDK (= 9.6.0)
   - AdiscopeMediaFAN (3.8.1):
     - FBAudienceNetwork (= 6.15.0)
-  - AdiscopeMediaMax (3.8.1):
+  - AdiscopeMediaMax (3.8.2):
     - Ads-Global (= 6.1.0.5)
     - AmazonPublisherServicesSDK (= 4.9.6)
     - AppLovinSDK (= 12.4.1)
@@ -29,7 +29,7 @@ PODS:
     - MintegralAdSDK (= 7.6.1)
     - MintegralAdSDK/BidSplashAd (= 7.6.1)
     - MintegralAdSDK/RewardVideoAd (= 7.6.1)
-    - MolocoSDKiOS (= 3.0.0)
+    - MolocoSDKiOS (= 3.1.1)
     - OgurySdk (= 4.4.0)
     - UnityAds (= 4.10.0)
     - VungleAds (= 7.4.0)
@@ -155,7 +155,7 @@ PODS:
     - MintegralAdSDK/NativeAd
   - MintegralAdSDK/SplashAd (7.6.1):
     - MintegralAdSDK/NativeAd
-  - MolocoSDKiOS (3.0.0)
+  - MolocoSDKiOS (3.1.1)
   - OguryAds (3.7.0):
     - OguryAds/OMID (= 3.7.0)
     - OguryCore (= 1.4.1)
@@ -196,7 +196,7 @@ DEPENDENCIES:
   - AdiscopeMediaAppLovin (= 3.8.1)
   - AdiscopeMediaChartBoost (= 3.8.1)
   - AdiscopeMediaFAN (= 3.8.1)
-  - AdiscopeMediaMax (= 3.8.1)
+  - AdiscopeMediaMax (= 3.8.2)
   - AdiscopeMediaMobVista (= 3.8.1)
   - AdiscopeMediaPangle (= 3.8.1)
   - AdiscopeMediaUnityAds (= 3.8.1)
@@ -252,14 +252,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
-  Adiscope: b02cb93fa7c10939dbe294ee3c9f1cbb094490b3
-  adiscope_flutter_plugin: f0ebe28c3c091bdc59fc83ca42e7212a1702dc81
+  Adiscope: 5fe2a2ea4a17982457893d088f85f6f756952c1d
+  adiscope_flutter_plugin: 016003d9dbba67d860a08078f469404c095e8ed6
   AdiscopeMediaAdManager: 730554a50deb6aa4ff227d08881f64c86d403f48
   AdiscopeMediaAdMob: 8fe38354e75b449e997845fb8a5d95f2b5b54e1a
   AdiscopeMediaAppLovin: c40e40d6243145fa6e77913af292d5951afc807c
   AdiscopeMediaChartBoost: 8bcaf74833fbff904ca39856f4a761cb242ffc14
   AdiscopeMediaFAN: 0cc96eb51fb8b3c22341d74775ac4f232e257240
-  AdiscopeMediaMax: cec3e34d305e53eabc1a39f63247f51cfcfd2d7d
+  AdiscopeMediaMax: 89dd4be89eb7ce4c268d47a3a3658faf4c885316
   AdiscopeMediaMobVista: 09ec90bd6232120fb86eb37e3b50cb531d67282b
   AdiscopeMediaPangle: 8857777e3f152fe8f1e1f66b460a97051ea783fb
   AdiscopeMediaUnityAds: 3187ea60c099b4fe6acb06619a3894aeb71c2f89
@@ -282,7 +282,7 @@ SPEC CHECKSUMS:
   InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
   integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
   MintegralAdSDK: b9561720d5f78df3b4c84549905117b2f3789d26
-  MolocoSDKiOS: 5afdec69b64a80166bab0fec7fa01888a9f87238
+  MolocoSDKiOS: fe39d1a67cdd1e881fc5a891d51858e3c01b678b
   OguryAds: 069d9a636ad55489856cdcda0641b19ff17d2c2b
   OguryChoiceManager: e416c5b9a3c10b8ce3beafeab687e72940c6fadd
   OguryCore: 812c0a3e73317c2560ab7ce82998bbb04d0a2917
@@ -292,6 +292,6 @@ SPEC CHECKSUMS:
   UnityAds: 5601f6397b0e02ed3ed6ee92827f5177a523aab6
   VungleAds: 4823f53e691ba140ff21e3a3a6897af789832a36
 
-PODFILE CHECKSUM: e33ef6e137e199f32e8d4c829065d1b9a895a219
+PODFILE CHECKSUM: 078f352b12325509756c005b2d5e4b1ae876eba5
 
 COCOAPODS: 1.15.2

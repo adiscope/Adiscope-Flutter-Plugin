@@ -1,3 +1,7 @@
+## 3.8.2
+* iOS
+  * 네트워크 버전 Update
+    * Moloco : 3.0.0 -> `3.1.1`
 ## 3.8.1
 * Android
   * RewardedVideo 버그 수정
