@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.2-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.3-blue)](./CHANGELOG.md)
 [![GitHub package.json version](https://img.shields.io/badge/Android-3.8.1-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.2-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.2-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.2-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.3-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.3-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.3-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 15
@@ -51,7 +51,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:3.6.0
+flutter pub add adiscope_flutter_plugin:3.8.3
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -103,17 +103,17 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.8.0'
+    implementation 'com.nps.adiscope:adiscopeCore:3.8.1'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.1'
     implementation 'com.nps.adiscope:adapter.chartboost:9.3.1.0'        // chartboost
     implementation 'com.nps.adiscope:adapter.unityads:4.6.1.0'          // unityads
-    implementation 'com.nps.adiscope:adapter.max:12.3.1.0'              // max
+    implementation 'com.nps.adiscope:adapter.max:12.3.1.1'              // max
     implementation 'com.nps.adiscope:adapter.applovin:12.3.1.0'         // applovin
-    implementation 'com.nps.adiscope:adapter.admob:22.3.0.4'            // admob (use play-services-ads:22.3.0 dependency)
+    implementation 'com.nps.adiscope:adapter.admob:22.3.0.4'            // admob
     implementation 'com.nps.adiscope:adapter.fan:6.13.7.1'              // fan
-    implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista (use androidx)
+    implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista
     implementation "com.nps.adiscope:adapter.pangle:5.6.0.3.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.3.2.0'            // vungle (use androidx)
+    implementation 'com.nps.adiscope:adapter.vungle:7.3.2.0'            // vungle
 }
 ```
 - 애디스콥 측에 media_id 와 media_secret, sub_domain 문의!
@@ -134,13 +134,13 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
   pod 'AdiscopeMediaAdManager', '3.8.1'    // admanager
-  pod 'AdiscopeMediaAdMob', '3.8.1'        // admob
+  pod 'AdiscopeMediaAdMob', '3.8.3'        // admob
   pod 'AdiscopeMediaAppLovin', '3.8.1'     // applovin
   pod 'AdiscopeMediaChartBoost', '3.8.1'   // chartboost
   pod 'AdiscopeMediaFAN', '3.8.1'          // fan
-  pod 'AdiscopeMediaMax', '3.8.2'          // max
+  pod 'AdiscopeMediaMax', '3.8.3'          // max
   pod 'AdiscopeMediaMobVista', '3.8.1'     // mobvista
-  pod 'AdiscopeMediaPangle', '3.8.1'       // pangle
+  pod 'AdiscopeMediaPangle', '3.8.3'       // pangle
   pod 'AdiscopeMediaUnityAds', '3.8.1'     // unityads
   pod 'AdiscopeMediaVungle', '3.8.1'       // vungle
 end
