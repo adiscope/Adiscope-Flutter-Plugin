@@ -24,6 +24,11 @@ class AdiscopeFlutterPlugin {
     return AdiscopeFlutterPluginPlatform.instance.setUserId(userId);
   }
 
+  /// Add Rewarded Callback
+  Future<bool?> setRewardedCheckParam(String param) {
+    return AdiscopeFlutterPluginPlatform.instance.setRewardedCheckParam(param);
+  }
+
   /// Check initialize
   Future<bool?> isInitialized() {
     return AdiscopeFlutterPluginPlatform.instance.isInitialized();
@@ -93,6 +98,11 @@ class AdiscopeFlutterPlugin {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoLoad(unitId);
   }
 
+  /// Show AdEvent of [unitId] value.
+  Future<bool?> showAdEvent(String unitId) {
+    return AdiscopeFlutterPluginPlatform.instance.showAdEvent(unitId);
+  }
+
   /// Check the Load status of the rewardedVideo of the [unitId] value.
   Future<bool?> rewardedVideoIsLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoIsLoad(unitId);
@@ -149,8 +159,12 @@ class AdiscopeListener {
       const MethodChannel('adiscopeOfferwallListener');
 
   /// Register listener channel of rewardedVideo
+  static final listenerAdEventChannel =
+  const MethodChannel('adiscopeAdEventListener');
+
+  /// Register listener channel of rewardedVideo
   static final listenerRewardedVideoChannel =
-      const MethodChannel('adiscopeRewardedVideoListener');
+  const MethodChannel('adiscopeRewardedVideoListener');
 
   /// Register listener channel of interstitial
   static final listenerInterstitialChannel =
@@ -183,6 +197,36 @@ class AdiscopeListener {
             List<dynamic> args = call.arguments as List<dynamic>;
             onOfferwallAdFailedToShow(
                 args[0] as String, args[1] as String, args[2] as String);
+          }
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
+  /// Register listener of AdEvent
+  static Future<void> setupAdEventListener({
+    Function(String)? onAdEventOpened,
+    Function(String)? onAdEventClosed,
+    Function(String, String)? onAdEventFailedToShow,
+  }) async {
+    listenerAdEventChannel.setMethodCallHandler((call) async {
+      switch (call.method) {
+        case 'onAdEventOpened':
+          if (onAdEventOpened != null) {
+            onAdEventOpened(call.arguments as String);
+          }
+          break;
+        case 'onAdEventClosed':
+          if (onAdEventClosed != null) {
+            onAdEventClosed(call.arguments as String);
+          }
+          break;
+        case 'onAdEventFailedToShow':
+          if (onAdEventFailedToShow != null) {
+            List<dynamic> args = call.arguments as List<dynamic>;
+            onAdEventFailedToShow(args[0] as String, args[1] as String);
           }
           break;
         default:

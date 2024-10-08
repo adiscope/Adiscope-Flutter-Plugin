@@ -46,6 +46,17 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result(resultValue)
+    case "setRewardedCheckParam":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let param = args["param"] as? String {
+            adiscopeSDK.setRewardedCheckParam(param)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
     case "isInitialized":
       result(AdiscopeInterface.sharedInstance().isInitialized())
     case "getSDKVersion":
@@ -113,6 +124,16 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         if let args = call.arguments as? Dictionary<String, Any>{
           if let url = args["url"] as? String {
             resultValue = adiscopeSDK.showOfferwallDetail(url)
+          }
+        }
+      }
+      result(resultValue)
+    case "showAdEvent":
+      var resultValue = false
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let unitId = args["unitId"] as? String {
+            resultValue = adiscopeSDK.showAdEvent(unitId)
           }
         }
       }
@@ -239,6 +260,23 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     let errorXB3TraceID = error.getXB3TraceID() ?? ""
     let channel = FlutterMethodChannel(name: "adiscopeOfferwallListener", binaryMessenger: _adiscopeRegistrar!.messenger())
     channel.invokeMethod("onOfferwallAdFailedToShow", arguments: [unitID, errorDescription, errorXB3TraceID])
+  }
+
+  public func onAdEventOpened(_ unitID: String!) {
+    let channel = FlutterMethodChannel(name: "adiscopeAdEventListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    channel.invokeMethod("onAdEventOpened", arguments: unitID)
+  }
+
+  public func onAdEventClosed(_ unitID: String!) {
+    let channel = FlutterMethodChannel(name: "adiscopeAdEventListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    channel.invokeMethod("onAdEventClosed", arguments: unitID)
+  }
+
+  public func onAdEventFailed(toShow unitID: String!, error: AdiscopeError!) {
+    let errorDescription = error.description
+    let errorXB3TraceID = error.getXB3TraceID() ?? ""
+    let channel = FlutterMethodChannel(name: "adiscopeAdEventListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    channel.invokeMethod("onAdEventFailedToShow", arguments: [unitID, errorDescription, errorXB3TraceID])
   }
 
   public func onRewardedVideoAdLoaded(_ unitID: String!) {

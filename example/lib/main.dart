@@ -22,9 +22,11 @@ class _MyAppState extends State<MyApp> {
   var mediaId;
   var mediaSecret;
   var userId;
+  var customdata;
   var subDomain;
   var offerwallId;
   var offerwallDetailUrl;
+  var adEventUnitId;
   var rvUnitId;
   var itUnitId;
   var riUnitId1;
@@ -36,11 +38,13 @@ class _MyAppState extends State<MyApp> {
   final _adiscopeFlutterPlugin = AdiscopeFlutterPlugin();
   final _mediaIdController = new TextEditingController();
   final _userIdController = new TextEditingController();
+  final _customdataController = new TextEditingController();
   final _callbackTagController = new TextEditingController();
   final _childYNController = new TextEditingController();
   final _unitIdController = new TextEditingController();
   final _offerwallUnitIdController = new TextEditingController();
   final _offerwallItemIdController = new TextEditingController();
+  final _adEventUnitIdController = new TextEditingController();
   final _rvUnitIdController = new TextEditingController();
   final _itUnitIdController = new TextEditingController();
   final _riUnitIdController = new TextEditingController();
@@ -61,6 +65,7 @@ class _MyAppState extends State<MyApp> {
       mediaId = "";
       mediaSecret = "";
       offerwallId = "";
+      adEventUnitId = "";
       rvUnitId = "";
       itUnitId = "";
       riUnitId1 = "";
@@ -72,6 +77,7 @@ class _MyAppState extends State<MyApp> {
       mediaId = "";
       mediaSecret = "";
       offerwallId = "";
+      adEventUnitId = "";
       rvUnitId = "";
       itUnitId = "";
       riUnitId1 = "";
@@ -83,6 +89,7 @@ class _MyAppState extends State<MyApp> {
 
     _userIdController.text = userId;
     _offerwallUnitIdController.text = offerwallId;
+    _adEventUnitIdController.text = adEventUnitId;
     _rvUnitIdController.text = rvUnitId;
     _itUnitIdController.text = itUnitId;
     _riUnitIdController.text = riUnitId1;
@@ -99,6 +106,15 @@ class _MyAppState extends State<MyApp> {
       pushLog("onOfferwallAdClosed => $unitId");
     }, onOfferwallAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
       pushLog("onOfferwallAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
+    });
+
+    AdiscopeListener.setupAdEventListener(
+    onAdEventOpened: (unitId) {
+      pushLog("onAdEventOpened => $unitId");
+    }, onAdEventClosed: (unitId) {
+      pushLog("onAdEventClosed => $unitId");
+    }, onAdEventFailedToShow: (unitId, errorDescription) {
+      pushLog("onAdEventFailedToShow => $unitId, $errorDescription");
     });
 
     AdiscopeListener.setupRewardedVideoListener(
@@ -255,6 +271,15 @@ class _MyAppState extends State<MyApp> {
     pushLog("Set User ID => $result / $userId");
   }
 
+  Future<void> setRewardedCheckParam(String param) async {
+    try {
+      await _adiscopeFlutterPlugin.setRewardedCheckParam(param);
+    } on PlatformException {
+    }
+    if (!mounted) return;
+    pushLog("CustomData => $param");
+  }
+
   Future<void> isInitialized() async {
     bool result = false;
     try {
@@ -382,6 +407,22 @@ class _MyAppState extends State<MyApp> {
     }
     if (!mounted) return;
     pushLog("Show Offerwall Detail From Url => $result");
+  }
+
+  Future<void> showAdEvent(String unitId) async {
+    if (unitId.isEmpty) {
+      pushLog("Not Found UnitID => $unitId");
+      return;
+    }
+
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.showAdEvent(unitId.toUpperCase()) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("Show AdEvent => $result");
   }
 
   Future<void> rewardedVideoLoad(String unitId) async {
@@ -735,6 +776,35 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _customdataController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'CustomData',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      Container(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () { setRewardedCheckParam(_customdataController.text); },
+                            child: Text("CustomData")
+                        ),
+                      ),
+                      SizedBox( height: 5,),
                       Row(
                         children: [
                           Flexible(
@@ -915,6 +985,44 @@ class _MyAppState extends State<MyApp> {
                             ),
                           )
                         ],
+                      ),
+                      SizedBox( height: 20,),
+                      Text(
+                        "AdEvent",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _adEventUnitIdController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'Unit ID',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      Container(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () { showAdEvent(_adEventUnitIdController.text); },
+                            child: Text("Show AdEvent")
+                        ),
                       ),
                       SizedBox( height: 20,),
                       Text(

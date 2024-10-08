@@ -33,6 +33,13 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   }
 
   @override
+  Future<bool?> setRewardedCheckParam(String param) async {
+    final result = await methodChannel
+        .invokeMethod<bool>('setRewardedCheckParam', <String, dynamic>{"param": param});
+    return result;
+  }
+
+  @override
   Future<bool?> isInitialized() async {
     final result = await methodChannel.invokeMethod<bool>('isInitialized');
     return result;
@@ -106,6 +113,13 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   Future<bool?> showOfferwallDetailFromUrl(String url) async {
     final result = await methodChannel.invokeMethod<bool>(
         'showOfferwallDetailFromUrl', <String, dynamic>{"url": url});
+    return result;
+  }
+
+  @override
+  Future<bool?> showAdEvent(String unitId) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'showAdEvent', <String, dynamic>{"unitId": unitId});
     return result;
   }
 

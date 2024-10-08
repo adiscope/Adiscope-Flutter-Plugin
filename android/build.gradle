@@ -47,6 +47,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.8.1'
-    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.1'
+    implementation 'com.nps.adiscope:adiscopeCore:3.9.0'
+    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
 }

@@ -1,3 +1,35 @@
+## 3.9.0
+* 공통
+  * Adapter Version Check Log 추가
+  * Rewarded Callback 시 지정한 값이 전달 되도록 추가
+  * 네트워크 제거
+    * UnityAds 제거
+  * 버그 수정
+* Android
+  * 코어 minSdk 변경 (15 → 21)
+  * chartboost SDK 업데이트
+    * 9.3.1 -> `9.7.0`
+  * pangle SDK 업데이트
+    * 5.6.0.3 -> `6.1.0.9`
+  * AdmobDF 3rd party bidder SDK 업데이트
+    * mobvista: 16.5.91.0 -> `16.8.31.0`
+    * pangle: 5.6.0.3.0 -> `6.1.0.9.0`
+  * MAX 3rd party bidder SDK 업데이트
+    * mobvista: 16.5.91.0 -> `16.8.31.0`
+    * pangle: 5.6.0.3.0 -> `6.1.0.9.0`
+    * unityads: 4.6.1.0 -> `4.12.2.0`
+    * inmobi: 10.6.6.0 -> `10.7.5.0`
+    * bidmachine: 2.7.0.0 -> `3.0.0.0`
+    * verve: 2.20.0.0 -> `3.0.2.0`
+* iOS
+  * iOS 18 & Xcode 16 support
+  * 네트워크 버전 Update
+    * Inmobi : 10.7.1 -> `10.7.5`
+    * Fan : 6.15.0 -> `6.15.2`
+    * UnityAds : 4.10.0 -> `4.12.2`
+  * 네트워크 제거
+    * BidMachine
+    * Ogury
 ## 3.8.3
 * iOS
   * 네트워크 버전 Update

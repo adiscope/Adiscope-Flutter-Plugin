@@ -1,14 +1,12 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.8.3-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-3.8.1-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.8.3-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.8.3-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.8.3-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.9.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-3.9.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.9.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.9.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.9.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
-- Android Minimum API Level : 15
-  - Admob, Pangle 사용 시 : 16
-  - Chartboost, Unityads, Vungle, Max 사용 시 : 21
+- Android Minimum API Level : 21
 - iOS Minimum Version : 12.0
 - Xcode Minimum Version : Xcode 15.1
 <br/>
@@ -51,7 +49,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:3.8.3
+flutter pub add adiscope_flutter_plugin:3.9.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -103,16 +101,15 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.8.1'
-    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.1'
+    implementation 'com.nps.adiscope:adiscopeCore:3.9.0'
+    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
     implementation 'com.nps.adiscope:adapter.chartboost:9.3.1.0'        // chartboost
-    implementation 'com.nps.adiscope:adapter.unityads:4.6.1.0'          // unityads
-    implementation 'com.nps.adiscope:adapter.max:12.3.1.1'              // max
+    implementation 'com.nps.adiscope:adapter.max:12.3.1.2'              // max
     implementation 'com.nps.adiscope:adapter.applovin:12.3.1.0'         // applovin
-    implementation 'com.nps.adiscope:adapter.admob:22.3.0.4'            // admob
+    implementation 'com.nps.adiscope:adapter.admob:22.3.0.5'            // admob
     implementation 'com.nps.adiscope:adapter.fan:6.13.7.1'              // fan
-    implementation 'com.nps.adiscope:adapter.mobvista:16.5.91.1'        // mobvista
-    implementation "com.nps.adiscope:adapter.pangle:5.6.0.3.0"          // pangle
+    implementation 'com.nps.adiscope:adapter.mobvista:16.8.31.0'        // mobvista
+    implementation "com.nps.adiscope:adapter.pangle:6.1.0.9.0"          // pangle
     implementation 'com.nps.adiscope:adapter.vungle:7.3.2.0'            // vungle
 }
 ```
@@ -124,7 +121,9 @@ dependencies {
 - 프로젝트 파일 내에 {projectroot}/android/app/build.gradle 파일에 `manifestPlaceholders`, `implementation` 추가
 - Third Party 네트워크사들을 확인 후 필요한 네트워크사들만 추가
 - 특정 버전의 adapter들 버전을 확인 방법
-  - `Releases`에서 `Source Code` 파일 다운로드 후 `README.md` 파일 확인    
+  - `Releases`에서 `Source Code` 파일 다운로드 후 `README.md` 파일 확인
+- Adapter Version이 상이할 경우 Initialize시 Log를 통해 확인 가능<br/>
+![adapter version checker log](https://github.com/user-attachments/assets/286e83f0-8b63-4e3f-bb09-ad86e15df83c)<br/>    
 <br/><br/><br/>
 
 ### 3. Setup iOS
@@ -133,22 +132,21 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeMediaAdManager', '3.8.1'    // admanager
-  pod 'AdiscopeMediaAdMob', '3.8.3'        // admob
-  pod 'AdiscopeMediaAppLovin', '3.8.1'     // applovin
-  pod 'AdiscopeMediaChartBoost', '3.8.1'   // chartboost
-  pod 'AdiscopeMediaFAN', '3.8.1'          // fan
-  pod 'AdiscopeMediaMax', '3.8.3'          // max
-  pod 'AdiscopeMediaMobVista', '3.8.1'     // mobvista
-  pod 'AdiscopeMediaPangle', '3.8.3'       // pangle
-  pod 'AdiscopeMediaUnityAds', '3.8.1'     // unityads
-  pod 'AdiscopeMediaVungle', '3.8.1'       // vungle
+  pod 'AdiscopeMediaAdManager', '3.9.0'    // admanager
+  pod 'AdiscopeMediaAdMob', '3.9.0'        // admob
+  pod 'AdiscopeMediaAppLovin', '3.9.0'     // applovin
+  pod 'AdiscopeMediaChartBoost', '3.9.0'   // chartboost
+  pod 'AdiscopeMediaFAN', '3.9.0'          // fan
+  pod 'AdiscopeMediaMax', '3.9.0'          // max
+  pod 'AdiscopeMediaMobVista', '3.9.0'     // mobvista
+  pod 'AdiscopeMediaPangle', '3.9.0'       // pangle
+  pod 'AdiscopeMediaVungle', '3.9.0'       // vungle
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가
 - Third Party 네트워크사들을 확인 후 필요한 네트워크사들만 추가
-- 특정 버전의 adapter들 버전을 확인 방법
-  - `Releases`에서 `Source Code` 파일 다운로드 후 `README.md` 파일 확인
+- Adapter Version이 상이할 경우 Initialize시 Xcode Log를 통해 확인 가능<br/>
+![AdapterChecked](https://github.com/user-attachments/assets/c0c4e33f-d535-45fb-8115-115e57c70522)<br/>
 <br/>
 
 #### B. Setup Plist
@@ -571,7 +569,19 @@ Future<void> getNetworkVersions() async {
 - Android와 iOS의 Third Party SDK Versions 확인
 <br/>
 
-#### C. Volume
+#### C. Set Rewarded Check Param
+```dart
+Future<void> setRewardedCheckParam(String param) async {
+    await _adiscopeFlutterPlugin.setRewardedCheckParam(param);
+}
+```
+- Rewarded callback 시 parameters을 추가
+- 해당 정보는 Rewarded 지급 등에 있어 구분하는데 사용 할 수 있음
+- 내부 설정 후 사용 가능 ( 담당자에게 요청 부탁 )
+- param은 Base64 Encoded(UTF8)를 처리 후 1000자내로 설정
+<br/>
+
+#### D. Volume
 ```dart
 Future<void> setVolumeOff() async {
     bool isOff = true;  // Ad Sound Off

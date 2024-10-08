@@ -1,6 +1,6 @@
 name: adiscope_flutter_plugin
 description: "We provide a plugin so that you can integrate adiscope while developing with Flutter."
-version: 3.8.3
+version: 3.9.0
 homepage: https://github.com/adiscope/Adiscope-Flutter-Plugin
 
 environment:

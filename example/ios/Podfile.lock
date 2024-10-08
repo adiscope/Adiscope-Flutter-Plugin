@@ -1,46 +1,43 @@
 PODS:
-  - Adiscope (3.8.3)
-  - adiscope_flutter_plugin (3.8.3):
-    - Adiscope (= 3.8.3)
+  - Adiscope (3.9.0)
+  - adiscope_flutter_plugin (3.9.0):
+    - Adiscope (= 3.9.0)
     - Flutter
-  - AdiscopeMediaAdManager (3.8.1):
+  - AdiscopeAdEvent (3.9.0)
+  - AdiscopeMediaAdManager (3.9.0):
     - Google-Mobile-Ads-SDK (= 11.2.0)
-  - AdiscopeMediaAdMob (3.8.3):
+  - AdiscopeMediaAdMob (3.9.0):
     - Google-Mobile-Ads-SDK (= 11.2.0)
-    - GoogleMobileAdsMediationFacebook (= 6.15.0.0)
+    - GoogleMobileAdsMediationFacebook (= 6.15.2.0)
     - GoogleMobileAdsMediationMintegral (= 7.6.1.0)
     - GoogleMobileAdsMediationPangle (= 6.2.0.6.0)
     - GoogleMobileAdsMediationVungle (= 7.4.0.0)
-  - AdiscopeMediaAppLovin (3.8.1):
+  - AdiscopeMediaAppLovin (3.9.0):
     - AppLovinSDK (= 12.4.1)
-  - AdiscopeMediaChartBoost (3.8.1):
+  - AdiscopeMediaChartBoost (3.9.0):
     - ChartboostSDK (= 9.6.0)
-  - AdiscopeMediaFAN (3.8.1):
-    - FBAudienceNetwork (= 6.15.0)
-  - AdiscopeMediaMax (3.8.3):
+  - AdiscopeMediaFAN (3.9.0):
+    - FBAudienceNetwork (= 6.15.2)
+  - AdiscopeMediaMax (3.9.0):
     - Ads-Global (= 6.2.0.6)
     - AmazonPublisherServicesSDK (= 4.9.6)
     - AppLovinSDK (= 12.4.1)
-    - BidMachine (= 2.7.0)
-    - FBAudienceNetwork (= 6.15.0)
+    - FBAudienceNetwork (= 6.15.2)
     - Fyber_Marketplace_SDK (= 8.3.1)
     - Google-Mobile-Ads-SDK (= 11.2.0)
-    - InMobiSDK (= 10.7.1)
+    - InMobiSDK (= 10.7.5)
     - MintegralAdSDK (= 7.6.1)
     - MintegralAdSDK/BidSplashAd (= 7.6.1)
     - MintegralAdSDK/RewardVideoAd (= 7.6.1)
     - MolocoSDKiOS (= 3.1.1)
-    - OgurySdk (= 4.4.0)
-    - UnityAds (= 4.10.0)
+    - UnityAds (= 4.12.2)
     - VungleAds (= 7.4.0)
-  - AdiscopeMediaMobVista (3.8.1):
+  - AdiscopeMediaMobVista (3.9.0):
     - MintegralAdSDK (= 7.6.1)
     - MintegralAdSDK/RewardVideoAd (= 7.6.1)
-  - AdiscopeMediaPangle (3.8.3):
+  - AdiscopeMediaPangle (3.9.0):
     - Ads-Global (= 6.2.0.6)
-  - AdiscopeMediaUnityAds (3.8.1):
-    - UnityAds (= 4.10.0)
-  - AdiscopeMediaVungle (3.8.1):
+  - AdiscopeMediaVungle (3.9.0):
     - VungleAds (= 7.4.0)
   - Ads-Global (6.2.0.6):
     - Ads-Global/BUAdSDK (= 6.2.0.6)
@@ -50,10 +47,6 @@ PODS:
     - BURelyFoundation_Global/Pangle (= 1.0.0.6)
   - AmazonPublisherServicesSDK (4.9.6)
   - AppLovinSDK (12.4.1)
-  - BidMachine (2.7.0):
-    - BidMachine/Static (= 2.7.0)
-  - BidMachine/Static (2.7.0):
-    - StackModules/Static (~> 2.0.0)
   - BURelyFoundation_Global/AFNetworking (1.0.0.6)
   - BURelyFoundation_Global/APM (1.0.0.6)
   - BURelyFoundation_Global/Foundation (1.0.0.6):
@@ -83,13 +76,13 @@ PODS:
   - BURelyFoundation_Global/Zip (1.0.0.6):
     - BURelyFoundation_Global/Foundation
   - ChartboostSDK (9.6.0)
-  - FBAudienceNetwork (6.15.0)
+  - FBAudienceNetwork (6.15.2)
   - Flutter (1.0.0)
   - Fyber_Marketplace_SDK (8.3.1)
   - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleMobileAdsMediationFacebook (6.15.0.0):
-    - FBAudienceNetwork (= 6.15.0)
+  - GoogleMobileAdsMediationFacebook (6.15.2.0):
+    - FBAudienceNetwork (= 6.15.2)
     - Google-Mobile-Ads-SDK (~> 11.0)
   - GoogleMobileAdsMediationMintegral (7.6.1.0):
     - Google-Mobile-Ads-SDK (~> 11.0)
@@ -100,8 +93,8 @@ PODS:
   - GoogleMobileAdsMediationVungle (7.4.0.0):
     - Google-Mobile-Ads-SDK (~> 11.0)
     - VungleAds (= 7.4.0)
-  - GoogleUserMessagingPlatform (2.5.0)
-  - InMobiSDK (10.7.1)
+  - GoogleUserMessagingPlatform (2.6.0)
+  - InMobiSDK (10.7.5)
   - integration_test (0.0.1):
     - Flutter
   - MintegralAdSDK (7.6.1):
@@ -156,57 +149,28 @@ PODS:
   - MintegralAdSDK/SplashAd (7.6.1):
     - MintegralAdSDK/NativeAd
   - MolocoSDKiOS (3.1.1)
-  - OguryAds (3.7.0):
-    - OguryAds/OMID (= 3.7.0)
-    - OguryCore (= 1.4.1)
-  - OguryAds/OMID (3.7.0):
-    - OguryCore (= 1.4.1)
-  - OguryChoiceManager (4.3.0):
-    - OguryCore (= 1.4.1)
-  - OguryCore (1.4.1)
-  - OgurySdk (4.4.0):
-    - OguryCore (= 1.4.1)
-    - OgurySdk/OguryAds (= 4.4.0)
-    - OgurySdk/OguryChoiceManager (= 4.4.0)
-  - OgurySdk/OguryAds (4.4.0):
-    - OguryAds (= 3.7.0)
-    - OguryCore (= 1.4.1)
-  - OgurySdk/OguryChoiceManager (4.4.0):
-    - OguryChoiceManager (= 4.3.0)
-    - OguryCore (= 1.4.1)
-  - OMSDK_Appodeal (1.4.12)
-  - StackModules/Core-Static (2.0.0)
-  - StackModules/ProductPresentation-Static (2.0.0):
-    - StackModules/Core-Static
-  - StackModules/Rendering-Static (2.0.0):
-    - OMSDK_Appodeal (~> 1.4.12)
-    - StackModules/Core-Static
-    - StackModules/ProductPresentation-Static
-  - StackModules/Static (2.0.0):
-    - StackModules/Core-Static
-    - StackModules/ProductPresentation-Static
-    - StackModules/Rendering-Static
-  - UnityAds (4.10.0)
+  - UnityAds (4.12.2)
   - VungleAds (7.4.0)
 
 DEPENDENCIES:
   - adiscope_flutter_plugin (from `.symlinks/plugins/adiscope_flutter_plugin/ios`)
-  - AdiscopeMediaAdManager (= 3.8.1)
-  - AdiscopeMediaAdMob (= 3.8.3)
-  - AdiscopeMediaAppLovin (= 3.8.1)
-  - AdiscopeMediaChartBoost (= 3.8.1)
-  - AdiscopeMediaFAN (= 3.8.1)
-  - AdiscopeMediaMax (= 3.8.3)
-  - AdiscopeMediaMobVista (= 3.8.1)
-  - AdiscopeMediaPangle (= 3.8.3)
-  - AdiscopeMediaUnityAds (= 3.8.1)
-  - AdiscopeMediaVungle (= 3.8.1)
+  - AdiscopeAdEvent (= 3.9.0)
+  - AdiscopeMediaAdManager (= 3.9.0)
+  - AdiscopeMediaAdMob (= 3.9.0)
+  - AdiscopeMediaAppLovin (= 3.9.0)
+  - AdiscopeMediaChartBoost (= 3.9.0)
+  - AdiscopeMediaFAN (= 3.9.0)
+  - AdiscopeMediaMax (= 3.9.0)
+  - AdiscopeMediaMobVista (= 3.9.0)
+  - AdiscopeMediaPangle (= 3.9.0)
+  - AdiscopeMediaVungle (= 3.9.0)
   - Flutter (from `Flutter`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
 
 SPEC REPOS:
   trunk:
     - Adiscope
+    - AdiscopeAdEvent
     - AdiscopeMediaAdManager
     - AdiscopeMediaAdMob
     - AdiscopeMediaAppLovin
@@ -215,12 +179,10 @@ SPEC REPOS:
     - AdiscopeMediaMax
     - AdiscopeMediaMobVista
     - AdiscopeMediaPangle
-    - AdiscopeMediaUnityAds
     - AdiscopeMediaVungle
     - Ads-Global
     - AmazonPublisherServicesSDK
     - AppLovinSDK
-    - BidMachine
     - BURelyFoundation_Global
     - ChartboostSDK
     - FBAudienceNetwork
@@ -234,12 +196,6 @@ SPEC REPOS:
     - InMobiSDK
     - MintegralAdSDK
     - MolocoSDKiOS
-    - OguryAds
-    - OguryChoiceManager
-    - OguryCore
-    - OgurySdk
-    - OMSDK_Appodeal
-    - StackModules
     - UnityAds
     - VungleAds
 
@@ -252,46 +208,39 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
-  Adiscope: 035c1ee938ce9ddefd8a1b12406e57565c11829a
-  adiscope_flutter_plugin: 695e7bc3478dd9ef88a7114efeb74e5e11af0733
-  AdiscopeMediaAdManager: 730554a50deb6aa4ff227d08881f64c86d403f48
-  AdiscopeMediaAdMob: 26b32de0646554d0c83cd5e882604bf1fb66c9bf
-  AdiscopeMediaAppLovin: c40e40d6243145fa6e77913af292d5951afc807c
-  AdiscopeMediaChartBoost: 8bcaf74833fbff904ca39856f4a761cb242ffc14
-  AdiscopeMediaFAN: 0cc96eb51fb8b3c22341d74775ac4f232e257240
-  AdiscopeMediaMax: ed5b9cf97b7770700e17105d29e0386ceb0e7ee0
-  AdiscopeMediaMobVista: 09ec90bd6232120fb86eb37e3b50cb531d67282b
-  AdiscopeMediaPangle: c41023508089d3b5fe3d7a72bc8f6207daf93af1
-  AdiscopeMediaUnityAds: 3187ea60c099b4fe6acb06619a3894aeb71c2f89
-  AdiscopeMediaVungle: 04376d554c3ed8f0cf6e00ee34024b5341798b57
+  Adiscope: 864a114f88505a7ed03f82152b841c6ce4ec95b1
+  adiscope_flutter_plugin: d6a954b3a03c4ecf7589c2f10035f9c4bae8d6b2
+  AdiscopeAdEvent: 77d0aa374e8b87739cc4e5c4c9e47282ed2a05f4
+  AdiscopeMediaAdManager: 33fe14063a994434d37424fe9557482e173afa79
+  AdiscopeMediaAdMob: be9d7b4a204e078bcbc36d0a3af34e20634f761d
+  AdiscopeMediaAppLovin: b3dcad461ca9918a7e537af182448a87e66b1c66
+  AdiscopeMediaChartBoost: 31344bbee247dbcbe5f7e7f73ab0fe2b32fc334d
+  AdiscopeMediaFAN: 00d4da2aa87d4e1622d8401e47403cbd336df0d5
+  AdiscopeMediaMax: 3246780b1e2707efb6099edba34497187618ade8
+  AdiscopeMediaMobVista: 171b191b3fed09c631fd6513751110c6975603a2
+  AdiscopeMediaPangle: 9a649c1076d449ce3e595df0e319fe88bab5c04c
+  AdiscopeMediaVungle: 0da020ddee2203a6daea92d4902450979af2bc0d
   Ads-Global: cf90e5dfbbc4c07ef7096a15f818bf11caf4f2da
   AmazonPublisherServicesSDK: fcedcca565ed490a3647eae50a2339d3b6720035
   AppLovinSDK: c57ad0d34625c971d2db127f8ef60570b28ff51a
-  BidMachine: bd31c5cb60daf2cedfe1bb73aea60e4cedd5a8e4
   BURelyFoundation_Global: 17faee76affe097bd20b422fe829f9f90ed10e25
   ChartboostSDK: 67b6079679c3a643f8e0cd269a3d42970bdb9d98
-  FBAudienceNetwork: 80a035aa69cc3a71c99e44cb5c2874e4cef9909f
+  FBAudienceNetwork: 2457a89b45e2596241fd81b0c2fd8cb6f6053869
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   Fyber_Marketplace_SDK: 23285d363d7a56d77e97a9699685885069deb3f7
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
-  GoogleMobileAdsMediationFacebook: 26dec5611c04af55eba3dd16c564bafa8ebd7131
+  GoogleMobileAdsMediationFacebook: 9308a6fea5d2a41a935119378a56b1b2e9624415
   GoogleMobileAdsMediationMintegral: eacbfa23f942d140dd6b61df93a59816a23c2a76
   GoogleMobileAdsMediationPangle: 6987c62186a451a39c572a83ed49bd9a4243cef7
   GoogleMobileAdsMediationVungle: 67cc04b4b01b5a159344de32729ab608e9338089
-  GoogleUserMessagingPlatform: 6b4f48a370e77ce121d034c908cc6ee4fdafaf13
-  InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
+  GoogleUserMessagingPlatform: 0c3a08353e53ce8c2feab7addd0b652cde522450
+  InMobiSDK: 728c861e41cd738eaf0a26b87f0e3f945e8c5602
   integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
   MintegralAdSDK: b9561720d5f78df3b4c84549905117b2f3789d26
   MolocoSDKiOS: fe39d1a67cdd1e881fc5a891d51858e3c01b678b
-  OguryAds: 069d9a636ad55489856cdcda0641b19ff17d2c2b
-  OguryChoiceManager: e416c5b9a3c10b8ce3beafeab687e72940c6fadd
-  OguryCore: 812c0a3e73317c2560ab7ce82998bbb04d0a2917
-  OgurySdk: 6e0577f605f8f86c91fb95f69fc841204fac9420
-  OMSDK_Appodeal: 416c070dfce46ca2b6875dba686271070df6b270
-  StackModules: 8b94364282dc964848cd764710b468bea7b3f27b
-  UnityAds: 5601f6397b0e02ed3ed6ee92827f5177a523aab6
+  UnityAds: f746f4baac748fcf8b70f0d70c816f6316808d3e
   VungleAds: 4823f53e691ba140ff21e3a3a6897af789832a36
 
-PODFILE CHECKSUM: b5476d4bafea24c2f1df61b7fcfc0ce7d634dcb6
+PODFILE CHECKSUM: 17a643993e4b860f8863e11ca66fc12b304c5297
 
 COCOAPODS: 1.15.2

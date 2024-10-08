@@ -15,6 +15,8 @@ import com.nps.adiscope.reward.RewardedVideoAd
 import com.nps.adiscope.reward.RewardedVideoAdListener
 import com.nps.adiscope.rewardedinterstitial.RewardedInterstitialAd
 import com.nps.adiscope.rewardedinterstitial.RewardedInterstitialAdShowListener
+import com.nps.adiscope.adevent.AdEvent
+import com.nps.adiscope.adevent.AdEventListener
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -25,13 +27,14 @@ import io.flutter.plugin.common.MethodChannel.Result
 
 /** AdiscopeFlutterPlugin */
 class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, AdiscopeInitializeListener, OfferwallAdListener,
-  RewardedVideoAdListener, InterstitialAdListener, RewardedInterstitialAdShowListener {
+  AdEventListener, RewardedVideoAdListener, InterstitialAdListener, RewardedInterstitialAdShowListener {
 
   private lateinit var channel : MethodChannel
   private lateinit var flutterPlugin: FlutterPlugin.FlutterPluginBinding
   private lateinit var mActivity: Activity
   private lateinit var callResult : Result
   private lateinit var mOfferwallAd: OfferwallAd
+  private lateinit var mAdEvent: AdEvent
   private lateinit var mRewardedVideoAd: RewardedVideoAd
   private lateinit var mInterstitialAd: InterstitialAd
   private lateinit var mRewardedInterstitialAd: RewardedInterstitialAd
@@ -65,6 +68,10 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     } else if (call.method == "setUserId") {
       var mediaId = call.argument("userId") as? String ?: ""
       AdiscopeSdk.setUserId(mediaId);
+      result.success(true)
+    } else if (call.method == "setRewardedCheckParam") {
+      var param = call.argument("param") as? String ?: ""
+      AdiscopeSdk.setRewardedCheckParam(param);
       result.success(true)
     } else if (call.method == "isInitialized") {
       var returnResult = AdiscopeSdk.isInitialize()
@@ -140,6 +147,14 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       if (mOfferwallAd != null) {
         var url = call.argument("url") as? String ?: ""
         var resultValue = mOfferwallAd?.showDetail(mActivity, url)
+        result.success(resultValue)
+      } else {
+        result.success(false)
+      }
+    } else if (call.method == "showAdEvent") {
+      if (mAdEvent != null) {
+        var unitId = call.argument("unitId") as? String ?: ""
+        var resultValue = mAdEvent?.show(mActivity, unitId)
         result.success(resultValue)
       } else {
         result.success(false)
@@ -238,6 +253,9 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       mOfferwallAd = Adiscope.getOfferwallAdInstance(mActivity).apply {
         this.setOfferwallAdListener(this@AdiscopeFlutterPlugin)
       }
+      mAdEvent = Adiscope.getAdEventInstance(mActivity).apply {
+        this.setAdEventListener(this@AdiscopeFlutterPlugin)
+      }
       mRewardedVideoAd = Adiscope.getRewardedVideoAdInstance(mActivity).apply {
         this.setRewardedVideoAdListener(this@AdiscopeFlutterPlugin)
       }
@@ -264,6 +282,21 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onOfferwallAdClosed(unitId: String?) {
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeOfferwallListener").invokeMethod("onOfferwallAdClosed", unitId)
+  }
+
+  override fun onAdEventOpened(unitId: String?) {
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeAdEventListener").invokeMethod("onAdEventOpened", unitId)
+  }
+
+  override fun onAdEventClosed(unitId: String?) {
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeAdEventListener").invokeMethod("onAdEventClosed", unitId)
+  }
+
+  override fun onAdEventFailedToShow(unitId: String?, error: AdiscopeError?) {
+    val args: MutableList<Any> = ArrayList()
+    unitId?.let { args.add(it) } ?: run { args.add("") }
+    error?.let { it.description?.let { args.add(it) } } ?: run { args.add("")}
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeAdEventListener").invokeMethod("onAdEventFailedToShow", args)
   }
 
   override fun onRewardedVideoAdLoaded(unitId: String?) {

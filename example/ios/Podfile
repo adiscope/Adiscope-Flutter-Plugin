@@ -31,16 +31,15 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  pod 'AdiscopeMediaAdManager', '3.8.1'
-  pod 'AdiscopeMediaAdMob', '3.8.3'
-  pod 'AdiscopeMediaAppLovin', '3.8.1'
-  pod 'AdiscopeMediaChartBoost', '3.8.1'
-  pod 'AdiscopeMediaFAN', '3.8.1'
-  pod 'AdiscopeMediaMax', '3.8.3'
-  pod 'AdiscopeMediaMobVista', '3.8.1'
-  pod 'AdiscopeMediaPangle', '3.8.3'
-  pod 'AdiscopeMediaUnityAds', '3.8.1'
-  pod 'AdiscopeMediaVungle', '3.8.1'
+  pod 'AdiscopeMediaAdManager', '3.9.0'
+  pod 'AdiscopeMediaAdMob', '3.9.0'
+  pod 'AdiscopeMediaAppLovin', '3.9.0'
+  pod 'AdiscopeMediaChartBoost', '3.9.0'
+  pod 'AdiscopeMediaFAN', '3.9.0'
+  pod 'AdiscopeMediaMax', '3.9.0'
+  pod 'AdiscopeMediaMobVista', '3.9.0'
+  pod 'AdiscopeMediaPangle', '3.9.0'
+  pod 'AdiscopeMediaVungle', '3.9.0'
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do
@@ -51,21 +50,5 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
-  end
-
-  bitcode_strip_path = `xcrun --find bitcode_strip`.chop!
-  def strip_bitcode_from_framework(bitcode_strip_path, framework_relative_path)
-    framework_path = File.join(Dir.pwd, framework_relative_path)
-    command = "#{bitcode_strip_path} #{framework_path} -r -o #{framework_path}"
-    puts "Stripping bitcode: #{command}"
-    system(command)
-  end
-
-  framework_paths = [
-    "Pods/OMSDK_Appodeal/OMSDK_Appodeal.xcframework/ios-arm64/OMSDK_Appodeal.framework/OMSDK_Appodeal",
-    "Pods/OguryAds/OMSDK_Ogury.xcframework/ios-arm64/OMSDK_Ogury.framework/OMSDK_Ogury"
-  ]
-  framework_paths.each do |framework_relative_path|
-    strip_bitcode_from_framework(bitcode_strip_path, framework_relative_path)
   end
 end

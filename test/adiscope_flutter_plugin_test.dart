@@ -84,6 +84,11 @@ class MockAdiscopeFlutterPluginPlatform
   }
 
   @override
+  Future<bool?> setRewardedCheckParam(String param) {
+    throw UnimplementedError();
+  }
+
+  @override
   Future<bool?> setVolumeOff(bool isOn) {
     throw UnimplementedError();
   }

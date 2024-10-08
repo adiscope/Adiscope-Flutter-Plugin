@@ -36,6 +36,10 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
     throw UnimplementedError('setUserId() has not been implemented.');
   }
 
+  Future<bool?> setRewardedCheckParam(String param) {
+    throw UnimplementedError('setRewardedCheckParam() has not been implemented.');
+  }
+
   Future<bool?> isInitialized() {
     throw UnimplementedError('isInitialized() has not been implemented.');
   }
@@ -79,6 +83,10 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
   Future<bool?> showOfferwallDetailFromUrl(String url) {
     throw UnimplementedError(
         'showOfferwallDetailFromUrl() has not been implemented.');
+  }
+
+  Future<bool?> showAdEvent(String unitId) {
+    throw UnimplementedError('showAdEvent() has not been implemented.');
   }
 
   Future<bool?> rewardedVideoLoad(String unitId) {
