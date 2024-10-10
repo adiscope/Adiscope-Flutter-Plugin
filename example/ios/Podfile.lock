@@ -1,14 +1,13 @@
 PODS:
-  - Adiscope (3.9.0)
-  - adiscope_flutter_plugin (3.9.0):
-    - Adiscope (= 3.9.0)
+  - Adiscope (3.9.1)
+  - adiscope_flutter_plugin (3.9.1):
+    - Adiscope (= 3.9.1)
     - Flutter
-  - AdiscopeAdEvent (3.9.0)
   - AdiscopeMediaAdManager (3.9.0):
     - Google-Mobile-Ads-SDK (= 11.2.0)
-  - AdiscopeMediaAdMob (3.9.0):
+  - AdiscopeMediaAdMob (3.9.1):
     - Google-Mobile-Ads-SDK (= 11.2.0)
-    - GoogleMobileAdsMediationFacebook (= 6.15.2.0)
+    - GoogleMobileAdsMediationFacebook (= 6.15.0.0)
     - GoogleMobileAdsMediationMintegral (= 7.6.1.0)
     - GoogleMobileAdsMediationPangle (= 6.2.0.6.0)
     - GoogleMobileAdsMediationVungle (= 7.4.0.0)
@@ -16,13 +15,13 @@ PODS:
     - AppLovinSDK (= 12.4.1)
   - AdiscopeMediaChartBoost (3.9.0):
     - ChartboostSDK (= 9.6.0)
-  - AdiscopeMediaFAN (3.9.0):
-    - FBAudienceNetwork (= 6.15.2)
-  - AdiscopeMediaMax (3.9.0):
+  - AdiscopeMediaFAN (3.9.1):
+    - FBAudienceNetwork (= 6.15.0)
+  - AdiscopeMediaMax (3.9.1):
     - Ads-Global (= 6.2.0.6)
     - AmazonPublisherServicesSDK (= 4.9.6)
     - AppLovinSDK (= 12.4.1)
-    - FBAudienceNetwork (= 6.15.2)
+    - FBAudienceNetwork (= 6.15.0)
     - Fyber_Marketplace_SDK (= 8.3.1)
     - Google-Mobile-Ads-SDK (= 11.2.0)
     - InMobiSDK (= 10.7.5)
@@ -76,13 +75,13 @@ PODS:
   - BURelyFoundation_Global/Zip (1.0.0.6):
     - BURelyFoundation_Global/Foundation
   - ChartboostSDK (9.6.0)
-  - FBAudienceNetwork (6.15.2)
+  - FBAudienceNetwork (6.15.0)
   - Flutter (1.0.0)
   - Fyber_Marketplace_SDK (8.3.1)
   - Google-Mobile-Ads-SDK (11.2.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleMobileAdsMediationFacebook (6.15.2.0):
-    - FBAudienceNetwork (= 6.15.2)
+  - GoogleMobileAdsMediationFacebook (6.15.0.0):
+    - FBAudienceNetwork (= 6.15.0)
     - Google-Mobile-Ads-SDK (~> 11.0)
   - GoogleMobileAdsMediationMintegral (7.6.1.0):
     - Google-Mobile-Ads-SDK (~> 11.0)
@@ -154,13 +153,12 @@ PODS:
 
 DEPENDENCIES:
   - adiscope_flutter_plugin (from `.symlinks/plugins/adiscope_flutter_plugin/ios`)
-  - AdiscopeAdEvent (= 3.9.0)
   - AdiscopeMediaAdManager (= 3.9.0)
-  - AdiscopeMediaAdMob (= 3.9.0)
+  - AdiscopeMediaAdMob (= 3.9.1)
   - AdiscopeMediaAppLovin (= 3.9.0)
   - AdiscopeMediaChartBoost (= 3.9.0)
-  - AdiscopeMediaFAN (= 3.9.0)
-  - AdiscopeMediaMax (= 3.9.0)
+  - AdiscopeMediaFAN (= 3.9.1)
+  - AdiscopeMediaMax (= 3.9.1)
   - AdiscopeMediaMobVista (= 3.9.0)
   - AdiscopeMediaPangle (= 3.9.0)
   - AdiscopeMediaVungle (= 3.9.0)
@@ -170,7 +168,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Adiscope
-    - AdiscopeAdEvent
     - AdiscopeMediaAdManager
     - AdiscopeMediaAdMob
     - AdiscopeMediaAppLovin
@@ -208,15 +205,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
-  Adiscope: 864a114f88505a7ed03f82152b841c6ce4ec95b1
-  adiscope_flutter_plugin: d6a954b3a03c4ecf7589c2f10035f9c4bae8d6b2
-  AdiscopeAdEvent: 77d0aa374e8b87739cc4e5c4c9e47282ed2a05f4
+  Adiscope: b341d95da0065b35598699d66db1f9e9e11f4775
+  adiscope_flutter_plugin: 8b7bcac2b1478faa169ebd354c4769973e0586e9
   AdiscopeMediaAdManager: 33fe14063a994434d37424fe9557482e173afa79
-  AdiscopeMediaAdMob: be9d7b4a204e078bcbc36d0a3af34e20634f761d
+  AdiscopeMediaAdMob: 6bfcbdca8772e861ca9776638ec24f9912afdd4f
   AdiscopeMediaAppLovin: b3dcad461ca9918a7e537af182448a87e66b1c66
   AdiscopeMediaChartBoost: 31344bbee247dbcbe5f7e7f73ab0fe2b32fc334d
-  AdiscopeMediaFAN: 00d4da2aa87d4e1622d8401e47403cbd336df0d5
-  AdiscopeMediaMax: 3246780b1e2707efb6099edba34497187618ade8
+  AdiscopeMediaFAN: fefc7ac9360f74da1af43b6d4e8138a18ecf972b
+  AdiscopeMediaMax: 5e58813995cc9a2f64babc800927ccb4590de60f
   AdiscopeMediaMobVista: 171b191b3fed09c631fd6513751110c6975603a2
   AdiscopeMediaPangle: 9a649c1076d449ce3e595df0e319fe88bab5c04c
   AdiscopeMediaVungle: 0da020ddee2203a6daea92d4902450979af2bc0d
@@ -225,11 +221,11 @@ SPEC CHECKSUMS:
   AppLovinSDK: c57ad0d34625c971d2db127f8ef60570b28ff51a
   BURelyFoundation_Global: 17faee76affe097bd20b422fe829f9f90ed10e25
   ChartboostSDK: 67b6079679c3a643f8e0cd269a3d42970bdb9d98
-  FBAudienceNetwork: 2457a89b45e2596241fd81b0c2fd8cb6f6053869
+  FBAudienceNetwork: 80a035aa69cc3a71c99e44cb5c2874e4cef9909f
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   Fyber_Marketplace_SDK: 23285d363d7a56d77e97a9699685885069deb3f7
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
-  GoogleMobileAdsMediationFacebook: 9308a6fea5d2a41a935119378a56b1b2e9624415
+  GoogleMobileAdsMediationFacebook: 26dec5611c04af55eba3dd16c564bafa8ebd7131
   GoogleMobileAdsMediationMintegral: eacbfa23f942d140dd6b61df93a59816a23c2a76
   GoogleMobileAdsMediationPangle: 6987c62186a451a39c572a83ed49bd9a4243cef7
   GoogleMobileAdsMediationVungle: 67cc04b4b01b5a159344de32729ab608e9338089
@@ -241,6 +237,6 @@ SPEC CHECKSUMS:
   UnityAds: f746f4baac748fcf8b70f0d70c816f6316808d3e
   VungleAds: 4823f53e691ba140ff21e3a3a6897af789832a36
 
-PODFILE CHECKSUM: 17a643993e4b860f8863e11ca66fc12b304c5297
+PODFILE CHECKSUM: fd22708045642352bf5eb8dfb61697ddc64d9460
 
 COCOAPODS: 1.15.2

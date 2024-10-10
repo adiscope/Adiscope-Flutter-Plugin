@@ -1,3 +1,7 @@
+## 3.9.1
+* iOS
+  * 네트워크 버전 원복
+    * Fan : 6.15.2 -> `6.15.0`
 ## 3.9.0
 * 공통
   * Adapter Version Check Log 추가

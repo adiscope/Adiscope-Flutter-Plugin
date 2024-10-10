@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.9.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.9.1-blue)](./CHANGELOG.md)
 [![GitHub package.json version](https://img.shields.io/badge/Android-3.9.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.9.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.9.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.9.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.9.1-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.9.1-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.9.1-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -133,11 +133,11 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
   pod 'AdiscopeMediaAdManager', '3.9.0'    // admanager
-  pod 'AdiscopeMediaAdMob', '3.9.0'        // admob
+  pod 'AdiscopeMediaAdMob', '3.9.1'        // admob
   pod 'AdiscopeMediaAppLovin', '3.9.0'     // applovin
   pod 'AdiscopeMediaChartBoost', '3.9.0'   // chartboost
-  pod 'AdiscopeMediaFAN', '3.9.0'          // fan
-  pod 'AdiscopeMediaMax', '3.9.0'          // max
+  pod 'AdiscopeMediaFAN', '3.9.1'          // fan
+  pod 'AdiscopeMediaMax', '3.9.1'          // max
   pod 'AdiscopeMediaMobVista', '3.9.0'     // mobvista
   pod 'AdiscopeMediaPangle', '3.9.0'       // pangle
   pod 'AdiscopeMediaVungle', '3.9.0'       // vungle
