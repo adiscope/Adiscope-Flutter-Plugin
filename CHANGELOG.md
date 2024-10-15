@@ -1,3 +1,6 @@
+## 3.9.2
+* Android
+  * max UnityAds Bidder SDK 버전 원복 (4.12.2 -> `4.6.1`)
 ## 3.9.1
 * iOS
   * 네트워크 버전 원복
