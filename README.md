@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.9.2-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-3.9.2-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-3.9.1-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-3.9.2-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.9.2-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-3.10.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-3.10.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-3.10.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-3.10.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-3.10.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -25,7 +25,8 @@
 - [RewardedVideo](#6-rewardedvideo)
 - [Interstitial](#7-interstitial)
 - [RewardedInterstitial](#8-rewardedinterstitial)
-- [Etc](#9-etc)
+- [AdEvent](#9-adevent)
+- [Etc](#10-etc)
 #### [웹사이트 필수 등록](#웹사이트-필수-등록-android-전용)
 #### [Adiscope Server 연동하기](./docs/reward_callback_info.md)
 #### [Privacy Manifest 정책 적용](#privacy-manifest-정책-적용-ios-전용)
@@ -49,7 +50,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:3.9.0
+flutter pub add adiscope_flutter_plugin:3.10.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -64,7 +65,7 @@ flutter pub add adiscope_flutter_plugin:3.9.0
 </application>
 ```
 - Android 프로젝트의 `AndroidManifest.xml`파일에 다음과 같은 설정
-- meta-data 복사해서 변경 없이 추가 (아래 Module Gradle의 변수 값을 참조 함)
+- meta-data 복사해서 변경 없이 추가 (아래 B - 나의 Module Gradle의 변수 값을 참조 함)
 <br/>
 
 #### B. Setup Gradle
@@ -77,15 +78,15 @@ allprojects {
         maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" }                       // max 연동 시 추가
 	maven { url "https://artifactory.bidmachine.io/bidmachine" }                                  // max 연동 시 추가
 	maven { url "https://maven.ogury.co" }                                                        // max 연동 시 추가
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 연동 시 추가
         maven { url "https://artifact.bytedance.com/repository/pangle" }                              // max 혹은 pangle 연동 시 추가
-        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 혹은 mobvista 연동 시 추가
         maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' }                           // chartboost 연동 시 추가
     }
 }
 ```
 - Adiscope SDK는 Maven Central에 배포
 - 프로젝트 파일 내에 {projectroot}/android/build.gradle 파일에 `maven` 추가
-- max를 연동 시 4개를 추가하고, chartboost를 연동 시 1개를 추가
+- max를 연동 시 6개를 추가하고, chartboost를 연동 시 1개를 추가
 <br/>
 
 ##### 나. Setup Module Gradle
@@ -101,14 +102,11 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.9.2'
+    implementation 'com.nps.adiscope:adiscopeCore:3.10.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
     implementation 'com.nps.adiscope:adapter.chartboost:9.3.1.0'        // chartboost
     implementation 'com.nps.adiscope:adapter.max:12.3.1.3'              // max
-    implementation 'com.nps.adiscope:adapter.applovin:12.3.1.0'         // applovin
     implementation 'com.nps.adiscope:adapter.admob:22.3.0.5'            // admob
-    implementation 'com.nps.adiscope:adapter.fan:6.13.7.1'              // fan
-    implementation 'com.nps.adiscope:adapter.mobvista:16.8.31.0'        // mobvista
     implementation "com.nps.adiscope:adapter.pangle:6.1.0.9.0"          // pangle
     implementation 'com.nps.adiscope:adapter.vungle:7.3.2.0'            // vungle
 }
@@ -132,15 +130,25 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeMediaAdManager', '3.9.0'    // admanager
-  pod 'AdiscopeMediaAdMob', '3.9.1'        // admob
-  pod 'AdiscopeMediaAppLovin', '3.9.0'     // applovin
-  pod 'AdiscopeMediaChartBoost', '3.9.0'   // chartboost
-  pod 'AdiscopeMediaFAN', '3.9.1'          // fan
-  pod 'AdiscopeMediaMax', '3.9.1'          // max
-  pod 'AdiscopeMediaMobVista', '3.9.0'     // mobvista
-  pod 'AdiscopeMediaPangle', '3.9.0'       // pangle
-  pod 'AdiscopeMediaVungle', '3.9.0'       // vungle
+  pod 'Adiscope', '3.10.0'
+  pod 'AdiscopeMediaAdManager', '3.10.0'
+  pod 'AdiscopeMediaAdMob', '3.10.0'
+  pod 'AdiscopeMediaChartBoost', '3.10.0'
+  pod 'AdiscopeMediaPangle', '3.10.0'
+  pod 'AdiscopeMediaVungle', '3.10.0'
+  pod 'AdiscopeMediaMax', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterAdMob', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterAmazon', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterBidMachine', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterDTExchange', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterFan', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterInMobi', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterMobVista', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterMoloco', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterOgury', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterPangle', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterUnityAds', '3.10.0'
+  pod 'AdiscopeMediaMaxAdapterVungle', '3.10.0'
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가
@@ -184,7 +192,7 @@ end
 - SKAdNetwork Download File 내용 추가 ([Download](https://github.com/adiscope/Adiscope-iOS-Sample/releases/download/3.8.0/AdiscopeSkAdNetworks.plist))
 <br/>
 
-##### 라. Admob 사용 시 추가
+##### 라. Admob, Max의 Admob 사용 시 추가
 ```xml
 <key>GADIsAdManagerApp</key>
 <true/>
@@ -194,7 +202,7 @@ end
 - "GADIsAdManagerApp" 설정 및 "GADApplicationIdentifier"의 Key 설정
 <br/>
 
-##### 마. Max, AppLovin 사용 시 추가
+##### 마. Max 사용 시 추가
 ```xml
 <key>AppLovinSdkKey</key>
 <string>{applovin_app_id 기입 필요}</string>
@@ -550,7 +558,34 @@ AdiscopeListener.setupRewardedInterstitialListener(
 - `onRewardedInterstitialAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
 <br/><br/><br/>
 
-### 9. Etc
+### 9. AdEvent
+#### A. Show
+```dart
+Future<void> showAdEvent() async {
+    var unitId = "";        // 관리자를 통해 발급
+    bool result = await _adiscopeFlutterPlugin.showAdEvent(unitId) ?? false;
+}
+```
+- `Show`가 실행되면 (return값이 True일 경우) `onAdEventOpened`와 `onAdEventFailedToShow` 중 하나가 항상 호출되고, `onAdEventOpened`가 호출되었다면 이후 `onAdEventClosed`가 항상 호출
+<br/>
+
+#### B. Callbacks
+```dart
+AdiscopeListener.setupAdEventListener(
+    onAdEventOpened: (unitId) {
+    },
+    onAdEventClosed: (unitId) {
+    },
+    onAdEventFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
+    }
+);
+```
+- [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+- Show 성공 시 `onAdEventOpened`, `onAdEventClosed` callback이 순차적으로 호출
+- `onAdEventFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
+<br/><br/><br/>
+
+### 10. Etc
 #### A. Adiscope SDK Version
 ```dart
 Future<void> getSDKVersion() async {

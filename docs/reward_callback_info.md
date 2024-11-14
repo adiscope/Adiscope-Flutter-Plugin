@@ -67,7 +67,7 @@ Adiscope 내 재시도 시간의 간격은 다음과 같습니다.
 ```js
 var express = require('express');
 var crypto = require('crypto')
-var secret = "YOUR_SECRET_KEY";
+var secret = "YOUR_REWARDED_CALLBACK_SECRET_KEY";
 
 app.listen(process.env.PORT || 3412);
 

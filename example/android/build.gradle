@@ -7,8 +7,8 @@ allprojects {
         maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" } // max 연동 시 추가
         maven { url "https://artifactory.bidmachine.io/bidmachine" } // max 연동 시 추가
         maven { url "https://maven.ogury.co" } // max 연동 시 추가
+        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 연동 시 추가
         maven { url "https://artifact.bytedance.com/repository/pangle" } // max 혹은 pangle 연동 시 추가
-        maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 혹은 mobvista 연동 시 추가
         maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' } // chartboost 연동 시 추가
     }
 }

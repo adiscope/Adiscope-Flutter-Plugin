@@ -1,3 +1,19 @@
+## 3.10.0
+* 공통
+  * Rewarded Video의 초기 Loading 속도 개선 기능 추가
+  * 이벤트 페이지 추가
+  * 네트워크 제거
+    * AppLovin, Fan, MobVista Adapter 제거
+  * 버그 수정
+* Android
+  * compileSdk 업데이트 (33 -> `34`)
+* iOS
+  * 네트워크 버전 Update
+    * Liftoff Monetize : 7.4.0 -> `7.4.2`
+  * MAX 비더 추가
+    * BidMachine : `3.0.1`
+    * Ogury : `4.4.2`
+  * Max Bidding 모듈화
 ## 3.9.2
 * Android
   * max UnityAds Bidder SDK 버전 원복 (4.12.2 -> `4.6.1`)
