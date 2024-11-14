@@ -1,3 +1,6 @@
+## 3.10.1
+* Android
+  * 버그 수정
 ## 3.10.0
 * 공통
   * Rewarded Video의 초기 Loading 속도 개선 기능 추가
