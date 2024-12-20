@@ -104,8 +104,8 @@ class _MyAppState extends State<MyApp> {
       pushLog("onOfferwallAdOpened => $unitId");
     }, onOfferwallAdClosed: (unitId) {
       pushLog("onOfferwallAdClosed => $unitId");
-    }, onOfferwallAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
-      pushLog("onOfferwallAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
+    }, onOfferwallAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+      pushLog("onOfferwallAdFailedToShow => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     });
 
     AdiscopeListener.setupAdEventListener(
@@ -113,36 +113,36 @@ class _MyAppState extends State<MyApp> {
       pushLog("onAdEventOpened => $unitId");
     }, onAdEventClosed: (unitId) {
       pushLog("onAdEventClosed => $unitId");
-    }, onAdEventFailedToShow: (unitId, errorDescription) {
-      pushLog("onAdEventFailedToShow => $unitId, $errorDescription");
+    }, onAdEventFailedToShow: (unitId, errorCode, errorDescription) {
+      pushLog("onAdEventFailedToShow => $unitId, $errorCode, $errorDescription");
     });
 
     AdiscopeListener.setupRewardedVideoListener(
     onRewardedVideoAdLoaded: (unitId) {
       pushLog("onRewardedVideoAdLoaded => $unitId");
-    }, onRewardedVideoAdFailedToLoad: (unitId, errorDescription, errorXB3TraceID) {
-      pushLog("onRewardedVideoAdFailedToLoad => $unitId, $errorDescription, $errorXB3TraceID");
+    }, onRewardedVideoAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+      pushLog("onRewardedVideoAdFailedToLoad => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     }, onRewardedVideoAdOpened: (unitId) {
       pushLog("onRewardedVideoAdOpened => $unitId");
     }, onRewardedVideoAdClosed: (unitId) {
       pushLog("onRewardedVideoAdClosed => $unitId");
     }, onRewarded: (unitId, currencyUnit, amount) {
       pushLog("onRewarded => $unitId, $currencyUnit, $amount");
-    }, onRewardedVideoAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
-      pushLog("onRewardedVideoAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
+    }, onRewardedVideoAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+      pushLog("onRewardedVideoAdFailedToShow => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     });
 
     AdiscopeListener.setupInterstitialListener(
     onInterstitialAdLoaded: (unitId) {
       pushLog("onInterstitialAdLoaded => $unitId");
-    }, onInterstitialAdFailedToLoad: (unitId, errorDescription, errorXB3TraceID) {
-      pushLog("onInterstitialAdFailedToLoad => $unitId, $errorDescription, $errorXB3TraceID");
+    }, onInterstitialAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+      pushLog("onInterstitialAdFailedToLoad => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     }, onInterstitialAdOpened: (unitId) {
       pushLog("onInterstitialAdOpened => $unitId");
     }, onInterstitialAdClosed: (unitId) {
       pushLog("onInterstitialAdClosed => $unitId");
-    }, onInterstitialAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
-      pushLog("onInterstitialAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
+    }, onInterstitialAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+      pushLog("onInterstitialAdFailedToShow => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     });
 
     AdiscopeListener.setupRewardedInterstitialListener(
@@ -154,8 +154,8 @@ class _MyAppState extends State<MyApp> {
       pushLog("onRewardedInterstitialAdClosed => $unitId");
     }, onRewardedInterstitialRewarded: (unitId, currencyUnit, amount) {
       pushLog("onRewardedInterstitialRewarded => $unitId, $currencyUnit, $amount");
-    }, onRewardedInterstitialAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
-      pushLog("onRewardedInterstitialAdFailedToShow => $unitId, $errorDescription, $errorXB3TraceID");
+    }, onRewardedInterstitialAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+      pushLog("onRewardedInterstitialAdFailedToShow => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     });
   }
 

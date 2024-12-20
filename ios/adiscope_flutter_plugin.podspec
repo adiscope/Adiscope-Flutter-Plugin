@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'adiscope_flutter_plugin'
-  s.version          = '3.10.0'
+  s.version          = '3.10.3'
   s.summary          = 'We provide a plugin so that you can integrate adiscope while developing with Flutter.'
   s.description      = <<-DESC
 Adiscope SDK for Flutter plugin project.
@@ -17,7 +17,7 @@ Adiscope SDK for Flutter plugin project.
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
 
-  s.dependency 'Adiscope', '3.10.0'
+  s.dependency 'Adiscope', '3.10.3'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

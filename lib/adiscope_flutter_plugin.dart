@@ -178,7 +178,7 @@ class AdiscopeListener {
   static Future<void> setupOfferwallListener({
     Function(String)? onOfferwallAdOpened,
     Function(String)? onOfferwallAdClosed,
-    Function(String, String, String)? onOfferwallAdFailedToShow,
+    Function(String, int, String, String)? onOfferwallAdFailedToShow,
   }) async {
     listenerOfferwallChannel.setMethodCallHandler((call) async {
       switch (call.method) {
@@ -196,7 +196,7 @@ class AdiscopeListener {
           if (onOfferwallAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
             onOfferwallAdFailedToShow(
-                args[0] as String, args[1] as String, args[2] as String);
+                args[0] as String, args[1] as int, args[2] as String, args[3] as String);
           }
           break;
         default:
@@ -209,7 +209,7 @@ class AdiscopeListener {
   static Future<void> setupAdEventListener({
     Function(String)? onAdEventOpened,
     Function(String)? onAdEventClosed,
-    Function(String, String)? onAdEventFailedToShow,
+    Function(String, int, String)? onAdEventFailedToShow,
   }) async {
     listenerAdEventChannel.setMethodCallHandler((call) async {
       switch (call.method) {
@@ -226,7 +226,7 @@ class AdiscopeListener {
         case 'onAdEventFailedToShow':
           if (onAdEventFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
-            onAdEventFailedToShow(args[0] as String, args[1] as String);
+            onAdEventFailedToShow(args[0] as String, args[1] as int, args[2] as String);
           }
           break;
         default:
@@ -238,11 +238,11 @@ class AdiscopeListener {
   /// Register listener of rewardedVideo
   static Future<void> setupRewardedVideoListener({
     Function(String)? onRewardedVideoAdLoaded,
-    Function(String, String, String)? onRewardedVideoAdFailedToLoad,
+    Function(String, int, String, String)? onRewardedVideoAdFailedToLoad,
     Function(String)? onRewardedVideoAdOpened,
     Function(String)? onRewardedVideoAdClosed,
     Function(String, String, int)? onRewarded,
-    Function(String, String, String)? onRewardedVideoAdFailedToShow,
+    Function(String, int, String, String)? onRewardedVideoAdFailedToShow,
   }) async {
     listenerRewardedVideoChannel.setMethodCallHandler((call) async {
       switch (call.method) {
@@ -255,7 +255,7 @@ class AdiscopeListener {
           if (onRewardedVideoAdFailedToLoad != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
             onRewardedVideoAdFailedToLoad(
-                args[0] as String, args[1] as String, args[2] as String);
+                args[0] as String, args[1] as int, args[2] as String, args[3] as String);
           }
           break;
         case 'onRewardedVideoAdOpened':
@@ -278,7 +278,7 @@ class AdiscopeListener {
           if (onRewardedVideoAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
             onRewardedVideoAdFailedToShow(
-                args[0] as String, args[1] as String, args[2] as String);
+                args[0] as String, args[1] as int, args[2] as String, args[3] as String);
           }
           break;
         default:
@@ -290,10 +290,10 @@ class AdiscopeListener {
   /// Register listener of interstitial
   static Future<void> setupInterstitialListener({
     Function(String)? onInterstitialAdLoaded,
-    Function(String, String, String)? onInterstitialAdFailedToLoad,
+    Function(String, int, String, String)? onInterstitialAdFailedToLoad,
     Function(String)? onInterstitialAdOpened,
     Function(String)? onInterstitialAdClosed,
-    Function(String, String, String)? onInterstitialAdFailedToShow,
+    Function(String, int, String, String)? onInterstitialAdFailedToShow,
   }) async {
     listenerInterstitialChannel.setMethodCallHandler((call) async {
       switch (call.method) {
@@ -306,7 +306,7 @@ class AdiscopeListener {
           if (onInterstitialAdFailedToLoad != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
             onInterstitialAdFailedToLoad(
-                args[0] as String, args[1] as String, args[2] as String);
+                args[0] as String, args[1] as int, args[2] as String, args[3] as String);
           }
           break;
         case 'onInterstitialAdOpened':
@@ -323,7 +323,7 @@ class AdiscopeListener {
           if (onInterstitialAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
             onInterstitialAdFailedToShow(
-                args[0] as String, args[1] as String, args[2] as String);
+                args[0] as String, args[1] as int, args[2] as String, args[3] as String);
           }
           break;
         default:
@@ -338,7 +338,7 @@ class AdiscopeListener {
     Function(String)? onRewardedInterstitialAdOpened,
     Function(String)? onRewardedInterstitialAdClosed,
     Function(String, String, int)? onRewardedInterstitialRewarded,
-    Function(String, String, String)? onRewardedInterstitialAdFailedToShow,
+    Function(String, int, String, String)? onRewardedInterstitialAdFailedToShow,
   }) async {
     listenerRewardedInterstitialChannel.setMethodCallHandler((call) async {
       switch (call.method) {
@@ -368,7 +368,7 @@ class AdiscopeListener {
           if (onRewardedInterstitialAdFailedToShow != null) {
             List<dynamic> args = call.arguments as List<dynamic>;
             onRewardedInterstitialAdFailedToShow(
-                args[0] as String, args[1] as String, "");
+                args[0] as String, args[1] as int, args[2] as String, "");
           }
           break;
         default:
