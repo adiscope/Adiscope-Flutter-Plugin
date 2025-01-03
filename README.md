@@ -130,7 +130,6 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'Adiscope', '3.10.3'
   pod 'AdiscopeMediaAdManager', '3.10.3'
   pod 'AdiscopeMediaAdMob', '3.10.3'
   pod 'AdiscopeMediaChartBoost', '3.10.3'
