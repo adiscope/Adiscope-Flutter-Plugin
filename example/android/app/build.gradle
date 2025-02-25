@@ -34,6 +34,7 @@ android {
 
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += ['-Xskip-metadata-version-check']
     }
 
     sourceSets {
@@ -73,11 +74,11 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:3.10.3'
+    implementation 'com.nps.adiscope:adiscopeCore:4.1.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adapter.admob:22.3.0.6'            // admob
-    implementation 'com.nps.adiscope:adapter.max:12.3.1.4'              // max
-    implementation 'com.nps.adiscope:adapter.chartboost:9.7.0.1'        // chartboost
-    implementation "com.nps.adiscope:adapter.pangle:6.1.0.9.1"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.3.2.1'            // vungle
+    implementation 'com.nps.adiscope:adapter.admob:23.5.0.0'            // admob
+    implementation 'com.nps.adiscope:adapter.max:13.0.1.0'              // max
+    implementation 'com.nps.adiscope:adapter.chartboost:9.8.2.0'        // chartboost
+    implementation "com.nps.adiscope:adapter.pangle:6.3.0.4.0"          // pangle
+    implementation 'com.nps.adiscope:adapter.vungle:7.4.2.0'            // vungle
 }

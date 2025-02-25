@@ -248,7 +248,10 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
   }
 
   override fun onInitialized(isSuccess: Boolean) {
-    callResult.success(isSuccess)
+    try {
+      callResult.success(isSuccess)
+    } catch (e: IllegalStateException) {
+    }
     if (isSuccess) {
       mOfferwallAd = Adiscope.getOfferwallAdInstance(mActivity).apply {
         this.setOfferwallAdListener(this@AdiscopeFlutterPlugin)
