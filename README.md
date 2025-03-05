@@ -632,10 +632,9 @@ Future<void> setVolumeOff() async {
 ```
 - `Admob`, `AppLovin`, `Mintegral`, `Verve` 만 적용 가능 
 <br/><br/><br/>
-
 ## 웹사이트 필수 등록 (Android 전용)
 - 관리자에게 전달받은 `app-ads.txt`를 웹사이트에 등록
-> - [app-ads.txt 등록 방법 및 정보](https://github.com/adiscope/Adiscope-Android-Sample/docs/app-ads.txt.md)
+> - [app-ads.txt 등록 방법 및 정보](https://github.com/adiscope/Adiscope-Android-Sample/blob/master/docs/app-ads.txt.md)
 <br/><br/>
 
 ## Adiscope Server 연동하기
