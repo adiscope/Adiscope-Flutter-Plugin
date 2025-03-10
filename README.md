@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.1.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-4.1.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.1.3-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-4.1.3-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
 [![GitHub package.json version](https://img.shields.io/badge/iOS-4.0.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-4.1.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.1.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-4.1.3-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.1.3-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -102,10 +102,10 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:4.1.0'
+    implementation 'com.nps.adiscope:adiscopeCore:4.1.3'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
     implementation 'com.nps.adiscope:adapter.chartboost:9.8.2.0'        // chartboost
-    implementation 'com.nps.adiscope:adapter.max:13.0.1.0'              // max
+    implementation 'com.nps.adiscope:adapter.max:13.0.1.2'              // max
     implementation 'com.nps.adiscope:adapter.admob:23.5.0.0'            // admob
     implementation "com.nps.adiscope:adapter.pangle:6.3.0.4.0"          // pangle
     implementation 'com.nps.adiscope:adapter.vungle:7.4.2.0'            // vungle
