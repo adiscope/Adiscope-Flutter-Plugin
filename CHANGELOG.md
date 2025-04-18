@@ -1,3 +1,33 @@
+## 4.2.0
+#### Android
+* 네트워크 SDK 업데이트
+  * mobvista: 16.8.61 → `16.9.41`
+  * pangle: 6.3.0.4 → `6.5.0.4`
+  * verve: 3.1.0 → `3.3.0`
+  * unityads: 4.12.4 → `4.13.2`
+* MAX 3rd party bidder 추가
+  * chartboost: `9.8.2.1`
+  * ironsource: `8.7.0.0.0`
+  * yandex: `7.9.0.1`
+* 버그 수정
+#### iOS
+* Xcode 16.0 이상 사용 필수
+* 네트워크 버전 Update
+  * Chartboost : 9.6.0 -> `9.8.1`
+  * APS : 4.9.6 -> `5.1.0`
+  * AppLovin : 12.4.1 -> `13.1.0`
+  * BidMachine : 3.0.1 -> `3.2.1`
+  * DT : 8.3.1 -> `8.3.5`
+  * Meta : 6.15.0 -> `6.17.1`
+  * Google : 11.2.0 -> `12.2.0`
+  * InMobi : 10.7.5 -> `10.8.2`
+  * Liftoff Monetize : 7.4.2 -> `7.4.4`
+  * Mintegral : 7.6.1 -> `7.7.7`
+  * Moloco : 3.1.1 -> `3.7.2`
+  * Ogury : 4.4.2 -> `5.0.2`
+  * Pangle : 6.2.0.6 -> `6.5.0.9`
+  * UnityAds : 4.12.2 -> `4.14.0`
+* 버그 수정
 ## 4.1.3
 * Android
   * 네트워크 SDK 업데이트

@@ -1,14 +1,42 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.1.3-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-4.1.3-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-4.0.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-4.1.3-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.1.3-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.2.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-4.2.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-4.2.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-4.2.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.2.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
 - iOS Minimum Version : 12.0
-- Xcode Minimum Version : Xcode 15.1
+- Xcode Minimum Version : Xcode 16.0
+<details>
+<summary>Networks Version</summary>
+<div markdown="1">  
+
+| Ad Network          | Android Version | iOS Version |
+|---------------------|-----------------|-------------|
+| AdMob               | 23.5.0          | 12.2.0      |
+| Amazon              | 9.10.4          | 5.1.0       |
+| AppLovin            | 13.0.1          | 13.1.0      |
+| BidMachine          | 3.0.1           | 3.2.1       |
+| Chartboost          | 9.8.2           | 9.8.1       |
+| DT Exchange         | 8.3.5           | 8.3.5       |
+| InMobi              | 10.7.8          | 10.8.2      |
+| Ironsource          | 8.7.0           | 없음         |
+| Liftoff(Vungle)     | 7.4.2           | 7.4.4       |
+| Meta(Fan)           | 6.18.0          | 6.17.1      |
+| Mintegral(Mobvista) | 16.9.41         | 7.7.7       |
+| Moloco              | 3.6.1           | 3.7.2       |
+| Ogury               | 5.8.0           | 5.0.2       |
+| Pangle              | 6.5.0.4         | 6.5.0.9     |
+| Smaato              | 22.7.1          | 없음         |
+| Unity Ads           | 4.13.2          | 4.14.0      |
+| Verve               | 3.3.0           | 없음         |
+| Yandex              | 7.9.0           | 없음         |
+
+
+</div>
+</details>
 <br/>
 
 ## Contents
@@ -50,7 +78,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:4.1.0
+flutter pub add adiscope_flutter_plugin:4.2.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -79,6 +107,7 @@ allprojects {
 	maven { url "https://artifactory.bidmachine.io/bidmachine" }                                  // max 연동 시 추가
 	maven { url "https://maven.ogury.co" }                                                        // max 연동 시 추가
         maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 연동 시 추가
+	maven { url "https://android-sdk.is.com" }                                                    // max 연동 시 추가
         maven { url "https://artifact.bytedance.com/repository/pangle" }                              // max 혹은 pangle 연동 시 추가
         maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' }                           // chartboost 연동 시 추가
     }
@@ -102,12 +131,12 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:4.1.3'
+    implementation 'com.nps.adiscope:adiscopeCore:4.2.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adapter.chartboost:9.8.2.0'        // chartboost
-    implementation 'com.nps.adiscope:adapter.max:13.0.1.2'              // max
-    implementation 'com.nps.adiscope:adapter.admob:23.5.0.0'            // admob
-    implementation "com.nps.adiscope:adapter.pangle:6.3.0.4.0"          // pangle
+    implementation 'com.nps.adiscope:adapter.chartboost:9.8.2.1'        // chartboost
+    implementation 'com.nps.adiscope:adapter.max:13.0.1.3'              // max
+    implementation 'com.nps.adiscope:adapter.admob:23.5.0.1'            // admob
+    implementation "com.nps.adiscope:adapter.pangle:6.5.0.4.0"          // pangle
     implementation 'com.nps.adiscope:adapter.vungle:7.4.2.0'            // vungle
 }
 ```
@@ -130,26 +159,27 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'Adiscope', '4.0.0'
-  pod 'AdiscopeMediaAdManager', '4.0.0'
-  pod 'AdiscopeMediaAdMob', '4.0.0'
-  pod 'AdiscopeMediaChartBoost', '4.0.0'
-  pod 'AdiscopeMediaPangle', '4.0.0'
-  pod 'AdiscopeMediaVungle', '4.0.0'
-  pod 'AdiscopeMediaMax', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterAdManager', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterAdMob', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterAmazon', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterBidMachine', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterDTExchange', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterFan', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterInMobi', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterMobVista', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterMoloco', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterOgury', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterPangle', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterUnityAds', '4.0.0'
-  pod 'AdiscopeMediaMaxAdapterVungle', '4.0.0'
+  pod 'Adiscope', '4.2.0'
+  pod 'AdiscopeAdEvent', '4.2.0'
+  pod 'AdiscopeMediaAdManager', '4.2.0'
+  pod 'AdiscopeMediaAdMob', '4.2.0'
+  pod 'AdiscopeMediaChartBoost', '4.2.0'
+  pod 'AdiscopeMediaPangle', '4.2.0'
+  pod 'AdiscopeMediaVungle', '4.2.0'
+  pod 'AdiscopeMediaMax', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterAdManager', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterAdMob', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterAmazon', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterBidMachine', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterDTExchange', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterFan', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterInMobi', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterMobVista', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterMoloco', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterOgury', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterPangle', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterUnityAds', '4.2.0'
+  pod 'AdiscopeMediaMaxAdapterVungle', '4.2.0'
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가
@@ -201,14 +231,6 @@ end
 <string>{admob_app_id 기입 필요}</string>
 ```
 - "GADIsAdManagerApp" 설정 및 "GADApplicationIdentifier"의 Key 설정
-<br/>
-
-##### 마. Max 사용 시 추가
-```xml
-<key>AppLovinSdkKey</key>
-<string>{applovin_app_id 기입 필요}</string>
-```
-- AppLovinSdkKey의 Key 설정    
 <br/><br/><br/><br/>
 
 ## Adiscope Overview
@@ -632,9 +654,10 @@ Future<void> setVolumeOff() async {
 ```
 - `Admob`, `AppLovin`, `Mintegral`, `Verve` 만 적용 가능 
 <br/><br/><br/>
+
 ## 웹사이트 필수 등록 (Android 전용)
 - 관리자에게 전달받은 `app-ads.txt`를 웹사이트에 등록
-> - [app-ads.txt 등록 방법 및 정보](https://github.com/adiscope/Adiscope-Android-Sample/blob/master/docs/app-ads.txt.md)
+> - [app-ads.txt 등록 방법 및 정보](https://github.com/adiscope/Adiscope-Android-Sample/docs/app-ads.txt.md)
 <br/><br/>
 
 ## Adiscope Server 연동하기
