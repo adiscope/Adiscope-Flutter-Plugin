@@ -26,6 +26,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace "com.nps.adiscope"
     compileSdk 34
 
     compileOptions {
@@ -47,6 +48,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:4.1.3'
+    implementation 'com.nps.adiscope:adiscopeCore:4.3.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
 }

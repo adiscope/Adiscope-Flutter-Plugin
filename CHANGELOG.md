@@ -1,3 +1,13 @@
+## 4.3.0
+#### Android
+* 버그 수정 및 성능 개선
+* 오퍼월 UI 수정 (edge-to-edge)
+#### iOS
+* iOS 13.0 이상 사용
+* MAX 비더 추가
+  * Chartboost : `9.8.1`
+  * ironSource : `8.8.0.0`
+* 버그 수정
 ## 4.2.0
 #### Android
 * 네트워크 SDK 업데이트
@@ -15,7 +25,7 @@
 * 네트워크 버전 Update
   * Chartboost : 9.6.0 -> `9.8.1`
   * APS : 4.9.6 -> `5.1.0`
-  * AppLovin : 12.4.1 -> `13.1.0`
+  * AppLovin : 12.4.1 -> `13.1.0` (info.plist 에서 AppLovinSdkKey 제거)
   * BidMachine : 3.0.1 -> `3.2.1`
   * DT : 8.3.1 -> `8.3.5`
   * Meta : 6.15.0 -> `6.17.1`
