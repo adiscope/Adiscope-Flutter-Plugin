@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.3.1-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-4.3.1-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-4.3.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-4.3.1-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.3.1-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.4.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-4.4.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-4.4.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-4.4.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.4.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -77,7 +77,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:4.3.1
+flutter pub add adiscope_flutter_plugin:4.4.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -264,7 +264,7 @@ Future<void> initialize() async {
 - iOS는 [Plist](#가-adiscopemediaid-adiscopemediasecret-추가) 파일 세팅 필요
 - App 실행 시 1회 설정 권장
 - Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
-  - ${정책\ {\color{red}미준수시}}\ 광고에\ 제한이\ 생김$ (광고 물량 축소 및 오퍼월 진입 불가)
+  - ⚠️ 정책 미준수시 광고에 제한이 생김 (광고 물량 축소 및 오퍼월 진입 불가)
 <br/>
 
 #### B. Code에서 직접 Media 넣어서 Initialize 방법
@@ -284,7 +284,7 @@ Future<void> initialize() async {
 ```
 - App 실행 시 1회 설정 권장
 - Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
-  - ${정책\ {\color{red}미준수시}}\ 광고에\ 제한이\ 생김$ (광고 물량 축소 및 오퍼월 진입 불가) 
+  - ⚠️ 정책 미준수시 광고에 제한이 생김 (광고 물량 축소 및 오퍼월 진입 불가)
 <br/><br/><br/>
 
 ### 4. 사용자 정보 설정
@@ -294,7 +294,7 @@ Future<void> setUserId() async {
     bool result =  await _adiscopeFlutterPlugin.setUserId(userId) ?? false;
 }
 ```
-- `Offerwall`, `RewardedVideo`, `RewardedInterstitial`를 사용하기 위해 ${\color{red}필수}$ 설정
+- ⚠️ `Offerwall`, `RewardedVideo`, `RewardedInterstitial`를 사용하기 위해 필수 설정
 - 64자까지 설정 가능 
 <br/><br/><br/>
 

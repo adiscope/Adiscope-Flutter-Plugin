@@ -74,11 +74,11 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:4.3.1'
+    implementation 'com.nps.adiscope:adiscopeCore:4.4.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adapter.admob:23.5.0.1'            // admob
-    implementation 'com.nps.adiscope:adapter.max:13.0.1.3'              // max
-    implementation 'com.nps.adiscope:adapter.chartboost:9.8.2.1'        // chartboost
-    implementation "com.nps.adiscope:adapter.pangle:6.5.0.4.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.4.2.0'            // vungle
+    implementation 'com.nps.adiscope:adapter.admob:24.4.0.0'            // admob
+    implementation 'com.nps.adiscope:adapter.max:13.3.1.0'              // max
+    implementation 'com.nps.adiscope:adapter.chartboost:9.8.3.0'        // chartboost
+    implementation "com.nps.adiscope:adapter.pangle:7.2.0.4.0"          // pangle
+    implementation 'com.nps.adiscope:adapter.vungle:7.5.0.0'            // vungle
 }
