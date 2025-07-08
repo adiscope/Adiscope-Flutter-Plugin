@@ -15,24 +15,29 @@
 
 | Ad Network          | Android Version | iOS Version |
 |---------------------|-----------------|-------------|
-| AdMob               | 23.5.0          | 12.2.0      |
-| Amazon              | 9.10.4          | 5.1.0       |
-| AppLovin            | 13.0.1          | 13.1.0      |
-| BidMachine          | 3.0.1           | 3.2.1       |
-| Chartboost          | 9.8.2           | 9.8.1       |
-| DT Exchange         | 8.3.5           | 8.3.5       |
-| InMobi              | 10.7.8          | 10.8.2      |
-| Ironsource          | 8.7.0           | 8.8.0.0     |
-| Liftoff(Vungle)     | 7.4.2           | 7.4.4       |
-| Meta(Fan)           | 6.18.0          | 6.17.1      |
-| Mintegral(Mobvista) | 16.9.41         | 7.7.7       |
-| Moloco              | 3.6.1           | 3.7.2       |
-| Ogury               | 5.8.0           | 5.0.2       |
-| Pangle              | 6.5.0.4         | 6.5.0.9     |
-| Smaato              | 22.7.1          | 없음         |
-| Unity Ads           | 4.13.2          | 4.14.0      |
-| Verve               | 3.3.0           | 없음         |
-| Yandex              | 7.9.0           | 없음         |
+| AdMob               | 24.4.0          | 12.2.0      |
+| Amazon              | 11.0.1          | 5.1.0       |
+| AppLovin            | 13.3.1          | 13.1.0      |
+| BidMachine          | 3.3.0           | 3.2.1       |
+| Chartboost          | 9.8.3           | 9.8.1       |
+| DT Exchange         | 8.3.7           | 8.3.5       |
+| InMobi              | 10.8.3          | 10.8.2      |
+| Ironsource          | 8.9.1           | 8.8.0.0     |
+| Liftoff(Vungle)     | 7.5.0           | 7.4.4       |
+| Meta(Fan)           | 6.20.0          | 6.17.1      |
+| Mintegral(Mobvista) | 16.9.71         | 7.7.7       |
+| Moloco              | 3.10.0          | 3.7.2       |
+| Ogury               | 6.0.1           | 5.0.2       |
+| Pangle              | 7.2.0.4         | 6.5.0.9     |
+| Smaato              | 22.7.2          | 없음         |
+| Unity Ads           | 4.15.0          | 4.14.0      |
+| Verve               | 3.6.0           | 없음         |
+| Yandex              | 7.13.0          | 없음         |
+
+> 기존 gms SDK 사용중인 퍼블리셔는 admob 혹은 max 어댑터 사용 시 24버전으로 마이그레이션 필요 [(관련 문서)](https://developers.google.com/admob/android/migration?hl=en)
+> - gms 22 버전: 애디스콥 `4.1.0` 미만
+> - gms 23 버전: 애디스콥 `4.4.0` 미만
+> - gms 24 버전: 애디스콥 `4.4.0` 이상
 
 </div>
 </details>
