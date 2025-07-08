@@ -35,8 +35,8 @@
 | Yandex              | 7.13.0          | 없음         |
 
 > 기존 gms SDK 사용중인 퍼블리셔는 admob 혹은 max 어댑터 사용 시 24버전으로 마이그레이션 필요 [(관련 문서)](https://developers.google.com/admob/android/migration?hl=en)
-> - gms 22 버전: 애디스콥 `4.1.0` 미만
-> - gms 23 버전: 애디스콥 `4.4.0` 미만
+> - gms 22 버전: 애디스콥 `3.3.0`~`4.1.0`
+> - gms 23 버전: 애디스콥 `4.1.0`~`4.3.2`
 > - gms 24 버전: 애디스콥 `4.4.0` 이상
 
 </div>
