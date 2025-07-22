@@ -4,7 +4,6 @@ allprojects {
         mavenCentral()
         maven { url 'https://repository.adiscope.com/repository/adiscope/' }
         maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" } // max 연동 시 추가
-        maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" } // max 연동 시 추가
         maven { url "https://artifactory.bidmachine.io/bidmachine" } // max 연동 시 추가
         maven { url "https://maven.ogury.co" } // max 연동 시 추가
         maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 연동 시 추가

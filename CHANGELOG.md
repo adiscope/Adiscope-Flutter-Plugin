@@ -1,3 +1,8 @@
+## 4.5.0
+#### Android
+* Android 15 정책 대응 - 16KB 메모리 페이지 지원
+* MAX 비더 제거 (verve)
+* 마이너 이슈 수정
 ## 4.4.0
 #### Android
 * compileSdk 업데이트 34 -> `35`

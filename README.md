@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.4.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-4.4.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-4.5.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-4.5.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
 [![GitHub package.json version](https://img.shields.io/badge/iOS-4.4.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-4.4.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.4.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-4.5.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-4.5.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -31,12 +31,11 @@
 | Pangle              | 7.2.0.4         | 6.5.0.9     |
 | Smaato              | 22.7.2          | 없음         |
 | Unity Ads           | 4.15.0          | 4.14.0      |
-| Verve               | 3.6.0           | 없음         |
 | Yandex              | 7.13.0          | 없음         |
 
 > 기존 gms SDK 사용중인 퍼블리셔는 admob 혹은 max 어댑터 사용 시 24버전으로 마이그레이션 필요 [(관련 문서)](https://developers.google.com/admob/android/migration?hl=en)
-> - gms 22 버전: 애디스콥 `3.3.0`~`4.1.0`
-> - gms 23 버전: 애디스콥 `4.1.0`~`4.3.2`
+> - gms 22 버전: 애디스콥 `3.3.0`~`3.10.3`
+> - gms 23 버전: 애디스콥 `4.1.0`~`4.3.1`
 > - gms 24 버전: 애디스콥 `4.4.0` 이상
 
 </div>
@@ -82,7 +81,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:4.4.0
+flutter pub add adiscope_flutter_plugin:4.5.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -107,7 +106,6 @@ allprojects {
     repositories {
         maven { url 'https://repository.adiscope.com/repository/adiscope/' }
         maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" }                                 // max 연동 시 추가
-        maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" }                       // max 연동 시 추가
 	maven { url "https://artifactory.bidmachine.io/bidmachine" }                                  // max 연동 시 추가
 	maven { url "https://maven.ogury.co" }                                                        // max 연동 시 추가
         maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 연동 시 추가
@@ -135,13 +133,13 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:4.3.1'
+    implementation 'com.nps.adiscope:adiscopeCore:4.5.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adapter.chartboost:9.8.2.1'        // chartboost
-    implementation 'com.nps.adiscope:adapter.max:13.0.1.3'              // max
-    implementation 'com.nps.adiscope:adapter.admob:23.5.0.1'            // admob
-    implementation "com.nps.adiscope:adapter.pangle:6.5.0.4.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.4.2.0'            // vungle
+    implementation 'com.nps.adiscope:adapter.chartboost:9.8.3.0'        // chartboost
+    implementation 'com.nps.adiscope:adapter.max:13.3.1.1'              // max
+    implementation 'com.nps.adiscope:adapter.admob:24.4.0.0'            // admob
+    implementation "com.nps.adiscope:adapter.pangle:7.2.0.4.0"          // pangle
+    implementation 'com.nps.adiscope:adapter.vungle:7.5.0.0'            // vungle
 }
 ```
 - 애디스콥 측에 media_id 와 media_secret, sub_domain 문의!
