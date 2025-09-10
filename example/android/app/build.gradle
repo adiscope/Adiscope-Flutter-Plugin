@@ -74,10 +74,10 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:4.5.2'
+    implementation 'com.nps.adiscope:adiscopeCore:4.5.3'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
     implementation 'com.nps.adiscope:adapter.admob:24.4.0.0'            // admob
-    implementation 'com.nps.adiscope:adapter.max:13.3.1.1'              // max
+    implementation 'com.nps.adiscope:adapter.max:13.3.1.2'              // max
     implementation 'com.nps.adiscope:adapter.chartboost:9.8.3.0'        // chartboost
     implementation "com.nps.adiscope:adapter.pangle:7.2.0.4.0"          // pangle
     implementation 'com.nps.adiscope:adapter.vungle:7.5.0.0'            // vungle

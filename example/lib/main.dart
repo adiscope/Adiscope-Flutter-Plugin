@@ -583,6 +583,7 @@ class _MyAppState extends State<MyApp> {
                   child: Scrollbar(
                     thumbVisibility: true,
                     child: SingleChildScrollView(
+                      primary: false,
                       scrollDirection: Axis.vertical,
                       child: Text('$_logResult'),
                     ),

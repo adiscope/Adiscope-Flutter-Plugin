@@ -97,6 +97,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     case "showOfferwall":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String, let offerwallFilterTabs = args["offerwallFilterTabs"] as? Array<String>, offerwallFilterTabs.count > 0 {
             resultValue = adiscopeSDK.showOfferwall(unitId, withFilterTabs: offerwallFilterTabs)
@@ -109,6 +110,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     case "showOfferwallDetail":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String, let itemId = args["itemId"] as? String, let offerwallFilterTabs = args["offerwallFilterTabs"] as? Array<String>, offerwallFilterTabs.count > 0 {
             resultValue = adiscopeSDK.showOfferwallDetail(unitId, offerwallItemId: itemId, withFilterTabs: offerwallFilterTabs)
@@ -121,6 +123,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     case "showOfferwallDetailFromUrl":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let url = args["url"] as? String {
             resultValue = adiscopeSDK.showOfferwallDetail(url)
@@ -131,6 +134,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     case "showAdEvent":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String {
             resultValue = adiscopeSDK.showAdEvent(unitId)
@@ -140,6 +144,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       result(resultValue)
     case "rewardedVideoLoad":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String {
             adiscopeSDK.load(unitId)
@@ -162,11 +167,13 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     case "rewardedVideoShow":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         resultValue = adiscopeSDK.show()
       }
       result(resultValue)
     case "interstitialLoad":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String {
             adiscopeSDK.loadInterstitial(unitId)
@@ -188,6 +195,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       result(resultValue)
     case "interstitialShow":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         adiscopeSDK.showInterstitial()
         result(true)
         return;
@@ -195,6 +203,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       result(false)
     case "getUnitStatusRewardedInterstitial":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String {
             adiscopeSDK.getRewardedInterstitialUnitStatus(unitId)
@@ -205,6 +214,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       result([])
     case "preLoadAllRewardedInterstitial":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         adiscopeSDK.preLoadAllRewardedInterstitial()
         result(true)
         return;
@@ -212,6 +222,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       result(false)
     case "preLoadRewardedInterstitial":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitIds = args["unitIds"] as? Array<String> {
             adiscopeSDK.preLoadRewardedInterstitial(unitIds)
@@ -224,6 +235,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     case "showRewardedInterstitial":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String {
             resultValue = adiscopeSDK.showRewardedInterstitial(unitId)

@@ -115,6 +115,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       AdiscopeSdk.getOptionSetterInstance(mActivity).setVolumeOff(isOn!!)
       result.success(true)
     } else if (call.method == "showOfferwall") {
+      setAdiscopeAdListener()
       if (mOfferwallAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         var offerwallFilterTabs = call.argument<List<String>>("offerwallFilterTabs")
@@ -129,6 +130,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "showOfferwallDetail") {
+      setAdiscopeAdListener()
       if (mOfferwallAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         var itemId = call.argument("itemId") as? String ?: "0"
@@ -144,6 +146,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "showOfferwallDetailFromUrl") {
+      setAdiscopeAdListener()
       if (mOfferwallAd != null) {
         var url = call.argument("url") as? String ?: ""
         var resultValue = mOfferwallAd?.showDetail(mActivity, url)
@@ -152,6 +155,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "showAdEvent") {
+      setAdiscopeAdListener()
       if (mAdEvent != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         var resultValue = mAdEvent?.show(mActivity, unitId)
@@ -160,6 +164,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "rewardedVideoLoad") {
+      setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         mRewardedVideoAd.load(unitId)
@@ -168,6 +173,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "rewardedVideoIsLoad") {
+      setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         var resultValue = mRewardedVideoAd.isLoaded(unitId)
@@ -176,6 +182,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "rewardedVideoShow") {
+      setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
         var resultValue = mRewardedVideoAd.show()
         result.success(resultValue)
@@ -183,6 +190,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "interstitialLoad") {
+      setAdiscopeAdListener()
       if (mInterstitialAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         mInterstitialAd.load(unitId)
@@ -191,6 +199,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "interstitialIsLoad") {
+      setAdiscopeAdListener()
       if (mInterstitialAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         var resultValue = mInterstitialAd.isLoaded(unitId)
@@ -199,6 +208,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "interstitialShow") {
+      setAdiscopeAdListener()
       if (mInterstitialAd != null) {
         var resultValue = mInterstitialAd.show()
         result.success(resultValue)
@@ -206,6 +216,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "getUnitStatusRewardedInterstitial") {
+      setAdiscopeAdListener()
       if (mRewardedInterstitialAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         mRewardedInterstitialAd.getUnitStatus(unitId) { error, unitStatus ->
@@ -216,6 +227,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "preLoadAllRewardedInterstitial") {
+      setAdiscopeAdListener()
       if (mRewardedInterstitialAd != null) {
         mRewardedInterstitialAd.preloadAll()
         result.success(true)
@@ -223,6 +235,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "preLoadRewardedInterstitial") {
+      setAdiscopeAdListener()
       if (mRewardedInterstitialAd != null) {
         val unitIds = call.argument<List<String>>("unitIds")
         if (unitIds != null) {
@@ -235,6 +248,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     } else if (call.method == "showRewardedInterstitial") {
+      setAdiscopeAdListener()
       if (mRewardedInterstitialAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
         mRewardedInterstitialAd?.show(unitId)
@@ -247,12 +261,8 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     }
   }
 
-  override fun onInitialized(isSuccess: Boolean) {
-    try {
-      callResult.success(isSuccess)
-    } catch (e: IllegalStateException) {
-    }
-    if (isSuccess) {
+  fun setAdiscopeAdListener() {
+    if (AdiscopeSdk.isInitialize()) {
       mOfferwallAd = Adiscope.getOfferwallAdInstance(mActivity).apply {
         this.setOfferwallAdListener(this@AdiscopeFlutterPlugin)
       }
@@ -269,6 +279,14 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         this.setRewardedInterstitialAdListener(this@AdiscopeFlutterPlugin)
       }
     }
+  }
+
+  override fun onInitialized(isSuccess: Boolean) {
+    try {
+      callResult.success(isSuccess)
+    } catch (e: IllegalStateException) {
+    }
+    setAdiscopeAdListener()
   }
 
   override fun onOfferwallAdOpened(unitId: String?) {
