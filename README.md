@@ -318,7 +318,7 @@ AdiscopeListener.setupOfferwallListener(
     },
     onOfferwallAdClosed: (unitId) {
     },
-    onOfferwallAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
+    onOfferwallAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
     }
 );
 ```
@@ -413,13 +413,13 @@ AdiscopeListener.setupRewardedVideoListener(
 AdiscopeListener.setupRewardedVideoListener(
     onRewardedVideoAdLoaded: (unitId) {
     },
-    onRewardedVideoAdFailedToLoad: (unitId, errorDescription, errorXB3TraceID) {
+    onRewardedVideoAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
     },
     onRewardedVideoAdOpened: (unitId) {
     },
     onRewardedVideoAdClosed: (unitId) {
     },
-    onRewardedVideoAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
+    onRewardedVideoAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
     }
 );
 ```
@@ -491,13 +491,13 @@ Future<void> interstitialShow() async {
 AdiscopeListener.setupInterstitialListener(
     onInterstitialAdLoaded: (unitId) {
     },
-    onInterstitialAdFailedToLoad: (unitId, errorDescription, errorXB3TraceID) {
+    onInterstitialAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
     },
     onInterstitialAdOpened: (unitId) {
     },
     onInterstitialAdClosed: (unitId) {
     },
-    onInterstitialAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
+    onInterstitialAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
     }
 );
 ```
@@ -573,7 +573,7 @@ AdiscopeListener.setupRewardedInterstitialListener(
     },
     onRewardedInterstitialAdClosed: (unitId) {
     },
-    onRewardedInterstitialAdFailedToShow: (unitId, errorDescription, errorXB3TraceID) {
+    onRewardedInterstitialAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
     }
 );
 ```
