@@ -34,6 +34,9 @@ class _MyAppState extends State<MyApp> {
   var riUnitId3;
   var riUnitId4;
   var riUnitId5;
+  var isStyleMedium = false;
+  var isStyleHidden = false;
+  var isAlertHidden = false;
 
   final _adiscopeFlutterPlugin = AdiscopeFlutterPlugin();
   final _mediaIdController = new TextEditingController();
@@ -53,6 +56,11 @@ class _MyAppState extends State<MyApp> {
   final _riUnitId3Controller = new TextEditingController();
   final _riUnitId4Controller = new TextEditingController();
   final _riUnitId5Controller = new TextEditingController();
+  final _showWithLoadBackgroundRedController = new TextEditingController();
+  final _showWithLoadBackgroundGreenController = new TextEditingController();
+  final _showWithLoadBackgroundBlueController = new TextEditingController();
+  final _showWithLoadBackgroundAlphaController = new TextEditingController();
+  final _showWithLoadAlertMsgController = new TextEditingController();
   String _logResult = "";
 
   @override
@@ -98,6 +106,11 @@ class _MyAppState extends State<MyApp> {
     _riUnitId3Controller.text = riUnitId3;
     _riUnitId4Controller.text = riUnitId4;
     _riUnitId5Controller.text = riUnitId5;
+    _showWithLoadBackgroundRedController.text = "0";
+    _showWithLoadBackgroundGreenController.text = "0";
+    _showWithLoadBackgroundBlueController.text = "0";
+    _showWithLoadBackgroundAlphaController.text = "0.0";
+    _showWithLoadAlertMsgController.text = "잠시 후 다시 시도해 주세요.";
 
     AdiscopeListener.setupOfferwallListener(
     onOfferwallAdOpened: (unitId) {
@@ -360,6 +373,33 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  Future<void> setShowWithLoad2BackgroundColor(red, green, blue, alpha) async {
+    try {
+      await _adiscopeFlutterPlugin.setShowWithLoad2BackgroundColor(red, green, blue, alpha);
+    } on PlatformException {
+    }
+    if (!mounted) return;
+    pushLog("ShowWithLoad2BackgroundColor");
+  }
+
+  Future<void> setShowWithLoad2IndicatorStyle(isMedium, isHidden) async {
+    try {
+      await _adiscopeFlutterPlugin.setShowWithLoad2IndicatorStyle(isMedium, isHidden);
+    } on PlatformException {
+    }
+    if (!mounted) return;
+    pushLog("setShowWithLoad2IndicatorStyle");
+  }
+
+  Future<void> setShowWithLoad2ErrorAlert(msg, isHidden) async {
+    try {
+      await _adiscopeFlutterPlugin.setShowWithLoad2ErrorAlert(msg, isHidden);
+    } on PlatformException {
+    }
+    if (!mounted) return;
+    pushLog("setShowWithLoad2ErrorAlert");
+  }
+
   Future<void> showOfferwall(String unitId) async {
     if (unitId.isEmpty) {
       pushLog("Not Found UnitID => $unitId");
@@ -425,6 +465,22 @@ class _MyAppState extends State<MyApp> {
     pushLog("Show AdEvent => $result");
   }
 
+  Future<void> rewardedVideoShowWithLoad(String unitId) async {
+    if (unitId.isEmpty) {
+      pushLog("Not Found UnitID => $unitId");
+      return;
+    }
+
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.rewardedVideoShowWithLoad(unitId) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("Click RewardedVideo ShowWithLoad => $result");
+  }
+
   Future<void> rewardedVideoLoad(String unitId) async {
     if (unitId.isEmpty) {
       pushLog("Not Found UnitID => $unitId");
@@ -466,6 +522,22 @@ class _MyAppState extends State<MyApp> {
     }
     if (!mounted) return;
     pushLog("RewardedVideo Show => $result");
+  }
+
+  Future<void> interstitialShowWithLoad(String unitId) async {
+    if (unitId.isEmpty) {
+      pushLog("Not Found UnitID => $unitId");
+      return;
+    }
+
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.interstitialShowWithLoad(unitId) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("Click Interstitial ShowWithLoad => $result");
   }
 
   Future<void> interstitialLoad(String unitId) async {
@@ -1092,6 +1164,14 @@ class _MyAppState extends State<MyApp> {
                           )
                         ],
                       ),
+                      SizedBox( height: 5,),
+                      Container(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () { rewardedVideoShowWithLoad(_rvUnitIdController.text); },
+                            child: Text("Show With Load")
+                        ),
+                      ),
                       SizedBox( height: 20,),
                       Text(
                         "Interstitial",
@@ -1158,6 +1238,14 @@ class _MyAppState extends State<MyApp> {
                             ),
                           ),
                         ],
+                      ),
+                      SizedBox( height: 5,),
+                      Container(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () { interstitialShowWithLoad(_itUnitIdController.text); },
+                            child: Text("Show With Load")
+                        ),
                       ),
                       SizedBox( height: 20,),
                       Text(
@@ -1362,6 +1450,189 @@ class _MyAppState extends State<MyApp> {
                               ),
                             ),
                           ),
+                        ],
+                      ),
+                      SizedBox( height: 20,),
+                      Text(
+                        "ShowWithLoad Background Color",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _showWithLoadBackgroundRedController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'Red',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _showWithLoadBackgroundGreenController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'Green',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _showWithLoadBackgroundBlueController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'Blue',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _showWithLoadBackgroundAlphaController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'Alpha',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      Container(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () { setShowWithLoad2BackgroundColor(_showWithLoadBackgroundRedController.text, _showWithLoadBackgroundGreenController.text, _showWithLoadBackgroundBlueController.text, _showWithLoadBackgroundAlphaController.text); },
+                            child: Text("Set Show With Load Background Color")
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      Row(
+                        children: [
+                          Flexible(
+                            flex: 1,
+                            child: Container(
+                              width: double.infinity,
+                              child: OutlinedButton(
+                                  onPressed: () {
+                                    isStyleMedium = !isStyleMedium;
+                                    setShowWithLoad2IndicatorStyle(isStyleMedium, isStyleHidden);
+                                  },
+                                  child: Text("Set Show With Load Indicator Style")
+                              ),
+                            ),
+                          ),
+                          SizedBox( width: 5,),
+                          Flexible(
+                            flex: 1,
+                            child: Container(
+                              width: double.infinity,
+                              child: OutlinedButton(
+                                  onPressed: () {
+                                    isStyleHidden = !isStyleHidden;
+                                    setShowWithLoad2IndicatorStyle(isStyleMedium, isStyleHidden);
+                                  },
+                                  child: Text("Set Show With Load Indicator Hidden")
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _showWithLoadAlertMsgController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'Alert Msg',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      Row(
+                        children: [
+                          Flexible(
+                            flex: 1,
+                            child: Container(
+                              width: double.infinity,
+                              child: OutlinedButton(
+                                  onPressed: () { setShowWithLoad2ErrorAlert(_showWithLoadAlertMsgController.text, isAlertHidden); },
+                                  child: Text("Set Show With Load Alert Msg")
+                              ),
+                            ),
+                          ),
+                          SizedBox( width: 5,),
+                          Flexible(
+                            flex: 1,
+                            child: Container(
+                              width: double.infinity,
+                              child: OutlinedButton(
+                                  onPressed: () {
+                                    isAlertHidden = !isAlertHidden;
+                                    setShowWithLoad2ErrorAlert(_showWithLoadAlertMsgController.text, isAlertHidden);
+                                  },
+                                  child: Text("Set Show With Load Alert Hidden")
+                              ),
+                            ),
+                          )
                         ],
                       ),
                       SizedBox( height: 30,),

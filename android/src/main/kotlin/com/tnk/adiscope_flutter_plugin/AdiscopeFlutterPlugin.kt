@@ -114,6 +114,12 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       var isOn = call.argument("isOn") as? Boolean
       AdiscopeSdk.getOptionSetterInstance(mActivity).setVolumeOff(isOn!!)
       result.success(true)
+    } else if (call.method == "setShowWithLoad2BackgroundColor") {
+      result.success(false)
+    } else if (call.method == "setShowWithLoad2IndicatorStyle") {
+      result.success(false)
+    } else if (call.method == "setShowWithLoad2ErrorAlert") {
+      result.success(false)
     } else if (call.method == "showOfferwall") {
       setAdiscopeAdListener()
       if (mOfferwallAd != null) {
@@ -163,6 +169,8 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       } else {
         result.success(false)
       }
+    } else if (call.method == "rewardedVideoShowWithLoad") {
+      result.success(false)
     } else if (call.method == "rewardedVideoLoad") {
       setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
@@ -189,6 +197,8 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       } else {
         result.success(false)
       }
+    } else if (call.method == "interstitialShowWithLoad") {
+      result.success(false)
     } else if (call.method == "interstitialLoad") {
       setAdiscopeAdListener()
       if (mInterstitialAd != null) {

@@ -87,6 +87,38 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   }
 
   @override
+  Future<bool?> setShowWithLoad2BackgroundColor(String red, String green, String blue, String alpha) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'setShowWithLoad2BackgroundColor', <String, dynamic>{
+      "red": red,
+      "green": green,
+      "blue": blue,
+      "alpha": alpha
+    });
+    return result;
+  }
+
+  @override
+  Future<bool?> setShowWithLoad2IndicatorStyle(bool isMedium, bool isHidden) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'setShowWithLoad2IndicatorStyle', <String, dynamic>{
+      "isMedium": isMedium,
+      "isHidden": isHidden
+    });
+    return result;
+  }
+
+  @override
+  Future<bool?> setShowWithLoad2ErrorAlert(String msg, bool isHidden) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'setShowWithLoad2ErrorAlert', <String, dynamic>{
+      "msg": msg,
+      "isHidden": isHidden
+    });
+    return result;
+  }
+
+  @override
   Future<bool?> showOfferwall(String unitId,
       [List<String>? offerwallFilterTabs]) async {
     final result = await methodChannel.invokeMethod<bool>(
@@ -124,6 +156,13 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   }
 
   @override
+  Future<bool?> rewardedVideoShowWithLoad(String unitId) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'rewardedVideoShowWithLoad', <String, dynamic>{"unitId": unitId});
+    return result;
+  }
+
+  @override
   Future<bool?> rewardedVideoLoad(String unitId) async {
     final result = await methodChannel.invokeMethod<bool>(
         'rewardedVideoLoad', <String, dynamic>{"unitId": unitId});
@@ -140,6 +179,13 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   @override
   Future<bool?> rewardedVideoShow() async {
     final result = await methodChannel.invokeMethod<bool>('rewardedVideoShow');
+    return result;
+  }
+
+  @override
+  Future<bool?> interstitialShowWithLoad(String unitId) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'interstitialShowWithLoad', <String, dynamic>{"unitId": unitId});
     return result;
   }
 

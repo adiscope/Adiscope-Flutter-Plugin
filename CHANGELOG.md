@@ -1,3 +1,34 @@
+## 5.0.0
+#### Android
+* RV 로직 개선
+* `adiscopeCore` 모듈에 JNI 기능 추가
+* MAX 비더 추가
+  * Bigo: `5.5.1`
+  * Line: `2.9.20250110`
+  * Pubmatic: `4.9.1`
+* pangle SDK 업데이트
+  - 7.2.0.4 -> `7.7.0.2`
+* 버그 수정
+#### iOS
+* Rewarded Video 개선
+* 네트워크 버전 Update
+  * AppLovin : 13.1.0 -> `13.4.0`
+  * APS : 5.1.0 -> `5.3.1`
+  * BidMachine : 3.2.1 -> `3.4.0`
+  * Chartboost : 9.8.1 -> `9.9.2`
+  * DT : 8.3.5 -> `8.3.8`
+  * Google : 12.2.0 -> `12.11.0`
+  * InMobi : 10.8.2 -> `10.8.6`
+  * IronSource : 8.8.0.0 -> `8.10.0.0`
+  * Liftoff Monetize : 7.4.4 -> `7.5.2`
+  * Meta : 6.17.1 -> `6.20.1`
+  * Mintegral : 7.7.7 -> `7.7.9`
+  * Moloco : 3.7.2 -> `3.12.1`
+  * Ogury : 5.0.2 -> `5.1.1`
+  * Pangle : 6.5.0.9 -> `7.4.1.1`
+  * UnityAds : 4.14.0 -> `4.16.1`
+* 새로운 팀 ID로 코드 서명이 변경
+* 버그 수정
 ## 4.5.3
 #### Android
 * MAX 비더 제거 (yandex)

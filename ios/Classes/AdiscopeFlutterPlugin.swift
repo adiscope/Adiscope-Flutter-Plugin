@@ -94,6 +94,39 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result(false)
+    case "setShowWithLoad2BackgroundColor":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let red = args["red"] as? String, let green = args["green"] as? String, let blue = args["blue"] as? String, let alpha = args["alpha"] as? String {
+            adiscopeSDK.setShowWithLoad2BackgroundColor(red, green: green, blue: blue, alpha: alpha)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
+    case "setShowWithLoad2IndicatorStyle":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let isHidden = args["isHidden"] as? Bool, let isMedium = args["isMedium"] as? Bool {
+            adiscopeSDK.setShowWithLoad2IndicatorStyleMedium(isMedium, isHidden: isHidden)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
+    case "setShowWithLoad2ErrorAlert":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let isHidden = args["isHidden"] as? Bool, let msg = args["msg"] as? String {
+            adiscopeSDK.setShowWithLoad2ErrorAlertMsg(msg, isHidden: isHidden)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
     case "showOfferwall":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
@@ -142,6 +175,17 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result(resultValue)
+    case "rewardedVideoShowWithLoad":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let unitId = args["unitId"] as? String {
+            adiscopeSDK.show(withLoad:unitId, delegate:self)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
     case "rewardedVideoLoad":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         adiscopeSDK.setMainDelegate(self)
@@ -171,6 +215,17 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         resultValue = adiscopeSDK.show()
       }
       result(resultValue)
+    case "interstitialShowWithLoad":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let unitId = args["unitId"] as? String {
+            adiscopeSDK.show(withLoadInterstitial:unitId, delegate:self)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
     case "interstitialLoad":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         adiscopeSDK.setMainDelegate(self)

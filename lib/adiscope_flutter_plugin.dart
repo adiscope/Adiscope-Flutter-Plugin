@@ -64,6 +64,21 @@ class AdiscopeFlutterPlugin {
     return AdiscopeFlutterPluginPlatform.instance.setVolumeOff(isOn);
   }
 
+  /// Adjust advertising sound with [isOn]
+  Future<bool?> setShowWithLoad2BackgroundColor(String red, String green, String blue, String alpha) {
+    return AdiscopeFlutterPluginPlatform.instance.setShowWithLoad2BackgroundColor(red, green, blue, alpha);
+  }
+
+  /// Adjust advertising sound with [isOn]
+  Future<bool?> setShowWithLoad2IndicatorStyle(bool isMedium, bool isHidden) {
+    return AdiscopeFlutterPluginPlatform.instance.setShowWithLoad2IndicatorStyle(isMedium, isHidden);
+  }
+
+  /// Adjust advertising sound with [isOn]
+  Future<bool?> setShowWithLoad2ErrorAlert(String msg, bool isHidden) {
+    return AdiscopeFlutterPluginPlatform.instance.setShowWithLoad2ErrorAlert(msg, isHidden);
+  }
+
   /// The offer wall of [unitId] is exposed, and the filter value is set to [offerwallFilterTabs].
   Future<bool?> showOfferwall(String unitId,
       [List<String>? offerwallFilterTabs]) {
@@ -93,6 +108,11 @@ class AdiscopeFlutterPlugin {
         .showOfferwallDetailFromUrl(url);
   }
 
+  /// Show With Load rewardedVideo of [unitId] value.
+  Future<bool?> rewardedVideoShowWithLoad(String unitId) {
+    return AdiscopeFlutterPluginPlatform.instance.rewardedVideoShowWithLoad(unitId);
+  }
+
   /// Load rewardedVideo of [unitId] value.
   Future<bool?> rewardedVideoLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoLoad(unitId);
@@ -111,6 +131,11 @@ class AdiscopeFlutterPlugin {
   /// Show rewardedVideo.
   Future<bool?> rewardedVideoShow() {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoShow();
+  }
+
+  /// Show With Load interstitial of [unitId] value.
+  Future<bool?> interstitialShowWithLoad(String unitId) {
+    return AdiscopeFlutterPluginPlatform.instance.interstitialShowWithLoad(unitId);
   }
 
   /// Load interstitial of [unitId] value.

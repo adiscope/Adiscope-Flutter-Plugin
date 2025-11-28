@@ -70,6 +70,18 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
     throw UnimplementedError('setVolumeOff() has not been implemented.');
   }
 
+  Future<bool?> setShowWithLoad2BackgroundColor(String red, String green, String blue, String alpha) {
+    throw UnimplementedError('setShowWithLoad2BackgroundColor() has not been implemented.');
+  }
+
+  Future<bool?> setShowWithLoad2IndicatorStyle(bool isMedium, bool isHidden) {
+    throw UnimplementedError('setShowWithLoad2IndicatorStyle() has not been implemented.');
+  }
+
+  Future<bool?> setShowWithLoad2ErrorAlert(String msg, bool isHidden) {
+    throw UnimplementedError('setShowWithLoad2ErrorAlert() has not been implemented.');
+  }
+
   Future<bool?> showOfferwall(String unitId,
       [List<String>? offerwallFilterTabs]) {
     throw UnimplementedError('showOfferwall() has not been implemented.');
@@ -89,6 +101,10 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
     throw UnimplementedError('showAdEvent() has not been implemented.');
   }
 
+  Future<bool?> rewardedVideoShowWithLoad(String unitId) {
+    throw UnimplementedError('rewardedVideoShowWithLoad() has not been implemented.');
+  }
+
   Future<bool?> rewardedVideoLoad(String unitId) {
     throw UnimplementedError('rewardedVideoLoad() has not been implemented.');
   }
@@ -99,6 +115,10 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
 
   Future<bool?> rewardedVideoShow() {
     throw UnimplementedError('rewardedVideoShow() has not been implemented.');
+  }
+
+  Future<bool?> interstitialShowWithLoad(String unitId) {
+    throw UnimplementedError('interstitialShowWithLoad() has not been implemented.');
   }
 
   Future<bool?> interstitialLoad(String unitId) {
