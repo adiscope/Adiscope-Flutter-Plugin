@@ -31,12 +31,12 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  pod 'AdiscopeMediaAdManager', '5.0.0'
-  pod 'AdiscopeMediaAdMob', '5.0.0'
-  pod 'AdiscopeMediaChartBoost', '5.0.0'
-  pod 'AdiscopeMediaPangle', '5.0.0'
-  pod 'AdiscopeMediaVungle', '5.0.0'
-  pod 'AdiscopeMediaMax', '5.0.0'
+  pod 'AdiscopeMediaAdManager', '5.0.2'
+  pod 'AdiscopeMediaAdMob', '5.0.2'
+  pod 'AdiscopeMediaChartBoost', '5.0.2'
+  pod 'AdiscopeMediaPangle', '5.0.2'
+  pod 'AdiscopeMediaVungle', '5.0.2'
+  pod 'AdiscopeMediaMax', '5.0.2'
   pod 'AdiscopeMediaMaxAdapterAdManager', '5.0.0'
   pod 'AdiscopeMediaMaxAdapterAdMob', '5.0.0'
   pod 'AdiscopeMediaMaxAdapterAmazon', '5.0.0'

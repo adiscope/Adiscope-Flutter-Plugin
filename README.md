@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.0.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-5.0.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-5.0.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.0.3-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-5.0.3-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-5.0.2-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
 [![GitHub package.json version](https://img.shields.io/badge/Unity-5.0.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.0.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.0.2-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -82,7 +82,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:5.0.0
+flutter pub add adiscope_flutter_plugin:5.0.3
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -135,11 +135,11 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:5.0.0'
+    implementation 'com.nps.adiscope:adiscopeCore:5.0.2'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
     implementation 'com.nps.adiscope:adapter.chartboost:9.8.3.1'        // chartboost
-    implementation 'com.nps.adiscope:adapter.max:13.3.1.3'              // max
-    implementation 'com.nps.adiscope:adapter.admob:24.4.0.1'            // admob
+    implementation 'com.nps.adiscope:adapter.max:13.3.1.5'              // max
+    implementation 'com.nps.adiscope:adapter.admob:24.4.0.3'            // admob
     implementation "com.nps.adiscope:adapter.pangle:7.7.0.2.0"          // pangle
     implementation 'com.nps.adiscope:adapter.vungle:7.5.0.1'            // vungle
 }
@@ -163,12 +163,12 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeMediaAdManager', '5.0.0'
-  pod 'AdiscopeMediaAdMob', '5.0.0'
-  pod 'AdiscopeMediaChartBoost', '5.0.0'
-  pod 'AdiscopeMediaPangle', '5.0.0'
-  pod 'AdiscopeMediaVungle', '5.0.0'
-  pod 'AdiscopeMediaMax', '5.0.0'
+  pod 'AdiscopeMediaAdManager', '5.0.2'
+  pod 'AdiscopeMediaAdMob', '5.0.2'
+  pod 'AdiscopeMediaChartBoost', '5.0.2'
+  pod 'AdiscopeMediaPangle', '5.0.2'
+  pod 'AdiscopeMediaVungle', '5.0.2'
+  pod 'AdiscopeMediaMax', '5.0.2'
   pod 'AdiscopeMediaMaxAdapterAdManager', '5.0.0'
   pod 'AdiscopeMediaMaxAdapterAdMob', '5.0.0'
   pod 'AdiscopeMediaMaxAdapterAmazon', '5.0.0'

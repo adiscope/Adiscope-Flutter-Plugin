@@ -192,7 +192,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     } else if (call.method == "rewardedVideoShow") {
       setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
-        var resultValue = mRewardedVideoAd.show()
+        var resultValue = mRewardedVideoAd.show(mActivity)
         result.success(resultValue)
       } else {
         result.success(false)
@@ -220,7 +220,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     } else if (call.method == "interstitialShow") {
       setAdiscopeAdListener()
       if (mInterstitialAd != null) {
-        var resultValue = mInterstitialAd.show()
+        var resultValue = mInterstitialAd.show(mActivity)
         result.success(resultValue)
       } else {
         result.success(false)
