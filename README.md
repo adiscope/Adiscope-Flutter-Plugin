@@ -135,7 +135,7 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:5.0.2'
+    implementation 'com.nps.adiscope:adiscopeCore:5.0.3'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
     implementation 'com.nps.adiscope:adapter.chartboost:9.8.3.1'        // chartboost
     implementation 'com.nps.adiscope:adapter.max:13.3.1.5'              // max
