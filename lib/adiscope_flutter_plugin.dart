@@ -108,6 +108,36 @@ class AdiscopeFlutterPlugin {
         .showOfferwallDetailFromUrl(url);
   }
 
+  /// Show Lucky Event.
+  Future<bool?> showLuckyEvent() {
+    return AdiscopeFlutterPluginPlatform.instance.showLuckyEvent();
+  }
+
+  /// Set Lucky Event of Event AppId & PubId.
+  Future<bool?> setLuckyEventAppId(String eventId, String pid) {
+    return AdiscopeFlutterPluginPlatform.instance.setLuckyEventAppId(eventId, pid);
+  }
+
+  /// Set Lucky Event of SafeArea.
+  Future<bool?> setLuckyEventUseSafeAreaWebView(bool useSafeArea) {
+    return AdiscopeFlutterPluginPlatform.instance.setLuckyEventUseSafeAreaWebView(useSafeArea);
+  }
+
+  /// Set Lucky Event of HashMark.
+  Future<bool?> setLuckyEventHashMark(String hashMark) {
+    return AdiscopeFlutterPluginPlatform.instance.setLuckyEventHashMark(hashMark);
+  }
+
+  /// Set Lucky Event of BaseUrl.
+  Future<bool?> setLuckyEventBaseUrl(String baseUrl) {
+    return AdiscopeFlutterPluginPlatform.instance.setLuckyEventBaseUrl(baseUrl);
+  }
+
+  /// Set Lucky Event of ExtraParam.
+  Future<bool?> setLuckyEventExtraParam(String key, String value) {
+    return AdiscopeFlutterPluginPlatform.instance.setLuckyEventExtraParam(key, value);
+  }
+
   /// Show With Load rewardedVideo of [unitId] value.
   Future<bool?> rewardedVideoShowWithLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoShowWithLoad(unitId);

@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.0.3-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-5.0.3-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-5.0.2-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-5.0.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.0.2-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.2.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-5.2.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-5.2.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-5.2.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.2.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -13,27 +13,29 @@
 <summary>Networks Version</summary>
 <div markdown="1">  
 
-| Ad Network          | Android Version | iOS Version |
-|---------------------|-----------------|-------------|
-| AdMob               | 24.4.0          | 12.11.0     |
-| Amazon              | 11.0.1          | 5.3.1       |
-| AppLovin            | 13.3.1          | 13.4.0      |
-| BidMachine          | 3.3.0           | 3.4.0       |
-| Bigo                | 5.5.1           | 없음         |
-| Chartboost          | 9.8.3           | 9.9.2       |
-| DT Exchange         | 8.3.7           | 8.3.8       |
-| InMobi              | 10.8.3          | 10.8.6      |
-| Ironsource          | 8.9.1           | 8.10.0.0    |
-| Liftoff(Vungle)     | 7.5.0           | 7.5.2       |
-| Line                | 2.9.20250110    | 없음         |
-| Meta(Fan)           | 6.20.0          | 6.20.1      |
-| Mintegral(Mobvista) | 16.9.71         | 7.7.9       |
-| Moloco              | 3.10.0          | 3.12.1      |
-| Ogury               | 6.0.1           | 5.1.1       |
-| Pangle              | 7.7.0.2         | 7.4.1.1     |
-| Pubmatic            | 4.9.1           | 없음         |
-| Smaato              | 22.7.2          | 없음         |
-| Unity Ads           | 4.15.0          | 4.16.1      |
+| Ad Network          | Android Version | iOS Version  |
+|---------------------|-----------------|--------------|
+| AdMob               | 24.8.0          | 12.14.0      |
+| Amazon              | 11.1.1          | 5.3.3        |
+| AppLovin            | 13.5.1          | 13.5.1       |
+| BidMachine          | 3.5.0           | 3.5.1        |
+| Bigo                | 5.6.2           | 5.0.0        |
+| Chartboost          | 9.11.0          | 9.11.0       |
+| DT Exchange         | 8.4.2           | 8.4.3        |
+| InMobi              | 11.1.0          | 11.0.0       |
+| Ironsource          | 9.2.0           | 9.2.0.0      |
+| Liftoff(Vungle)     | 7.6.3           | 7.6.3        |
+| Line                | 2.9.20251028    | 2.9.20251119 |
+| Meta(Fan)           | 6.21.0          | 6.20.1       |
+| Mintegral(Mobvista) | 17.0.61         | 8.0.4        |
+| Moloco              | 4.4.0           | 4.2.0        |
+| Ogury               | 6.2.1           | 5.1.1        |
+| Pangle              | 7.8.5.2         | 7.8.5.5      |
+| Pubmatic            | 4.11.0          | 4.11.0       |
+| Smaato              | 22.7.2          | -            |
+| TNKPub              | 7.25.03         | 1.24         |
+| Unity Ads           | 4.16.5          | 4.16.5       |
+| Verve               | 3.7.1           | -            |
 
 > 기존 gms SDK 사용중인 퍼블리셔는 admob 혹은 max 어댑터 사용 시 24버전으로 마이그레이션 필요 [(관련 문서)](https://developers.google.com/admob/android/migration?hl=en)
 > - gms 22 버전: 애디스콥 `3.3.0`~`3.10.3`
@@ -58,7 +60,8 @@
 - [RewardedVideo](#6-rewardedvideo)
 - [Interstitial](#7-interstitial)
 - [RewardedInterstitial](#8-rewardedinterstitial)
-- [Etc](#9-etc)
+- [Lucky Event](#9-lucky-event)
+- [Etc](#10-etc)
 #### [웹사이트 필수 등록](#웹사이트-필수-등록-android-전용)
 #### [Adiscope Server 연동하기](./docs/reward_callback_info.md)
 #### [Privacy Manifest 정책 적용](#privacy-manifest-정책-적용-ios-전용)
@@ -82,7 +85,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:5.0.3
+flutter pub add adiscope_flutter_plugin:5.2.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -112,8 +115,10 @@ allprojects {
         maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 연동 시 추가
 		maven { url "https://android-sdk.is.com" }                                                    // max 연동 시 추가
         maven { url "https://repo.pubmatic.com/artifactory/public-repos" }                            // max 연동 시 추가
+        maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" }                       // max 연동 시 추가
         maven { url "https://artifact.bytedance.com/repository/pangle" }                              // max 혹은 pangle 연동 시 추가
         maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' }                           // chartboost 연동 시 추가
+        maven { url "https://repository.tnkad.net:8443/repository/public/" }                          // tnkpub 연동 시 추가
     }
 }
 ```
@@ -135,13 +140,14 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:5.0.3'
-    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adapter.chartboost:9.8.3.1'        // chartboost
-    implementation 'com.nps.adiscope:adapter.max:13.3.1.5'              // max
-    implementation 'com.nps.adiscope:adapter.admob:24.4.0.3'            // admob
-    implementation "com.nps.adiscope:adapter.pangle:7.7.0.2.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.5.0.1'            // vungle
+    implementation 'com.nps.adiscope:adiscopeCore:5.2.0'
+    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.3'
+    implementation 'com.nps.adiscope:adapter.chartboost:9.11.0.0'        // chartboost
+    implementation 'com.nps.adiscope:adapter.max:13.5.1.0'              // max
+    implementation 'com.nps.adiscope:adapter.admob:24.8.0.0'            // admob
+    implementation "com.nps.adiscope:adapter.pangle:7.8.5.2.0"          // pangle
+    implementation 'com.nps.adiscope:adapter.vungle:7.6.3.0'            // vungle
+    implementation 'com.nps.adiscope:adapter.tnkpub:7.25.03.0'          // tnkpub
 }
 ```
 - 애디스콥 측에 media_id 와 media_secret, sub_domain 문의!
@@ -163,27 +169,32 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeMediaAdManager', '5.0.2'
-  pod 'AdiscopeMediaAdMob', '5.0.2'
-  pod 'AdiscopeMediaChartBoost', '5.0.2'
-  pod 'AdiscopeMediaPangle', '5.0.2'
-  pod 'AdiscopeMediaVungle', '5.0.2'
-  pod 'AdiscopeMediaMax', '5.0.2'
-  pod 'AdiscopeMediaMaxAdapterAdManager', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterAdMob', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterAmazon', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterBidMachine', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterChartBoost', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterDTExchange', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterFan', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterInMobi', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterIronSource', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterMobVista', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterMoloco', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterOgury', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterPangle', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterUnityAds', '5.0.0'
-  pod 'AdiscopeMediaMaxAdapterVungle', '5.0.0'
+  pod 'AdiscopeLuckyEvent', '5.2.0'
+  pod 'AdiscopeMediaAdManager', '5.2.0'
+  pod 'AdiscopeMediaAdMob', '5.2.0'
+  pod 'AdiscopeMediaChartBoost', '5.2.0'
+  pod 'AdiscopeMediaPangle', '5.2.0'
+  pod 'AdiscopeMediaTnkPub', '5.2.0'
+  pod 'AdiscopeMediaVungle', '5.2.0'
+  pod 'AdiscopeMediaMax', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterAdManager', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterAdMob', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterAmazon', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterBidMachine', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterBigo', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterChartBoost', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterDTExchange', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterFan', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterInMobi', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterIronSource', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterLine', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterMobVista', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterMoloco', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterOgury', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterPangle', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterPubMatic', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterUnityAds', '5.2.0'
+  pod 'AdiscopeMediaMaxAdapterVungle', '5.2.0'
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가
@@ -585,7 +596,25 @@ AdiscopeListener.setupRewardedInterstitialListener(
 - `onRewardedInterstitialAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
 <br/><br/><br/>
 
-### 9. Etc
+### 9. Lucky Event
+#### A. Set Lucky Event
+```dart
+Future<void> setLuckyEventAppId(String eventId, String pid) async {
+    bool result = await _adiscopeFlutterPlugin.setLuckyEventAppId(eventId, pid) ?? false;
+}
+```
+- eventId, pid는 관리자에게 발급 요청
+<br/>
+
+#### B. Show Lucky Event
+```dart
+Future<void> showLuckyEvent() async {
+    bool result = await _adiscopeFlutterPlugin.showLuckyEvent() ?? false;
+}
+```
+<br/><br/><br/>
+
+### 10. Etc
 #### A. Adiscope SDK Version
 ```dart
 Future<void> getSDKVersion() async {

@@ -101,6 +101,30 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
     throw UnimplementedError('showAdEvent() has not been implemented.');
   }
 
+  Future<bool?> showLuckyEvent() {
+    throw UnimplementedError('showLuckyEvent() has not been implemented.');
+  }
+
+  Future<bool?> setLuckyEventAppId(String eventId, String pid) {
+    throw UnimplementedError('setLuckyEventAppId() has not been implemented.');
+  }
+
+  Future<bool?> setLuckyEventUseSafeAreaWebView(bool useSafeArea) {
+    throw UnimplementedError('setLuckyEventUseSafeAreaWebView() has not been implemented.');
+  }
+
+  Future<bool?> setLuckyEventHashMark(String hashMark) {
+    throw UnimplementedError('setLuckyEventHashMark() has not been implemented.');
+  }
+
+  Future<bool?> setLuckyEventBaseUrl(String baseUrl) {
+    throw UnimplementedError('setLuckyEventBaseUrl() has not been implemented.');
+  }
+
+  Future<bool?> setLuckyEventExtraParam(String key, String value) {
+    throw UnimplementedError('setLuckyEventExtraParam() has not been implemented.');
+  }
+
   Future<bool?> rewardedVideoShowWithLoad(String unitId) {
     throw UnimplementedError('rewardedVideoShowWithLoad() has not been implemented.');
   }

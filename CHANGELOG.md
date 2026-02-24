@@ -1,3 +1,53 @@
+## 5.2.0
+#### Android
+* RV 신규 네트워크 어댑터 추가 (tnkpub) 및 RV 인하우스 기능 지원
+  * tnkpub: `7.25.03`
+* MAX Creative Debugger 비활성화
+* admob dynamic bid 제거
+* MAX 비더 추가 (verve)
+  * verve: `5.5.1`
+* 네트워크 SDK 버전 업데이트
+  * admob: 24.4.0 -> `24.8.0`
+  * chartboost: 9.8.3 -> `9.11.0`
+  * pangle: 7.7.0.2 -> `7.8.5.2`
+  * vungle: 7.5.0 -> `7.6.3`
+  * applovin: 13.3.1 -> `13.5.1`
+  * facebook: 6.20.0 -> `6.21.0`
+  * mintegral: 16.9.71 -> `17.0.61`
+  * unityads: 4.15.0 -> `4.16.5`
+  * inmobi: 10.8.3 -> `11.1.0`
+  * aps: 11.0.1 -> `11.1.1`
+  * bidmachine: 3.3.0 -> `3.5.1`
+  * dt exchange: 8.3.7 -> `8.4.2`
+  * ogury: 6.0.1 -> `6.2.1`
+  * moloco: 3.10.0 -> `4.4.0`
+  * ironsource: 8.9.1 -> `9.2.0`
+  * bigo: 5.5.1 -> `5.6.2`
+  * line: 2.9.20250110 -> `2.9.20251028`
+  * pubmatic: 4.9.1 -> `4.11.0`
+- 버그 수정
+#### iOS
+* MAX Creative Debugger 비활성화
+* admob dynamic bid 제거
+* 네트워크 추가
+  * Bigo : `5.0.0`
+  * Line : `2.9.20251119`
+  * PubMatic : `4.11.0`
+* 네트워크 버전 Update
+  * AppLovin : 13.4.0 -> `13.5.1`
+  * APS : 5.3.1 -> `5.3.3`
+  * BidMachine : 3.4.0 -> `3.5.1`
+  * Chartboost : 9.9.2 -> `9.11.0`
+  * DT : 8.3.8 -> `8.4.3`
+  * Google : 12.11.0 -> `12.14.0`
+  * InMobi : 10.8.6 -> `11.0.0`
+  * IronSource : 8.10.0.0 -> `9.2.0.0`
+  * Liftoff Monetize : 7.5.2 -> `7.6.3`
+  * Mintegral : 7.7.9 -> `8.0.4`
+  * Moloco : 3.12.1 -> `4.2.0`
+  * Pangle : 7.4.1.1 -> `7.8.5.5`
+  * UnityAds : 4.16.1 -> `4.16.5`
+* 버그 수정
 ## 5.0.3
 #### Android
 * MAX Creative Debugger 비활성화

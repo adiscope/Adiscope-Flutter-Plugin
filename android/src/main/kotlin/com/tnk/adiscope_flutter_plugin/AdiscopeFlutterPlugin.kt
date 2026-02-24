@@ -17,6 +17,7 @@ import com.nps.adiscope.rewardedinterstitial.RewardedInterstitialAd
 import com.nps.adiscope.rewardedinterstitial.RewardedInterstitialAdShowListener
 import com.nps.adiscope.adevent.AdEvent
 import com.nps.adiscope.adevent.AdEventListener
+import com.adiscope.luckyevent.tnk.TnkEventActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -38,6 +39,14 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
   private lateinit var mRewardedVideoAd: RewardedVideoAd
   private lateinit var mInterstitialAd: InterstitialAd
   private lateinit var mRewardedInterstitialAd: RewardedInterstitialAd
+  private var mUserId: String = ""
+  private var mChildYN: String = ""
+  private var mLuckyEventId: String = ""
+  private var mLuckyTnkAppId: String = ""
+  private var mLuckyEventUseSafeArea = false
+  private var mLuckyEventHashMark = ""
+  private var mLuckyEventBaseUrl = ""
+  private var mLuckyEventExtraParams = hashMapOf<String, String>()
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "adiscope_flutter_plugin")
@@ -52,6 +61,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       var mediaSecret = call.argument("mediaSecret") as? String ?: ""
       var callbackTag = call.argument("callbackTag") as? String ?: ""
       var childYN = call.argument("childYN") as? String ?: ""
+      if (childYN.isNotEmpty()) mChildYN = childYN
       if (mediaId.length > 0 && mediaSecret.length > 0 && callbackTag.length > 0 && childYN.length > 0) {
         AdiscopeSdk.initialize(mActivity, mediaId, mediaSecret, callbackTag, childYN, this)
       } else if (mediaId.length > 0 && mediaSecret.length > 0 && callbackTag.length > 0) {
@@ -67,6 +77,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       }
     } else if (call.method == "setUserId") {
       var mediaId = call.argument("userId") as? String ?: ""
+      mUserId = mediaId
       AdiscopeSdk.setUserId(mediaId);
       result.success(true)
     } else if (call.method == "setRewardedCheckParam") {
@@ -266,6 +277,33 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       } else {
         result.success(false)
       }
+    }  else if (call.method == "setLuckyEventAppId") {
+        mLuckyEventId = call.argument("appId") as? String ?: ""
+        mLuckyTnkAppId = call.argument("pubId") as? String ?: ""
+        result.success(true)
+    } else if (call.method == "showLuckyEvent") {
+      var builder = TnkEventActivity.TnkEventBuilder()
+        .setUserName(mUserId)
+        .setEventIdTnkAppId(mLuckyEventId, mLuckyTnkAppId)
+      if (mChildYN.isNotEmpty()) {
+        builder = builder.setChildYn(mChildYN)
+      }
+      builder.show(mActivity)
+      result.success(true)
+    } else if (call.method == "setLuckyEventUseSafeAreaWebView") {
+      mLuckyEventUseSafeArea = call.argument("useSafeArea") as? Boolean ?: false
+      result.success(true)
+    } else if (call.method == "setLuckyEventHashMark") {
+      mLuckyEventHashMark = call.argument("hashMark") as? String ?: ""
+      result.success(true)
+    } else if (call.method == "setLuckyEventBaseUrl") {
+      mLuckyEventHashMark = call.argument("baseUrl") as? String ?: ""
+      result.success(true)
+    } else if (call.method == "setLuckyEventExtraParam") {
+      val k = call.argument("key") as? String ?: ""
+      val v = call.argument("value") as? String ?: ""
+      mLuckyEventExtraParams.put(k, v)
+      result.success(true)
     } else {
       result.notImplemented()
     }

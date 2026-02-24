@@ -77,8 +77,7 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       AdiscopeInterface.sharedInstance().showMaxMediationDebugger()
       result(true)
     case "showAdmobMediationDebugger":
-      AdiscopeInterface.sharedInstance().showAdmobMediationDebugger()
-      result(true)
+      result(false)
     case "setVolumeOff":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         if let args = call.arguments as? Dictionary<String, Any>{
@@ -166,15 +165,69 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
       result(resultValue)
     case "showAdEvent":
       var resultValue = false
+      result(resultValue)
+    case "showLuckyEvent":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
-        adiscopeSDK.setMainDelegate(self)
+        adiscopeSDK.showLuckyEvent()
+        result(true)
+        return;
+      }
+      result(false)
+    case "setLuckyEventAppId":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         if let args = call.arguments as? Dictionary<String, Any>{
-          if let unitId = args["unitId"] as? String {
-            resultValue = adiscopeSDK.showAdEvent(unitId)
+          if let appId = args["appId"] as? String, appId.count > 0, let pubId = args["pubId"] as? String, pubId.count > 0 {
+            adiscopeSDK.setLuckyEventAppId(appId, pubId: pubId)
+            result(true)
+            return;
           }
         }
       }
-      result(resultValue)
+      result(false)
+    case "setLuckyEventUseSafeAreaWebView":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let useSafeArea = args["useSafeArea"] as? Bool {
+            adiscopeSDK.setLuckyEventUseSafeAreaWebView(useSafeArea)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
+    case "setLuckyEventHashMark":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let hashMark = args["hashMark"] as? String, hashMark.count > 0 {
+            adiscopeSDK.setLuckyEventHashMark(hashMark)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
+    case "setLuckyEventBaseUrl":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let baseUrl = args["baseUrl"] as? String, baseUrl.count > 0 {
+            adiscopeSDK.setLuckyEventBaseUrl(baseUrl)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
+    case "setLuckyEventExtraParam":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let key = args["key"] as? String, key.count > 0, let value = args["value"] as? String, value.count > 0 {
+            adiscopeSDK.setLuckyEventExtraParam(key, value: value)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
     case "rewardedVideoShowWithLoad":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         if let args = call.arguments as? Dictionary<String, Any>{

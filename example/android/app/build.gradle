@@ -74,11 +74,16 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:5.0.3'
-    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adapter.admob:24.4.0.3'            // admob
-    implementation 'com.nps.adiscope:adapter.max:13.3.1.5'              // max
-    implementation 'com.nps.adiscope:adapter.chartboost:9.8.3.1'        // chartboost
-    implementation "com.nps.adiscope:adapter.pangle:7.7.0.2.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.5.0.1'            // vungle
+    // bom으로 연동 시 어댑터별 버전을 명시하지 않아도 코어 모듈 버전으로 매핑된 버전의 어댑터가 자동으로 연동됨
+    implementation platform("com.nps.adiscope:adiscope-bom:5.2.0")
+
+    implementation 'com.nps.adiscope:adiscopeCore'
+    implementation 'com.nps.adiscope:adiscopeAndroid'
+    implementation 'com.nps.adiscope:adiscopeLuckyEvent'
+    implementation 'com.nps.adiscope:adapter.admob'             // admob
+    implementation 'com.nps.adiscope:adapter.max'               // max
+    implementation 'com.nps.adiscope:adapter.chartboost'        // chartboost
+    implementation "com.nps.adiscope:adapter.pangle"            // pangle
+    implementation 'com.nps.adiscope:adapter.vungle'            // vungle
+    implementation "com.nps.adiscope:adapter.tnkpub"            // tnkpub
 }

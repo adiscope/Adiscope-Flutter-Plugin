@@ -94,6 +94,21 @@ class MockAdiscopeFlutterPluginPlatform
   }
 
   @override
+  Future<bool?> setShowWithLoad2BackgroundColor(String red, String green, String blue, String alpha) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setShowWithLoad2IndicatorStyle(bool isMedum, bool isHidden) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setShowWithLoad2ErrorAlert(String msg, bool isHidden) {
+    throw UnimplementedError();
+  }
+
+  @override
   Future<bool?> showAdmobMediationDebugger() {
     throw UnimplementedError();
   }
@@ -115,6 +130,51 @@ class MockAdiscopeFlutterPluginPlatform
 
   @override
   Future<bool?> showOfferwallDetailFromUrl(String url) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> showAdEvent(String unitId) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> showLuckyEvent() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setLuckyEventAppId(String eventId, String pid) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setLuckyEventUseSafeAreaWebView(bool useSafeArea) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setLuckyEventHashMark(String hashMark) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setLuckyEventBaseUrl(String baseUrl) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setLuckyEventExtraParam(String key, String value) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> rewardedVideoShowWithLoad(String unitId) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> interstitialShowWithLoad(String unitId) {
     throw UnimplementedError();
   }
 

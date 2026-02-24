@@ -27,6 +27,8 @@ class _MyAppState extends State<MyApp> {
   var offerwallId;
   var offerwallDetailUrl;
   var adEventUnitId;
+  var luckyEventAppId;
+  var luckyEventPubId;
   var rvUnitId;
   var itUnitId;
   var riUnitId1;
@@ -48,6 +50,8 @@ class _MyAppState extends State<MyApp> {
   final _offerwallUnitIdController = new TextEditingController();
   final _offerwallItemIdController = new TextEditingController();
   final _adEventUnitIdController = new TextEditingController();
+  final _luckyEventAppIdController = new TextEditingController();
+  final _luckyEventPubIdController = new TextEditingController();
   final _rvUnitIdController = new TextEditingController();
   final _itUnitIdController = new TextEditingController();
   final _riUnitIdController = new TextEditingController();
@@ -74,6 +78,8 @@ class _MyAppState extends State<MyApp> {
       mediaSecret = "";
       offerwallId = "";
       adEventUnitId = "";
+      luckyEventAppId = "";
+      luckyEventPubId = "";
       rvUnitId = "";
       itUnitId = "";
       riUnitId1 = "";
@@ -86,6 +92,8 @@ class _MyAppState extends State<MyApp> {
       mediaSecret = "";
       offerwallId = "";
       adEventUnitId = "";
+      luckyEventAppId = "";
+      luckyEventPubId = "";
       rvUnitId = "";
       itUnitId = "";
       riUnitId1 = "";
@@ -98,6 +106,8 @@ class _MyAppState extends State<MyApp> {
     _userIdController.text = userId;
     _offerwallUnitIdController.text = offerwallId;
     _adEventUnitIdController.text = adEventUnitId;
+    _luckyEventAppIdController.text = luckyEventAppId;
+    _luckyEventPubIdController.text = luckyEventPubId;
     _rvUnitIdController.text = rvUnitId;
     _itUnitIdController.text = itUnitId;
     _riUnitIdController.text = riUnitId1;
@@ -282,6 +292,72 @@ class _MyAppState extends State<MyApp> {
     }
     if (!mounted) return;
     pushLog("Set User ID => $result / $userId");
+  }
+
+  Future<void> showLuckyEvent() async {
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.showLuckyEvent() ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("showLuckyEvent => $result");
+  }
+
+  Future<void> setLuckyEventAppId(String eventId, String pid) async {
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.setLuckyEventAppId(eventId, pid) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("setLuckyEventAppId => $result / $eventId / $pid");
+  }
+
+  Future<void> setLuckyEventUseSafeAreaWebView(bool useSafeArea) async {
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.setLuckyEventUseSafeAreaWebView(useSafeArea) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("setLuckyEventAppId => $result / $useSafeArea");
+  }
+
+  Future<void> setLuckyEventHashMark(String hashMark) async {
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.setLuckyEventHashMark(hashMark) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("setLuckyEventAppId => $result / $hashMark");
+  }
+
+  Future<void> setLuckyEventBaseUrl(String baseUrl) async {
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.setLuckyEventBaseUrl(baseUrl) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("setLuckyEventAppId => $result / $baseUrl");
+  }
+
+  Future<void> setLuckyEventExtraParam(String key, String value) async {
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.setLuckyEventExtraParam(key, value) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("setLuckyEventAppId => $result / $key / $value");
   }
 
   Future<void> setRewardedCheckParam(String param) async {
@@ -1061,7 +1137,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox( height: 20,),
                       Text(
-                        "AdEvent",
+                        "Lucky Event",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -1072,7 +1148,7 @@ class _MyAppState extends State<MyApp> {
                       SizedBox(
                         height: 40,
                         child: TextField(
-                          controller: _adEventUnitIdController,
+                          controller: _luckyEventAppIdController,
                           textAlignVertical: TextAlignVertical.center,
                           style: const TextStyle(
                             fontSize: 14,
@@ -1085,7 +1161,28 @@ class _MyAppState extends State<MyApp> {
                             focusedBorder: OutlineInputBorder(),
                             enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                             border: InputBorder.none,
-                            labelText: 'Unit ID',
+                            labelText: 'App ID',
+                          ),
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      SizedBox(
+                        height: 40,
+                        child: TextField(
+                          controller: _luckyEventPubIdController,
+                          textAlignVertical: TextAlignVertical.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelStyle: TextStyle(color: Colors.grey),
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                            border: InputBorder.none,
+                            labelText: 'Pub ID',
                           ),
                         ),
                       ),
@@ -1093,8 +1190,16 @@ class _MyAppState extends State<MyApp> {
                       Container(
                         width: double.infinity,
                         child: OutlinedButton(
-                            onPressed: () { showAdEvent(_adEventUnitIdController.text); },
-                            child: Text("Show AdEvent")
+                            onPressed: () { setLuckyEventAppId(_luckyEventAppIdController.text, _luckyEventPubIdController.text); },
+                            child: Text("Set Lucky Event")
+                        ),
+                      ),
+                      SizedBox( height: 5,),
+                      Container(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () { showLuckyEvent(); },
+                            child: Text("Show Lucky Event")
                         ),
                       ),
                       SizedBox( height: 20,),

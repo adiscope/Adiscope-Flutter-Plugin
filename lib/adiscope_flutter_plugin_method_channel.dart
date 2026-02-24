@@ -156,6 +156,52 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   }
 
   @override
+  Future<bool?> showLuckyEvent() async {
+    final result = await methodChannel.invokeMethod<bool>('showLuckyEvent');
+    return result;
+  }
+
+  @override
+  Future<bool?> setLuckyEventAppId(String eventId, String pid) async {
+    final result = await methodChannel.invokeMethod<bool>('setLuckyEventAppId', <String, dynamic>{
+      "appId": eventId,
+      "pubId": pid
+    });
+    return result;
+  }
+
+  @override
+  Future<bool?> setLuckyEventUseSafeAreaWebView(bool useSafeArea) async {
+    final result = await methodChannel
+        .invokeMethod<bool>('setLuckyEventUseSafeAreaWebView', <String, dynamic>{"useSafeArea": useSafeArea});
+    return result;
+  }
+
+  @override
+  Future<bool?> setLuckyEventHashMark(String hashMark) async {
+    final result = await methodChannel
+        .invokeMethod<bool>('setLuckyEventHashMark', <String, dynamic>{"hashMark": hashMark});
+    return result;
+  }
+
+  @override
+  Future<bool?> setLuckyEventBaseUrl(String baseUrl) async {
+    final result = await methodChannel
+        .invokeMethod<bool>('setLuckyEventBaseUrl', <String, dynamic>{"baseUrl": baseUrl});
+    return result;
+  }
+
+  @override
+  Future<bool?> setLuckyEventExtraParam(String key, String value) async {
+    final result = await methodChannel
+        .invokeMethod<bool>('setLuckyEventExtraParam', <String, dynamic>{
+      "key": key,
+      "value": value
+    });
+    return result;
+  }
+
+  @override
   Future<bool?> rewardedVideoShowWithLoad(String unitId) async {
     final result = await methodChannel.invokeMethod<bool>(
         'rewardedVideoShowWithLoad', <String, dynamic>{"unitId": unitId});
