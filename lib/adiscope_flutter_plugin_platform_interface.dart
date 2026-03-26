@@ -97,10 +97,6 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
         'showOfferwallDetailFromUrl() has not been implemented.');
   }
 
-  Future<bool?> showAdEvent(String unitId) {
-    throw UnimplementedError('showAdEvent() has not been implemented.');
-  }
-
   Future<bool?> showLuckyEvent() {
     throw UnimplementedError('showLuckyEvent() has not been implemented.');
   }

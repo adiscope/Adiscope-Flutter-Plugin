@@ -2,14 +2,14 @@ group 'com.tnk.adiscope_flutter_plugin'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '2.1.21'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build:gradle:8.9.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -27,7 +27,7 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace "com.nps.adiscope"
-    compileSdk 34
+    compileSdk 35
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -43,12 +43,15 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 21
+    }
+    lint {
+        targetSdk = 35
     }
 }
 
 dependencies {
     implementation 'com.nps.adiscope:adiscopeCore:5.2.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adiscopeLuckyEvent:5.1.4'
+    implementation 'com.nps.adiscope:adiscopeLuckyEvent:5.1.7'
 }

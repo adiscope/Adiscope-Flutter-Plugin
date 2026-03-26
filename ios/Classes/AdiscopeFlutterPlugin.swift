@@ -163,11 +163,9 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result(resultValue)
-    case "showAdEvent":
-      var resultValue = false
-      result(resultValue)
     case "showLuckyEvent":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
         adiscopeSDK.showLuckyEvent()
         result(true)
         return;
@@ -383,22 +381,9 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
     channel.invokeMethod("onOfferwallAdFailedToShow", arguments: [unitID!, errorCode, errorDescription, errorXB3TraceID])
   }
 
-  public func onAdEventOpened(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeAdEventListener", binaryMessenger: _adiscopeRegistrar!.messenger())
-    channel.invokeMethod("onAdEventOpened", arguments: unitID)
-  }
-
-  public func onAdEventClosed(_ unitID: String!) {
-    let channel = FlutterMethodChannel(name: "adiscopeAdEventListener", binaryMessenger: _adiscopeRegistrar!.messenger())
-    channel.invokeMethod("onAdEventClosed", arguments: unitID)
-  }
-
-  public func onAdEventFailed(toShow unitID: String!, error: AdiscopeError!) {
-    let errorCode = error.code
-    let errorDescription = error.description
-    let errorXB3TraceID = error.getXB3TraceID() ?? ""
-    let channel = FlutterMethodChannel(name: "adiscopeAdEventListener", binaryMessenger: _adiscopeRegistrar!.messenger())
-    channel.invokeMethod("onAdEventFailedToShow", arguments: [unitID!, errorCode, errorDescription, errorXB3TraceID])
+  public func luckyEventWebViewNavigated(_ url: URL, vc: UIViewController) {
+    let channel = FlutterMethodChannel(name: "adiscopeLuckyEventListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    channel.invokeMethod("luckyEventWebViewNavigated", arguments: url.absoluteString)
   }
 
   public func onRewardedVideoAdLoaded(_ unitID: String!) {

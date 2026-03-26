@@ -26,7 +26,6 @@ class _MyAppState extends State<MyApp> {
   var subDomain;
   var offerwallId;
   var offerwallDetailUrl;
-  var adEventUnitId;
   var luckyEventAppId;
   var luckyEventPubId;
   var rvUnitId;
@@ -49,7 +48,6 @@ class _MyAppState extends State<MyApp> {
   final _unitIdController = new TextEditingController();
   final _offerwallUnitIdController = new TextEditingController();
   final _offerwallItemIdController = new TextEditingController();
-  final _adEventUnitIdController = new TextEditingController();
   final _luckyEventAppIdController = new TextEditingController();
   final _luckyEventPubIdController = new TextEditingController();
   final _rvUnitIdController = new TextEditingController();
@@ -105,7 +103,6 @@ class _MyAppState extends State<MyApp> {
 
     _userIdController.text = userId;
     _offerwallUnitIdController.text = offerwallId;
-    _adEventUnitIdController.text = adEventUnitId;
     _luckyEventAppIdController.text = luckyEventAppId;
     _luckyEventPubIdController.text = luckyEventPubId;
     _rvUnitIdController.text = rvUnitId;
@@ -131,13 +128,9 @@ class _MyAppState extends State<MyApp> {
       pushLog("onOfferwallAdFailedToShow => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     });
 
-    AdiscopeListener.setupAdEventListener(
-    onAdEventOpened: (unitId) {
-      pushLog("onAdEventOpened => $unitId");
-    }, onAdEventClosed: (unitId) {
-      pushLog("onAdEventClosed => $unitId");
-    }, onAdEventFailedToShow: (unitId, errorCode, errorDescription) {
-      pushLog("onAdEventFailedToShow => $unitId, $errorCode, $errorDescription");
+    AdiscopeListener.setupLuckyEventListener(
+    luckyEventWebViewNavigated: (url) {
+      pushLog("luckyEventWebViewNavigated => $url");
     });
 
     AdiscopeListener.setupRewardedVideoListener(
@@ -523,22 +516,6 @@ class _MyAppState extends State<MyApp> {
     }
     if (!mounted) return;
     pushLog("Show Offerwall Detail From Url => $result");
-  }
-
-  Future<void> showAdEvent(String unitId) async {
-    if (unitId.isEmpty) {
-      pushLog("Not Found UnitID => $unitId");
-      return;
-    }
-
-    bool result = false;
-    try {
-      result = await _adiscopeFlutterPlugin.showAdEvent(unitId.toUpperCase()) ?? false;
-    } on PlatformException {
-      result = false;
-    }
-    if (!mounted) return;
-    pushLog("Show AdEvent => $result");
   }
 
   Future<void> rewardedVideoShowWithLoad(String unitId) async {

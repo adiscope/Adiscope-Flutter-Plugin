@@ -24,9 +24,8 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.tnk.adiscope_flutter_plugin_example"
-    compileSdk 35
-    ndkVersion "27.0.12077973"
-
+    compileSdk 36
+    ndkVersion = "28.2.13676358"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -59,7 +58,9 @@ android {
                 adiscope_admob_id: ""
         ]
     }
-
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

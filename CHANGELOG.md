@@ -1,3 +1,5 @@
+## 5.2.3
+* Lucky Event Webview Callback URL 기능 추가
 ## 5.2.0
 #### Android
 * RV 신규 네트워크 어댑터 추가 (tnkpub) 및 RV 인하우스 기능 지원

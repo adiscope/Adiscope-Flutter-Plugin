@@ -148,11 +148,6 @@ class AdiscopeFlutterPlugin {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoLoad(unitId);
   }
 
-  /// Show AdEvent of [unitId] value.
-  Future<bool?> showAdEvent(String unitId) {
-    return AdiscopeFlutterPluginPlatform.instance.showAdEvent(unitId);
-  }
-
   /// Check the Load status of the rewardedVideo of the [unitId] value.
   Future<bool?> rewardedVideoIsLoad(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance.rewardedVideoIsLoad(unitId);
@@ -213,9 +208,9 @@ class AdiscopeListener {
   static final listenerOfferwallChannel =
       const MethodChannel('adiscopeOfferwallListener');
 
-  /// Register listener channel of rewardedVideo
-  static final listenerAdEventChannel =
-  const MethodChannel('adiscopeAdEventListener');
+  /// Register listener channel of luckyEvent
+  static final listenerLuckyEventChannel =
+  const MethodChannel('adiscopeLuckyEventListener');
 
   /// Register listener channel of rewardedVideo
   static final listenerRewardedVideoChannel =
@@ -260,28 +255,15 @@ class AdiscopeListener {
     });
   }
 
-  /// Register listener of AdEvent
-  static Future<void> setupAdEventListener({
-    Function(String)? onAdEventOpened,
-    Function(String)? onAdEventClosed,
-    Function(String, int, String)? onAdEventFailedToShow,
+  /// Register listener of LuckyEvent
+  static Future<void> setupLuckyEventListener({
+    Function(String)? luckyEventWebViewNavigated
   }) async {
-    listenerAdEventChannel.setMethodCallHandler((call) async {
+    listenerLuckyEventChannel.setMethodCallHandler((call) async {
       switch (call.method) {
-        case 'onAdEventOpened':
-          if (onAdEventOpened != null) {
-            onAdEventOpened(call.arguments as String);
-          }
-          break;
-        case 'onAdEventClosed':
-          if (onAdEventClosed != null) {
-            onAdEventClosed(call.arguments as String);
-          }
-          break;
-        case 'onAdEventFailedToShow':
-          if (onAdEventFailedToShow != null) {
-            List<dynamic> args = call.arguments as List<dynamic>;
-            onAdEventFailedToShow(args[0] as String, args[1] as int, args[2] as String);
+        case 'luckyEventWebViewNavigated':
+          if (luckyEventWebViewNavigated != null) {
+            luckyEventWebViewNavigated(call.arguments as String);
           }
           break;
         default:

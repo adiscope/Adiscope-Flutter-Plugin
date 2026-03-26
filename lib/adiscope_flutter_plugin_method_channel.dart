@@ -149,13 +149,6 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   }
 
   @override
-  Future<bool?> showAdEvent(String unitId) async {
-    final result = await methodChannel.invokeMethod<bool>(
-        'showAdEvent', <String, dynamic>{"unitId": unitId});
-    return result;
-  }
-
-  @override
   Future<bool?> showLuckyEvent() async {
     final result = await methodChannel.invokeMethod<bool>('showLuckyEvent');
     return result;

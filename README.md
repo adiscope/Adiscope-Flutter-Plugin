@@ -1,7 +1,7 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.2.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.2.3-blue)](./CHANGELOG.md)
 [![GitHub package.json version](https://img.shields.io/badge/Android-5.2.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-5.2.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-5.2.3-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
 [![GitHub package.json version](https://img.shields.io/badge/Unity-5.2.1-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
 [![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.2.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
@@ -85,7 +85,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:5.2.0
+flutter pub add adiscope_flutter_plugin:5.2.3
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -140,14 +140,16 @@ android {
     }
 }
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:5.2.0'
-    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.3'
-    implementation 'com.nps.adiscope:adapter.chartboost:9.11.0.0'        // chartboost
-    implementation 'com.nps.adiscope:adapter.max:13.5.1.0'              // max
-    implementation 'com.nps.adiscope:adapter.admob:24.8.0.0'            // admob
-    implementation "com.nps.adiscope:adapter.pangle:7.8.5.2.0"          // pangle
-    implementation 'com.nps.adiscope:adapter.vungle:7.6.3.0'            // vungle
-    implementation 'com.nps.adiscope:adapter.tnkpub:7.25.03.0'          // tnkpub
+    implementation platform("com.nps.adiscope:adiscope-bom:5.2.0")
+    implementation 'com.nps.adiscope:adiscopeCore'
+    implementation 'com.nps.adiscope:adiscopeAndroid'
+    implementation 'com.nps.adiscope:adiscopeLuckyEvent'
+    implementation 'com.nps.adiscope:adapter.admob'             // admob
+    implementation 'com.nps.adiscope:adapter.max'               // max
+    implementation 'com.nps.adiscope:adapter.chartboost'        // chartboost
+    implementation "com.nps.adiscope:adapter.pangle"            // pangle
+    implementation 'com.nps.adiscope:adapter.vungle'            // vungle
+    implementation "com.nps.adiscope:adapter.tnkpub"            // tnkpub
 }
 ```
 - 애디스콥 측에 media_id 와 media_secret, sub_domain 문의!
@@ -169,7 +171,7 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeLuckyEvent', '5.2.0'
+  pod 'AdiscopeLuckyEvent', '5.2.3'
   pod 'AdiscopeMediaAdManager', '5.2.0'
   pod 'AdiscopeMediaAdMob', '5.2.0'
   pod 'AdiscopeMediaChartBoost', '5.2.0'
@@ -626,6 +628,16 @@ Future<void> showLuckyEvent() async {
     bool result = await _adiscopeFlutterPlugin.showLuckyEvent() ?? false;
 }
 ```
+<br/>
+
+#### C. (선택) WebView interceptor callback
+```dart
+AdiscopeListener.setupLuckyEventListener(
+	luckyEventWebViewNavigated: (url) {
+	}
+);
+```
+- Lucky Event WebView에서 발생하는 Scheme URL 정보를 수신, 전달된 URL에 대해 이벤트 처리 용도로 사용 권장
 <br/><br/><br/>
 
 ### 10. Etc

@@ -31,7 +31,7 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  pod 'AdiscopeLuckyEvent', '5.2.0'
+  pod 'AdiscopeLuckyEvent', '5.2.3'
   pod 'AdiscopeMediaAdManager', '5.2.0'
   pod 'AdiscopeMediaAdMob', '5.2.0'
   pod 'AdiscopeMediaChartBoost', '5.2.0'

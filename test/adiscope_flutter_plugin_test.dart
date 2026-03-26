@@ -134,11 +134,6 @@ class MockAdiscopeFlutterPluginPlatform
   }
 
   @override
-  Future<bool?> showAdEvent(String unitId) {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<bool?> showLuckyEvent() {
     throw UnimplementedError();
   }
