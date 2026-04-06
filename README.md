@@ -1,7 +1,7 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.2.3-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.2.5-blue)](./CHANGELOG.md)
 [![GitHub package.json version](https://img.shields.io/badge/Android-5.2.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-5.2.3-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-5.2.5-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
 [![GitHub package.json version](https://img.shields.io/badge/Unity-5.2.1-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
 [![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.2.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
@@ -171,9 +171,9 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeLuckyEvent', '5.2.3'
+  pod 'AdiscopeLuckyEvent', '5.2.5'
   pod 'AdiscopeMediaAdManager', '5.2.0'
-  pod 'AdiscopeMediaAdMob', '5.2.0'
+  pod 'AdiscopeMediaAdMob', '5.2.4'
   pod 'AdiscopeMediaChartBoost', '5.2.0'
   pod 'AdiscopeMediaPangle', '5.2.0'
   pod 'AdiscopeMediaTnkPub', '5.2.0'

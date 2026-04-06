@@ -1,3 +1,5 @@
+## 5.2.5
+* Lucky Event 버그 수정
 ## 5.2.3
 * Lucky Event Webview Callback URL 기능 추가
 ## 5.2.0
