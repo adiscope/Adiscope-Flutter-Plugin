@@ -53,5 +53,5 @@ android {
 dependencies {
     implementation 'com.nps.adiscope:adiscopeCore:5.2.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
-    implementation 'com.nps.adiscope:adiscopeLuckyEvent:5.1.7'
+    implementation 'com.nps.adiscope:adiscopeLuckyEvent:5.1.8'
 }

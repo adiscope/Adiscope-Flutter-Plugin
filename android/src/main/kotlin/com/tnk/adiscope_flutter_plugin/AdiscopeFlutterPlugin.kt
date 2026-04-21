@@ -49,7 +49,6 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "adiscope_flutter_plugin")
     channel.setMethodCallHandler(this)
     flutterPlugin = flutterPluginBinding
-    LuckyEventHooker.schemeEvent = ::adEventWebViewNavigated
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
@@ -448,6 +447,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
     mActivity = binding.activity
+    LuckyEventHooker.schemeEvent = ::adEventWebViewNavigated
   }
 
   override fun onDetachedFromActivityForConfigChanges() {}

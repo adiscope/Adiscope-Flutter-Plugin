@@ -1,3 +1,5 @@
+## 5.2.6
+* Lucky Event scheme 처리 수정
 ## 5.2.5
 * Lucky Event 버그 수정
 ## 5.2.3
