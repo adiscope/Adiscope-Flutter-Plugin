@@ -26,7 +26,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace "com.nps.adiscope"
+    namespace "com.tnk.adiscope_flutter_plugin"
     compileSdk 35
 
     compileOptions {
@@ -51,7 +51,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:5.2.0'
-    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.2'
+    implementation 'com.nps.adiscope:adiscopeCore:5.3.1'
+    implementation 'com.nps.adiscope:adiscopeAndroid:1.2.4'
     implementation 'com.nps.adiscope:adiscopeLuckyEvent:5.1.8'
 }

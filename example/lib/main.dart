@@ -42,6 +42,7 @@ class _MyAppState extends State<MyApp> {
   final _adiscopeFlutterPlugin = AdiscopeFlutterPlugin();
   final _mediaIdController = new TextEditingController();
   final _userIdController = new TextEditingController();
+  final _childController = new TextEditingController();
   final _customdataController = new TextEditingController();
   final _callbackTagController = new TextEditingController();
   final _childYNController = new TextEditingController();
@@ -75,7 +76,6 @@ class _MyAppState extends State<MyApp> {
       mediaId = "";
       mediaSecret = "";
       offerwallId = "";
-      adEventUnitId = "";
       luckyEventAppId = "";
       luckyEventPubId = "";
       rvUnitId = "";
@@ -89,7 +89,6 @@ class _MyAppState extends State<MyApp> {
       mediaId = "";
       mediaSecret = "";
       offerwallId = "";
-      adEventUnitId = "";
       luckyEventAppId = "";
       luckyEventPubId = "";
       rvUnitId = "";
@@ -113,6 +112,7 @@ class _MyAppState extends State<MyApp> {
     _riUnitId3Controller.text = riUnitId3;
     _riUnitId4Controller.text = riUnitId4;
     _riUnitId5Controller.text = riUnitId5;
+    _childController.text = "0";
     _showWithLoadBackgroundRedController.text = "0";
     _showWithLoadBackgroundGreenController.text = "0";
     _showWithLoadBackgroundBlueController.text = "0";
@@ -120,23 +120,23 @@ class _MyAppState extends State<MyApp> {
     _showWithLoadAlertMsgController.text = "잠시 후 다시 시도해 주세요.";
 
     AdiscopeListener.setupOfferwallListener(
-    onOfferwallAdOpened: (unitId) {
-      pushLog("onOfferwallAdOpened => $unitId");
-    }, onOfferwallAdClosed: (unitId) {
+        onOfferwallAdOpened: (unitId) {
+          pushLog("onOfferwallAdOpened => $unitId");
+        }, onOfferwallAdClosed: (unitId) {
       pushLog("onOfferwallAdClosed => $unitId");
     }, onOfferwallAdFailedToShow: (unitId, errorCode, errorDescription, errorXB3TraceID) {
       pushLog("onOfferwallAdFailedToShow => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     });
 
     AdiscopeListener.setupLuckyEventListener(
-    luckyEventWebViewNavigated: (url) {
-      pushLog("luckyEventWebViewNavigated => $url");
-    });
+        luckyEventWebViewNavigated: (url) {
+          pushLog("luckyEventWebViewNavigated => $url");
+        });
 
     AdiscopeListener.setupRewardedVideoListener(
-    onRewardedVideoAdLoaded: (unitId) {
-      pushLog("onRewardedVideoAdLoaded => $unitId");
-    }, onRewardedVideoAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+        onRewardedVideoAdLoaded: (unitId) {
+          pushLog("onRewardedVideoAdLoaded => $unitId");
+        }, onRewardedVideoAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
       pushLog("onRewardedVideoAdFailedToLoad => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     }, onRewardedVideoAdOpened: (unitId) {
       pushLog("onRewardedVideoAdOpened => $unitId");
@@ -149,9 +149,9 @@ class _MyAppState extends State<MyApp> {
     });
 
     AdiscopeListener.setupInterstitialListener(
-    onInterstitialAdLoaded: (unitId) {
-      pushLog("onInterstitialAdLoaded => $unitId");
-    }, onInterstitialAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+        onInterstitialAdLoaded: (unitId) {
+          pushLog("onInterstitialAdLoaded => $unitId");
+        }, onInterstitialAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
       pushLog("onInterstitialAdFailedToLoad => $unitId, $errorCode, $errorDescription, $errorXB3TraceID");
     }, onInterstitialAdOpened: (unitId) {
       pushLog("onInterstitialAdOpened => $unitId");
@@ -162,9 +162,9 @@ class _MyAppState extends State<MyApp> {
     });
 
     AdiscopeListener.setupRewardedInterstitialListener(
-    onRewardedInterstitialAdSkip: (unitId) {
-      pushLog("onRewardedInterstitialAdSkip => $unitId");
-    }, onRewardedInterstitialAdOpened: (unitId) {
+        onRewardedInterstitialAdSkip: (unitId) {
+          pushLog("onRewardedInterstitialAdSkip => $unitId");
+        }, onRewardedInterstitialAdOpened: (unitId) {
       pushLog("onRewardedInterstitialAdOpened => $unitId");
     }, onRewardedInterstitialAdClosed: (unitId) {
       pushLog("onRewardedInterstitialAdClosed => $unitId");
@@ -285,6 +285,17 @@ class _MyAppState extends State<MyApp> {
     }
     if (!mounted) return;
     pushLog("Set User ID => $result / $userId");
+  }
+
+  Future<void> setUserIdChild(String userId, int child) async {
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.setUserIdChild(userId, child) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("Set User ID & Child => $result / $userId / $child");
   }
 
   Future<void> showLuckyEvent() async {
@@ -693,1037 +704,1068 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Adiscope Example App'),
         ),
         body: Center(
-          child: Column(
-            children: [
-              Container(
-                height: 1.0,
-                width: double.infinity,
-                color:Colors.black,
-              ),
-              Container(
-                color: Colors.white,
-                child: SizedBox(
+            child: Column(
+              children: [
+                Container(
+                  height: 1.0,
                   width: double.infinity,
-                  height: 200,
-                  child: Scrollbar(
-                    thumbVisibility: true,
-                    child: SingleChildScrollView(
-                      primary: false,
-                      scrollDirection: Axis.vertical,
-                      child: Text('$_logResult'),
+                  color:Colors.black,
+                ),
+                Container(
+                  color: Colors.white,
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 200,
+                    child: Scrollbar(
+                      thumbVisibility: true,
+                      child: SingleChildScrollView(
+                        primary: false,
+                        scrollDirection: Axis.vertical,
+                        child: Text('$_logResult'),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Container(
-                height: 1.0,
-                width: double.infinity,
-                color:Colors.black,
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(5),
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: [
-                      SizedBox( height: 10,),
-                      Row(
-                        children: [
-                          Text("Media ID"),
-                          SizedBox( width: 10,),
-                          Flexible(
-                            child: SizedBox(
-                              height: 30,
-                              child: TextField(
-                                controller: _mediaIdController,
-                                textAlignVertical: TextAlignVertical.center,
-                                enabled: false,
-                                decoration: InputDecoration(
-                                  labelText: mediaId,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  border: OutlineInputBorder(),
+                Container(
+                  height: 1.0,
+                  width: double.infinity,
+                  color:Colors.black,
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(5),
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                      children: [
+                        SizedBox( height: 10,),
+                        Row(
+                          children: [
+                            Text("Media ID"),
+                            SizedBox( width: 10,),
+                            Flexible(
+                              child: SizedBox(
+                                height: 30,
+                                child: TextField(
+                                  controller: _mediaIdController,
+                                  textAlignVertical: TextAlignVertical.center,
+                                  enabled: false,
+                                  decoration: InputDecoration(
+                                    labelText: mediaId,
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    border: OutlineInputBorder(),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 38,
-                        child: TextField(
-                          controller: _userIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'User ID',
-                          ),
+                          ],
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () { setUserId(_userIdController.text); },
-                          child: Text("Set User ID")
-                        ),
-                      ),
-                      SizedBox( height: 10,),
-                      SizedBox(
-                        height: 38,
-                        child: TextField(
-                          controller: _callbackTagController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Callback Tag',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 38,
-                        child: TextField(
-                          controller: _childYNController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Child YN',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 10,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { initialize(); },
-                                child: Text("Initializ()")
-                              ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 38,
+                          child: TextField(
+                            controller: _userIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'User ID',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { initialize1(_callbackTagController.text); },
-                                child: Text("Initializ(callbackTag)")
-                              ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { setUserId(_userIdController.text); },
+                              child: Text("Set User ID")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 38,
+                          child: TextField(
+                            controller: _childController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Child (0:None, 1:Adult, 2:Child")',
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () { initialize2(_callbackTagController.text, _childYNController.text); },
-                          child: Text("Initializ(callbackTag, childYN)")
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () {
-                            initialize3(mediaId, mediaSecret);
-                          },
-                          child: Text("Initializ(mediaId, mediaSecret)")
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () {
-                            initialize4(mediaId, mediaSecret, _callbackTagController.text);
-                          },
-                          child: Text("Initializ(mediaId, mediaSecret, callbackTag)")
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () {
-                            initialize5(mediaId, mediaSecret, _callbackTagController.text, _childYNController.text);
-                          },
-                          child: Text("Initializ(mediaId, mediaSecret, callbackTag, childYN)")
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () { isInitialized(); },
-                          child: Text("isInitialized")
-                        ),
-                      ),
-                      SizedBox( height: 20,),
-                      Text(
-                        "Other",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _customdataController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'CustomData',
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () {
+                                setUserIdChild(_userIdController.text, int.tryParse(_childController.text) ?? 0);
+                              },
+                              child: Text("Set User ID & Child")
                           ),
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                            onPressed: () { setRewardedCheckParam(_customdataController.text); },
-                            child: Text("CustomData")
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { getSDKVersion(); },
-                                child: Text("Print SDK Version")
-                              ),
+                        SizedBox( height: 10,),
+                        SizedBox(
+                          height: 38,
+                          child: TextField(
+                            controller: _callbackTagController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Callback Tag',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { getNetworkVersions(); },
-                                child: Text("Print Network Version")
-                              ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 38,
+                          child: TextField(
+                            controller: _childYNController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _unitIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Unit ID',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () { getUnitStatus(_unitIdController.text); },
-                          child: Text("Get UnitID Status")
-                        ),
-                      ),
-                      SizedBox( height: 10,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () { showMaxMediationDebugger(); },
-                          child: Text("Show Max Mediation Debugger - 앱 구동 후 첫 진입 시 5초간 대기 후 화면 터치 가능")
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () { showAdmobMediationDebugger(); },
-                          child: Text("Show Admob Mediation Debugger - 미동작 시 애드몹 물량 로드 후 진입 가능 (이니셜라이즈 필요)")
-                        ),
-                      ),
-                      SizedBox( height: 10,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { setVolumeOff(false); },
-                                child: Text("Ad Sound On")
-                              ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Child YN',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { setVolumeOff(true); },
-                                child: Text("Ad Sound Off")
+                        ),
+                        SizedBox( height: 10,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { initialize(); },
+                                    child: Text("Initializ()")
+                                ),
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox( height: 20,),
-                      Text(
-                        "Offerwall",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _offerwallUnitIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Unit ID',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () { showOfferwall(_offerwallUnitIdController.text); },
-                          child: Text("Show Offerwall")
-                        ),
-                      ),
-                      SizedBox( height: 10,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _offerwallItemIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Detail Id',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { showOfferwallDetail(_offerwallUnitIdController.text, _offerwallItemIdController.text); },
-                                child: Text("Show Offerwall Detail")
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { initialize1(_callbackTagController.text); },
+                                    child: Text("Initializ(callbackTag)")
+                                ),
                               ),
                             ),
+                          ],
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { initialize2(_callbackTagController.text, _childYNController.text); },
+                              child: Text("Initializ(callbackTag, childYN)")
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { showOfferwallDetailFromUrl(_offerwallUnitIdController.text, _offerwallItemIdController.text); },
-                                child: Text("Show Offerwall Detail From URL")
-                              ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () {
+                                initialize3(mediaId, mediaSecret);
+                              },
+                              child: Text("Initializ(mediaId, mediaSecret)")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () {
+                                initialize4(mediaId, mediaSecret, _callbackTagController.text);
+                              },
+                              child: Text("Initializ(mediaId, mediaSecret, callbackTag)")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () {
+                                initialize5(mediaId, mediaSecret, _callbackTagController.text, _childYNController.text);
+                              },
+                              child: Text("Initializ(mediaId, mediaSecret, callbackTag, childYN)")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { isInitialized(); },
+                              child: Text("isInitialized")
+                          ),
+                        ),
+                        SizedBox( height: 20,),
+                        Text(
+                          "Other",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _customdataController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox( height: 20,),
-                      Text(
-                        "Lucky Event",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _luckyEventAppIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'App ID',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _luckyEventPubIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Pub ID',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                            onPressed: () { setLuckyEventAppId(_luckyEventAppIdController.text, _luckyEventPubIdController.text); },
-                            child: Text("Set Lucky Event")
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                            onPressed: () { showLuckyEvent(); },
-                            child: Text("Show Lucky Event")
-                        ),
-                      ),
-                      SizedBox( height: 20,),
-                      Text(
-                        "Rewarded Video",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _rvUnitIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Unit ID',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { rewardedVideoLoad(_rvUnitIdController.text); },
-                                child: Text("Load")
-                              ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'CustomData',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { rewardedVideoIsLoad(_rvUnitIdController.text); },
-                                child: Text("IsLoaded")
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { setRewardedCheckParam(_customdataController.text); },
+                              child: Text("CustomData")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { getSDKVersion(); },
+                                    child: Text("Print SDK Version")
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { rewardedVideoShow(); },
-                                child: Text("Show")
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { getNetworkVersions(); },
+                                    child: Text("Print Network Version")
+                                ),
                               ),
+                            )
+                          ],
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _unitIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                            onPressed: () { rewardedVideoShowWithLoad(_rvUnitIdController.text); },
-                            child: Text("Show With Load")
-                        ),
-                      ),
-                      SizedBox( height: 20,),
-                      Text(
-                        "Interstitial",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _itUnitIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Unit ID',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { interstitialLoad(_itUnitIdController.text); },
-                                child: Text("Load")
-                              ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Unit ID',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { interstitialIsLoad(_itUnitIdController.text); },
-                                child: Text("IsLoaded")
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { getUnitStatus(_unitIdController.text); },
+                              child: Text("Get UnitID Status")
+                          ),
+                        ),
+                        SizedBox( height: 10,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { showMaxMediationDebugger(); },
+                              child: Text("Show Max Mediation Debugger - 앱 구동 후 첫 진입 시 5초간 대기 후 화면 터치 가능")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { showAdmobMediationDebugger(); },
+                              child: Text("Show Admob Mediation Debugger - 미동작 시 애드몹 물량 로드 후 진입 가능 (이니셜라이즈 필요)")
+                          ),
+                        ),
+                        SizedBox( height: 10,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { setVolumeOff(false); },
+                                    child: Text("Ad Sound On")
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { interstitialShow(); },
-                                child: Text("Show")
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { setVolumeOff(true); },
+                                    child: Text("Ad Sound Off")
+                                ),
                               ),
+                            )
+                          ],
+                        ),
+                        SizedBox( height: 20,),
+                        Text(
+                          "Offerwall",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _offerwallUnitIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Unit ID',
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                            onPressed: () { interstitialShowWithLoad(_itUnitIdController.text); },
-                            child: Text("Show With Load")
                         ),
-                      ),
-                      SizedBox( height: 20,),
-                      Text(
-                        "RewardedVideo Interstitial",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _riUnitId1Controller,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'RI Unit ID1',
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { showOfferwall(_offerwallUnitIdController.text); },
+                              child: Text("Show Offerwall")
                           ),
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _riUnitId2Controller,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'RI Unit ID2',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _riUnitId3Controller,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'RI Unit ID3',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _riUnitId4Controller,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'RI Unit ID4',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _riUnitId5Controller,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'RI Unit ID5',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { preLoadAllRewardedInterstitial(); },
-                                child: Text("PreLoad All")
-                              ),
+                        SizedBox( height: 10,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _offerwallItemIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Detail Id',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () {
-                                  var item = List<String>.empty(growable : true);
-                                  if (_riUnitId1Controller.text.isNotEmpty) {
-                                    item.add(_riUnitId1Controller.text);
-                                  }
-                                  if (_riUnitId2Controller.text.isNotEmpty) {
-                                    item.add(_riUnitId2Controller.text);
-                                  }
-                                  if (_riUnitId3Controller.text.isNotEmpty) {
-                                    item.add(_riUnitId3Controller.text);
-                                  }
-                                  if (_riUnitId4Controller.text.isNotEmpty) {
-                                    item.add(_riUnitId4Controller.text);
-                                  }
-                                  if (_riUnitId5Controller.text.isNotEmpty) {
-                                    item.add(_riUnitId5Controller.text);
-                                  }
-                                  preLoadRewardedInterstitial(item.cast<String>());
-                                },
-                                child: Text("PreLoad UnitIDs")
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { showOfferwallDetail(_offerwallUnitIdController.text, _offerwallItemIdController.text); },
+                                    child: Text("Show Offerwall Detail")
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _riUnitIdController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'RI Unit ID',
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { showOfferwallDetailFromUrl(_offerwallUnitIdController.text, _offerwallItemIdController.text); },
+                                    child: Text("Show Offerwall Detail From URL")
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox( height: 20,),
+                        Text(
+                          "Lucky Event",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.blue,
                           ),
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { showRewardedInterstitial(_riUnitIdController.text); },
-                                child: Text("Show")
-                              ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _luckyEventAppIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'App ID',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                onPressed: () { getUnitStatusRewardedInterstitial(_riUnitIdController.text); },
-                                child: Text("GetUnitStatus")
-                              ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _luckyEventPubIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Pub ID',
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox( height: 20,),
-                      Text(
-                        "ShowWithLoad Background Color",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.blue,
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _showWithLoadBackgroundRedController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Red',
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { setLuckyEventAppId(_luckyEventAppIdController.text, _luckyEventPubIdController.text); },
+                              child: Text("Set Lucky Event")
                           ),
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _showWithLoadBackgroundGreenController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Green',
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { showLuckyEvent(); },
+                              child: Text("Show Lucky Event")
                           ),
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _showWithLoadBackgroundBlueController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Blue',
+                        SizedBox( height: 20,),
+                        Text(
+                          "Rewarded Video",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.blue,
                           ),
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _showWithLoadBackgroundAlphaController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Alpha',
-                          ),
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Container(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                            onPressed: () { setShowWithLoad2BackgroundColor(_showWithLoadBackgroundRedController.text, _showWithLoadBackgroundGreenController.text, _showWithLoadBackgroundBlueController.text, _showWithLoadBackgroundAlphaController.text); },
-                            child: Text("Set Show With Load Background Color")
-                        ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                  onPressed: () {
-                                    isStyleMedium = !isStyleMedium;
-                                    setShowWithLoad2IndicatorStyle(isStyleMedium, isStyleHidden);
-                                  },
-                                  child: Text("Set Show With Load Indicator Style")
-                              ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _rvUnitIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Unit ID',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                  onPressed: () {
-                                    isStyleHidden = !isStyleHidden;
-                                    setShowWithLoad2IndicatorStyle(isStyleMedium, isStyleHidden);
-                                  },
-                                  child: Text("Set Show With Load Indicator Hidden")
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { rewardedVideoLoad(_rvUnitIdController.text); },
+                                    child: Text("Load")
+                                ),
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox( height: 5,),
-                      SizedBox(
-                        height: 40,
-                        child: TextField(
-                          controller: _showWithLoadAlertMsgController,
-                          textAlignVertical: TextAlignVertical.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            labelStyle: TextStyle(color: Colors.grey),
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                            border: InputBorder.none,
-                            labelText: 'Alert Msg',
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { rewardedVideoIsLoad(_rvUnitIdController.text); },
+                                    child: Text("IsLoaded")
+                                ),
+                              ),
+                            ),
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { rewardedVideoShow(); },
+                                    child: Text("Show")
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { rewardedVideoShowWithLoad(_rvUnitIdController.text); },
+                              child: Text("Show With Load")
                           ),
                         ),
-                      ),
-                      SizedBox( height: 5,),
-                      Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                  onPressed: () { setShowWithLoad2ErrorAlert(_showWithLoadAlertMsgController.text, isAlertHidden); },
-                                  child: Text("Set Show With Load Alert Msg")
-                              ),
+                        SizedBox( height: 20,),
+                        Text(
+                          "Interstitial",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _itUnitIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Unit ID',
                             ),
                           ),
-                          SizedBox( width: 5,),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              child: OutlinedButton(
-                                  onPressed: () {
-                                    isAlertHidden = !isAlertHidden;
-                                    setShowWithLoad2ErrorAlert(_showWithLoadAlertMsgController.text, isAlertHidden);
-                                  },
-                                  child: Text("Set Show With Load Alert Hidden")
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { interstitialLoad(_itUnitIdController.text); },
+                                    child: Text("Load")
+                                ),
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox( height: 30,),
-                    ],
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { interstitialIsLoad(_itUnitIdController.text); },
+                                    child: Text("IsLoaded")
+                                ),
+                              ),
+                            ),
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { interstitialShow(); },
+                                    child: Text("Show")
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { interstitialShowWithLoad(_itUnitIdController.text); },
+                              child: Text("Show With Load")
+                          ),
+                        ),
+                        SizedBox( height: 20,),
+                        Text(
+                          "RewardedVideo Interstitial",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _riUnitId1Controller,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'RI Unit ID1',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _riUnitId2Controller,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'RI Unit ID2',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _riUnitId3Controller,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'RI Unit ID3',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _riUnitId4Controller,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'RI Unit ID4',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _riUnitId5Controller,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'RI Unit ID5',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { preLoadAllRewardedInterstitial(); },
+                                    child: Text("PreLoad All")
+                                ),
+                              ),
+                            ),
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () {
+                                      var item = List<String>.empty(growable : true);
+                                      if (_riUnitId1Controller.text.isNotEmpty) {
+                                        item.add(_riUnitId1Controller.text);
+                                      }
+                                      if (_riUnitId2Controller.text.isNotEmpty) {
+                                        item.add(_riUnitId2Controller.text);
+                                      }
+                                      if (_riUnitId3Controller.text.isNotEmpty) {
+                                        item.add(_riUnitId3Controller.text);
+                                      }
+                                      if (_riUnitId4Controller.text.isNotEmpty) {
+                                        item.add(_riUnitId4Controller.text);
+                                      }
+                                      if (_riUnitId5Controller.text.isNotEmpty) {
+                                        item.add(_riUnitId5Controller.text);
+                                      }
+                                      preLoadRewardedInterstitial(item.cast<String>());
+                                    },
+                                    child: Text("PreLoad UnitIDs")
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _riUnitIdController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'RI Unit ID',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { showRewardedInterstitial(_riUnitIdController.text); },
+                                    child: Text("Show")
+                                ),
+                              ),
+                            ),
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { getUnitStatusRewardedInterstitial(_riUnitIdController.text); },
+                                    child: Text("GetUnitStatus")
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox( height: 20,),
+                        Text(
+                          "ShowWithLoad Background Color",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _showWithLoadBackgroundRedController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Red',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _showWithLoadBackgroundGreenController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Green',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _showWithLoadBackgroundBlueController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Blue',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _showWithLoadBackgroundAlphaController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Alpha',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                              onPressed: () { setShowWithLoad2BackgroundColor(_showWithLoadBackgroundRedController.text, _showWithLoadBackgroundGreenController.text, _showWithLoadBackgroundBlueController.text, _showWithLoadBackgroundAlphaController.text); },
+                              child: Text("Set Show With Load Background Color")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () {
+                                      isStyleMedium = !isStyleMedium;
+                                      setShowWithLoad2IndicatorStyle(isStyleMedium, isStyleHidden);
+                                    },
+                                    child: Text("Set Show With Load Indicator Style")
+                                ),
+                              ),
+                            ),
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () {
+                                      isStyleHidden = !isStyleHidden;
+                                      setShowWithLoad2IndicatorStyle(isStyleMedium, isStyleHidden);
+                                    },
+                                    child: Text("Set Show With Load Indicator Hidden")
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox( height: 5,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _showWithLoadAlertMsgController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Alert Msg',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () { setShowWithLoad2ErrorAlert(_showWithLoadAlertMsgController.text, isAlertHidden); },
+                                    child: Text("Set Show With Load Alert Msg")
+                                ),
+                              ),
+                            ),
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                    onPressed: () {
+                                      isAlertHidden = !isAlertHidden;
+                                      setShowWithLoad2ErrorAlert(_showWithLoadAlertMsgController.text, isAlertHidden);
+                                    },
+                                    child: Text("Set Show With Load Alert Hidden")
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox( height: 30,),
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ],
-          )
+                )
+              ],
+            )
         ),
       ),
     );

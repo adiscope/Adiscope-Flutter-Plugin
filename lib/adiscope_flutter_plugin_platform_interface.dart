@@ -9,7 +9,7 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
   static final Object _token = Object();
 
   static AdiscopeFlutterPluginPlatform _instance =
-      MethodChannelAdiscopeFlutterPlugin();
+  MethodChannelAdiscopeFlutterPlugin();
 
   /// The default instance of [AdiscopeFlutterPluginPlatform] to use.
   ///
@@ -26,14 +26,18 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
 
   Future<bool?> initialize(
       [String mediaId = "",
-      String mediaSecret = "",
-      String callbackTag = "",
-      String childYN = ""]) {
+        String mediaSecret = "",
+        String callbackTag = "",
+        String childYN = ""]) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 
   Future<bool?> setUserId(String userId) {
     throw UnimplementedError('setUserId() has not been implemented.');
+  }
+
+  Future<bool?> setUserIdChild(String userId, int child) {
+    throw UnimplementedError('setUserIdChild() has not been implemented.');
   }
 
   Future<bool?> setRewardedCheckParam(String param) {

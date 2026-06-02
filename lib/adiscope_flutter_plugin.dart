@@ -5,9 +5,9 @@ class AdiscopeFlutterPlugin {
   /// Initialize adisocpe with [mediaid, mediasecret, callbackTag, childYN].
   Future<bool?> initialize(
       [String mediaId = "",
-      String mediaSecret = "",
-      String callbackTag = "",
-      String childYN = ""]) {
+        String mediaSecret = "",
+        String callbackTag = "",
+        String childYN = ""]) {
     if (mediaId.isNotEmpty ||
         mediaSecret.isNotEmpty ||
         callbackTag.isNotEmpty ||
@@ -22,6 +22,11 @@ class AdiscopeFlutterPlugin {
   /// User information settings
   Future<bool?> setUserId(String userId) {
     return AdiscopeFlutterPluginPlatform.instance.setUserId(userId);
+  }
+
+  /// User, Child information settings
+  Future<bool?> setUserIdChild(String userId, int child) {
+    return AdiscopeFlutterPluginPlatform.instance.setUserIdChild(userId, child);
   }
 
   /// Add Rewarded Callback
@@ -206,7 +211,7 @@ class AdiscopeFlutterPlugin {
 class AdiscopeListener {
   /// Register listener channel of offerwall
   static final listenerOfferwallChannel =
-      const MethodChannel('adiscopeOfferwallListener');
+  const MethodChannel('adiscopeOfferwallListener');
 
   /// Register listener channel of luckyEvent
   static final listenerLuckyEventChannel =
@@ -218,11 +223,11 @@ class AdiscopeListener {
 
   /// Register listener channel of interstitial
   static final listenerInterstitialChannel =
-      const MethodChannel('adiscopeInterstitialListener');
+  const MethodChannel('adiscopeInterstitialListener');
 
   /// Register listener channel of rewardedInterstitial
   static final listenerRewardedInterstitialChannel =
-      const MethodChannel('adiscopeRewardedInterstitialListener');
+  const MethodChannel('adiscopeRewardedInterstitialListener');
 
   /// Register listener of offerwall
   static Future<void> setupOfferwallListener({

@@ -12,11 +12,11 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   @override
   Future<bool?> initialize(
       [String mediaId = "",
-      String mediaSecret = "",
-      String callbackTag = "",
-      String childYN = ""]) async {
+        String mediaSecret = "",
+        String callbackTag = "",
+        String childYN = ""]) async {
     final result =
-        await methodChannel.invokeMethod<bool>('initialize', <String, dynamic>{
+    await methodChannel.invokeMethod<bool>('initialize', <String, dynamic>{
       "mediaId": mediaId,
       "mediaSecret": mediaSecret,
       "callbackTag": callbackTag,
@@ -29,6 +29,16 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   Future<bool?> setUserId(String userId) async {
     final result = await methodChannel
         .invokeMethod<bool>('setUserId', <String, dynamic>{"userId": userId});
+    return result;
+  }
+
+  @override
+  Future<bool?> setUserIdChild(String userId, int child) async {
+    final result = await methodChannel
+        .invokeMethod<bool>('setUserIdChild', <String, dynamic>{
+      "userId": userId,
+      "child": child
+    });
     return result;
   }
 
@@ -54,7 +64,7 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   @override
   Future<String?> getNetworkVersions() async {
     final result =
-        await methodChannel.invokeMethod<String>('getNetworkVersions');
+    await methodChannel.invokeMethod<String>('getNetworkVersions');
     return result;
   }
 
@@ -68,14 +78,14 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   @override
   Future<bool?> showMaxMediationDebugger() async {
     final result =
-        await methodChannel.invokeMethod<bool>('showMaxMediationDebugger');
+    await methodChannel.invokeMethod<bool>('showMaxMediationDebugger');
     return result;
   }
 
   @override
   Future<bool?> showAdmobMediationDebugger() async {
     final result =
-        await methodChannel.invokeMethod<bool>('showAdmobMediationDebugger');
+    await methodChannel.invokeMethod<bool>('showAdmobMediationDebugger');
     return result;
   }
 

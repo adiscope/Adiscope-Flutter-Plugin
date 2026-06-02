@@ -46,6 +46,22 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result(resultValue)
+    case "setUserIdChild":
+      var resultValue = false
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let userId = args["userId"] as? String, let child = args["child"] as? Int {
+            if child == 1 {
+              resultValue = adiscopeSDK.setUserId(userId, child: .adult)
+            } else if child == 2 {
+              resultValue = adiscopeSDK.setUserId(userId, child: .child)
+            } else {
+              resultValue = adiscopeSDK.setUserId(userId, child: .none)
+            }
+          }
+        }
+      }
+      result(resultValue)
     case "setRewardedCheckParam":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         if let args = call.arguments as? Dictionary<String, Any>{

@@ -84,6 +84,11 @@ class MockAdiscopeFlutterPluginPlatform
   }
 
   @override
+  Future<bool?> setUserIdChild(String userId, int child) {
+    throw UnimplementedError();
+  }
+
+  @override
   Future<bool?> setRewardedCheckParam(String param) {
     throw UnimplementedError();
   }

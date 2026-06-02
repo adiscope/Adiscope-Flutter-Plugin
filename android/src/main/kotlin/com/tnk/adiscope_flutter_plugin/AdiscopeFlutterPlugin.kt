@@ -8,6 +8,7 @@ import com.nps.adiscope.interstitial.InterstitialAd
 import com.nps.adiscope.interstitial.InterstitialAdListener
 import com.nps.adiscope.listener.AdiscopeInitializeListener
 import com.nps.adiscope.model.UnitStatus
+import com.nps.adiscope.model.AdiscopeUserType
 import com.nps.adiscope.offerwall.OfferwallAd
 import com.nps.adiscope.offerwall.OfferwallAdListener
 import com.nps.adiscope.reward.RewardItem
@@ -37,6 +38,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
   private lateinit var mInterstitialAd: InterstitialAd
   private lateinit var mRewardedInterstitialAd: RewardedInterstitialAd
   private var mUserId: String = ""
+  private var mChild = 0
   private var mChildYN: String = ""
   private var mLuckyEventId: String = ""
   private var mLuckyTnkAppId: String = ""
@@ -73,9 +75,18 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         AdiscopeSdk.initialize(mActivity, this)
       }
     } else if (call.method == "setUserId") {
-      var mediaId = call.argument("userId") as? String ?: ""
-      mUserId = mediaId
-      AdiscopeSdk.setUserId(mediaId);
+      var userId = call.argument("userId") as? String ?: ""
+      mUserId = userId
+      AdiscopeSdk.setUserId(userId);
+      result.success(true)
+    } else if (call.method == "setUserIdChild") {
+      var userId = call.argument("userId") as? String ?: ""
+      var child = call.argument("child") as? Int ?: 0
+      mUserId = userId
+      mChild = child
+      var userType = AdiscopeUserType.fromInt(child)
+      mChildYN = userType.childYN
+      AdiscopeSdk.setUserIdChild(userId, userType);
       result.success(true)
     } else if (call.method == "setRewardedCheckParam") {
       var param = call.argument("param") as? String ?: ""
@@ -266,9 +277,9 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
         result.success(false)
       }
     }  else if (call.method == "setLuckyEventAppId") {
-        mLuckyEventId = call.argument("appId") as? String ?: ""
-        mLuckyTnkAppId = call.argument("pubId") as? String ?: ""
-        result.success(true)
+      mLuckyEventId = call.argument("appId") as? String ?: ""
+      mLuckyTnkAppId = call.argument("pubId") as? String ?: ""
+      result.success(true)
     } else if (call.method == "showLuckyEvent") {
       var builder = TnkEventActivity.TnkEventBuilder()
         .setUserName(mUserId)
