@@ -334,6 +334,18 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result([])
+    case "loadRewardedInterstitial":
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let unitId = args["unitId"] as? String {
+            adiscopeSDK.loadRewardedInterstitial(unitId)
+            result(true)
+            return;
+          }
+        }
+      }
+      result(false)
     case "preLoadAllRewardedInterstitial":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         adiscopeSDK.setMainDelegate(self)
@@ -354,6 +366,16 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result(false)
+    case "rewardedInterstitialIsLoad":
+      var resultValue = false
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let unitId = args["unitId"] as? String {
+            resultValue = adiscopeSDK.isLoadedRewardedInterstitial(unitId)
+          }
+        }
+      }
+      result(resultValue)
     case "showRewardedInterstitial":
       var resultValue = false
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
@@ -361,6 +383,17 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         if let args = call.arguments as? Dictionary<String, Any>{
           if let unitId = args["unitId"] as? String {
             resultValue = adiscopeSDK.showRewardedInterstitial(unitId)
+          }
+        }
+      }
+      result(resultValue)
+    case "showWithPopupRewardedInterstitial":
+      var resultValue = false
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
+        if let args = call.arguments as? Dictionary<String, Any>{
+          if let unitId = args["unitId"] as? String {
+            resultValue = adiscopeSDK.showRewardedInterstitial(withPop:unitId)
           }
         }
       }
@@ -473,6 +506,19 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
   public func onRewardedInterstitialResponsedUnitStatus(_ status: AdiscopeUnitStatus!) {
     let result = ["live": status.live, "active": status.active]
     _adiscopeResult?(result)
+  }
+
+  public func onRewardedInterstitialAdLoaded(_ unitID: String!) {
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    channel.invokeMethod("onRewardedInterstitialAdLoaded", arguments: unitID)
+  }
+
+  public func onRewardedInterstitialAdFailed(toLoad unitID: String!, error: AdiscopeError!) {
+    let errorCode = error.code
+    let errorDescription = error.description
+    let errorXB3TraceID = error.getXB3TraceID() ?? ""
+    let channel = FlutterMethodChannel(name: "adiscopeRewardedInterstitialListener", binaryMessenger: _adiscopeRegistrar!.messenger())
+    channel.invokeMethod("onRewardedInterstitialAdFailedToLoad", arguments: [unitID!, errorCode, errorDescription, errorXB3TraceID])
   }
 
   public func onRewardedInterstitialAdSkip(_ unitID: String!) {
