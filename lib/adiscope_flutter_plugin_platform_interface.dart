@@ -162,6 +162,11 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
         'getUnitStatusRewardedInterstitial() has not been implemented.');
   }
 
+  Future<bool?> loadRewardedInterstitial(String unitId) {
+    throw UnimplementedError(
+        'loadRewardedInterstitial() has not been implemented.');
+  }
+
   Future<bool?> preLoadAllRewardedInterstitial() {
     throw UnimplementedError(
         'preLoadAllRewardedInterstitial() has not been implemented.');
@@ -172,8 +177,18 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
         'preLoadRewardedInterstitial() has not been implemented.');
   }
 
+  Future<bool?> rewardedInterstitialIsLoad(String unitId) {
+    throw UnimplementedError(
+        'rewardedInterstitialIsLoad() has not been implemented.');
+  }
+
   Future<bool?> showRewardedInterstitial(String unitId) {
     throw UnimplementedError(
         'showRewardedInterstitial() has not been implemented.');
+  }
+
+  Future<bool?> showWithPopupRewardedInterstitial(String unitId) {
+    throw UnimplementedError(
+        'showWithPopupRewardedInterstitial() has not been implemented.');
   }
 }

@@ -46,7 +46,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 24
-        targetSdkVersion 35
+        targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
@@ -76,7 +76,7 @@ flutter {
 
 dependencies {
     // bom으로 연동 시 어댑터별 버전을 명시하지 않아도 코어 모듈 버전으로 매핑된 버전의 어댑터가 자동으로 연동됨
-    implementation platform("com.nps.adiscope:adiscope-bom:5.3.1")
+    implementation platform("com.nps.adiscope:adiscope-bom:5.4.0")
 
     implementation 'com.nps.adiscope:adiscopeCore'
     implementation 'com.nps.adiscope:adiscopeAndroid'

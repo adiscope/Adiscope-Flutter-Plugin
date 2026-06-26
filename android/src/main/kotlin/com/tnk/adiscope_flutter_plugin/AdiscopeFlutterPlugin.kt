@@ -33,10 +33,10 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
   private lateinit var flutterPlugin: FlutterPlugin.FlutterPluginBinding
   private lateinit var mActivity: Activity
   private lateinit var callResult : Result
-  private lateinit var mOfferwallAd: OfferwallAd
-  private lateinit var mRewardedVideoAd: RewardedVideoAd
-  private lateinit var mInterstitialAd: InterstitialAd
-  private lateinit var mRewardedInterstitialAd: RewardedInterstitialAd
+  private var mOfferwallAd: OfferwallAd? = null
+  private var mRewardedVideoAd: RewardedVideoAd? = null
+  private var mInterstitialAd: InterstitialAd? = null
+  private var mRewardedInterstitialAd: RewardedInterstitialAd? = null
   private var mUserId: String = ""
   private var mChild = 0
   private var mChildYN: String = ""
@@ -185,7 +185,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
-        mRewardedVideoAd.load(unitId)
+        mRewardedVideoAd?.load(unitId)
         result.success(true)
       } else {
         result.success(false)
@@ -194,7 +194,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
-        var resultValue = mRewardedVideoAd.isLoaded(unitId)
+        var resultValue = mRewardedVideoAd?.isLoaded(unitId)
         result.success(resultValue)
       } else {
         result.success(false)
@@ -202,7 +202,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     } else if (call.method == "rewardedVideoShow") {
       setAdiscopeAdListener()
       if (mRewardedVideoAd != null) {
-        var resultValue = mRewardedVideoAd.show(mActivity)
+        var resultValue = mRewardedVideoAd?.show(mActivity)
         result.success(resultValue)
       } else {
         result.success(false)
@@ -213,7 +213,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       setAdiscopeAdListener()
       if (mInterstitialAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
-        mInterstitialAd.load(unitId)
+        mInterstitialAd?.load(unitId)
         result.success(true)
       } else {
         result.success(false)
@@ -222,7 +222,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       setAdiscopeAdListener()
       if (mInterstitialAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
-        var resultValue = mInterstitialAd.isLoaded(unitId)
+        var resultValue = mInterstitialAd?.isLoaded(unitId)
         result.success(resultValue)
       } else {
         result.success(false)
@@ -230,7 +230,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     } else if (call.method == "interstitialShow") {
       setAdiscopeAdListener()
       if (mInterstitialAd != null) {
-        var resultValue = mInterstitialAd.show(mActivity)
+        var resultValue = mInterstitialAd?.show(mActivity)
         result.success(resultValue)
       } else {
         result.success(false)
@@ -239,7 +239,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       setAdiscopeAdListener()
       if (mRewardedInterstitialAd != null) {
         var unitId = call.argument("unitId") as? String ?: ""
-        mRewardedInterstitialAd.getUnitStatus(unitId) { error, unitStatus ->
+        mRewardedInterstitialAd?.getUnitStatus(unitId) { error, unitStatus ->
           var result = mapOf("live" to unitStatus?.isLive, "active" to unitStatus?.isActive)
           callResult.success(result)
         }
@@ -249,7 +249,7 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     } else if (call.method == "preLoadAllRewardedInterstitial") {
       setAdiscopeAdListener()
       if (mRewardedInterstitialAd != null) {
-        mRewardedInterstitialAd.preloadAll()
+        mRewardedInterstitialAd?.preloadAll()
         result.success(true)
       } else {
         result.success(false)
@@ -267,6 +267,24 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       } else {
         result.success(false)
       }
+    } else if (call.method == "loadRewardedInterstitial") {
+        setAdiscopeAdListener()
+        if (mRewardedInterstitialAd != null) {
+            var unitId = call.argument("unitId") as? String ?: ""
+            mRewardedInterstitialAd?.load(unitId)
+            result.success(true)
+        } else {
+            result.success(false)
+        }
+    } else if (call.method == "rewardedInterstitialIsLoad") {
+        setAdiscopeAdListener()
+        if (mRewardedInterstitialAd != null) {
+            var unitId = call.argument("unitId") as? String ?: ""
+            var resultValue = mRewardedInterstitialAd?.isLoaded(unitId)
+            result.success(resultValue)
+        } else {
+            result.success(false)
+        }
     } else if (call.method == "showRewardedInterstitial") {
       setAdiscopeAdListener()
       if (mRewardedInterstitialAd != null) {
@@ -276,10 +294,19 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       } else {
         result.success(false)
       }
-    }  else if (call.method == "setLuckyEventAppId") {
-      mLuckyEventId = call.argument("appId") as? String ?: ""
-      mLuckyTnkAppId = call.argument("pubId") as? String ?: ""
-      result.success(true)
+    } else if (call.method == "showWithPopupRewardedInterstitial") {
+        setAdiscopeAdListener()
+        if (mRewardedInterstitialAd != null) {
+            var unitId = call.argument("unitId") as? String ?: ""
+            mRewardedInterstitialAd?.showWithPopup(unitId)
+            result.success(true)
+        } else {
+            result.success(false)
+        }
+    } else if (call.method == "setLuckyEventAppId") {
+        mLuckyEventId = call.argument("appId") as? String ?: ""
+        mLuckyTnkAppId = call.argument("pubId") as? String ?: ""
+        result.success(true)
     } else if (call.method == "showLuckyEvent") {
       var builder = TnkEventActivity.TnkEventBuilder()
         .setUserName(mUserId)
@@ -421,6 +448,19 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
     args.add(error?.description ?: "")
     args.add(error?.xb3TraceId ?: "")
     MethodChannel(flutterPlugin.binaryMessenger, "adiscopeInterstitialListener").invokeMethod("onInterstitialAdFailedToShow", args)
+  }
+
+  override fun onRewardedInterstitialAdLoaded(unitId: String?) {
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialAdLoaded", unitId)
+  }
+
+  override fun onRewardedInterstitialAdFailedToLoad(unitId: String?, error: AdiscopeError?) {
+    val args: MutableList<Any> = ArrayList()
+    args.add(unitId ?: "")
+    args.add(error?.code ?: -1)
+    args.add(error?.description ?: "")
+    args.add(error?.xb3TraceId ?: "")
+    MethodChannel(flutterPlugin.binaryMessenger, "adiscopeRewardedInterstitialListener").invokeMethod("onRewardedInterstitialAdFailedToLoad", args)
   }
 
   override fun onRewardedInterstitialAdSkipped(unitId: String?) {

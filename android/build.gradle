@@ -27,7 +27,7 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace "com.tnk.adiscope_flutter_plugin"
-    compileSdk 35
+    compileSdk 36
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,12 +46,12 @@ android {
         minSdkVersion 21
     }
     lint {
-        targetSdk = 35
+        targetSdk = 36
     }
 }
 
 dependencies {
-    implementation 'com.nps.adiscope:adiscopeCore:5.3.1'
+    implementation 'com.nps.adiscope:adiscopeCore:5.4.0'
     implementation 'com.nps.adiscope:adiscopeAndroid:1.2.4'
     implementation 'com.nps.adiscope:adiscopeLuckyEvent:5.1.8'
 }

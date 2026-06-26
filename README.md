@@ -1,9 +1,9 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.3.1-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-5.3.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-5.3.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-5.3.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
-[![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.3.1-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.4.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-5.4.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-5.4.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-5.4.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.3.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
 - Android Minimum API Level : 21
@@ -15,32 +15,30 @@
 
 | Ad Network          | Android Version | iOS Version  |
 |---------------------|-----------------|--------------|
-| AdMob               | 24.8.0          | 12.14.0      |
-| Amazon              | 11.1.1          | 5.3.3        |
-| AppLovin            | 13.5.1          | 13.5.1       |
-| BidMachine          | 3.5.0           | 3.5.1        |
-| Bigo                | 5.6.2           | 5.0.0        |
+| AdMob               | 25.2.0          | 13.2.0       |
+| AppLovin            | 13.6.2          | 13.6.2       |
+| BidMachine          | 3.6.1           | 3.6.1        |
+| Bigo                | 5.8.2           | 5.1.2        |
 | Chartboost          | 9.11.0          | 9.11.0       |
-| DT Exchange         | 8.4.2           | 8.4.3        |
-| InMobi              | 11.1.0          | 11.0.0       |
-| Ironsource          | 9.2.0           | 9.2.0.0      |
-| Liftoff(Vungle)     | 7.6.3           | 7.6.3        |
-| Line                | 2.9.20251028    | 2.9.20251119 |
-| Meta(Fan)           | 6.21.0          | 6.20.1       |
-| Mintegral(Mobvista) | 17.0.61         | 8.0.4        |
-| Moloco              | 4.4.0           | 4.2.0        |
-| Ogury               | 6.2.1           | 5.1.1        |
-| Pangle              | 7.8.5.2         | 7.8.5.5      |
-| Pubmatic            | 4.11.0          | 4.11.0       |
-| Smaato              | 22.7.2          | -            |
-| TNKPub              | 7.25.03         | 1.24         |
-| Unity Ads           | 4.16.5          | 4.16.5       |
-| Verve               | 3.7.1           | -            |
+| DT Exchange         | 8.4.4           | 8.4.6        |
+| InMobi              | 11.2.0          | 11.2.0       |
+| Ironsource          | 9.4.0.0         | 9.4.0.0      |
+| Liftoff(Vungle)     | 7.7.3           | 7.7.2        |
+| Line                | 3000.0.1        | 3.0.1        |
+| Meta(Fan)           | 6.21.0          | 6.21.1       |
+| Mintegral(Mobvista) | 17.1.51         | 8.1.3        |
+| Moloco              | 4.8.0           | 4.5.1        |
+| Ogury               | 6.2.2           | 5.2.1        |
+| Pangle              | 7.9.1.3         | 8.0.0.9      |
+| Pubmatic            | 4.11.0          | 5.1.0        |
+| TNKPub              | 7.25.05         | 1.24         |
+| Unity Ads           | 4.16.6          | 4.16.5       |
+| Verve               | 3.8.1           | -            |
 
-> 기존 gms SDK 사용중인 퍼블리셔는 admob 혹은 max 어댑터 사용 시 24버전으로 마이그레이션 필요 [(관련 문서)](https://developers.google.com/admob/android/migration?hl=en)
-> - gms 22 버전: 애디스콥 `3.3.0`~`3.10.3`
-> - gms 23 버전: 애디스콥 `4.1.0`~`4.3.1`
-> - gms 24 버전: 애디스콥 `4.4.0` 이상
+> 기존 gms SDK 사용중인 퍼블리셔는 admob 혹은 max 어댑터 사용 시 25버전으로 마이그레이션 필요 [(관련 문서)](https://developers.google.com/admob/android/migration?hl=en)
+> - gms 23 버전: 애디스콥 `4.1.0`~`4.3.2`
+> - gms 24 버전: 애디스콥 `4.4.0`~`5.3.1`
+> - gms 25 버전: 애디스콥 `5.4.0` 이상
 
 </div>
 </details>
@@ -85,7 +83,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:5.3.1
+flutter pub add adiscope_flutter_plugin:5.4.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -109,7 +107,6 @@ flutter pub add adiscope_flutter_plugin:5.3.1
 allprojects {
     repositories {
         maven { url 'https://repository.adiscope.com/repository/adiscope/' }
-        maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" }                                 // max 연동 시 추가
 		maven { url "https://artifactory.bidmachine.io/bidmachine" }                                  // max 연동 시 추가
 		maven { url "https://maven.ogury.co" }                                                        // max 연동 시 추가
         maven { url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // max 연동 시 추가
@@ -140,7 +137,7 @@ android {
     }
 }
 dependencies {
-    implementation platform("com.nps.adiscope:adiscope-bom:5.2.0")
+    implementation platform("com.nps.adiscope:adiscope-bom:5.4.0")
     implementation 'com.nps.adiscope:adiscopeCore'
     implementation 'com.nps.adiscope:adiscopeAndroid'
     implementation 'com.nps.adiscope:adiscopeLuckyEvent'
@@ -171,32 +168,31 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeLuckyEvent', '5.2.5'
-  pod 'AdiscopeMediaAdManager', '5.2.0'
-  pod 'AdiscopeMediaAdMob', '5.2.4'
-  pod 'AdiscopeMediaChartBoost', '5.2.0'
-  pod 'AdiscopeMediaPangle', '5.2.0'
+  pod 'AdiscopeLuckyEvent', '5.3.3'
+  pod 'AdiscopeMediaAdManager', '5.4.0'
+  pod 'AdiscopeMediaAdMob', '5.4.0'
+  pod 'AdiscopeMediaChartBoost', '5.4.0'
+  pod 'AdiscopeMediaPangle', '5.4.0'
   pod 'AdiscopeMediaTnkPub', '5.2.0'
-  pod 'AdiscopeMediaVungle', '5.2.0'
-  pod 'AdiscopeMediaMax', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterAdManager', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterAdMob', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterAmazon', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterBidMachine', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterBigo', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterChartBoost', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterDTExchange', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterFan', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterInMobi', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterIronSource', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterLine', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterMobVista', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterMoloco', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterOgury', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterPangle', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterPubMatic', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterUnityAds', '5.2.0'
-  pod 'AdiscopeMediaMaxAdapterVungle', '5.2.0'
+  pod 'AdiscopeMediaVungle', '5.4.0'
+  pod 'AdiscopeMediaMax', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterAdManager', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterAdMob', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterBidMachine', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterBigo', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterChartBoost', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterDTExchange', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterFan', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterInMobi', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterIronSource', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterLine', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterMobVista', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterMoloco', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterOgury', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterPangle', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterPubMatic', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterUnityAds', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterVungle', '5.4.0'
 end
 ```
 - 프로젝트 파일 내에 {projectroot}/ios/Podfile 파일에 `pod` 추가
@@ -320,13 +316,16 @@ Future<void> initialize() async {
 
 ### 4. 사용자 정보 설정
 ```dart
-Future<void> setUserId() async {
-    var userId = "";        // set unique user id to identify the user in reward information
-    bool result =  await _adiscopeFlutterPlugin.setUserId(userId) ?? false;
+Future<void> setUserIdChild() async {
+    var userType = 0; // none: 0, adult: 1, child: 2
+    var userId = ""; // set unique user id to identify the user in reward information
+    bool result = await _adiscopeFlutterPlugin.setUserIdChild(userId, child) ?? false;
 }
 ```
-- ⚠️ `Offerwall`, `RewardedVideo`, `RewardedInterstitial`를 사용하기 위해 필수 설정
-- 64자까지 설정 가능 
+- ⚠️ `Offerwall`, `RewardedVideo`, `Interstitial`, `RewardedInterstitial`를 사용하기 위해 유저 식별값과 유저 타입을 필수 설정
+- SDK 초기화 이전 또는 광고 로드 전에 호출되어야 함
+- userId: 64자까지 설정 가능
+- userType: None(0), Adult(1), Child(2)
 <br/><br/><br/>
 
 ### 5. Offerwall
@@ -537,17 +536,28 @@ AdiscopeListener.setupInterstitialListener(
 <br/><br/><br/>
 
 ### 8. RewardedInterstitial
-#### A. PreLoadAll
+#### A. Load
+```dart
+Future<void> loadRewardedInterstitial() async {
+    var unitId = "";      // 관리자를 통해 발급
+    bool result = await _adiscopeFlutterPlugin.loadRewardedInterstitial(unitId) ?? false;
+}
+```
+- 해당 유닛에 속한 ad 네트워크들의 광고를 Load
+- `Load`가 실행되면 `onRewardedInterstitialAdLoaded` 와 `onRewardedInterstitialAdFailedToLoad` 중 하나의 callback은 항상 호출
+<br/>
+
+#### B. PreLoadAll
 ```dart
 Future<void> preLoadAllRewardedInterstitial() async {
     bool result = await _adiscopeFlutterPlugin.preLoadAllRewardedInterstitial() ?? false;
 }
 ```
-- Initialize Call Back 후 1회 설정 권장
 - 관리자가 설정된 활성화된 모든 유닛들을 Load 진행
+- `Load`가 실행되면 `onRewardedInterstitialAdLoaded` 와 `onRewardedInterstitialAdFailedToLoad` 중 하나의 callback은 항상 호출
 <br/>
 
-#### B. Unit 지정 PreLoad
+#### C. Unit 지정 PreLoad
 ```dart
 Future<void> preLoadRewardedInterstitial() async {
     var unitIds = List<String>.empty(growable : true);
@@ -556,24 +566,52 @@ Future<void> preLoadRewardedInterstitial() async {
     bool result = await _adiscopeFlutterPlugin.preLoadRewardedInterstitial(unitIds) ?? false;
 }
 ```
-- Initialize Call Back 후 1회 설정 권장
 - 입력된 유닛들을 Load 진행
+- `Load`가 실행되면 `onRewardedInterstitialAdLoaded` 와 `onRewardedInterstitialAdFailedToLoad` 중 하나의 callback은 항상 호출
 <br/>
 
-#### C. Show
+#### D. IsLoaded
+```dart
+Future<void> rewardedInterstitialIsLoad() async {
+    var unitId = "";      // 관리자를 통해 발급
+    bool result = await _adiscopeFlutterPlugin.rewardedInterstitialIsLoad(unitId) ?? false;
+    if (result) {
+        // show ad here
+    } else {
+        // do something else
+    }
+}
+```
+- 광고가 Load 되었는지 상태를 확인
+<br/>
+
+#### E. Show
 ```dart
 Future<void> showRewardedInterstitial(String unitId) async {
     var unitId = "";      // 관리자를 통해 발급
     bool result = await _adiscopeFlutterPlugin.showRewardedInterstitial(unitId) ?? false;
 }
 ```
-- 해당 유닛이 Load되어 있으면 안내 팝업을 보여 준 뒤 해당 광고를 사용자에게 보여줌
-- showRewardedInterstitial method는 중복하여 호출 할 수 없음
+- 해당 유닛이 Load되어 있으면 해당 광고를 사용자에게 바로 보여줌
+- show method는 중복하여 호출 할 수 없음
 - `showRewardedInterstitial`가 실행되면 (return값이 True일 경우) `onRewardedInterstitialAdSkip`와 `onRewardedInterstitialAdOpened`와 `onRewardedInterstitialAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedInterstitialAdOpened`가 호출되었다면 이후 `onRewardedInterstitialAdClosed`가 항상 호출
 - `onRewardedInterstitialAdClosed`와 `onRewardedInterstitialAdFailedToShow`가 호출 되면 내부에서 해당 유닛을 자동 Load 시킴
 <br/>
 
-#### D. Callbacks Reward
+#### F. Show With Popup
+```dart
+Future<void> showWithPopupRewardedInterstitial(String unitId) async {
+    var unitId = "";      // 관리자를 통해 발급
+    bool result = await _adiscopeFlutterPlugin.showWithPopupRewardedInterstitial(unitId) ?? false;
+}
+```
+- 해당 유닛이 Load되어 있으면 안내 팝업을 보여 준 뒤 해당 광고를 사용자에게 보여줌
+- show method는 중복하여 호출 할 수 없음
+- `showWithPopupRewardedInterstitial`가 실행되면 (return값이 True일 경우) `onRewardedInterstitialAdSkip`와 `onRewardedInterstitialAdOpened`와 `onRewardedInterstitialAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedInterstitialAdOpened`가 호출되었다면 이후 `onRewardedInterstitialAdClosed`가 항상 호출
+- `onRewardedInterstitialAdClosed`와 `onRewardedInterstitialAdFailedToShow`가 호출 되면 내부에서 해당 유닛을 자동 Load 시킴
+<br/>
+
+#### G. Callbacks Reward
 ```dart
 AdiscopeListener.setupRewardedInterstitialListener(
     onRewardedInterstitialRewarded: (unitId, currencyUnit, amount) {
@@ -593,9 +631,13 @@ AdiscopeListener.setupRewardedInterstitialListener(
   - 이때는 Server를 통해 전달받은 정보를 기준으로 처리하고, `onRewardedInterstitialRewarded`를 통해 전달받은 정보는 검증용으로 사용하거나 무시하도록 함
 <br/>
 
-#### D. Callbacks Others
+#### H. Callbacks Others
 ```dart
 AdiscopeListener.setupRewardedInterstitialListener(
+    onRewardedInterstitialAdLoaded: (unitId) {
+    },
+    onRewardedInterstitialAdFailedToLoad: (unitId, errorCode, errorDescription, errorXB3TraceID) {
+    }
     onRewardedInterstitialAdSkip: (unitId) {
     },
     onRewardedInterstitialAdOpened: (unitId) {
@@ -607,8 +649,8 @@ AdiscopeListener.setupRewardedInterstitialListener(
 );
 ```
 - [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
-- Show 성공 후 Skip 시 `onRewardedInterstitialAdSkip`가 호출
 - Show 성공 후 영상 시청 시 `onRewardedInterstitialAdOpened`, `onRewardedInterstitialAdClosed`가 순차적으로 호출되고, 실패 시 `onRewardedInterstitialAdFailedToShow`가 호출 
+- ShowWithPopup 성공 후 Skip 시 `onRewardedInterstitialAdSkip`가 호출. 영상 시청 시 `onRewardedInterstitialAdOpened`, `onRewardedInterstitialAdClosed`가 순차적으로 호출되고, 실패 시 `onRewardedInterstitialAdFailedToShow`가 호출 
 - `onRewardedInterstitialAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
 <br/><br/><br/>
 

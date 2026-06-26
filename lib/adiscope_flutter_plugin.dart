@@ -189,6 +189,11 @@ class AdiscopeFlutterPlugin {
         .getUnitStatusRewardedInterstitial(unitId);
   }
 
+  /// Loads RewardedInterstitial of [unitId] value.
+  Future<bool?> loadRewardedInterstitial(String unitId) {
+    return AdiscopeFlutterPluginPlatform.instance.loadRewardedInterstitial(unitId);
+  }
+
   /// Loads all units of RewardedInterstitial.
   Future<bool?> preLoadAllRewardedInterstitial() {
     return AdiscopeFlutterPluginPlatform.instance
@@ -201,10 +206,21 @@ class AdiscopeFlutterPlugin {
         .preLoadRewardedInterstitial(unitIds);
   }
 
-  /// Show interstitial of [unitId] value.
+  /// Check the Load status of the RewardedInterstitial of the [unitId] value.
+  Future<bool?> rewardedInterstitialIsLoad(String unitId) {
+    return AdiscopeFlutterPluginPlatform.instance.rewardedInterstitialIsLoad(unitId);
+  }
+
+  /// Show immediately RewardedInterstitial of [unitId] value. (without popup)
   Future<bool?> showRewardedInterstitial(String unitId) {
     return AdiscopeFlutterPluginPlatform.instance
         .showRewardedInterstitial(unitId);
+  }
+
+  /// Show RewardedInterstitial of [unitId] value. (with Adiscope popup)
+  Future<bool?> showWithPopupRewardedInterstitial(String unitId) {
+    return AdiscopeFlutterPluginPlatform.instance
+        .showWithPopupRewardedInterstitial(unitId);
   }
 }
 
@@ -376,6 +392,8 @@ class AdiscopeListener {
 
   /// Register listener of rewardedInterstitial
   static Future<void> setupRewardedInterstitialListener({
+    Function(String)? onRewardedInterstitialAdLoaded,
+    Function(String, int, String, String)? onRewardedInterstitialAdFailedToLoad,
     Function(String)? onRewardedInterstitialAdSkip,
     Function(String)? onRewardedInterstitialAdOpened,
     Function(String)? onRewardedInterstitialAdClosed,
@@ -384,6 +402,18 @@ class AdiscopeListener {
   }) async {
     listenerRewardedInterstitialChannel.setMethodCallHandler((call) async {
       switch (call.method) {
+        case 'onRewardedInterstitialAdLoaded':
+          if (onRewardedInterstitialAdLoaded != null) {
+            onRewardedInterstitialAdLoaded(call.arguments as String);
+          }
+          break;
+        case 'onRewardedInterstitialAdFailedToLoad':
+          if (onRewardedInterstitialAdFailedToLoad != null) {
+            List<dynamic> args = call.arguments as List<dynamic>;
+            onRewardedInterstitialAdFailedToLoad(
+                args[0] as String, args[1] as int, args[2] as String, args[3] as String);
+          }
+          break;
         case 'onRewardedInterstitialAdSkip':
           if (onRewardedInterstitialAdSkip != null) {
             onRewardedInterstitialAdSkip(call.arguments as String);

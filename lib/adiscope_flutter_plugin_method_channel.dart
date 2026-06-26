@@ -219,6 +219,20 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   }
 
   @override
+  Future<bool?> loadRewardedInterstitial(String unitId) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'loadRewardedInterstitial', <String, dynamic>{"unitId": unitId});
+    return result;
+  }
+
+  @override
+  Future<bool?> rewardedInterstitialIsLoad(String unitId) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'rewardedInterstitialIsLoad', <String, dynamic>{"unitId": unitId});
+    return result;
+  }
+
+  @override
   Future<bool?> rewardedVideoIsLoad(String unitId) async {
     final result = await methodChannel.invokeMethod<bool>(
         'rewardedVideoIsLoad', <String, dynamic>{"unitId": unitId});
@@ -284,6 +298,13 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   Future<bool?> showRewardedInterstitial(String unitId) async {
     final result = await methodChannel.invokeMethod<bool>(
         'showRewardedInterstitial', <String, dynamic>{"unitId": unitId});
+    return result;
+  }
+
+  @override
+  Future<bool?> showWithPopupRewardedInterstitial(String unitId) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'showWithPopupRewardedInterstitial', <String, dynamic>{"unitId": unitId});
     return result;
   }
 }
