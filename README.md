@@ -336,6 +336,7 @@ Future<void> showOfferwall() async {
     bool result = await _adiscopeFlutterPlugin.showOfferwall(unitId) ?? false;
 }
 ```
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 - `Show`가 실행되면 (return값이 True일 경우) `onOfferwallAdOpened`와 `onOfferwallAdFailedToShow` 중 하나가 항상 호출되고, `onOfferwallAdOpened`가 호출되었다면 이후 `onOfferwallAdClosed`가 항상 호출
 <br/>
 
@@ -364,6 +365,7 @@ Future<void> rewardedVideoLoad() async {
 }
 ```
 - 해당 유닛에 속한 ad 네크워크들의 광고를 Load
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 - `onRewardedVideoAdLoaded` callback이 호출되면 Load가 완료
 - `Load`가 실행되면 `onRewardedVideoAdLoaded` 와 `onRewardedVideoAdFailedToLoad` 중 하나의 callback은 항상 호출
 - Rewarded Video Ad의 `Load`와 `Show`는 pair로 호출
@@ -389,6 +391,7 @@ Future<void> rewardedVideoIsLoad() async {
 }
 ```
 - 광고가 Load 되었는지 상태를 확인
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 <br/>
 
 #### C. Show
@@ -466,6 +469,7 @@ Future<void> interstitialLoad() async {
 }
 ```
 - 해당 유닛에 속한 ad 네크워크들의 광고를 Load
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 - `onInterstitialAdLoaded` callback이 호출되면 Load가 완료
 - Interstitial의 `Load`와 `Show`는 pair로 호출
 - Load를 한 후 Show를 하고, 광고를 Show한 후에는 다시 Load를 하여 다음 번 Show를 준비
@@ -487,6 +491,7 @@ Future<void> interstitialIsLoad() async {
 }
 ```
 - 광고가 Load 되었는지 상태를 확인
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 <br/>
 
 #### C. Show
@@ -544,6 +549,7 @@ Future<void> loadRewardedInterstitial() async {
 }
 ```
 - 해당 유닛에 속한 ad 네트워크들의 광고를 Load
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 - `Load`가 실행되면 `onRewardedInterstitialAdLoaded` 와 `onRewardedInterstitialAdFailedToLoad` 중 하나의 callback은 항상 호출
 <br/>
 
@@ -567,6 +573,7 @@ Future<void> preLoadRewardedInterstitial() async {
 }
 ```
 - 입력된 유닛들을 Load 진행
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 - `Load`가 실행되면 `onRewardedInterstitialAdLoaded` 와 `onRewardedInterstitialAdFailedToLoad` 중 하나의 callback은 항상 호출
 <br/>
 
@@ -583,6 +590,7 @@ Future<void> rewardedInterstitialIsLoad() async {
 }
 ```
 - 광고가 Load 되었는지 상태를 확인
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 <br/>
 
 #### E. Show
@@ -593,6 +601,7 @@ Future<void> showRewardedInterstitial(String unitId) async {
 }
 ```
 - 해당 유닛이 Load되어 있으면 해당 광고를 사용자에게 바로 보여줌
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 - show method는 중복하여 호출 할 수 없음
 - `showRewardedInterstitial`가 실행되면 (return값이 True일 경우) `onRewardedInterstitialAdSkip`와 `onRewardedInterstitialAdOpened`와 `onRewardedInterstitialAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedInterstitialAdOpened`가 호출되었다면 이후 `onRewardedInterstitialAdClosed`가 항상 호출
 - `onRewardedInterstitialAdClosed`와 `onRewardedInterstitialAdFailedToShow`가 호출 되면 내부에서 해당 유닛을 자동 Load 시킴
@@ -606,6 +615,7 @@ Future<void> showWithPopupRewardedInterstitial(String unitId) async {
 }
 ```
 - 해당 유닛이 Load되어 있으면 안내 팝업을 보여 준 뒤 해당 광고를 사용자에게 보여줌
+- 광고 유닛명은 반드시 대문자로 전달해야 함
 - show method는 중복하여 호출 할 수 없음
 - `showWithPopupRewardedInterstitial`가 실행되면 (return값이 True일 경우) `onRewardedInterstitialAdSkip`와 `onRewardedInterstitialAdOpened`와 `onRewardedInterstitialAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedInterstitialAdOpened`가 호출되었다면 이후 `onRewardedInterstitialAdClosed`가 항상 호출
 - `onRewardedInterstitialAdClosed`와 `onRewardedInterstitialAdFailedToShow`가 호출 되면 내부에서 해당 유닛을 자동 Load 시킴
