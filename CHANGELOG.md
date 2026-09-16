@@ -1,3 +1,26 @@
+## 5.5.0
+### Android
+- 이니셜라이즈 동작 개선
+  - 이니셜라이즈 전 getInstance() 호출 시 `null`을 반환하던 동작 개선
+    - 광고 객체는 이니셜라이즈 여부와 관계없이 싱글톤으로 반환
+    - 신규 에러코드 `NOT_INITIALIZED`(14) 추가 ([Link](https://github.com/adiscope/Adiscope-Unity-UPM/blob/main/docs/error_info.md))
+    - 이니셜라이즈 전 load/show 호출 시 fail 콜백 전달 (RV/Inter/RI/Offerwall 공통 적용)
+  - 이니셜라이즈 진행 중 중복 호출 시 마지막에 설정한 activity·listener로 교체 후 콜백 1회만 전달
+- 오퍼월 V2 버그 수정 및 개선
+  - configuration 변경(멀티윈도우·다크모드·언어·글꼴 크기 변경 등)에 의한 액티비티 재생성 케이스의 동작 개선
+    - 메인화면에서 configuration 변경 발생하면 `onOfferwallAdClosed` 콜백이 잘못 전달되던 문제 수정
+    - 상세화면 랜딩페이지 재이동·팝업 재노출 문제 수정
+  - 탑캐러셀 확장형 타입 개선
+    - 대형기기·멀티윈도우 환경에서 특정 케이스에 레이아웃 깨짐이 발생하는 현상 수정
+    - 터치/스크롤 영역을 전체 영역으로 확대
+- 네트워크 SDK 업데이트
+  - pangle: 7.9.1.3 → `8.1.0.5`
+  - chartboost: 9.11.0 → `9.14.0`
+- 버그 수정
+### iOS
+- 네트워크 버전 Update
+  - Pangle : 8.0.0.9 -> `8.2.1.0`
+
 ## 5.4.0
 ### Android
 - RI 신규 인터페이스 추가 (`load`, `isLoaded`, `showWithPopup`)

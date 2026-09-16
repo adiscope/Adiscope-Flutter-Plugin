@@ -18,6 +18,7 @@
 |TIME_OUT	|11	|"Time out"	|세팅한 기간 내에 Mediation 광고 네트워크의 로드 성공 콜백이 오지 않은 경우	|지속적으로 발생 시 Adiscope 개발팀에 문의|
 |SHOW_CALLED_BEFORE_LOAD	|12	|"Show called before load"	|RewardedVideoAd.Show()를 Load() 없이 실행하였을 경우	|지속적으로 발생 시 Adiscope 개발팀에 문의|
 |INSUFFICIENT_MEMORY(Only Android)|13	|"Insufficient memory to show ad"	|광고 노출에 필요한 시스템 가용 메모리가 부족한 경우 (Adiscope admin page에 설정된 기준치 미달)	|기기의 메모리 정리 후 다시 시도|
+|NOT_INITIALIZED(Only Android)|14	|"Adiscope is not initialized"	|RV/Inter/RI/Offerwall load/show 호출 시 애디스콥 이니셜라이즈 전 상태인 경우	|애디스콥 이니셜라이즈 성공 후 다시 시도|
 
 <br/>
 
@@ -32,9 +33,10 @@
 |NETWORK_ERROR|5|Network read/write timed out 혹은 Network connection 오류|Device의 network 연결 상태를 확인|**인터넷 연결 상태를 확인 후 다시 시도해주세요 (Code 5)**|
 |NO_FILL|6|하루에 볼 수 있는 Rewarded Video 광고의 횟수를 모두 소진 하였을 경우|Adiscope admin page의 media (application)에 설정된 기준 시각이 지나면 광고 횟수가 다시 초기화 되므로 기준 시각 이후(next day)에 다시 시도|**오늘 시청 가능한 영상이 모두 소진되었습니다 내일 다시 시도해주세요 (Code 6)**|
 |TIME_LIMIT|7|Rewarded Video 광고를 한번 보여주고 난 후 일정 시간 (30초~60초, Adiscope admin page에서 설정된 시간 간격)이 지나기 전에 다시 Show를 시도할 경우|Adiscope admin page에서 설정된 시간 간격 만큼 간격을 두고 다시 시도|**재생 중에 오류가 발생했습니다 잠시 후 다시 시도해주세요 (Code 7)**|
-|NOT_EXIST_IDFA(Only iOS)|8|iOS 디바이스에서 추출된 IDFA 값이 "00000000-0000-0000-0000-000000000000" 인 경우|iOS 디바이스 설정에서 "광고 추적 제한" 설정이 ON 일 경우에 발생되며, 이 경우, SDK에서는 사용자가 "광고 추적 제한" 설정을 OFF 하도록 유도하는 안내 문구를 System Alert으로 띄운다. 사용자가 "광고 추적 제한" 설정을 OFF 후 게임을 재실행하면 광고 참여가 가능하다|**설정에서 광고 추적을 허용해주세요 (Code 8]**|
+|NOT_EXIST_IDFA(Only iOS)|8|iOS 디바이스에서 추출된 IDFA 값이 "00000000-0000-0000-0000-000000000000" 인 경우|iOS 디바이스 설정에서 "광고 추적 제한" 설정이 ON 일 경우에 발생되며, 이 경우, SDK에서는 사용자가 "광고 추적 제한" 설정을 OFF 하도록 유도하는 안내 문구를 System Alert으로 띄운다. 사용자가 "광고 추적 제한" 설정을 OFF 후 게임을 재실행하면 광고 참여가 가능하다|**설정에서 광고 추적을 허용해주세요 (Code 8)**|
 |GOOGLE_FAMILY_ERROR (Only Android)|9|구글 가족정책에 의거, 사용할 수 없는 기능이 호출되었음을 의미|구글 가족정책 가이드 참고|**만 13세 미만 사용자에게 광고 시청이 제한되어있습니다 (Code 9)**|
-|INVALID_ADID (Only Android)|10|adid 가 없거나 유효하지 않음을 의미|지속적으로 발생 시 Adiscope 개발팀에 문의|**재생 중에 오류가 발생했습니다 잠시 후 다시 시도해주세요(Code 10]**|
+|INVALID_ADID (Only Android)|10|adid 가 없거나 유효하지 않음을 의미|지속적으로 발생 시 Adiscope 개발팀에 문의|**재생 중에 오류가 발생했습니다 잠시 후 다시 시도해주세요(Code 10)**|
 |TIME_OUT|11|세팅한 기간 내에 Mediation 광고 네트워크의 로드 성공 콜백이 오지 않은 경우|지속적으로 발생 시 Adiscope 개발팀에 문의|**재생 중에 오류가 발생했습니다 잠시 후 다시 시도해주세요 (Code 11)**|
 |SHOW_CALLED_BEFORE_LOAD|12|RewardedVideoAd.Show()를 Load() 없이 실행하였을 경우|load() 실행 후 show() 호출 권고|**재생 중에 오류가 발생했습니다 잠시 후 다시 시도해주세요 (Code 12)**|
-|INSUFFICIENT_MEMORY(Only Android)|13|"Insufficient memory to show ad"|광고 노출에 필요한 시스템 가용 메모리가 부족한 경우 (Adiscope admin page에 설정된 기준치 미달)|기기의 메모리 정리 후 다시 시도|
+|INSUFFICIENT_MEMORY(Only Android)|13|광고 노출에 필요한 시스템 가용 메모리가 부족한 경우 (Adiscope admin page에 설정된 기준치 미달)|기기의 메모리 정리 후 다시 시도|**가용 메모리가 부족하여 광고를 재생할 수 없습니다. 메모리 정리 후 다시 시도해주세요. (Code 13)**|
+|NOT_INITIALIZED(Only Android)|14|RV/Inter/RI/Offerwall load/show 호출 시 애디스콥 이니셜라이즈 전 상태인 경우|애디스콥 이니셜라이즈 성공 후 다시 시도|**광고를 준비하는 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.(Code 14)**|

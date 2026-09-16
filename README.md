@@ -1,8 +1,8 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.4.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-5.4.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-5.4.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-5.4.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.5.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-5.5.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-5.5.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-5.5.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
 [![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.3.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
@@ -83,7 +83,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:5.4.0
+flutter pub add adiscope_flutter_plugin:5.5.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -137,7 +137,7 @@ android {
     }
 }
 dependencies {
-    implementation platform("com.nps.adiscope:adiscope-bom:5.4.0")
+    implementation platform("com.nps.adiscope:adiscope-bom:5.5.0")
     implementation 'com.nps.adiscope:adiscopeCore'
     implementation 'com.nps.adiscope:adiscopeAndroid'
     implementation 'com.nps.adiscope:adiscopeLuckyEvent'
@@ -168,11 +168,11 @@ dependencies {
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'AdiscopeLuckyEvent', '5.3.3'
+  pod 'AdiscopeLuckyEvent', '5.4.0'
   pod 'AdiscopeMediaAdManager', '5.4.0'
   pod 'AdiscopeMediaAdMob', '5.4.0'
   pod 'AdiscopeMediaChartBoost', '5.4.0'
-  pod 'AdiscopeMediaPangle', '5.4.0'
+  pod 'AdiscopeMediaPangle', '5.5.0'
   pod 'AdiscopeMediaTnkPub', '5.2.0'
   pod 'AdiscopeMediaVungle', '5.4.0'
   pod 'AdiscopeMediaMax', '5.4.0'
@@ -189,7 +189,7 @@ target 'Runner' do
   pod 'AdiscopeMediaMaxAdapterMobVista', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterMoloco', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterOgury', '5.4.0'
-  pod 'AdiscopeMediaMaxAdapterPangle', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterPangle', '5.5.0'
   pod 'AdiscopeMediaMaxAdapterPubMatic', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterUnityAds', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterVungle', '5.4.0'
@@ -290,6 +290,7 @@ Future<void> initialize() async {
 - Android는 [AndroidManifest](#a-setup-androidmanifest) 파일과 [Module Gradle](#나-setup-module-gradle) 파일 세팅 필요
 - iOS는 [Plist](#가-adiscopemediaid-adiscopemediasecret-추가) 파일 세팅 필요
 - App 실행 시 1회 설정 권장
+- Initialize에 실패(`result = false`)한 경우 Initialize를 다시 호출하여 재시도할 수 있음
 - Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
   - ⚠️ 정책 미준수시 광고에 제한이 생김 (광고 물량 축소 및 오퍼월 진입 불가)
 <br/>
@@ -310,22 +311,42 @@ Future<void> initialize() async {
 }
 ```
 - App 실행 시 1회 설정 권장
+- Initialize에 실패(`result = false`)한 경우 Initialize를 다시 호출하여 재시도할 수 있음
 - Adiscope에서는 Google Play 가족 정책을 준수해야 함 (Android 전용 - [Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
   - ⚠️ 정책 미준수시 광고에 제한이 생김 (광고 물량 축소 및 오퍼월 진입 불가)
+<br/>
+
+#### C. Initialize 호출 동작 (Android 전용)
+- SDK 5.5.0 이상에서는 Initialize 여부와 관계없이 Callback 등록(`AdiscopeListener.setup...Listener`)을 Initialize 호출 전에 처리할 수 있음
+  - 기존과 같이 Initialize 성공 후 Callback을 등록하는 방식도 그대로 사용 가능
+- Initialize 전에 광고 Load/Show를 호출하면 각 광고의 FailedToLoad/FailedToShow callback으로 `NOT_INITIALIZED`(14)가 전달됨 ([AdiscopeError 참고](./docs/error_info.md))
+- Initialize가 진행 중일 때 Initialize를 다시 호출하면 마지막으로 전달한 callback으로 교체되며, callback은 1회만 호출됨
+- 이미 Initialize된 상태에서 Initialize를 호출하면 즉시 `true`가 전달됨
 <br/><br/><br/>
 
 ### 4. 사용자 정보 설정
 ```dart
 Future<void> setUserIdChild() async {
-    var userType = 0; // none: 0, adult: 1, child: 2
+    int? userAge = null; // 매체에서 수집하고 있는 유저의 만 나이
+    int userType; // none: 0, adult: 1, child: 2
+    if (userAge == null) {
+        userType = 0; // 나이를 알 수 없음
+    } else if (userAge < 13) {
+        userType = 2; // 만 13세 미만: 반드시 Child 설정 필요
+    } else {
+        userType = 1; // 만 13세 이상
+    }
     var userId = ""; // set unique user id to identify the user in reward information
-    bool result = await _adiscopeFlutterPlugin.setUserIdChild(userId, child) ?? false;
+    bool result = await _adiscopeFlutterPlugin.setUserIdChild(userId, userType) ?? false;
 }
 ```
 - ⚠️ `Offerwall`, `RewardedVideo`, `Interstitial`, `RewardedInterstitial`를 사용하기 위해 유저 식별값과 유저 타입을 필수 설정
-- SDK 초기화 이전 또는 광고 로드 전에 호출되어야 함
+- SDK 초기화 이전 또는 광고 로드 전에 호출되어야 함 (Initialize 호출 전 설정 권장)
 - userId: 64자까지 설정 가능
 - userType: None(0), Adult(1), Child(2)
+- (Android 전용) 만 13세 미만 유저는 Google Play 가족 정책 준수를 위해 **반드시 `Child(2)`로 설정**해야 함 ([Adiscope Google Play 가족 정책 확인](./docs/familiespolicy.md))
+  - 만 13세 이상 매체는 모두 성인으로 판단하므로 `None(0)`으로 두어도 정책 및 광고 동작에 문제 없음
+  - 어린이 대상 매체에서 `None(0)`으로 설정하면 값이 없으므로 보수적으로 어린이로 판단함
 <br/><br/><br/>
 
 ### 5. Offerwall
@@ -338,6 +359,7 @@ Future<void> showOfferwall() async {
 ```
 - 광고 유닛명은 반드시 대문자로 전달해야 함
 - `Show`가 실행되면 (return값이 True일 경우) `onOfferwallAdOpened`와 `onOfferwallAdFailedToShow` 중 하나가 항상 호출되고, `onOfferwallAdOpened`가 호출되었다면 이후 `onOfferwallAdClosed`가 항상 호출
+- (Android 전용) Initialize 전 호출 시 `false`를 반환하며 `onOfferwallAdFailedToShow`로 `NOT_INITIALIZED`(14) 전달
 <br/>
 
 #### B. Callbacks
@@ -352,6 +374,7 @@ AdiscopeListener.setupOfferwallListener(
 );
 ```
 - [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+  - (Android 전용) SDK 5.5.0 이상에서는 Initialize 전에 Callback 등록 가능하며, Initialize 전 Load/Show 호출 시 fail callback으로 `NOT_INITIALIZED`(14) 전달 ([Initialize 호출 동작](#c-initialize-호출-동작-android-전용))
 - Show 성공 시 `onOfferwallAdOpened`, `onOfferwallAdClosed` callback이 순차적으로 호출
 - `onOfferwallAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
 <br/><br/><br/>
@@ -376,6 +399,7 @@ Future<void> rewardedVideoLoad() async {
   - Abusing 방지를 위해 Rewarded Video Ad를 연속으로 보여주는 것을 제한하여 한번 광고를 보고 나면 일정 시간이 지난 후에 다시 Show를 할 수 있도로록 Admin page에서 서비스 설정 가능
 - Load 동작 수행 중에 Load를 여러 번 호출할 수 없음
 - (**Optional**) Load의 시간이 필요해 ProgressBar 노출 추천
+- (Android 전용) Initialize 전 호출 시 `onRewardedVideoAdFailedToLoad`로 `NOT_INITIALIZED`(14) 전달
 <br/>
 
 #### B. IsLoaded
@@ -404,7 +428,7 @@ Future<void> rewardedVideoShow() async {
         if (resultShow) {
             // Success
         } else {
-            // This Show request is duplicated
+            // This Show request is duplicated (Android: or not initialized)
         }
     } else {
         // ad is not loaded
@@ -417,6 +441,7 @@ Future<void> rewardedVideoShow() async {
 - `Show`가 실행되면 (return값이 True일 경우) `onRewardedVideoAdOpened`와 `onRewardedVideoAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedVideoAdOpened`가 호출되었다면 이후 `onRewardedVideoAdClosed`가 항상 호출
 - Rewarded Video Ad의 `Load`와 `Show`는 pair로 호출
     - Load를 한 후 Show를 하고, 광고를 Show한 후에는 다시 Load를 하여 다음번 Show를 준비
+- (Android 전용) Initialize 전 호출 시 `false`를 반환하며 `onRewardedVideoAdFailedToShow`로 `NOT_INITIALIZED`(14) 전달
 <br/>
 
 #### D. Callback Reward
@@ -430,6 +455,7 @@ AdiscopeListener.setupRewardedVideoListener(
 );
 ```
 - [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+  - (Android 전용) SDK 5.5.0 이상에서는 Initialize 전에 Callback 등록 가능하며, Initialize 전 Load/Show 호출 시 fail callback으로 `NOT_INITIALIZED`(14) 전달 ([Initialize 호출 동작](#c-initialize-호출-동작-android-전용))
 - 보상이 주어져야 할 경우 `onRewarded`가 호출되며 그 parameter로 관련 정보가 전달
 - 이 보상 정보를 바탕으로 게임 내에서 보상을 지급
 - `onRewarded`는 보통 `onRewardedVideoAdOpened` 와 `onRewardedVideoAdClosed` 사이에 호출되는 경우가 많으나 광고 System의 상황에 따라 달라 질 수 있음
@@ -455,6 +481,7 @@ AdiscopeListener.setupRewardedVideoListener(
 );
 ```
 - [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+  - (Android 전용) SDK 5.5.0 이상에서는 Initialize 전에 Callback 등록 가능하며, Initialize 전 Load/Show 호출 시 fail callback으로 `NOT_INITIALIZED`(14) 전달 ([Initialize 호출 동작](#c-initialize-호출-동작-android-전용))
 - `Load` 성공 시 `onRewardedVideoAdLoaded`, 실패 시 `onRewardedVideoAdFailedToLoad`가 호출
 - `Show` 성공 시 `onRewardedVideoAdOpened`, `onRewardedVideoAdClosed`가 순차적으로 호출되고, 실패시 `onRewardedVideoAdFailedToShow`가 호출
 - `onRewardedVideoAdFailedToLoad`, `onRewardedVideoAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
@@ -476,6 +503,7 @@ Future<void> interstitialLoad() async {
 - 광고가 Show되는 동안 다음 광고를 load를 할 수도 있지만 이는 사용하는 mediation ad network company의 종류에 따라 달라질 수 있으므로 항상 보장되는 동작은 아님
 - Load 동작 수행 중에 Load를 여러 번 호출할 수 없음
 - (**Optional**) Load의 시간이 필요해 ProgressBar 노출 추천
+- (Android 전용) Initialize 전 호출 시 `onInterstitialAdFailedToLoad`로 `NOT_INITIALIZED`(14) 전달
 <br/>
 
 #### B. IsLoaded
@@ -504,7 +532,7 @@ Future<void> interstitialShow() async {
         if (interstitialAd.Show()) {
             // Success
         } else {
-            // This Show request is duplicated
+            // This Show request is duplicated (Android: or not initialized)
         }
     } else {
         // ad is not loaded
@@ -517,6 +545,7 @@ Future<void> interstitialShow() async {
 - `Show`가 실행되면 (return값이 True일 경우) `onInterstitialAdLoaded`와 `onInterstitialAdFailedToLoad` 중 하나가 항상 호출되고, `onInterstitialAdOpened`가 호출되었다면 이후 `onInterstitialAdClosed`가 항상 호출
 - Rewarded Video Ad의 `Load`와 `Show`는 pair로 호출
     - Load를 한 후 Show를 하고, 광고를 Show한 후에는 다시 Load를 하여 다음번 Show를 준비
+- (Android 전용) Initialize 전 호출 시 `false`를 반환하며 `onInterstitialAdFailedToShow`로 `NOT_INITIALIZED`(14) 전달
 <br/>
 
 #### D. Callback
@@ -535,6 +564,7 @@ AdiscopeListener.setupInterstitialListener(
 );
 ```
 - [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+  - (Android 전용) SDK 5.5.0 이상에서는 Initialize 전에 Callback 등록 가능하며, Initialize 전 Load/Show 호출 시 fail callback으로 `NOT_INITIALIZED`(14) 전달 ([Initialize 호출 동작](#c-initialize-호출-동작-android-전용))
 - `Load` 성공 시 `onInterstitialAdLoaded`, 실패 시 `onInterstitialAdFailedToLoad`가 호출
 - `Show` 성공 시 `onInterstitialAdOpened`, `onInterstitialAdClosed`가 순차적으로 호출되고, 실패 시 `onInterstitialAdFailedToShow`가 호출 
 - `onInterstitialAdFailedToLoad`, `onInterstitialAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 
@@ -551,6 +581,7 @@ Future<void> loadRewardedInterstitial() async {
 - 해당 유닛에 속한 ad 네트워크들의 광고를 Load
 - 광고 유닛명은 반드시 대문자로 전달해야 함
 - `Load`가 실행되면 `onRewardedInterstitialAdLoaded` 와 `onRewardedInterstitialAdFailedToLoad` 중 하나의 callback은 항상 호출
+- (Android 전용) Initialize 전 호출 시 `onRewardedInterstitialAdFailedToLoad`로 `NOT_INITIALIZED`(14) 전달
 <br/>
 
 #### B. PreLoadAll
@@ -604,6 +635,7 @@ Future<void> showRewardedInterstitial(String unitId) async {
 - 광고 유닛명은 반드시 대문자로 전달해야 함
 - show method는 중복하여 호출 할 수 없음
 - `showRewardedInterstitial`가 실행되면 (return값이 True일 경우) `onRewardedInterstitialAdSkip`와 `onRewardedInterstitialAdOpened`와 `onRewardedInterstitialAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedInterstitialAdOpened`가 호출되었다면 이후 `onRewardedInterstitialAdClosed`가 항상 호출
+- (Android 전용) Initialize 전 호출 시 `onRewardedInterstitialAdFailedToShow`로 `NOT_INITIALIZED`(14) 전달
 - `onRewardedInterstitialAdClosed`와 `onRewardedInterstitialAdFailedToShow`가 호출 되면 내부에서 해당 유닛을 자동 Load 시킴
 <br/>
 
@@ -618,6 +650,7 @@ Future<void> showWithPopupRewardedInterstitial(String unitId) async {
 - 광고 유닛명은 반드시 대문자로 전달해야 함
 - show method는 중복하여 호출 할 수 없음
 - `showWithPopupRewardedInterstitial`가 실행되면 (return값이 True일 경우) `onRewardedInterstitialAdSkip`와 `onRewardedInterstitialAdOpened`와 `onRewardedInterstitialAdFailedToShow` 중 하나가 항상 호출되고, `onRewardedInterstitialAdOpened`가 호출되었다면 이후 `onRewardedInterstitialAdClosed`가 항상 호출
+- (Android 전용) Initialize 전 호출 시 `onRewardedInterstitialAdFailedToShow`로 `NOT_INITIALIZED`(14) 전달
 - `onRewardedInterstitialAdClosed`와 `onRewardedInterstitialAdFailedToShow`가 호출 되면 내부에서 해당 유닛을 자동 Load 시킴
 <br/>
 
@@ -632,6 +665,7 @@ AdiscopeListener.setupRewardedInterstitialListener(
 );
 ```
 - [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+  - (Android 전용) SDK 5.5.0 이상에서는 Initialize 전에 Callback 등록 가능하며, Initialize 전 Load/Show 호출 시 fail callback으로 `NOT_INITIALIZED`(14) 전달 ([Initialize 호출 동작](#c-initialize-호출-동작-android-전용))
 - 보상이 주어져야 할 경우 `onRewardedInterstitialRewarded`가 호출되며 그 parameter로 관련 정보가 전달
 - 이 보상 정보를 바탕으로 게임 내에서 보상을 지급
 - `onRewardedInterstitialRewarded`는 보통 `onRewardedInterstitialAdOpened` 와 `onRewardedInterstitialAdClosed` 사이에 호출되는 경우가 많으나 광고 System의 상황에 따라 달라 질 수 있음
@@ -659,6 +693,7 @@ AdiscopeListener.setupRewardedInterstitialListener(
 );
 ```
 - [Initialize](#3-initialize)를 실행 해야 Callbacks 호출
+  - (Android 전용) SDK 5.5.0 이상에서는 Initialize 전에 Callback 등록 가능하며, Initialize 전 Load/Show 호출 시 fail callback으로 `NOT_INITIALIZED`(14) 전달 ([Initialize 호출 동작](#c-initialize-호출-동작-android-전용))
 - Show 성공 후 영상 시청 시 `onRewardedInterstitialAdOpened`, `onRewardedInterstitialAdClosed`가 순차적으로 호출되고, 실패 시 `onRewardedInterstitialAdFailedToShow`가 호출 
 - ShowWithPopup 성공 후 Skip 시 `onRewardedInterstitialAdSkip`가 호출. 영상 시청 시 `onRewardedInterstitialAdOpened`, `onRewardedInterstitialAdClosed`가 순차적으로 호출되고, 실패 시 `onRewardedInterstitialAdFailedToShow`가 호출 
 - `onRewardedInterstitialAdFailedToShow`시 [AdiscopeError 참고](./docs/error_info.md) 

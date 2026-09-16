@@ -337,19 +337,17 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
   }
 
   fun setAdiscopeAdListener() {
-    if (AdiscopeSdk.isInitialize()) {
-      mOfferwallAd = Adiscope.getOfferwallAdInstance(mActivity).apply {
-        this.setOfferwallAdListener(this@AdiscopeFlutterPlugin)
-      }
-      mRewardedVideoAd = Adiscope.getRewardedVideoAdInstance(mActivity).apply {
-        this.setRewardedVideoAdListener(this@AdiscopeFlutterPlugin)
-      }
-      mInterstitialAd = Adiscope.getInterstitialAdInstance(mActivity).apply {
-        this.setInterstitialAdListener(this@AdiscopeFlutterPlugin)
-      }
-      mRewardedInterstitialAd = Adiscope.getRewardedInterstitialAdInstance(mActivity).apply {
-        this.setRewardedInterstitialAdListener(this@AdiscopeFlutterPlugin)
-      }
+    mOfferwallAd = Adiscope.getOfferwallAdInstance(mActivity).apply {
+      this.setOfferwallAdListener(this@AdiscopeFlutterPlugin)
+    }
+    mRewardedVideoAd = Adiscope.getRewardedVideoAdInstance(mActivity).apply {
+      this.setRewardedVideoAdListener(this@AdiscopeFlutterPlugin)
+    }
+    mInterstitialAd = Adiscope.getInterstitialAdInstance(mActivity).apply {
+      this.setInterstitialAdListener(this@AdiscopeFlutterPlugin)
+    }
+    mRewardedInterstitialAd = Adiscope.getRewardedInterstitialAdInstance(mActivity).apply {
+      this.setRewardedInterstitialAdListener(this@AdiscopeFlutterPlugin)
     }
   }
 

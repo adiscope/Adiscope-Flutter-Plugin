@@ -30,8 +30,14 @@
 <br>
 
 ### SDK 초기화 시
-  - SDK 초기화 시 `childYN`을 포함하여 호출해야합니다.
+  - SDK 초기화 이전 혹은 광고 로드 전에 유저 식별값과 아동 여부를 설정(`setUserIdChild`)합니다.
 ```dart
+Future<void> setUserIdChild() async {
+    var userType = 0; // none: 0, adult: 1, child: 2
+    var userId = ""; // set unique user id to identify the user in reward information
+    bool result = await _adiscopeFlutterPlugin.setUserIdChild(userId, userType) ?? false;
+}
+
 Future<void> initialize() async {
     var mediaId = "";        // 관리자를 통해 발급
     var mediaSecret = "";    // 관리자를 통해 발급
@@ -44,6 +50,7 @@ Future<void> initialize() async {
         // Initialize Fail
     }
 }
+
 ```
 </br>
 

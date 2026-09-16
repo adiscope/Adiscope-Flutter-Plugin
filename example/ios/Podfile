@@ -31,11 +31,11 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  pod 'AdiscopeLuckyEvent', '5.3.3'
+  pod 'AdiscopeLuckyEvent', '5.4.0'
   pod 'AdiscopeMediaAdManager', '5.4.0'
   pod 'AdiscopeMediaAdMob', '5.4.0'
   pod 'AdiscopeMediaChartBoost', '5.4.0'
-  pod 'AdiscopeMediaPangle', '5.4.0'
+  pod 'AdiscopeMediaPangle', '5.5.0'
   pod 'AdiscopeMediaTnkPub', '5.2.0'
   pod 'AdiscopeMediaVungle', '5.4.0'
   pod 'AdiscopeMediaMax', '5.4.0'
@@ -52,7 +52,7 @@ target 'Runner' do
   pod 'AdiscopeMediaMaxAdapterMobVista', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterMoloco', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterOgury', '5.4.0'
-  pod 'AdiscopeMediaMaxAdapterPangle', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterPangle', '5.5.0'
   pod 'AdiscopeMediaMaxAdapterPubMatic', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterUnityAds', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterVungle', '5.4.0'
