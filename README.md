@@ -19,7 +19,7 @@
 | AppLovin            | 13.6.2          | 13.6.2       |
 | BidMachine          | 3.6.1           | 3.6.1        |
 | Bigo                | 5.8.2           | 5.1.2        |
-| Chartboost          | 9.11.0          | 9.11.0       |
+| Chartboost          | 9.14.0          | 9.11.0       |
 | DT Exchange         | 8.4.4           | 8.4.6        |
 | InMobi              | 11.2.0          | 11.2.0       |
 | Ironsource          | 9.4.0.0         | 9.4.0.0      |
@@ -29,7 +29,7 @@
 | Mintegral(Mobvista) | 17.1.51         | 8.1.3        |
 | Moloco              | 4.8.0           | 4.5.1        |
 | Ogury               | 6.2.2           | 5.2.1        |
-| Pangle              | 7.9.1.3         | 8.0.0.9      |
+| Pangle              | 8.1.0.5         | 8.2.1.0      |
 | Pubmatic            | 4.11.0          | 5.1.0        |
 | TNKPub              | 7.25.05         | 1.24         |
 | Unity Ads           | 4.16.6          | 4.16.5       |
