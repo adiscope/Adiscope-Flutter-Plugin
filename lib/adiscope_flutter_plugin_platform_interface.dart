@@ -101,6 +101,25 @@ abstract class AdiscopeFlutterPluginPlatform extends PlatformInterface {
         'showOfferwallDetailFromUrl() has not been implemented.');
   }
 
+  Future<bool?> showOfferwallWithPlacement(String unitId, String placement,
+      [List<String>? offerwallFilterTabs]) {
+    throw UnimplementedError(
+        'showOfferwallWithPlacement() has not been implemented.');
+  }
+
+  Future<bool?> showOfferwallDetailWithPlacement(
+      String unitId, String itemId, String placement,
+      [List<String>? offerwallFilterTabs]) {
+    throw UnimplementedError(
+        'showOfferwallDetailWithPlacement() has not been implemented.');
+  }
+
+  Future<bool?> showOfferwallDetailFromUrlWithPlacement(
+      String url, String placement) {
+    throw UnimplementedError(
+        'showOfferwallDetailFromUrlWithPlacement() has not been implemented.');
+  }
+
   Future<bool?> showLuckyEvent() {
     throw UnimplementedError('showLuckyEvent() has not been implemented.');
   }

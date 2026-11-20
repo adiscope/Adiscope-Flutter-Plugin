@@ -1,8 +1,8 @@
 # Adiscope Flutter Plugin
-[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.5.0-blue)](./CHANGELOG.md)
-[![GitHub package.json version](https://img.shields.io/badge/Android-5.5.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-5.5.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/Unity-5.5.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/Flutter-5.6.0-blue)](./CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/badge/Android-5.6.0-blue)](https://github.com/adiscope/Adiscope-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-5.6.0-blue)](https://github.com/adiscope/Adiscope-iOS-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-5.6.0-blue)](https://github.com/adiscope/Adiscope-Unity-UPM)
 [![GitHub package.json version](https://img.shields.io/badge/ReactNative-5.3.0-blue)](https://www.npmjs.com/package/@adiscope.ad/adiscope-react-native)
 
 - Android Target API Level : 31+
@@ -15,23 +15,23 @@
 
 | Ad Network          | Android Version | iOS Version  |
 |---------------------|-----------------|--------------|
-| AdMob               | 25.2.0          | 13.2.0       |
+| AdMob               | 25.2.0          | 13.11.0      |
 | AppLovin            | 13.6.2          | 13.6.2       |
 | BidMachine          | 3.6.1           | 3.6.1        |
 | Bigo                | 5.8.2           | 5.1.2        |
 | Chartboost          | 9.14.0          | 9.11.0       |
-| DT Exchange         | 8.4.4           | 8.4.6        |
-| InMobi              | 11.2.0          | 11.2.0       |
-| Ironsource          | 9.4.0.0         | 9.4.0.0      |
-| Liftoff(Vungle)     | 7.7.3           | 7.7.2        |
+| DT Exchange         | 8.4.7           | 8.4.6        |
+| InMobi              | 11.5.0          | 11.5.0       |
+| Ironsource          | 9.6.0           | 9.4.0.0      |
+| Liftoff(Vungle)     | 7.7.8           | 7.7.2        |
 | Line                | 3000.0.1        | 3.0.1        |
 | Meta(Fan)           | 6.21.0          | 6.21.1       |
 | Mintegral(Mobvista) | 17.1.51         | 8.1.3        |
 | Moloco              | 4.8.0           | 4.5.1        |
 | Ogury               | 6.2.2           | 5.2.1        |
 | Pangle              | 8.1.0.5         | 8.2.1.0      |
-| Pubmatic            | 4.11.0          | 5.1.0        |
-| TNKPub              | 7.25.05         | 1.24         |
+| Pubmatic            | 5.4.1           | 5.1.0        |
+| TNKPub              | 7.25.05         | 1.25         |
 | Unity Ads           | 4.16.6          | 4.16.5       |
 | Verve               | 3.8.1           | -            |
 
@@ -83,7 +83,7 @@ flutter pub add adiscope_flutter_plugin
 
 #### B. Specific version Installation
 ```ruby
-flutter pub add adiscope_flutter_plugin:5.5.0
+flutter pub add adiscope_flutter_plugin:5.6.0
 ```
 - 프로젝트의 IDE루트 경로에서 터미널을 열고 위과 같이 특정 버전을 추가로 실행하여 플러그인을 설치    
 <br/><br/><br/>
@@ -137,7 +137,7 @@ android {
     }
 }
 dependencies {
-    implementation platform("com.nps.adiscope:adiscope-bom:5.5.0")
+    implementation platform("com.nps.adiscope:adiscope-bom:5.6.0")
     implementation 'com.nps.adiscope:adiscopeCore'
     implementation 'com.nps.adiscope:adiscopeAndroid'
     implementation 'com.nps.adiscope:adiscopeLuckyEvent'
@@ -169,21 +169,21 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
   pod 'AdiscopeLuckyEvent', '5.4.0'
-  pod 'AdiscopeMediaAdManager', '5.4.0'
-  pod 'AdiscopeMediaAdMob', '5.4.0'
+  pod 'AdiscopeMediaAdManager', '5.6.0'
+  pod 'AdiscopeMediaAdMob', '5.6.0'
   pod 'AdiscopeMediaChartBoost', '5.4.0'
   pod 'AdiscopeMediaPangle', '5.5.0'
-  pod 'AdiscopeMediaTnkPub', '5.2.0'
+  pod 'AdiscopeMediaTnkPub', '5.6.0'
   pod 'AdiscopeMediaVungle', '5.4.0'
   pod 'AdiscopeMediaMax', '5.4.0'
-  pod 'AdiscopeMediaMaxAdapterAdManager', '5.4.0'
-  pod 'AdiscopeMediaMaxAdapterAdMob', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterAdManager', '5.6.0'
+  pod 'AdiscopeMediaMaxAdapterAdMob', '5.6.0'
   pod 'AdiscopeMediaMaxAdapterBidMachine', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterBigo', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterChartBoost', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterDTExchange', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterFan', '5.4.0'
-  pod 'AdiscopeMediaMaxAdapterInMobi', '5.4.0'
+  pod 'AdiscopeMediaMaxAdapterInMobi', '5.6.0'
   pod 'AdiscopeMediaMaxAdapterIronSource', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterLine', '5.4.0'
   pod 'AdiscopeMediaMaxAdapterMobVista', '5.4.0'
@@ -362,7 +362,35 @@ Future<void> showOfferwall() async {
 - (Android 전용) Initialize 전 호출 시 `false`를 반환하며 `onOfferwallAdFailedToShow`로 `NOT_INITIALIZED`(14) 전달
 <br/>
 
-#### B. Callbacks
+#### B. Show With Placement
+```dart
+Future<void> showOfferwallWithPlacement() async {
+    var unitId = "";        // 관리자를 통해 발급
+    var placement = "";     // 오퍼월을 노출하는 위치 구분값 (영문 대소문자·숫자)
+    bool result = await _adiscopeFlutterPlugin.showOfferwallWithPlacement(unitId, placement) ?? false;
+}
+
+Future<void> showOfferwallDetailWithPlacement() async {
+    var unitId = "";        // 관리자를 통해 발급
+    var itemId = "";        // 상세페이지로 이동할 아이템 ID
+    var placement = "";     // 오퍼월을 노출하는 위치 구분값 (영문 대소문자·숫자)
+    bool result = await _adiscopeFlutterPlugin.showOfferwallDetailWithPlacement(unitId, itemId, placement) ?? false;
+}
+
+Future<void> showOfferwallDetailFromUrlWithPlacement() async {
+    var url = "";           // 오퍼월 상세페이지 URL
+    var placement = "";     // 오퍼월을 노출하는 위치 구분값 (영문 대소문자·숫자)
+    bool result = await _adiscopeFlutterPlugin.showOfferwallDetailFromUrlWithPlacement(url, placement) ?? false;
+}
+```
+- 5.6.0 이상에서 사용 가능하며, 오퍼월 V2에서만 placement가 적용됨
+- 오퍼월 V1 매체는 전달한 placement를 사용하지 않고 placement 없는 Show와 동일하게 동작
+- placement는 영문 대소문자·숫자만 사용 가능하며, 그 외 문자가 있으면 `onOfferwallAdFailedToShow`로 `INVALID_REQUEST`(4) 전달 (Android는 `false` 반환)
+- placement를 빈 값으로 전달하면 placement 미지정으로 처리
+- Callback은 [Show](#a-show)와 동일
+<br/>
+
+#### C. Callbacks
 ```dart
 AdiscopeListener.setupOfferwallListener(
     onOfferwallAdOpened: (unitId) {

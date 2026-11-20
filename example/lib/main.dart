@@ -49,6 +49,7 @@ class _MyAppState extends State<MyApp> {
   final _unitIdController = new TextEditingController();
   final _offerwallUnitIdController = new TextEditingController();
   final _offerwallItemIdController = new TextEditingController();
+  final _offerwallPlacementController = new TextEditingController();
   final _luckyEventAppIdController = new TextEditingController();
   final _luckyEventPubIdController = new TextEditingController();
   final _rvUnitIdController = new TextEditingController();
@@ -527,6 +528,55 @@ class _MyAppState extends State<MyApp> {
     }
     if (!mounted) return;
     pushLog("Show Offerwall Detail From Url => $result");
+  }
+
+  Future<void> showOfferwallWithPlacement(String unitId, String placement) async {
+    if (unitId.isEmpty) {
+      pushLog("Not Found UnitID => $unitId");
+      return;
+    }
+
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.showOfferwallWithPlacement(unitId.toUpperCase(), placement) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("Show Offerwall With Placement($placement) => $result");
+  }
+
+  Future<void> showOfferwallDetailWithPlacement(String unitId, String itemId, String placement) async {
+    if (unitId.isEmpty || itemId.isEmpty) {
+      pushLog("Not Found UnitID => $unitId, itemID => $itemId");
+      return;
+    }
+
+    bool result = false;
+    try {
+      result = await _adiscopeFlutterPlugin.showOfferwallDetailWithPlacement(unitId, itemId, placement) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("Show Offerwall Detail With Placement($placement) => $result");
+  }
+
+  Future<void> showOfferwallDetailFromUrlWithPlacement(String unitId, String itemId, String placement) async {
+    if (unitId.isEmpty || itemId.isEmpty) {
+      pushLog("Not Found UnitID => $unitId, itemID => $itemId");
+      return;
+    }
+
+    bool result = false;
+    try {
+      String url = "https://$subDomain.adiscope.com/$mediaId/$unitId/0/$itemId";
+      result = await _adiscopeFlutterPlugin.showOfferwallDetailFromUrlWithPlacement(url, placement) ?? false;
+    } on PlatformException {
+      result = false;
+    }
+    if (!mounted) return;
+    pushLog("Show Offerwall Detail From Url With Placement($placement) => $result");
   }
 
   Future<void> rewardedVideoShowWithLoad(String unitId) async {
@@ -1149,6 +1199,61 @@ class _MyAppState extends State<MyApp> {
                                 child: OutlinedButton(
                                     onPressed: () { showOfferwallDetailFromUrl(_offerwallUnitIdController.text, _offerwallItemIdController.text); },
                                     child: Text("Show Offerwall Detail From URL")
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox( height: 10,),
+                        SizedBox(
+                          height: 40,
+                          child: TextField(
+                            controller: _offerwallPlacementController,
+                            textAlignVertical: TextAlignVertical.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.grey),
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                              border: InputBorder.none,
+                              labelText: 'Placement',
+                            ),
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Container(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () { showOfferwallWithPlacement(_offerwallUnitIdController.text, _offerwallPlacementController.text); },
+                            child: Text("Show Offerwall With Placement")
+                          ),
+                        ),
+                        SizedBox( height: 5,),
+                        Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                  onPressed: () { showOfferwallDetailWithPlacement(_offerwallUnitIdController.text, _offerwallItemIdController.text, _offerwallPlacementController.text); },
+                                  child: Text("Show Offerwall Detail With Placement")
+                                ),
+                              ),
+                            ),
+                            SizedBox( width: 5,),
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: double.infinity,
+                                child: OutlinedButton(
+                                  onPressed: () { showOfferwallDetailFromUrlWithPlacement(_offerwallUnitIdController.text, _offerwallItemIdController.text, _offerwallPlacementController.text); },
+                                  child: Text("Show Offerwall Detail From URL With Placement")
                                 ),
                               ),
                             )

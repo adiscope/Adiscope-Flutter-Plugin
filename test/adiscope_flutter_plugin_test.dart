@@ -139,6 +139,21 @@ class MockAdiscopeFlutterPluginPlatform
   }
 
   @override
+  Future<bool?> showOfferwallWithPlacement(String unitId, String placement, [List<String>? offerwallFilterTabs]) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> showOfferwallDetailWithPlacement(String unitId, String itemId, String placement, [List<String>? offerwallFilterTabs]) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> showOfferwallDetailFromUrlWithPlacement(String url, String placement) {
+    throw UnimplementedError();
+  }
+
+  @override
   Future<bool?> showLuckyEvent() {
     throw UnimplementedError();
   }

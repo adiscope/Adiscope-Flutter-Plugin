@@ -1,3 +1,24 @@
+## 5.6.0
+### Android
+- 오퍼월 V2 가로모드 지원
+  - 어드민 화면 방향 설정에 따라 가로/세로모드 적용
+- 오퍼월 V2 > placement 함수 추가 (`showOfferwallWithPlacement`, `showOfferwallDetailWithPlacement`, `showOfferwallDetailFromUrlWithPlacement`)
+  - placement에 영문 대소문자·숫자 외 문자가 있으면 `INVALID_REQUEST`(4)로 show 실패
+- 오퍼월 V2 마이너 버그 수정
+- 네트워크 SDK 업데이트
+  - vungle: 7.7.3 → `7.7.8`
+  - inmobi: 11.2.0 → `11.5.0`
+  - ironsource: 9.4.0 → `9.6.0`
+  - dt exchange: 8.4.4 → `8.4.7`
+  - pubmatic: 4.11.0 → `5.4.1`
+### iOS
+- 오퍼월 V2 > placement 함수 추가 (`showOfferwallWithPlacement`, `showOfferwallDetailWithPlacement`, `showOfferwallDetailFromUrlWithPlacement`)
+  - placement에 영문 대소문자·숫자 외 문자가 있으면 `INVALID_REQUEST`(4)로 show 실패 
+- 네트워크 SDK 업데이트
+  - admob: 13.2.0 → `13.11.0`
+  - inmobi: 11.2.0 → `11.5.0`
+  - tnkpub: 1.24 → `1.25`
+
 ## 5.5.0
 ### Android
 - 이니셜라이즈 동작 개선

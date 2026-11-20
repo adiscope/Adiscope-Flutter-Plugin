@@ -159,6 +159,41 @@ class MethodChannelAdiscopeFlutterPlugin extends AdiscopeFlutterPluginPlatform {
   }
 
   @override
+  Future<bool?> showOfferwallWithPlacement(String unitId, String placement,
+      [List<String>? offerwallFilterTabs]) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'showOfferwallWithPlacement', <String, dynamic>{
+      "unitId": unitId,
+      "placement": placement,
+      "offerwallFilterTabs": offerwallFilterTabs
+    });
+    return result;
+  }
+
+  @override
+  Future<bool?> showOfferwallDetailWithPlacement(
+      String unitId, String itemId, String placement,
+      [List<String>? offerwallFilterTabs]) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'showOfferwallDetailWithPlacement', <String, dynamic>{
+      "unitId": unitId,
+      "itemId": itemId,
+      "placement": placement,
+      "offerwallFilterTabs": offerwallFilterTabs
+    });
+    return result;
+  }
+
+  @override
+  Future<bool?> showOfferwallDetailFromUrlWithPlacement(
+      String url, String placement) async {
+    final result = await methodChannel.invokeMethod<bool>(
+        'showOfferwallDetailFromUrlWithPlacement',
+        <String, dynamic>{"url": url, "placement": placement});
+    return result;
+  }
+
+  @override
   Future<bool?> showLuckyEvent() async {
     final result = await methodChannel.invokeMethod<bool>('showLuckyEvent');
     return result;

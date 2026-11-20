@@ -179,6 +179,46 @@ public class AdiscopeFlutterPlugin: NSObject, FlutterPlugin, AdiscopeDelegate {
         }
       }
       result(resultValue)
+    case "showOfferwallWithPlacement":
+      var resultValue = false
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
+        if let args = call.arguments as? Dictionary<String, Any>{
+          let placement = args["placement"] as? String
+          if let unitId = args["unitId"] as? String, let offerwallFilterTabs = args["offerwallFilterTabs"] as? Array<String>, offerwallFilterTabs.count > 0 {
+            resultValue = adiscopeSDK.showOfferwall(unitId, withFilterTabs: offerwallFilterTabs, placement: placement)
+          } else if let unitId = args["unitId"] as? String {
+            resultValue = adiscopeSDK.showOfferwall(unitId, placement: placement)
+          }
+        }
+      }
+      result(resultValue)
+    case "showOfferwallDetailWithPlacement":
+      var resultValue = false
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
+        if let args = call.arguments as? Dictionary<String, Any>{
+          let placement = args["placement"] as? String
+          if let unitId = args["unitId"] as? String, let itemId = args["itemId"] as? String, let offerwallFilterTabs = args["offerwallFilterTabs"] as? Array<String>, offerwallFilterTabs.count > 0 {
+            resultValue = adiscopeSDK.showOfferwallDetail(unitId, offerwallItemId: itemId, withFilterTabs: offerwallFilterTabs, placement: placement)
+          } else if let unitId = args["unitId"] as? String, let itemId = args["itemId"] as? String {
+            resultValue = adiscopeSDK.showOfferwallDetail(unitId, offerwallItemId: itemId, placement: placement)
+          }
+        }
+      }
+      result(resultValue)
+    case "showOfferwallDetailFromUrlWithPlacement":
+      var resultValue = false
+      if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
+        adiscopeSDK.setMainDelegate(self)
+        if let args = call.arguments as? Dictionary<String, Any>{
+          let placement = args["placement"] as? String
+          if let url = args["url"] as? String {
+            resultValue = adiscopeSDK.showOfferwallDetail(url, placement: placement)
+          }
+        }
+      }
+      result(resultValue)
     case "showLuckyEvent":
       if let adiscopeSDK = AdiscopeInterface.sharedInstance() {
         adiscopeSDK.setMainDelegate(self)

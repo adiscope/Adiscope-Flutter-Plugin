@@ -113,6 +113,39 @@ class AdiscopeFlutterPlugin {
         .showOfferwallDetailFromUrl(url);
   }
 
+  /// The offer wall of [unitId] is exposed with [placement], and the filter value is set to [offerwallFilterTabs].
+  Future<bool?> showOfferwallWithPlacement(String unitId, String placement,
+      [List<String>? offerwallFilterTabs]) {
+    if (offerwallFilterTabs != null && offerwallFilterTabs.isNotEmpty) {
+      return AdiscopeFlutterPluginPlatform.instance
+          .showOfferwallWithPlacement(unitId, placement, offerwallFilterTabs);
+    } else {
+      return AdiscopeFlutterPluginPlatform.instance
+          .showOfferwallWithPlacement(unitId, placement);
+    }
+  }
+
+  /// The offer wall detail page of [unitId, itemId] is exposed with [placement], and the filter value is set to [offerwallFilterTabs].
+  Future<bool?> showOfferwallDetailWithPlacement(
+      String unitId, String itemId, String placement,
+      [List<String>? offerwallFilterTabs]) {
+    if (offerwallFilterTabs != null && offerwallFilterTabs.isNotEmpty) {
+      return AdiscopeFlutterPluginPlatform.instance
+          .showOfferwallDetailWithPlacement(
+              unitId, itemId, placement, offerwallFilterTabs);
+    } else {
+      return AdiscopeFlutterPluginPlatform.instance
+          .showOfferwallDetailWithPlacement(unitId, itemId, placement);
+    }
+  }
+
+  /// Exposes the offer wall detail page of [url] with [placement].
+  Future<bool?> showOfferwallDetailFromUrlWithPlacement(
+      String url, String placement) {
+    return AdiscopeFlutterPluginPlatform.instance
+        .showOfferwallDetailFromUrlWithPlacement(url, placement);
+  }
+
   /// Show Lucky Event.
   Future<bool?> showLuckyEvent() {
     return AdiscopeFlutterPluginPlatform.instance.showLuckyEvent();

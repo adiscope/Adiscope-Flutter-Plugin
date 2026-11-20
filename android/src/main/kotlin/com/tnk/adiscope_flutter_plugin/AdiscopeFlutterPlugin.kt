@@ -179,6 +179,39 @@ class AdiscopeFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Ad
       } else {
         result.success(false)
       }
+    } else if (call.method == "showOfferwallWithPlacement") {
+      setAdiscopeAdListener()
+      if (mOfferwallAd != null) {
+        var unitId = call.argument("unitId") as? String ?: ""
+        var placement = call.argument("placement") as? String ?: ""
+        var offerwallFilterTabs = call.argument<List<String>>("offerwallFilterTabs")
+        var resultValue = mOfferwallAd?.show(mActivity, unitId, offerwallFilterTabs?.toTypedArray() ?: arrayOf(), placement) ?: false
+        result.success(resultValue)
+      } else {
+        result.success(false)
+      }
+    } else if (call.method == "showOfferwallDetailWithPlacement") {
+      setAdiscopeAdListener()
+      if (mOfferwallAd != null) {
+        var unitId = call.argument("unitId") as? String ?: ""
+        var itemId = call.argument("itemId") as? String ?: "0"
+        var placement = call.argument("placement") as? String ?: ""
+        var offerwallFilterTabs = call.argument<List<String>>("offerwallFilterTabs")
+        var resultValue = mOfferwallAd?.showDetail(mActivity, unitId, offerwallFilterTabs?.toTypedArray() ?: arrayOf(), itemId.toInt(), placement) ?: false
+        result.success(resultValue)
+      } else {
+        result.success(false)
+      }
+    } else if (call.method == "showOfferwallDetailFromUrlWithPlacement") {
+      setAdiscopeAdListener()
+      if (mOfferwallAd != null) {
+        var url = call.argument("url") as? String ?: ""
+        var placement = call.argument("placement") as? String ?: ""
+        var resultValue = mOfferwallAd?.showDetail(mActivity, url, placement)
+        result.success(resultValue)
+      } else {
+        result.success(false)
+      }
     } else if (call.method == "rewardedVideoShowWithLoad") {
       result.success(false)
     } else if (call.method == "rewardedVideoLoad") {
